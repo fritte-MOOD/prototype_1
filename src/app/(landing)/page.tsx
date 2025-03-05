@@ -1,3 +1,5 @@
+"use client"
+
 import { Heading } from "@/components/heading"
 import { ButtonLandingPage } from "@/components/ButtonLandingPage"
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"

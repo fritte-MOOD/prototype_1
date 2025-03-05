@@ -1,3 +1,5 @@
+"use client"
+
 import { Heading } from "@/components/heading"
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
 import { useSearchParams } from "next/navigation"

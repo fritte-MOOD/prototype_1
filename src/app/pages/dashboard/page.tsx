@@ -1,21 +1,16 @@
-"use client"
+"use client";
+
+import { useName } from "@/context/nameContext";
 import { Heading } from "@/components/heading"
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
-import { useSearchParams } from "next/navigation"
 import { ButtonLandingPage } from "@/components/ButtonLandingPage"
 
+export default function Dashboard() {
+  const { name } = useName();
 
-
-
-
-const Page = () => {
-  const searchParams = useSearchParams();
-  const name = searchParams.get("name") || "Gast";
-  
   return (
-    <>
-      <section className="relative py-24 sm:py-32 ">
-        <MaxWidthWrapper className="text-center relative mx-auto text-center flex flex-col items-center gap-10">
+  <section className="relative py-24 sm:py-32 ">
+    <MaxWidthWrapper className="text-center relative mx-auto text-center flex flex-col items-center gap-10">
           <Heading>Welcome, {name}</Heading>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
             <div className=" h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
@@ -93,8 +88,5 @@ const Page = () => {
           
         </MaxWidthWrapper>
       </section>
-    </>
-  )
+  );
 }
-
-export default Page
