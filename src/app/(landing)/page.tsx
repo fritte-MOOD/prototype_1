@@ -18,7 +18,7 @@ const Page = () => {
           </p>
           
           <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
-            This tool will help you monitor your voted decisionmakers, give and recieve Feedback. Be constructive as a group, create trust and minimize effort for the discussion of goals or strategies.
+            This tool will help you monitor your voted decisionmakers, give and receive Feedback. Be constructive as a group, create trust and minimize effort for the discussion of goals or strategies.
           </p>
 
           <ul className="space-y-2 text-base/7 text-gray-600 text-left flex flex-col item-start">
