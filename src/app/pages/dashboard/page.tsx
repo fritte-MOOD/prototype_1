@@ -17,11 +17,77 @@ const Page = () => {
       <section className="relative py-24 sm:py-32 ">
         <MaxWidthWrapper className="text-center relative mx-auto text-center flex flex-col items-center gap-10">
           <Heading>Welcome, {name}</Heading>
-          <div>
-            <ButtonLandingPage href= {`/pages/sportsclub/dashboard?name=${name}`}
-            className ="relative z-10 h-14 w-80 text-base shadow-lg transition-shadow duration-300 hover:shadow-xl">
-              Explore Sports Club
-            </ButtonLandingPage>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+            <div className=" h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
+              <div className="h-5/6">
+                <p className="text-base/7  text-[24px] text-gray-600 w-80 text-center">
+                Park Tennis and Soccer Club
+                </p>
+                <p className="text-base/7 text-gray-600 w-80 text-center">
+                  174 Users, 12 Subgroups <br/>
+                  You are an Admin and a Moderator.
+                </p>
+                <p className="text-base/7 text-brand-300 w-80 text-center">
+                <br/>
+                  3 Messages <br/>
+                  2 new contributions
+                </p>
+              </div>
+              <div className="h-1/6">
+                <ButtonLandingPage href= {`/pages/sportsclub/dashboard?name=${name}`}
+                className ="relative z-10 h-14 w-80 text-base shadow-lg transition-shadow duration-300 hover:shadow-xl ">
+                  Explore Example
+                </ButtonLandingPage>
+              </div>
+            </div>
+
+            <div className=" h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
+              <div className="h-5/6">
+                <p className="text-base/7  text-[24px] text-gray-600 w-80 text-center">
+                Municipality of Rochefort
+                </p>
+                <p className="text-base/7 text-gray-600 w-80 text-center">
+                  18,646 Users, 78 Subgroups <br/>
+                  You are a User.
+                </p>
+                <p className="text-base/7 text-brand-300 w-80 text-center">
+                <br/>
+                  1 new contribution
+                </p>
+              </div>
+              <div className="h-1/6">
+                <ButtonLandingPage href= {`/pages/sportsclub/dashboard?name=${name}`}
+                className ="relative z-10 h-14 w-80 text-base shadow-lg transition-shadow duration-300 hover:shadow-xl ">
+                  Explore Example
+                </ButtonLandingPage>
+              </div>
+            </div>
+
+            <div className=" h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
+              <div className="h-5/6">
+                <p className="text-base/7  text-[20px] text-gray-600 w-80 text-center">
+                Communal Living Marine Quarter
+                </p>
+                <p className="text-base/7 text-gray-600 w-80 text-center">
+                  24 Users, 8 Subgroups <br/>
+                  You are a Moderator.
+                </p>
+                <p className="text-base/7 text-brand-300 w-80 text-center">
+                <br/>
+                  no Messages <br/>
+                </p>
+              </div>
+              <div className="h-1/6">
+                <ButtonLandingPage href= {`/pages/sportsclub/dashboard?name=${name}`}
+                className ="relative z-10 h-14 w-80 text-base shadow-lg transition-shadow duration-300 hover:shadow-xl ">
+                  Explore Example
+                </ButtonLandingPage>
+              </div>
+            </div>
+
+            
+
+            
           </div>
            
           
