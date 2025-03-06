@@ -28,6 +28,15 @@ const config: Config = {
           950: "#1C2D3A", //Text
         },
       },
+      screens: {
+        'xs': '475px',  // Neuer Breakpoint für extra-small Geräte
+        'sm': '640px',  // sm (Standard)
+        'md': '768px',  // md (Standard)
+        'lg': '1024px', // lg (Standard)
+        'xl': '1280px', // xl (Standard)
+        '2xl': '1536px', // 2xl (Standard)
+        '3xl': '1800px', // Beispiel für einen weiteren benutzerdefinierten Breakpoint
+      },
     },
   },
   plugins: [],

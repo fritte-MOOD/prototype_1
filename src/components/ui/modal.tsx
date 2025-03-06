@@ -59,7 +59,10 @@ export const Modal = ({
               <div className="my-3 h-1 w-12 rounded-full bg-gray-300" />
             </div>
 
-            {children}
+            {/* Container für die Menüpunkte mit Scrollbarkeit */}
+            <div className="overflow-y-auto max-h-[calc(100vh-6rem)]">
+              {children}
+            </div>
           </Drawer.Content>
         </Drawer.Portal>
       </Drawer.Root>

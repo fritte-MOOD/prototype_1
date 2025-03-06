@@ -61,41 +61,37 @@ const SIDEBAR_ITEMS: SidebarCategory[] = [
 
 const Sidebar = ({ onClose }: { onClose?: () => void }) => {
   return (
-    <div className="space-y-4 md:space-y-6 relative z-20 flex flex-col h-full">
+    <div className="space-y-4 md:space-y-6 relative z-20 flex flex-col flex-1">
+  {/* Navigation Items */}
+  <div className="flex-grow">
+    <ul>
+      {SIDEBAR_ITEMS.map(({ category, items }) => (
+        <li key={category} className="mb-4 md:mb-8">
+          <p className="text-xs font-medium leading-6 text-zinc-500">
+            {category}
+          </p>
+          <div className="-mx-2 flex flex-1 flex-col">
+            {items.map((item, i) => (
+              <Link
+                key={i}
+                href={item.href}
+                className={cn(
+                  buttonVariants({ variant: "ghost" }),
+                  "w-full justify-start group flex items-center gap-x-2.5 rounded-md px-2 py-1.5 text-sm font-medium leading-6 text-zinc-700 hover:bg-brand-300 transition"
+                )}
+                onClick={onClose}
+              >
+                <item.icon className="size-4 text-zinc-500 group-hover:text-zinc-700" />
+                {item.text}
+              </Link>
+            ))}
+          </div>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
 
-      {/* navigation items */}
-      <div className="flex-grow">
-        <ul>
-          {SIDEBAR_ITEMS.map(({ category, items }) => (
-            <li key={category} className="mb-4 md:mb-8">
-              <p className="text-xs font-medium leading-6 text-zinc-500">
-                {category}
-              </p>
-              <div className="-mx-2 flex flex-1 flex-col">
-                {items.map((item, i) => (
-                  <Link
-                    key={i}
-                    href={item.href}
-                    className={cn(
-                      buttonVariants({ variant: "ghost" }),
-                      "w-full justify-start group flex items-center gap-x-2.5 rounded-md px-2 py-1.5 text-sm font-medium leading-6 text-zinc-700 hover:bg-brand-300 transition"
-                    )}
-                    onClick={onClose}
-                  >
-                    <item.icon className="size-4 text-zinc-500 group-hover:text-zinc-700" />
-                    {item.text}
-                  </Link>
-                ))}
-              </div>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="flex flex-col">
-        <hr className="my-4 md:my-6 w-full h-px bg-gray-100" />
-      </div>
-    </div>
   )
 }
 
@@ -104,16 +100,16 @@ const Layout = ({ children }: PropsWithChildren) => {
 
   return (
         <>
-          <Navbar />
-    <div className="relative h-screen flex flex-col sm:flex-row bg-white overflow-hidden">
+          <Navbar/>
+    <div className="relative min-h-screen flex flex-col sm:flex-row bg-white overflow-hidden">
       {/* sidebar for desktop */}
-      <div className="hidden sm:block w-64 lg:w-80 border-r border-gray-100 p-6 h-full text-brand-900 relative z-10">
+      <div className="hidden sm:block w-45 lg:w-64 border-r border-gray-100 p-6 h-full text-brand-900 relative z-10">
         <Sidebar />
       </div>
 
       <div className="flex-1 flex flex-col overflow-hidden">
         {/* mobile header */}
-        <div className="sm:hidden flex items-center justify-between p-4 border-b border-gray-200">
+        <div className="sm:hidden  h-14 flex items-center justify-between px-[26px] width-full border-b border-gray-200">
         <Link href="/" className="flex z-40 font-bold text-lg">
         <span className="text-brand-300">/</span>MOOD
       </Link>

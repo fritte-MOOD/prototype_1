@@ -11,7 +11,7 @@ export const Navbar = () => {
     const router = useRouter();
 
     return (
-        <nav className="sticky z-[100] h-14 px-4 top-0 width-full border-b border-gray-200 bg-brand-50 backdrop-blur-lg transition-all">
+        <nav className="hidden sm:block sticky z-[100] h-14 px-4 top-0 width-full border-b border-gray-200 bg-white backdrop-blur-lg transition-all">
             <MaxWidthWrapper>
                 <nav className="flex items-center justify-between">
                     {/* Logo */}
@@ -38,7 +38,7 @@ export const Navbar = () => {
                             {/* Dropdown-Menü (Kein Abstand zwischen Button und Menü) */}
                             {isOpen && (
                                 <div 
-                                    className="bg-white text-s font-medium leading-6 text-zinc-700 absolute right-30 left-auto shadow-lg top-full text-sm cursor-pointer text-gray-800"
+                                    className="bg-white text-s font-medium leading-6 text-zinc-700 absolute left-auto shadow-lg top-full text-sm cursor-pointer text-gray-800"
                                     onMouseEnter={() => setIsOpen(true)}
                                     onMouseLeave={() => setIsOpen(false)}
                                 >   

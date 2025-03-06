@@ -6,7 +6,7 @@ const Page = () => {
     <>
       <section className="relative py-24 sm:py-32">
         <MaxWidthWrapper className="text-center relative mx-auto text-center flex flex-col items-center gap-10">
-              <Heading>calendar</Heading>
+              <Heading>CONTENT</Heading>
         </MaxWidthWrapper>
       </section>
     </>
