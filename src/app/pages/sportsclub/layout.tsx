@@ -22,7 +22,7 @@ interface SidebarCategory {
 
 const SIDEBAR_ITEMS: SidebarCategory[] = [
   {
-    category: "",
+    category: "Main",
     items: [
       { href: "/sportsclub/subgroups", icon: Volleyball, text: "About Park Club" },
       { href: "/sportsclub/subgroups", icon: Boxes, text: "Subgroups" },
@@ -78,7 +78,7 @@ const Sidebar = ({ onClose }: { onClose?: () => void }) => {
                     href={item.href}
                     className={cn(
                       buttonVariants({ variant: "ghost" }),
-                      "w-full justify-start group flex items-center gap-x-2.5 rounded-md px-2 py-1.5 text-sm font-medium leading-6 text-zinc-700 hover:bg-gray-50 transition"
+                      "w-full justify-start group flex items-center gap-x-2.5 rounded-md px-2 py-1.5 text-sm font-medium leading-6 text-zinc-700 hover:bg-brand-300 transition"
                     )}
                     onClick={onClose}
                   >

@@ -4,15 +4,23 @@ import { Heading } from "@/components/heading";
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { useName } from "@/context/nameContext";
 import { SubmitButton } from "@/components/SubmitButton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function NameForm() {
   const router = useRouter();
+  const defaultNames = ["Alex", "Charlie", "Noa", "Sam", "Robin", "Sascha", "Toni"];
+
   const [localName, setLocalName] = useState<string>(""); // Aktuelle Eingabe
   const { name, setName } = useName(); // Name im Kontext
-  const defaultNames = ["Alex", "Charlie", "Noa", "Sam", "Robin", "Sascha", "Toni"];
-  const randomName: string = defaultNames[Math.floor(Math.random() * defaultNames.length)];
+  const [randomName, setRandomName] = useState<string>(""); // Zufälliger Name
+  const [isClient, setIsClient] = useState<boolean>(false); // Zustand, um sicherzustellen, dass es auf dem Client läuft
+
+  // Dieser Effekt läuft nur auf dem Client nach dem ersten Render
+  useEffect(() => {
+    setRandomName(defaultNames[Math.floor(Math.random() * defaultNames.length)]);
+    setIsClient(true); // Setzt `isClient` auf true, nachdem der Client geladen wurde
+  }, []);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLocalName(event.target.value); // Lokale Eingabe aktualisieren
@@ -38,7 +46,7 @@ export default function NameForm() {
               Experience three groups: a Company, a Sportsclub and a Municipality. All content is exemplary and functions are not working! This is only a UI design.
             </p>
 
-            <div className="px-7 py-2.5 ">
+            <div className="px-7 py-2.5">
               <form onSubmit={formSubmit} className="flex flex-col border:none">
                 <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
                   Enter any firstname to get started with the experience:
@@ -48,7 +56,8 @@ export default function NameForm() {
                   onChange={handleChange}
                   type="text"
                   value={localName}
-                  placeholder={localName === "" ? randomName : ""}
+                  // Wenn es der erste Render ist, gebe den default `randomName` aus, ansonsten benutze den Wert der Eingabe
+                  placeholder={isClient ? (localName === "" ? randomName : "") : "Loading..."}
                 />
                 <div className="py-5"></div>
                 <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
