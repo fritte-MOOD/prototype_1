@@ -11,7 +11,7 @@ export const Navbar = () => {
     const router = useRouter();
 
     return (
-        <nav className="hidden sm:block sticky z-[100] h-14 px-4 top-0 width-full border-b border-gray-200 bg-white backdrop-blur-lg transition-all">
+        <nav className="hidden sm:block sticky z-[100] h-14 px-4 top-0 width-full border-b border-gray-200 bg-white backdrop-blur-lg">
             <MaxWidthWrapper>
                 <nav className="flex items-center justify-between">
                     {/* Logo */}
@@ -38,67 +38,67 @@ export const Navbar = () => {
                             {/* Dropdown-Menü (Kein Abstand zwischen Button und Menü) */}
                             {isOpen && (
                                 <div 
-                                    className="bg-white text-s font-medium leading-6 text-zinc-700 absolute left-auto shadow-lg top-full text-sm cursor-pointer text-gray-800"
+                                    className="bg-brand-0 text-s font-medium text-zinc-700 absolute left-auto shadow-lg top-full text-sm cursor-pointer text-gray-800"
                                     onMouseEnter={() => setIsOpen(true)}
                                     onMouseLeave={() => setIsOpen(false)}
                                 >   
                                     <div>
                                         <div
-                                        className="text-lg flex hover:bg-brand-300 transition gap-x-2 py-2 px-6 cursor-pointer group"
+                                        className="text-lg flex hover:bg-brand-300 gap-x-2 py-2 px-6 cursor-pointer group"
                                         onClick={() => router.push("/settings")}
                                         >
                                         <div className="flex justify-center text-brand-300">
-                                            <Volleyball className="self-center text-brand-300 group-hover:text-white transition-colors" />
+                                            <Volleyball className="self-center text-brand-300 group-hover:text-white" />
                                         </div>
                                         Park Club
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 transition">
+                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
                                             Executive Committee
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 transition">
-                                            Women's 2nd Team
+                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
+                                            2nd Senior Team
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 transition">
+                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
                                             Construction Committee
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 transition">
+                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
                                             Training Organization
                                         </div>
                                     </div>
                                     <div>
                                         <div
-                                        className="text-lg flex hover:bg-brand-300 transition gap-x-2 py-2 px-6 cursor-pointer group"
+                                        className="text-lg flex hover:bg-brand-300 gap-x-2 py-2 px-6 cursor-pointer group"
                                         onClick={() => router.push("/settings")}
                                         >
                                         <div className="flex justify-center text-brand-300">
-                                            <Drama className="self-center text-brand-300 group-hover:text-white transition-colors" />
+                                            <Drama className="self-center text-brand-300 group-hover:text-white" />
                                         </div>
                                         Rochefort
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 transition">
-                                            Women of Rchefort
+                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
+                                            Parents of Rochefort
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 transition">
-                                            Children's Protection
+                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
+                                            Sports in Rochefort
                                         </div>
                                     </div>
                                     <div>
                                         <div
-                                        className="text-lg flex hover:bg-brand-300 transition gap-x-2 py-2 px-6 cursor-pointer group"
+                                        className="text-lg flex hover:bg-brand-300 gap-x-2 py-2 px-6 cursor-pointer group"
                                         onClick={() => router.push("/settings")}
                                         >
                                         <div className="flex justify-center text-brand-300">
-                                            <Home className="self-center text-brand-300 group-hover:text-white transition-colors" />
+                                            <Home className="self-center text-brand-300 group-hover:text-white" />
                                         </div>
                                         Marin Quarter
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 transition">
+                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
                                             House 24
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 transition">
+                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
                                             Handcrafts Friday
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 transition">
+                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
                                             Shared Dinner
                                         </div>
                                     </div>

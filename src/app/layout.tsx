@@ -1,6 +1,7 @@
+
+
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
-import { Providers } from "@/components/providers"
 import { EB_Garamond } from "next/font/google"
 import { cn } from "@/utils"
 
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn(inter.variable, eb_garamond.variable)}>
       <body className="font-sans bg-brand-25 text-brand-950 antialiased min-h-[800px]">
-        <Providers>{children}</Providers>
+        {children}
       </body>
     </html>
   )

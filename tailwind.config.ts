@@ -14,6 +14,7 @@ const config: Config = {
       },
       colors: {
         brand: {
+          0:   "#FFFFFF", //white
           25:  "#FBFEFF", //Background
           50:  "#F7FAFD",  //NavBar
           100: "#E1EBF5",

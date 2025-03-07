@@ -2,7 +2,7 @@
 
 import { Heading } from "@/components/heading";
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
-import { useName } from "@/context/nameContext";
+import { useName } from "@/context/NameContext";
 import { SubmitButton } from "@/components/SubmitButton";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";

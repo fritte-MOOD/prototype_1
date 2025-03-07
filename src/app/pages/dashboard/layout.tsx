@@ -2,15 +2,15 @@
 
 import { ReactNode } from "react"
 import { Navbar } from "@/components/navbar"
-import { NameProvider } from "@/context/nameContext";
+import { ContextProvider } from "@/context/ContextProvider";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
-            <Navbar />
-          <NameProvider>
-            {children}
-        </NameProvider>
+      <Navbar />
+      <ContextProvider>
+        {children}
+      </ContextProvider>
     </>
   )
 }
