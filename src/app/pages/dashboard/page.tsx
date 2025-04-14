@@ -22,7 +22,7 @@ export default function Dashboard() {
 
   return (
     <section className="relative py-24 sm:py-32 ">
-      <MaxWidthWrapper className="text-center relative mx-auto text-center flex flex-col items-center gap-10">
+      <MaxWidthWrapper className="text-center relative mx-auto flex flex-col items-center gap-10">
         <Heading>Welcome back, {name}</Heading>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
@@ -31,11 +31,11 @@ export default function Dashboard() {
                 <Volleyball className="text-brand-300" />
                 <span>Park Sports Club RF</span>
               </div>
-              <p className="text-base/7 text-gray-600 w-80 text-center">
+              <p className="text-base/7 text-gray-600 w-full text-center">
                 174 Users, 12 Subgroups <br />
                 You are an Admin and a Moderator.
               </p>
-              <p className="text-base/7 text-brand-300 w-80 text-center">
+              <p className="text-base/7 text-brand-300 w-full text-center">
                 <br />
                 3 Messages <br />
                 2 new contributions
@@ -43,8 +43,8 @@ export default function Dashboard() {
             </div>
             <div className="h-1/6">
               <ButtonLandingPage
-                href={`/pages/sportsclub/dashboard`}
-                className="relative z-10 h-14 w-80 text-base shadow-lg transition-shadow duration-300 hover:shadow-xl "
+                href={`/pages/sportsclub/about`}
+                className="relative z-10 h-14 w-full text-base shadow-lg transition-shadow duration-300 hover:shadow-xl "
               >
                 Explore Example
               </ButtonLandingPage>
@@ -58,11 +58,11 @@ export default function Dashboard() {
                 <span>Municipality of Rochefort</span>
               </div>
 
-              <p className="text-base/7 text-gray-600 w-80 text-center">
+              <p className="text-base/7 text-gray-600 w-full text-center">
                 18,646 Users, 78 Subgroups <br />
                 You are a User.
               </p>
-              <p className="text-base/7 text-brand-300 w-80 text-center">
+              <p className="text-base/7 text-brand-300 w-full text-center">
                 <br />
                 1 new contribution
               </p>
@@ -70,7 +70,7 @@ export default function Dashboard() {
             <div className="h-1/6">
               <ButtonLandingPage
                 href={`/pages/municipality/dashboard`}
-                className="relative z-10 h-14 w-80 text-base shadow-lg transition-shadow duration-300 hover:shadow-xl "
+                className="relative z-10 h-14 w-full text-base shadow-lg transition-shadow duration-300 hover:shadow-xl "
               >
                 Explore Example
               </ButtonLandingPage>
@@ -83,11 +83,11 @@ export default function Dashboard() {
                 <Home className="text-brand-300" />
                 <span>Marin Quarter Community</span>
               </div>
-              <p className="text-base/7 text-gray-600 w-80 text-center">
+              <p className="text-base/7 text-gray-600 w-full text-center">
                 24 Users, 8 Subgroups <br />
                 You are a Moderator.
               </p>
-              <p className="text-base/7 text-brand-300 w-80 text-center">
+              <p className="text-base/7 text-brand-300 w-full text-center">
                 <br />
                 no Messages <br />
               </p>
@@ -95,7 +95,7 @@ export default function Dashboard() {
             <div className="h-1/6">
               <ButtonLandingPage
                 href={`/pages/community/dashboard`}
-                className="relative z-10 h-14 w-80 text-base shadow-lg transition-shadow duration-300 hover:shadow-xl "
+                className="relative z-10 h-14 w-full text-base shadow-lg transition-shadow duration-300 hover:shadow-xl "
               >
                 Explore Example
               </ButtonLandingPage>

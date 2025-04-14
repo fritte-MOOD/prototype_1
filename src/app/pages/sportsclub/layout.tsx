@@ -3,7 +3,7 @@
 import { buttonVariants } from "@/components/ui/button"
 import { Modal } from "@/components/ui/modal"
 import { cn } from "@/utils"
-import { Gem, Home, Users, Pickaxe, UserRoundPen, CalendarDays, MessagesSquare, Globe, Key, LucideIcon,SquareCheckBig, Menu, Settings,Volleyball, X, Boxes, Box, Combine, File, BookOpenText, ChartNoAxesCombined, MessageCircleOff, BookKey} from "lucide-react"
+import { Gem, Home, MessageSquareText, Users, Pickaxe, Shield, UserRoundPen, CalendarDays, MessagesSquare, Globe, Key, LucideIcon,SquareCheckBig, Menu, Settings,Volleyball, X, Boxes, Box, Combine, File, BookOpenText, ChartNoAxesCombined, MessageCircleOff, BookKey} from "lucide-react"
 import Link from "next/link"
 import { PropsWithChildren, useState } from "react"
 import { Drawer } from "vaul"
@@ -25,17 +25,18 @@ const SIDEBAR_ITEMS: SidebarCategory[] = [
     category: "Main",
     items: [
       { href: "/pages/sportsclub/about", icon: Volleyball, text: "About Park Club" },
-      { href: "/sportsclub/subgroups", icon: Boxes, text: "Subgroups" },
-      { href: "/sportsclub/subgroups", icon: Combine, text: "Debate" },
+      { href: "/pages/sportsclub/subgroups", icon: Boxes, text: "Subgroups" },
+      { href: "pages/sportsclub/debate", icon: Combine, text: "Debate" },
     ],
   },
 
   {
     category: "Organize",
     items: [
-      { href: "/sportsclub/subgroups", icon: File, text: "Documents" },
-      { href: "/sportsclub/subgroups", icon: CalendarDays, text: "Calendar" },
-      { href: "/sportsclub/subgroups", icon: SquareCheckBig, text: "Tasks" },
+      { href: "/pages/sportsclub/calendar", icon: CalendarDays, text: "Calendar" },
+      { href: "/pages/sportsclub/tasks", icon: SquareCheckBig, text: "Tasks" },
+      { href: "/sportsclub/tasks", icon: MessageSquareText, text: "Messages" },
+      { href: "/sportsclub/documents", icon: File, text: "Documents" }
     ],
   },
 
@@ -43,10 +44,10 @@ const SIDEBAR_ITEMS: SidebarCategory[] = [
   {
     category: "Components",
     items: [
-      { href: "/sportsclub/subgroups", icon: BookOpenText, text: "Knowledge Hub" },
-      { href: "/sportsclub/subgroups", icon: ChartNoAxesCombined, text: "Analyze Tools" },
-      { href: "/sportsclub/subgroups", icon: MessageCircleOff, text: "Moderate" },
-      { href: "/sportsclub/subgroups", icon: BookKey, text: "Administrate" },
+      { href: "/pages/sportsclub/subgroups", icon: BookOpenText, text: "Knowledge Hub" },
+      { href: "/pages/sportsclub/subgroups", icon: ChartNoAxesCombined, text: "Analyze Tools" },
+      { href: "/pages/sportsclub/subgroups", icon: Shield, text: "Moderate" },
+      { href: "/pages/sportsclub/subgroups", icon: BookKey, text: "Administrate" },
     ],
   },
 
@@ -77,11 +78,11 @@ const Sidebar = ({ onClose }: { onClose?: () => void }) => {
                 href={item.href}
                 className={cn(
                   buttonVariants({ variant: "ghost" }),
-                  "w-full justify-start group flex items-center gap-x-2.5 rounded-md px-2 py-1.5 text-sm font-medium leading-6 text-zinc-700 hover:bg-brand-300 transition"
+                  "w-full justify-start group flex items-center gap-x-2.5 rounded-md px-2 py-1.5 text-sm font-medium leading-6  hover:bg-brand-300 transition"
                 )}
                 onClick={onClose}
               >
-                <item.icon className="size-4 text-zinc-500 group-hover:text-zinc-700" />
+                <item.icon className="size-4 text-zinc-500 group-hover:text-white transition" />
                 {item.text}
               </Link>
             ))}
@@ -103,7 +104,7 @@ const Layout = ({ children }: PropsWithChildren) => {
           <Navbar/>
     <div className="relative min-h-screen flex flex-col sm:flex-row bg-white overflow-hidden">
       {/* sidebar for desktop */}
-      <div className="hidden sm:block w-45 lg:w-64 border-r border-gray-100 p-6 h-full text-brand-900 relative z-10">
+      <div className="hidden sm:block w-45 lg:w-64 border-r border-gray-100 p-6 h-full text-zinc-700 relative z-10">
         <Sidebar />
       </div>
 

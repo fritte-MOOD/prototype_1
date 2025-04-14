@@ -29,7 +29,7 @@ export const Navbar = () => {
                             onMouseLeave={() => setIsOpen(false)}
                             >
                             {/* Button */}
-                            <div onClick={() => router.push("/pages/dashboard")} className="h-14 px-7 flex items-center text-zinc-700 text-[20px] cursor-pointer hover:bg-brand-300">
+                            <div onClick={() => router.push("/pages/dashboard")} className="rounded-md h-14 px-7 flex items-center text-zinc-700 text-[20px] cursor-pointer hover:bg-brand-300">
                                My  Groups
                             </div>
                         </div>
@@ -44,7 +44,7 @@ export const Navbar = () => {
                                 >   
                                     <div>
                                         <div
-                                        className="text-lg flex hover:bg-brand-300 gap-x-2 py-2 px-6 cursor-pointer group"
+                                        className="rounded-md text-lg flex hover:bg-brand-300 gap-x-2 py-2 px-6 cursor-pointer group"
                                         onClick={() => router.push("/settings")}
                                         >
                                         <div className="flex justify-center text-brand-300">
@@ -52,22 +52,22 @@ export const Navbar = () => {
                                         </div>
                                         Park Club
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
+                                        <div onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 rounded-md">
                                             Executive Committee
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
+                                        <div onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 rounded-md">
                                             2nd Senior Team
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
+                                        <div onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 rounded-md">
                                             Construction Committee
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
+                                        <div onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 rounded-md">
                                             Training Organization
                                         </div>
                                     </div>
                                     <div>
                                         <div
-                                        className="text-lg flex hover:bg-brand-300 gap-x-2 py-2 px-6 cursor-pointer group"
+                                        className="rounded-md text-lg flex hover:bg-brand-300 gap-x-2 py-2 px-6 cursor-pointer group"
                                         onClick={() => router.push("/settings")}
                                         >
                                         <div className="flex justify-center text-brand-300">
@@ -75,16 +75,16 @@ export const Navbar = () => {
                                         </div>
                                         Rochefort
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
+                                        <div onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 rounded-md">
                                             Parents of Rochefort
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
+                                        <div onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 rounded-md">
                                             Sports in Rochefort
                                         </div>
                                     </div>
                                     <div>
                                         <div
-                                        className="text-lg flex hover:bg-brand-300 gap-x-2 py-2 px-6 cursor-pointer group"
+                                        className="rounded-md text-lg flex hover:bg-brand-300 gap-x-2 py-2 px-6 cursor-pointer group"
                                         onClick={() => router.push("/settings")}
                                         >
                                         <div className="flex justify-center text-brand-300">
@@ -92,13 +92,13 @@ export const Navbar = () => {
                                         </div>
                                         Marin Quarter
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
+                                        <div onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 rounded-md">
                                             House 24
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
+                                        <div onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 rounded-md">
                                             Handcrafts Friday
                                         </div>
-                                        <div  onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300">
+                                        <div onClick={() => router.push("/settings")} className="py-2 px-6 block hover:bg-brand-300 rounded-md">
                                             Shared Dinner
                                         </div>
                                     </div>

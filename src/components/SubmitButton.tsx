@@ -13,13 +13,11 @@ export const SubmitButton = ({
   ...props
 }: SubmitButtonProps) => {
   return (
-    <button type="submit"
-      href={href ?? "#"}
+    <button
       className={cn(
         "group relative flex transform items-center justify-center gap-2 overflow-hidden whitespace-nowrap rounded-md border border-white bg-grey px-8 text-base/7 font-medium text-black transition-all duration-300 hover:ring-2 hover:ring-brand-300 hover:ring-offset-2 focus:outline-none focus:ring-2 focus:ring-offset-2",
         className
       )}
-      {...props}
     >
       <span className="relative z-10 flex items-center gap-2">
         {children}
