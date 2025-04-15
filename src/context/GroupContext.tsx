@@ -13,23 +13,34 @@ const GroupContext = createContext<GroupContextType | undefined>(undefined);
 
 // Provider for the global group name
 export const GroupProvider = ({ children }: { children: ReactNode }) => {
-  const [groupName, setGroupName] = useState<string>(() => {
-    // Check if a group name is stored in localStorage on first load
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("groupName") || "";
-    }
-    return "";
-  });
+  const [groupName, setGroupName] = useState<string>("");
+  const [isClient, setIsClient] = useState(false);
 
-  // Save the group name to localStorage when it changes
   useEffect(() => {
-    if (groupName) {
+    setIsClient(true);
+    const storedGroupName = localStorage.getItem("groupName");
+    if (storedGroupName) {
+      setGroupName(storedGroupName);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (isClient && groupName) {
       localStorage.setItem("groupName", groupName);
     }
-  }, [groupName]);
+  }, [isClient, groupName]);
+
+  const value = {
+    groupName,
+    setGroupName,
+  };
+
+  if (!isClient) {
+    return null; // or a loading indicator
+  }
 
   return (
-    <GroupContext.Provider value={{ groupName, setGroupName }}>
+    <GroupContext.Provider value={value}>
       {children}
     </GroupContext.Provider>
   );

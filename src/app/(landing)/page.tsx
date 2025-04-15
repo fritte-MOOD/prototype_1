@@ -9,7 +9,7 @@ const Page = () => {
   return (
     <>
       <section className="relative py-24 sm:py-32 bg-brand-25">
-        <MaxWidthWrapper className="text-center relative mx-auto text-center flex flex-col items-center gap-10">
+        <MaxWidthWrapper className="text-center relative mx-auto flex flex-col items-center gap-10">
 
           <Heading>Freedom entails Responsibility</Heading>
 

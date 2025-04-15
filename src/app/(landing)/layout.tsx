@@ -1,16 +1,16 @@
 "use client"
 
 import { ReactNode } from "react"
-import { Navbar } from "@/components/navbar"
-import { NameProvider } from "@/context/NameContext"
+import { Navbar_landing } from "@/components/navbar_landing"
+import { ContextProvider } from "@/context/ContextProvider";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <>
-      <Navbar />
-      <NameProvider>
-          {children}
-        </NameProvider>
+      <Navbar_landing />
+      <ContextProvider>
+        {children}
+      </ContextProvider>
     </>
   )
 }
