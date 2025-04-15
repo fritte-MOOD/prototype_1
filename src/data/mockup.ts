@@ -1,11 +1,14 @@
 interface Message {
   sentBy: string;
+  time: string;
+  distance: number;
   content: string;
 }
 
 interface Chat {
-  name: string;
-  members: string[];
+  id: number;
+  new: boolean;
+  members: Member[];
   messages: Message[];
 }
 
@@ -97,8 +100,36 @@ export const mockData: Group[] = [
       },
 
     ],
-    members: [],
-    chats: []
+    members: [
+      {
+        name: "You",
+        commonGroups: []
+      },
+      {
+        name: "Jane Smith",
+        commonGroups: ["Park Club", "Executive Committee"]
+      },
+      {
+        name: "Mike Johnson",
+        commonGroups: ["Park Club", "2nd Senior Team"]
+      }
+    ],
+    chats: [
+      {
+        id: 1000,
+        new: true,
+        members: [
+          { name: "Jane Smith", commonGroups: ["Park Club", "Executive Committee"] },
+          { name: "Mike Johnson", commonGroups: ["Park Club", "2nd Senior Team"] }
+        ],
+        messages: [
+          { sentBy: "You", time:"17:20", distance: -5, content: "Hello everyone! When is our next meeting?" },
+          { sentBy: "Jane Smith", time:"18:20", distance: -5, content: "Hi John, it's scheduled for next Tuesday at 3 PM." },
+          { sentBy: "Mike Johnson", time:"19:20", distance: -5, content: "Great, thanks for the info!" }
+        ]
+      }
+
+]
   },
   {
     name: "Rochefort",
