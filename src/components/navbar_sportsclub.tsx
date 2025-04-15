@@ -38,7 +38,7 @@ export const Navbar = () => {
                             {/* Dropdown-Menü (Kein Abstand zwischen Button und Menü) */}
                             {isOpen && (
                                 <div 
-                                    className="bg-brand-0 text-s font-medium text-zinc-700 absolute left-auto shadow-lg top-full text-sm cursor-pointer text-gray-800"
+                                    className="bg-brand-0 rounded-md text-s font-medium text-zinc-700 absolute left-auto shadow-lg top-full text-sm cursor-pointer"
                                     onMouseEnter={() => setIsOpen(true)}
                                     onMouseLeave={() => setIsOpen(false)}
                                 >   

@@ -33,7 +33,7 @@ export default function NameForm() {
     } else {
       setName(localName);
     }
-    router.push("/pages/dashboard");
+    router.push("/dashboard");
   };
 
   return (

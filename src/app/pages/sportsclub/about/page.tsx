@@ -9,13 +9,13 @@ const Page = () => {
       <section className="relative py-24 sm:py-32">
         <MaxWidthWrapper className="relative mx-auto text-center flex flex-col items-center gap-10">
           <Heading>About Park Club</Heading>
-          <div className="">
+          <div className="w-full lg:w-[750px]">
             {/* Grid Layout */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Left Column */}
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {/* Your Debates */}
-                <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white">
                   <div className="h-5/6">
                     <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
                       <Combine className="text-brand-300" />
@@ -42,7 +42,7 @@ const Page = () => {
 
 
                 {/* Chats */}
-                <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white">
                   <div className="h-5/6">
                     <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
                       <MessageSquareText className="text-brand-300" />
@@ -70,7 +70,7 @@ const Page = () => {
 
 
                 {/* Your Tasks */}
-                <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white">
                   <div className="h-5/6">
                     <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
                       <SquareCheckBig className="text-brand-300" />
@@ -96,13 +96,13 @@ const Page = () => {
 
 
               {/* Right Column */}
-              <div className="space-y-6">
+              <div className="space-y-8">
 
 
 
 
                 {/* Calendar */}
-                <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white">
                   <div className="h-5/6">
                     <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
                       <CalendarDays className="text-brand-300" />
@@ -130,7 +130,7 @@ const Page = () => {
 
 
                 {/* Park Club */}
-                <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white">
                   <div className="h-5/6">
                     <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
                       <Volleyball className="text-brand-300" />
@@ -158,7 +158,7 @@ const Page = () => {
 
 
                 {/* Moderation */}
-                <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
+                <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white">
                   <div className="h-5/6">
                     <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
                       <Shield className="text-brand-300" />
