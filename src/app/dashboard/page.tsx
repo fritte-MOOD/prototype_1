@@ -1,6 +1,7 @@
 "use client";
 
 import { useName } from "@/context/NameContext";
+import { useGroup } from "@/context/GroupContext";
 import { Heading } from "@/components/heading";
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { ButtonLandingPage } from "@/components/ButtonLandingPage";
@@ -10,6 +11,8 @@ import { Drama, Volleyball, Home } from "lucide-react";
 
 export default function Dashboard() {
   const { name } = useName() || { name: "Alex" };
+  const { groupName, setGroupName } = useGroup(); // Use groupName and setGroupName
+  const router = useRouter();
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -19,6 +22,11 @@ export default function Dashboard() {
   if (!isClient) {
     return null;
   }
+
+  const handleGroupChange = (group: string, path: string) => {
+    setGroupName(group); // Use setGroupName instead of setGroup
+    router.push(path);
+  };
 
   return (
     <section className="relative py-24 sm:py-32 ">
