@@ -17,88 +17,152 @@ interface Member {
   commonGroups: string[];
 }
 
+interface Task {
+  id: number;
+  description: string;
+  assignedBy: string;
+  time: string;
+  distance: number;
+}
+
+interface Appointment {
+  id: number;
+  description: string;
+  time: string;
+  distance: number;
+  acceptedBy: string[];
+  declinedBy: string[];
+}
+
+interface BaseModule {
+  id: number;
+  type: string;
+  description: string;
+  deadline: string;
+}
+
+interface DiscussionModule extends BaseModule {
+  type: 'Discussion';
+  arguments: string[];
+}
+
+interface VotingModule extends BaseModule {
+  type: 'Voting';
+  options: string[];
+}
+
+interface FeedbackModule extends BaseModule {
+  type: 'Feedback';
+  questions: string[];
+}
+
+type Module = DiscussionModule | VotingModule | FeedbackModule;
+
+interface Process {
+  description: string;
+  creator: string;
+  creationDate: string;
+  deadline: string;
+  active: boolean;
+  modules: Module[];
+}
+
 interface Group {
   name: string;
   IAmMember: boolean;
   subgroups: Group[];
   members: Member[];
+  processes: Process[];
   chats: Chat[];
+  tasks: Task[];
+  appointments: Appointment[];
 }
 
-
-
-
-
-
-
 export const mockData: Group[] = [
-  {
-    name: "Park Club",
+  {name: "Park Club",
     IAmMember: true,
     subgroups: [
-      {
-        name: "Executive Committee",
+      {name: "Executive Committee",
         IAmMember: true,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "2nd Senior Team",
+      {name: "2nd Senior Team",
         IAmMember: true,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Construction Committee",
+      {name: "Construction Committee",
         IAmMember: true,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Training Organization",
+      {name: "Training Organization",
         IAmMember: true,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Youth Team",
+      {name: "Youth Team",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "The Elders",
+      {name: "Masters of Disaster",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Coaches",
+      {name: "Coaches",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Just-For-Fun Crew",
+      {name: "Just-For-Fun Crew",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
-      },      {
-        name: "Woodworking Workshop",
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
+      },
+      {name: "Woodworking Workshop",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-
     ],
     members: [
       {
@@ -114,6 +178,7 @@ export const mockData: Group[] = [
         commonGroups: ["Park Club", "2nd Senior Team"]
       }
     ],
+    processes: [],
     chats: [
       {
         id: 1000,
@@ -128,192 +193,266 @@ export const mockData: Group[] = [
           { sentBy: "Mike Johnson", time:"19:20", distance: -5, content: "Great, thanks for the info!" }
         ]
       }
-
-]
+    ],
+    tasks: [],
+    appointments: [
+      {id: 1,
+        description: "Annual General Meeting",
+        time: "19:00",
+        distance: 14,
+        acceptedBy: ["You", "Jane Smith", "Mike Johnson"],
+        declinedBy: []
+      },
+      {id: 2,
+        description: "Summer BBQ Party",
+        time: "15:00",
+        distance: 30,
+        acceptedBy: ["You", "Mike Johnson"],
+        declinedBy: ["Jane Smith"]
+      },
+      {id: 3,
+        description: "Club Maintenance Day",
+        time: "09:00",
+        distance: 7,
+        acceptedBy: ["Jane Smith"],
+        declinedBy: ["You", "Mike Johnson"]
+      }
+    ]
   },
-  {
-    name: "Rochefort",
+  {name: "Rochefort",
     IAmMember: true,
     subgroups: [
-      {
-        name: "Parents of Rochefort",
+      {name: "Parents of Rochefort",
         IAmMember: true,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Sports in Rochefort",
+      {name: "Sports in Rochefort",
         IAmMember: true,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Councilmembers",
+      {name: "Council Members",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Gastronomy",
+      {name: "Gastronomy",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Communal Gardening",
+      {name: "Communal Gardening",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Eldercare",
+      {name: "Eldercare",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Inclusion",
+      {name: "Inclusion",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "RF Commercial Interests",
+      {name: "Lopery Lake",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
     ],
     members: [],
-    chats: []
+    processes: [],
+    chats: [],
+    tasks: [],
+    appointments: []
   },
-  {
-    name: "Marin Quarter",
+  {name: "Marin Quarter",
     IAmMember: true,
     subgroups: [
-      {
-        name: "House 24",
+      {name: "House 24",
         IAmMember: true,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Handcrafts Friday",
+      {name: "Handcrafts Friday",
         IAmMember: true,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Shared Dinner",
+      {name: "Shared Dinner",
         IAmMember: true,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Elder Meetings",
+      {name: "Elder Meetings",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Garden Crew",
+      {name: "Garden Crew",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "Tools and Equipment",
+      {name: "Tools and Equipment",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "House 1",
+      {name: "House 1",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "House 2",
+      {name: "House 2",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "House 3",
+      {name: "House 3",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "House 10",
+      {name: "House 10",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "House 11",
+      {name: "House 11",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "House 12",
+      {name: "House 12",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "House 20",
+      {name: "House 20",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "House 21",
+      {name: "House 21",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "House 22",
+      {name: "House 22",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-      {
-        name: "House 23",
+      {name: "House 23",
         IAmMember: false,
         subgroups: [],
         members: [],
-        chats: []
+        processes: [],
+        chats: [],
+        tasks: [],
+        appointments: []
       },
-
     ],
     members: [],
-    chats: []
+    processes: [],
+    chats: [],
+    tasks: [],
+    appointments: []
   }
 ];

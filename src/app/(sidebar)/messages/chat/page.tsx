@@ -119,7 +119,7 @@ const ChatPage = () => {
                   <input
                     type="text"
                     placeholder="Type a message..."
-                    className="w-full p-2 border rounded"
+                    className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-300"
                   />
                 </div>
               </div>
