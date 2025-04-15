@@ -123,13 +123,6 @@ const Page = () => {
       <section className="relative py-24 sm:py-32">
         <MaxWidthWrapper className="text-center">
           <div className="relative mx-auto text-center flex flex-col items-center gap-10">
-            {/* Display the active group name and refresh button */}
-            <div className="mb-4 text-lg font-semibold flex items-center justify-between w-full max-w-3xl">
-              <span>Active Group: {groupName || "No group selected"}</span>
-              <button onClick={forceRefresh} className="p-2 rounded-full hover:bg-gray-200">
-                <RefreshCw size={20} />
-              </button>
-            </div>
 
             <div>
               <Heading>Chats</Heading>
