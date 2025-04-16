@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { MaxWidthWrapper } from "./max-width-wrapper";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";

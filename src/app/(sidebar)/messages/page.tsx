@@ -46,13 +46,10 @@ const Page = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log('Page component mounted. mockData:', mockData);
     setIsLoading(false);
   }, []);
 
   const sortedAndFilteredChats = useMemo(() => {
-    console.log('Processing chats. mockData:', mockData);
-    console.log('Current groups state:', groups);
 
     const filteredChats = mockData
       .flatMap(group => {
@@ -78,8 +75,7 @@ const Page = () => {
         const dateB = b.chat.messages[b.chat.messages.length - 1]?.dateTime || new Date(0);
         return dateB.getTime() - dateA.getTime();
       });
-    
-    console.log('Processed and filtered chats:', filteredChats);
+
     return filteredChats;
   }, [groups]);
 
@@ -98,7 +94,6 @@ const Page = () => {
     );
   }
 
-  console.log('Rendering chat list. sortedAndFilteredChats:', sortedAndFilteredChats);
 
   return (
     <section className="bg-brand-25">

@@ -3,7 +3,7 @@ import { Check } from 'lucide-react';
 import { useCheckbox } from '@/context/CheckboxesContext';
 
 export const GroupCheckboxes: React.FC = () => {
-  const { groups, groupStructure, toggleGroup, activateAll, deactivateAll, randomizeAll } = useCheckbox();
+  const { groups, groupStructure, toggleGroup, activateAll, deactivateAll} = useCheckbox();
 
   const isGroupChecked = (groupName: string): boolean => {
     const group = groups.find(g => g.name === groupName);

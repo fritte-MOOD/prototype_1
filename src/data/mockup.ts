@@ -17,8 +17,6 @@ const mockDataProxy = new Proxy([] as Group[], {
           const fullData = await getGroupStructure();
           cachedData = fullData;
           target.splice(0, target.length, ...fullData);
-          // Log the data after it's fetched and added to the target
-          console.log('MockData after fetching:', JSON.stringify(target, null, 2));
         })();
       }
     }
@@ -28,11 +26,3 @@ const mockDataProxy = new Proxy([] as Group[], {
 });
 
 export const mockData = mockDataProxy;
-
-// Log the initial state of mockData
-console.log('Initial mockData:', JSON.stringify(mockDataProxy, null, 2));
-
-// Add a setTimeout to log the mockData after a short delay
-setTimeout(() => {
-  console.log('MockData after short delay:', JSON.stringify(mockDataProxy, null, 2));
-}, 100);

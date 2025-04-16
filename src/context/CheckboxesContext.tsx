@@ -1,10 +1,8 @@
 "use client";
 
-import React, { createContext, useContext, useState, useMemo, useEffect } from 'react';
+import React, { createContext, useContext, useState,  useEffect } from 'react';
 import { mockData } from '@/data/mockup';
 
-// Console log the mockData right after importing
-console.log('Imported mockData:', JSON.stringify(mockData, null, 2));
 
 interface GroupCheckbox {
   name: string;
@@ -29,8 +27,6 @@ interface CheckboxContextType {
 
 const generateInitialGroups = (): GroupCheckbox[] => [];
 
-const initialGroups: GroupCheckbox[] = generateInitialGroups();
-
 const CheckboxContext = createContext<CheckboxContextType | undefined>(undefined);
 
 export const useCheckbox = () => {
@@ -49,8 +45,7 @@ export const CheckboxProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const initializeData = async () => {
       // Wait for mockData to be populated
       await new Promise(resolve => setTimeout(resolve, 0));
-      
-      console.log('MockData after waiting:', JSON.stringify(mockData, null, 2));
+
 
       const newGroups: GroupCheckbox[] = [];
       const newGroupStructure: GroupStructure[] = [];
@@ -68,8 +63,6 @@ export const CheckboxProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       setGroups(newGroups);
       setGroupStructure(newGroupStructure);
 
-      console.log('Initialized groups:', newGroups);
-      console.log('Initialized group structure:', JSON.stringify(newGroupStructure, null, 2));
     };
 
     initializeData();
@@ -122,8 +115,6 @@ export const CheckboxProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   useEffect(() => {
-    // You can add more logging here if needed
-    console.log('Groups updated:', groups);
   }, [groups, groupStructure]);
 
   return (
