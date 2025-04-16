@@ -1,106 +1,90 @@
 import React from 'react';
 import { Check } from 'lucide-react';
+import { useCheckbox } from '@/context/CheckboxesContext';
 
-interface Group {
-  name: string;
-  subgroups: string[];
-}
+export const GroupCheckboxes: React.FC = () => {
+  const { groups, groupStructure, toggleGroup, activateAll, deactivateAll, randomizeAll } = useCheckbox();
 
-interface GroupCheckboxesProps {
-  allGroups: Group[];
-  checkedGroups: { [key: string]: boolean };
-  setCheckedGroups: React.Dispatch<React.SetStateAction<{ [key: string]: boolean }>>;
-}
-
-export const GroupCheckboxes: React.FC<GroupCheckboxesProps> = ({ allGroups, checkedGroups, setCheckedGroups }) => {
-  const handleCheckboxChange = (groupName: string) => {
-    setCheckedGroups(prev => ({
-      ...prev,
-      [groupName]: !prev[groupName]
-    }));
+  const isGroupChecked = (groupName: string): boolean => {
+    const group = groups.find(g => g.name === groupName);
+    return group ? group.checked : false;
   };
 
-  const isGroupChecked = (groupName: string) => {
-    return checkedGroups[groupName] || false;
+  const areAllSubsAndTheMainChecked = (groupName: string): boolean => {
+    const mainGroup = groupStructure.find(g => g.name === groupName);
+    if (!mainGroup) return false;
+
+    if (!isGroupChecked(groupName)) return false;
+
+    for (const subgroup of mainGroup.subgroups) {
+      if (!isGroupChecked(subgroup)) return false;
+    }
+
+    return true;
   };
 
-  const areAllMainGroupChecked = (groupName: string, subgroups: string[]) => {
-    return checkedGroups[groupName] && subgroups.every(subgroup => checkedGroups[subgroup]);
-  };
+  const handleAllMain = (groupName: string): void => {
+    const mainGroup = groupStructure.find(g => g.name === groupName);
+    if (!mainGroup) return;
 
-  const handleAllMainGroupCheckboxChange = (groupName: string, subgroups: string[]) => {
-    const allChecked = areAllMainGroupChecked(groupName, subgroups);
-    const newCheckedState = !allChecked;
+    const allChecked = areAllSubsAndTheMainChecked(groupName);
+    const newState = !allChecked;
 
-    const newCheckedGroups = { ...checkedGroups };
-    newCheckedGroups[groupName] = newCheckedState;
-    subgroups.forEach(subgroup => {
-      newCheckedGroups[subgroup] = newCheckedState;
+    if (!isGroupChecked(groupName) === newState) {
+      toggleGroup(groupName);
+    }
+    mainGroup.subgroups.forEach(subgroup => {
+      if (isGroupChecked(subgroup) !== newState) {
+        toggleGroup(subgroup);
+      }
     });
-
-    setCheckedGroups(newCheckedGroups);
   };
-
-  const activateAllGroups = () => {
-    const newCheckedGroups = { ...checkedGroups };
-    allGroups.forEach(group => {
-      newCheckedGroups[group.name] = true;
-      group.subgroups.forEach(subgroup => {
-        newCheckedGroups[subgroup] = true;
-      });
-    });
-    setCheckedGroups(newCheckedGroups);
-  };
-
-  const deactivateAllGroups = () => {
-    const newCheckedGroups = { ...checkedGroups };
-    allGroups.forEach(group => {
-      newCheckedGroups[group.name] = false;
-      group.subgroups.forEach(subgroup => {
-        newCheckedGroups[subgroup] = false;
-      });
-    });
-    setCheckedGroups(newCheckedGroups);
-  };
-
+  
   return (
     <div className="w-[359px] pr-4">
       <h2 className="text-lg font-semibold mb-2">Filter Groups</h2>
+      
+      {/* Activate all and Deactivate all buttons */}
       <div className="mb-4 flex space-x-2">
         <button
-          onClick={activateAllGroups}
+          onClick={activateAll}
           className="px-3 py-1 bg-brand-300 text-white rounded hover:bg-brand-400 transition-colors"
         >
           Activate All
         </button>
         <button
-          onClick={deactivateAllGroups}
+          onClick={deactivateAll}
           className="px-3 py-1 bg-gray-300 text-gray-700 rounded hover:bg-gray-400 transition-colors"
         >
           Deactivate All
         </button>
       </div>
-      {allGroups.map((group) => (
+      
+      {/* Mapping through each main group */}
+      {groupStructure.map((group) => (
         <div key={group.name} className="mb-4">
+          {/* "All [Group Name]" checkbox */}
           <div
             className="flex items-center cursor-pointer"
-            onClick={() => handleAllMainGroupCheckboxChange(group.name, group.subgroups)}
+            onClick={() => handleAllMain(group.name)}
           >
             <div className={`w-4 h-4 border-2 rounded flex items-center justify-center mr-2 ${
-              areAllMainGroupChecked(group.name, group.subgroups)
+              areAllSubsAndTheMainChecked(group.name)
                 ? 'bg-brand-300 border-brand-300'
                 : 'border-gray-300'
             }`}>
-              {areAllMainGroupChecked(group.name, group.subgroups) &&
+              {areAllSubsAndTheMainChecked(group.name) &&
                 <Check className="w-3 h-3 text-white" />
               }
             </div>
             <span className="text-sm font-medium">All {group.name}</span>
           </div>
+          
           <div className="ml-6 mt-2">
+            {/* Main group checkbox */}
             <div
-              className="flex items-center cursor-pointer"
-              onClick={() => handleCheckboxChange(group.name)}
+              className="flex items-center mt-1 cursor-pointer"
+              onClick={() => toggleGroup(group.name)}
             >
               <div className={`w-4 h-4 border-2 rounded flex items-center justify-center mr-2 ${
                 isGroupChecked(group.name) ? 'bg-brand-300 border-brand-300' : 'border-gray-300'
@@ -109,11 +93,13 @@ export const GroupCheckboxes: React.FC<GroupCheckboxesProps> = ({ allGroups, che
               </div>
               <span className="text-sm">{group.name}</span>
             </div>
+            
+            {/* Subgroup checkboxes */}
             {group.subgroups.map((subgroup) => (
               <div
                 key={subgroup}
                 className="flex items-center mt-1 cursor-pointer"
-                onClick={() => handleCheckboxChange(subgroup)}
+                onClick={() => toggleGroup(subgroup)}
               >
                 <div className={`w-4 h-4 border-2 rounded flex items-center justify-center mr-2 ${
                   isGroupChecked(subgroup) ? 'bg-brand-300 border-brand-300' : 'border-gray-300'
@@ -126,6 +112,7 @@ export const GroupCheckboxes: React.FC<GroupCheckboxesProps> = ({ allGroups, che
           </div>
         </div>
       ))}
+
     </div>
   );
 };

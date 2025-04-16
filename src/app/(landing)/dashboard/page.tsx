@@ -2,6 +2,7 @@
 
 import { useName } from "@/context/NameContext";
 import { useGroup } from "@/context/GroupContext";
+import { useCheckbox } from "@/context/CheckboxesContext";
 import { Heading } from "@/components/heading";
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { ButtonLandingPage } from "@/components/ButtonLandingPage";
@@ -12,6 +13,7 @@ import { Drama, Volleyball, Home } from "lucide-react";
 export default function Dashboard() {
   const { name } = useName() || { name: "Alex" };
   const { setGroupName } = useGroup();
+  const { activateMainAndSubs } = useCheckbox(); // Use the new function
   const router = useRouter();
   const [isClient, setIsClient] = useState(false);
 
@@ -25,6 +27,7 @@ export default function Dashboard() {
 
   const handleGroupChange = (group: string) => {
     setGroupName(group);
+    activateMainAndSubs(group); // Use the new function here
     router.push('/about');
   };
 

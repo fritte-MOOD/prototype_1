@@ -1,80 +1,109 @@
 'use client'
 
-import React, { useState, useMemo, useEffect } from 'react'
-import { Calendar, momentLocalizer } from 'react-big-calendar'
+import React, { useState, useMemo } from 'react'
+import { Calendar, momentLocalizer, Views, View } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
-import { useGroup } from "@/context/GroupContext"
 import { mockData } from '@/data/mockup'
 import { GroupCheckboxes } from '@/components/GroupCheckboxes'
+import { useCheckbox } from '@/context/CheckboxesContext'
+import { CalculateDateTime } from '@/components/CalculateDateTime'
 
 const localizer = momentLocalizer(moment)
 
 const CalendarPage = () => {
-  const { groupName } = useGroup()
-  const [checkedGroups, setCheckedGroups] = useState<{ [key: string]: boolean }>({})
+  const { groups } = useCheckbox()
+  const [currentDate, setCurrentDate] = useState(new Date())
 
-  const allGroups = useMemo(() => {
-    return mockData
-      .filter(group => group.IAmMember)
-      .map(group => ({
-        name: group.name,
-        subgroups: group.subgroups.filter(subgroup => subgroup.IAmMember).map(subgroup => subgroup.name)
-      }))
-  }, [])
 
-  useEffect(() => {
-    const initialState = Object.fromEntries(
-      allGroups.flatMap(group => [
-        [group.name, false],
-        ...group.subgroups.map(subgroup => [subgroup, false])
-      ])
-    )
-    const matchingGroup = allGroups.find(group => group.name === groupName)
-    if (matchingGroup) {
-      initialState[matchingGroup.name] = true
-    }
-    setCheckedGroups(initialState)
-  }, [groupName, allGroups])
 
   const events = useMemo(() => {
     return mockData.flatMap(group => {
-      const groupEvents = checkedGroups[group.name] ? group.appointments : [];
+      const isGroupChecked = groups.find(g => g.name === group.name)?.checked;
+      const groupEvents = isGroupChecked ? group.appointments : [];
       const subgroupEvents = group.subgroups
-        .filter(subgroup => checkedGroups[subgroup.name])
+        .filter(subgroup => groups.find(g => g.name === subgroup.name)?.checked)
         .flatMap(subgroup => subgroup.appointments);
 
-      return [...groupEvents, ...subgroupEvents].map(appointment => ({
-        title: appointment.description,
-        start: moment().add(appointment.distance, 'days').set({
-          hour: parseInt(appointment.time.split(':')[0]),
-          minute: parseInt(appointment.time.split(':')[1])
-        }).toDate(),
-        end: moment().add(appointment.distance, 'days').set({
-          hour: parseInt(appointment.time.split(':')[0]) + 1,
-          minute: parseInt(appointment.time.split(':')[1])
-        }).toDate(),
-        allDay: false,
-      }));
+      return [...groupEvents, ...subgroupEvents].map(appointment => {
+        const startDateTime = CalculateDateTime(appointment.time, appointment.distance)
+        const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000) // Add 1 hour
+        return {
+          title: `${appointment.time} ${appointment.description}`,
+          start: startDateTime,
+          end: endDateTime,
+          allDay: false,
+        }
+      });
     });
-  }, [checkedGroups])
+  }, [groups])
+
+  const onNavigate = (newDate: Date, view: View, action: 'PREV' | 'NEXT' | 'TODAY' | 'DATE') => {
+    if (action === 'TODAY') {
+      setCurrentDate(new Date())
+    } else if (action === 'PREV') {
+      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1))
+    } else if (action === 'NEXT') {
+      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1))
+    } else if (action === 'DATE') {
+      setCurrentDate(newDate)
+    }
+  }
+
+  const CustomToolbar = (toolbar: any) => {
+    const goToBack = () => toolbar.onNavigate('PREV')
+    const goToNext = () => toolbar.onNavigate('NEXT')
+    const goToCurrent = () => toolbar.onNavigate('TODAY')
+
+    const label = moment(currentDate).format('MMMM YYYY')
+
+    return (
+      <div className="rbc-toolbar">
+        <span className="rbc-btn-group">
+          <button type="button" onClick={goToBack}>Back</button>
+          <button type="button" onClick={goToCurrent}>Today</button>
+          <button type="button" onClick={goToNext}>Next</button>
+        </span>
+        <span className="rbc-toolbar-label">{label}</span>
+      </div>
+    )
+  }
+
+  const eventStyleGetter = () => {
+    return {
+      style: {
+        backgroundColor: '#fba762', // Added '#' prefix
+        borderRadius: '5px',
+        color: 'black',
+        border: 'none',
+        display: 'block'
+      }
+    }
+  }
 
   return (
     <MaxWidthWrapper>
       <div className="flex">
-        <GroupCheckboxes 
-          allGroups={allGroups}
-          checkedGroups={checkedGroups}
-          setCheckedGroups={setCheckedGroups}
-        />
+        <div className="w-1/4 pr-4">
+          <GroupCheckboxes />
+        </div>
         <div className="w-3/4">
           <Calendar
             localizer={localizer}
             events={events}
             startAccessor="start"
             endAccessor="end"
-            style={{ height: 500 }}
+            style={{ height: 600 }}
+            date={currentDate}
+            onNavigate={onNavigate}
+            view={Views.MONTH}
+            views={[Views.MONTH]}
+            toolbar={true}
+            components={{
+              toolbar: CustomToolbar,
+            }}
+            eventPropGetter={eventStyleGetter}
           />
         </div>
       </div>

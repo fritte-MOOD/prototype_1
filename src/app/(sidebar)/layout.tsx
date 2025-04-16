@@ -101,7 +101,6 @@ const Layout = ({ children }: PropsWithChildren) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   return (
-    <ContextProvider>
     <>
       <Navbar/>
       <div className="relative min-h-screen flex flex-col sm:flex-row bg-white overflow-hidden">
@@ -113,7 +112,7 @@ const Layout = ({ children }: PropsWithChildren) => {
         <div className="flex-1 flex flex-col overflow-hidden">
           {/* mobile header */}
           <div className="sm:hidden h-14 flex items-center justify-between px-[26px] width-full border-b border-gray-200">
-            <Link href="/public" className="flex z-40 font-bold text-lg">
+            <Link href="/" className="flex z-40 font-bold text-lg">
               <span className="text-brand-300">/</span>MOOD
             </Link>
             <button
@@ -156,7 +155,6 @@ const Layout = ({ children }: PropsWithChildren) => {
         </div>
       </div>
     </>
-</ContextProvider>
   )
 }
 

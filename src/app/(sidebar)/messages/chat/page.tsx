@@ -2,43 +2,10 @@
 
 import { useState, useEffect } from "react"
 import { useChat } from "@/context/ChatContext"
-import { Heading } from "@/components/heading"
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
 import { mockData } from "@/data/mockup"
-import { MessageSquare } from "lucide-react"
-
-function calculateDateTime(time: string, distance: number): Date {
-  const [hours, minutes] = time.split(':').map(Number);
-  const date = new Date();
-  date.setDate(date.getDate() + distance);
-  date.setHours(hours, minutes, 0, 0);
-  return date;
-}
-
-function formatDate(date: Date): string {
-  const now = new Date();
-  const diffTime = Math.abs(now.getTime() - date.getTime());
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-  if (diffDays === 0) {
-    return `Today at ${date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false })}`;
-  } else if (diffDays === 1) {
-    return date > now
-      ? `Tomorrow at ${date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false })}`
-      : `Yesterday at ${date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false })}`;
-  } else if (diffDays < 7) {
-    return date.toLocaleString('en-US', { weekday: 'long', hour: '2-digit', minute: '2-digit', hour12: false });
-  } else {
-    return date.toLocaleString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false
-    });
-  }
-}
+import FormattedDate from "@/components/FormattedDate"
+import { CalculateDateTime } from '@/components/CalculateDateTime'
 
 const ChatPage = () => {
   const { chatId } = useChat()
@@ -71,7 +38,7 @@ const ChatPage = () => {
           ...foundChat,
           messages: foundChat.messages.map((msg: any) => ({
             ...msg,
-            dateTime: calculateDateTime(msg.time, msg.distance)
+            dateTime: CalculateDateTime(msg.time, msg.distance)
           }))
         };
       }
@@ -109,7 +76,9 @@ const ChatPage = () => {
                         <div className={`p-3 rounded-lg ${message.sentBy === "You" ? "bg-brand-100 text-right" : "bg-gray-100"}`}>
                           <p className="font-medium">{message.sentBy}</p>
                           <p className="text-sm">{message.content}</p>
-                          <p className="text-xs text-gray-500 mt-1">{formatDate(calculateDateTime(message.time, message.distance))}</p>
+                          <p className="text-xs text-gray-500 mt-1">
+                            <FormattedDate date={message.dateTime} />
+                          </p>
                         </div>
                       </div>
                     </div>
