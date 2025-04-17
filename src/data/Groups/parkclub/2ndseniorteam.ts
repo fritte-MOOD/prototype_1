@@ -2,14 +2,14 @@ import { Member, Chat, Task, Appointment, Process, Module, RelativeTime } from '
 
 export const members: Member[] = [
   { id: 1, name: "You" },
-  { id: 2, name: "Jane Smith" },
-  { id: 3, name: "Mike Johnson" },
+  { id: 1200, name: "Jane Smith" },
+  { id: 1201, name: "Mike Johnson" },
 ];
 
 export const chats: Chat[] = [
   {
-    id: 1,
-    members: [1, 2],
+    id: 1200,
+    members: [1, 1200],
     messages: [
       {
         new: false,
@@ -21,20 +21,20 @@ export const chats: Chat[] = [
       {
         new: true,
         at: { time: "10:35", distance: -1 },
-        sentBy: 2,
+        sentBy: 1200,
         supportedBy: [],
         content: "It's this Saturday at 2 PM."
       }
     ]
   },
   {
-    id: 2,
-    members: [1, 2, 3],
+    id: 1201,
+    members: [1, 1200, 1201],
     messages: [
       {
         new: false,
         at: { time: "15:00", distance: -2 },
-        sentBy: 3,
+        sentBy: 1201,
         supportedBy: [],
         content: "Team meeting tomorrow at 6 PM."
       },
@@ -48,7 +48,7 @@ export const chats: Chat[] = [
       {
         new: false,
         at: { time: "15:10", distance: -2 },
-        sentBy: 2,
+        sentBy: 1200,
         supportedBy: [1],
         content: "See you all then."
       }
@@ -58,15 +58,15 @@ export const chats: Chat[] = [
 
 export const tasks: Task[] = [
   {
-    id: 1,
+    id: 1200,
     done: false,
     dueAt: { time: "18:00", distance: 2 },
-    assignedBy: 3,
+    assignedBy: 1201,
     description: "Review match strategy",
     content: "Go through the new defensive formation we discussed last week."
   },
   {
-    id: 2,
+    id: 1201,
     done: true,
     dueAt: { time: "12:00", distance: 0 },
     assignedBy: 1,
@@ -74,10 +74,10 @@ export const tasks: Task[] = [
     content: "Send your availability for next month's matches to the coach."
   },
   {
-    id: 3,
+    id: 1202,
     done: false,
     dueAt: { time: "20:00", distance: 5 },
-    assignedBy: 2,
+    assignedBy: 1200,
     description: "Fitness check",
     content: "Complete the fitness assessment and submit your results."
   }
@@ -85,30 +85,30 @@ export const tasks: Task[] = [
 
 export const appointments: Appointment[] = [
   {
-    id: 1,
+    id: 1200,
     at: { time: "14:00", distance: 3 },
-    createdBy: 3,
-    invited: [0, 1, 2, 3],
-    accepted: [0, 1, 3],
+    createdBy: 1201,
+    invited: [1, 1200, 1201],
+    accepted: [1, 1200, 1201],
     declined: [],
     description: "Match vs City Rangers",
     content: "Home game against City Rangers. Arrive at least an hour before for warm-up."
   },
   {
-    id: 2,
+    id: 1201,
     at: { time: "18:00", distance: 1 },
-    createdBy: 2,
-    invited: [0, 1, 2, 3],
-    accepted: [0, 2],
-    declined: [1],
+    createdBy: 1200,
+    invited: [1, 1200, 1201],
+    accepted: [1, 1201],
+    declined: [1200],
     description: "Team Strategy Meeting",
     content: "Discussing tactics for upcoming matches and reviewing last game's performance."
   },
   {
-    id: 3,
+    id: 1202,
     at: { time: "09:00", distance: 7 },
     createdBy: 1,
-    invited: [0, 1, 2, 3],
+    invited: [1, 1200, 1201],
     accepted: [],
     declined: [],
     description: "Morning Training Session",
@@ -118,18 +118,18 @@ export const appointments: Appointment[] = [
 
 export const processes: Process[] = [
   {
-    id: 1,
+    id: 1200,
     new: true,
     public: false,
     active: true,
     createdAt: { time: "09:00", distance: -5 },
     dueAt: { time: "18:00", distance: 90 },
-    creator: 3, // Mike Johnson
+    creator: 1201,
     description: "Team Performance Improvement",
     content: "A comprehensive process to enhance our team's performance over the next three months.",
     modules: [
       {
-        id: 1,
+        id: 12001,
         type: 'Ideation',
         dueAt: { time: "18:00", distance: 10 },
         description: "Brainstorm defensive strategies",
@@ -137,7 +137,7 @@ export const processes: Process[] = [
         Ideas: []
       },
       {
-        id: 2,
+        id: 12002,
         type: 'Vote',
         dueAt: { time: "18:00", distance: 30 },
         description: "Select best defensive strategy",
@@ -145,7 +145,7 @@ export const processes: Process[] = [
         options: []
       },
       {
-        id: 3,
+        id: 12003,
         type: 'Announcement',
         dueAt: { time: "18:00", distance: 60 },
         description: "New strategy announcement",
@@ -155,18 +155,18 @@ export const processes: Process[] = [
     ]
   },
   {
-    id: 2,
+    id: 1201,
     new: false,
     public: true,
     active: true,
     createdAt: { time: "14:00", distance: -10 },
     dueAt: { time: "20:00", distance: 120 },
-    creator: 2, // Jane Smith
+    creator: 1200,
     description: "Fundraising Campaign",
     content: "Organize a fundraising campaign to support our team's activities for the upcoming season.",
     modules: [
       {
-        id: 1,
+        id: 12011,
         type: 'Brainstorming',
         dueAt: { time: "18:00", distance: 5 },
         description: "Fundraising ideas",
@@ -174,7 +174,7 @@ export const processes: Process[] = [
         options: []
       },
       {
-        id: 2,
+        id: 12012,
         type: 'Prioritize',
         dueAt: { time: "18:00", distance: 20 },
         description: "Prioritize fundraising activities",
@@ -182,7 +182,7 @@ export const processes: Process[] = [
         Ideas: []
       },
       {
-        id: 3,
+        id: 12013,
         type: 'ExternalDecision',
         dueAt: { time: "18:00", distance: 40 },
         description: "Budget approval",
@@ -192,7 +192,7 @@ export const processes: Process[] = [
     ]
   },
   {
-    id: 3,
+    id: 1202,
     new: false,
     public: false,
     active: false,
@@ -203,7 +203,7 @@ export const processes: Process[] = [
     content: "Develop a strategy to integrate promising youth players into our senior team.",
     modules: [
       {
-        id: 1,
+        id: 12021,
         type: 'Debate',
         dueAt: { time: "18:00", distance: 30 },
         description: "Youth integration approach",
@@ -211,7 +211,7 @@ export const processes: Process[] = [
         options: []
       },
       {
-        id: 2,
+        id: 12022,
         type: 'Vote',
         dueAt: { time: "18:00", distance: 60 },
         description: "Select integration strategy",
@@ -219,7 +219,7 @@ export const processes: Process[] = [
         options: []
       },
       {
-        id: 3,
+        id: 12023,
         type: 'Estimate',
         dueAt: { time: "18:00", distance: 90 },
         description: "Resource allocation",

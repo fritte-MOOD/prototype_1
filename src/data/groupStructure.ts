@@ -1,5 +1,24 @@
 import { Group } from './interfaces';
 
+
+/* ID Spaces:
+1000    "Park Club"
+1100    "Executive Committee"
+1200    "2nd Senior Team"
+1300    "Construction Committee"
+1400    "Training Organization"
+
+2000    "Rochefort"
+2100    "Parents of Rochefort"
+2200    "Sports in Rochefort"
+
+3000    "Marin Quarter"
+3100    "House 12"
+3200    "Handcrafts Friday"
+3300    "Shared Dinner"
+*/
+
+
 const importGroupData = async (groupName: string) => {
   const normalizedName = groupName.replace(/\s+/g, '').toLowerCase();
   try {

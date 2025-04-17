@@ -3,6 +3,7 @@ import { GroupProvider } from "./GroupContext";
 import { ChatProvider } from "./ChatContext";
 import { CheckboxProvider } from "./CheckboxesContext";
 import { MockupProvider } from "./MockupContext";
+import { DebateProvider } from "./DebateContext";
 
 
 
@@ -15,7 +16,9 @@ export const ContextProvider = ({ children }: { children: React.ReactNode }) => 
             <ChatProvider>
               <CheckboxProvider>
                 <MockupProvider>
-                  {children}
+                  <DebateProvider>
+                    {children}
+                  </DebateProvider>
                 </MockupProvider>
               </CheckboxProvider>
             </ChatProvider>
