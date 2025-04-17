@@ -2,17 +2,20 @@
 
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
 import { GroupCheckboxes } from "@/components/GroupCheckboxes"
-import { mockData } from "@/data/mockup"
 import { useMemo } from "react"
 import FormattedDate from "@/components/FormattedDate"
 import { useCheckbox } from '@/context/CheckboxesContext'
 import { Circle, CheckCircle } from 'lucide-react'
+import { Task, Group } from "@/data/interfaces"
+import { CalculateDateTime } from '@/components/CalculateDateTime'
+import { useMockup } from "@/context/MockupContext"
 
-const Page = () => {
+const TasksPage = () => {
   const { groups } = useCheckbox();
+  const mockData = useMockup();
 
   const tasks = useMemo(() => {
-    const allTasks = mockData.flatMap(group => {
+    const allTasks = mockData.flatMap((group: Group) => {
       const isGroupChecked = groups.find(g => g.name === group.name)?.checked;
       const groupTasks = isGroupChecked ? group.tasks.map(task => ({ ...task, group: group.name, subgroup: group.name })) : [];
       const subgroupTasks = group.subgroups
@@ -21,26 +24,19 @@ const Page = () => {
       return [...groupTasks, ...subgroupTasks];
     });
 
-    return allTasks.sort((a, b) => {
+    return allTasks.sort((a: Task, b: Task) => {
       // First, sort by 'done' status (false first)
       if (a.done !== b.done) {
         return a.done ? 1 : -1;
       }
-      
-      // If 'done' status is the same, sort by due date
-      const dateA = new Date();
-      dateA.setDate(dateA.getDate() + a.distance);
-      const [hoursA, minutesA] = a.time.split(':');
-      dateA.setHours(parseInt(hoursA), parseInt(minutesA));
 
-      const dateB = new Date();
-      dateB.setDate(dateB.getDate() + b.distance);
-      const [hoursB, minutesB] = b.time.split(':');
-      dateB.setHours(parseInt(hoursB), parseInt(minutesB));
+      // If 'done' status is the same, sort by due date
+      const dateA = CalculateDateTime(a.dueAt.time, a.dueAt.distance);
+      const dateB = CalculateDateTime(b.dueAt.time, b.dueAt.distance);
 
       return dateA.getTime() - dateB.getTime();
     });
-  }, [groups]);
+  }, [groups, mockData]);
 
   return (
     <section className="bg-brand-25">
@@ -50,11 +46,8 @@ const Page = () => {
             <GroupCheckboxes />
           </div>
           <div className="w-3/4">
-            {tasks.map((task, index) => {
-              const taskDate = new Date();
-              taskDate.setDate(taskDate.getDate() + task.distance);
-              const [hours, minutes] = task.time.split(':');
-              taskDate.setHours(parseInt(hours), parseInt(minutes));
+            {tasks.map((task: Task & { group: string; subgroup: string }, index: number) => {
+              const taskDate = CalculateDateTime(task.dueAt.time, task.dueAt.distance);
 
               return (
                 <div key={index} className="mb-4 p-4 bg-white rounded shadow flex items-start">
@@ -69,6 +62,7 @@ const Page = () => {
                     <h3 className="font-bold">{task.description}</h3>
                     <p>Subgroup: {task.subgroup}</p>
                     <p>Due: <FormattedDate date={taskDate} /></p>
+                    <p className="text-sm text-gray-600 mt-2">{task.content}</p>
                   </div>
                 </div>
               );
@@ -80,4 +74,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default TasksPage

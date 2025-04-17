@@ -6,45 +6,41 @@ import { MaxWidthWrapper } from "@/components/max-width-wrapper"
 import { mockData } from "@/data/mockup"
 import FormattedDate from "@/components/FormattedDate"
 import { CalculateDateTime } from '@/components/CalculateDateTime'
+import { Chat, Message, Member, Group } from "@/data/interfaces"
 
 const ChatPage = () => {
   const { chatId } = useChat()
-  const [currentChat, setCurrentChat] = useState<any>(null)
+  const [currentChat, setCurrentChat] = useState<Chat | null>(null)
   const [chatGroup, setChatGroup] = useState<string>("")
+  const [chatMembers, setChatMembers] = useState<Member[]>([])
 
   useEffect(() => {
     if (chatId) {
-      let foundChat: any = null;
+      let foundChat: Chat | null = null;
       let foundGroup: string = "";
+      let foundMembers: Member[] = [];
 
-      mockData.some(group => {
-        foundChat = group.chats.find(chat => chat.id.toString() === chatId);
+      mockData.some((group: Group) => {
+        foundChat = group.chats.find(chat => chat.id.toString() === chatId) || null;
         if (foundChat) {
           foundGroup = group.name;
+          foundMembers = group.members.filter(member => foundChat!.members.includes(member.id));
           return true;
         }
         return group.subgroups.some(subgroup => {
-          foundChat = subgroup.chats.find(chat => chat.id.toString() === chatId);
+          foundChat = subgroup.chats.find(chat => chat.id.toString() === chatId) || null;
           if (foundChat) {
             foundGroup = subgroup.name;
+            foundMembers = subgroup.members.filter(member => foundChat!.members.includes(member.id));
             return true;
           }
           return false;
         });
       });
 
-      if (foundChat) {
-        foundChat = {
-          ...foundChat,
-          messages: foundChat.messages.map((msg: any) => ({
-            ...msg,
-            dateTime: CalculateDateTime(msg.time, msg.distance)
-          }))
-        };
-      }
-
       setCurrentChat(foundChat);
       setChatGroup(foundGroup);
+      setChatMembers(foundMembers);
     }
   }, [chatId])
 
@@ -61,8 +57,8 @@ const ChatPage = () => {
                 <p className="mb-4">{chatGroup}</p>
                 <h3 className="font-medium">Members:</h3>
                 <ul className="list-disc list-inside mb-4">
-                  {currentChat.members.map((member: any, index: number) => (
-                    <li key={index}>{member.name}</li>
+                  {chatMembers.map((member: Member) => (
+                    <li key={member.id}>{member.id === 1 ? "You" : member.name}</li>
                   ))}
                 </ul>
               </div>
@@ -70,19 +66,23 @@ const ChatPage = () => {
               {/* Right side - Chat messages */}
               <div className="w-full md:w-3/4 md:pl-4 flex flex-col h-[600px]">
                 <div className="flex-grow overflow-y-auto mb-4 space-y-4">
-                  {currentChat.messages.map((message: any, index: number) => (
-                    <div key={index} className={`flex ${message.sentBy === "You" ? "justify-end" : "justify-start"}`}>
-                      <div className={`flex items-start space-x-2 max-w-[70%] ${message.sentBy === "You" ? "flex-row-reverse space-x-reverse" : ""}`}>
-                        <div className={`p-3 rounded-lg ${message.sentBy === "You" ? "bg-brand-100 text-right" : "bg-gray-100"}`}>
-                          <p className="font-medium">{message.sentBy}</p>
-                          <p className="text-sm">{message.content}</p>
-                          <p className="text-xs text-gray-500 mt-1">
-                            <FormattedDate date={message.dateTime} />
-                          </p>
+                  {currentChat.messages.map((message: Message, index: number) => {
+                    const isCurrentUser = message.sentBy === 1;
+                    const senderName = isCurrentUser ? "You" : chatMembers.find(member => member.id === message.sentBy)?.name || "Unknown";
+                    return (
+                      <div key={index} className={`flex ${isCurrentUser ? "justify-end" : "justify-start"}`}>
+                        <div className={`flex items-start space-x-2 max-w-[70%] ${isCurrentUser ? "flex-row-reverse space-x-reverse" : ""}`}>
+                          <div className={`p-3 rounded-lg ${isCurrentUser ? "bg-brand-100 text-right" : "bg-gray-100"}`}>
+                            <p className="font-medium">{senderName}</p>
+                            <p className="text-sm">{message.content}</p>
+                            <p className="text-xs text-gray-500 mt-1">
+                              <FormattedDate date={CalculateDateTime(message.at.time, message.at.distance)} />
+                            </p>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
                 <div className="mt-auto">
                   <input

@@ -20,14 +20,15 @@ const importSubgroupData = async (mainGroupName: string, subgroupName: string) =
   }
 };
 
-const createGroup = async (name: string, IAmMember: boolean, subgroupNames: string[]): Promise<Group> => {
+const createGroup = async (name: string, IAmMember: boolean, isPublic: boolean, subgroupNames: string[]): Promise<Group> => {
   const groupData = await importGroupData(name);
-  
+
   const subgroups = await Promise.all(subgroupNames.map(async (subgroupName) => {
     const subgroupData = await importSubgroupData(name, subgroupName);
     return {
       name: subgroupName,
-      IAmMember: true, // You might want to adjust this based on your needs
+      IAmMember: subgroupData.IAmMember,
+      public: subgroupData.public,
       subgroups: [],
       members: subgroupData.members || [],
       processes: subgroupData.processes || [],
@@ -40,6 +41,7 @@ const createGroup = async (name: string, IAmMember: boolean, subgroupNames: stri
   return {
     name,
     IAmMember,
+    public: isPublic,
     subgroups,
     members: groupData.members || [],
     processes: groupData.processes || [],
@@ -51,17 +53,17 @@ const createGroup = async (name: string, IAmMember: boolean, subgroupNames: stri
 
 export const getGroupStructure = async (): Promise<Group[]> => {
   return Promise.all([
-    createGroup("Park Club", true, [
+    createGroup("Park Club", true, true, [
       "Executive Committee",
       "2nd Senior Team",
       "Construction Committee",
       "Training Organization"
     ]),
-    createGroup("Rochefort", true, [
+    createGroup("Rochefort", true, true, [
       "Parents of Rochefort",
       "Sports in Rochefort"
     ]),
-    createGroup("Marin Quarter", true, [
+    createGroup("Marin Quarter", true, true, [
       "House 12",
       "Handcrafts Friday",
       "Shared Dinner"

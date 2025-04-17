@@ -3,81 +3,48 @@
 import { useState, useMemo, useEffect } from "react"
 import { useRouter } from 'next/navigation';
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
-import { useGroup } from "@/context/GroupContext"
 import { useChat } from "@/context/ChatContext"
-import { mockData } from "@/data/mockup"
 import { GroupCheckboxes } from '@/components/GroupCheckboxes'
 import FormattedDate from '@/components/FormattedDate';
-import { CalculateDateTime } from '@/components/CalculateDateTime';
 import { useCheckbox } from '@/context/CheckboxesContext'
+import { Message, Chat, Member, Group, RelativeTime } from "@/data/interfaces"
+import { CalculateDateTime } from '@/components/CalculateDateTime';
+import { useMockup } from "@/context/MockupContext"
 
-interface Message {
-  sentBy: string;
-  time: string;
-  distance: number;
-  content: string;
-}
-
-interface Chat {
-  id: number; // Added id to Chat interface
-  members: Member[];
-  messages: Message[];
-  new?: boolean; // Added new property to Chat interface
-}
-
-interface Member {
-  name: string;
-  commonGroups: string[];
-}
-
-interface Group {
-  name: string;
-  IAmMember: boolean;
-  subgroups: Group[];
-  members: Member[];
-  chats: Chat[];
-}
-
-const Page = () => {
+const ChatsPage = () => {
   const router = useRouter();
-  const { groupName } = useGroup();
   const { setChatId } = useChat();
   const { groups, toggleGroup } = useCheckbox();
   const [isLoading, setIsLoading] = useState(true);
+  const mockData = useMockup();
 
   useEffect(() => {
     setIsLoading(false);
   }, []);
 
-  const sortedAndFilteredChats = useMemo(() => {
+  const getDateFromRelativeTime = (relativeTime: RelativeTime | undefined): Date => {
+    if (!relativeTime) return new Date(0);
+    return CalculateDateTime(relativeTime.time, relativeTime.distance);
+  };
 
+  const sortedAndFilteredChats = useMemo(() => {
     const filteredChats = mockData
-      .flatMap(group => {
+      .flatMap((group: Group) => {
         const isGroupChecked = groups.find(g => g.name === group.name)?.checked;
-        const groupChats = isGroupChecked ? group.chats.map(chat => ({ groupName: group.name, chat })) : [];
+        const groupChats = isGroupChecked ? group.chats.map((chat: Chat) => ({ groupName: group.name, chat })) : [];
         const subgroupChats = group.subgroups
-          .filter(subgroup => groups.find(g => g.name === subgroup.name)?.checked)
-          .flatMap(subgroup => subgroup.chats.map(chat => ({ groupName: subgroup.name, chat })));
+          .filter((subgroup: Group) => groups.find(g => g.name === subgroup.name)?.checked)
+          .flatMap((subgroup: Group) => subgroup.chats.map((chat: Chat) => ({ groupName: subgroup.name, chat })));
         return [...groupChats, ...subgroupChats];
       })
-      .map(({ groupName, chat }) => ({
-        groupName,
-        chat: {
-          ...chat,
-          messages: chat.messages.map(msg => ({
-            ...msg,
-            dateTime: CalculateDateTime(msg.time, msg.distance)
-          }))
-        }
-      }))
-      .sort((a, b) => {
-        const dateA = a.chat.messages[a.chat.messages.length - 1]?.dateTime || new Date(0);
-        const dateB = b.chat.messages[b.chat.messages.length - 1]?.dateTime || new Date(0);
+      .sort((a: { groupName: string; chat: Chat }, b: { groupName: string; chat: Chat }) => {
+        const dateA = getDateFromRelativeTime(a.chat.messages[a.chat.messages.length - 1]?.at);
+        const dateB = getDateFromRelativeTime(b.chat.messages[b.chat.messages.length - 1]?.at);
         return dateB.getTime() - dateA.getTime();
       });
 
     return filteredChats;
-  }, [groups]);
+  }, [groups, mockData]);
 
   const handleChatClick = (chatId: number) => {
     setChatId(chatId.toString());
@@ -94,7 +61,6 @@ const Page = () => {
     );
   }
 
-
   return (
     <section className="bg-brand-25">
       <MaxWidthWrapper>
@@ -106,7 +72,11 @@ const Page = () => {
             <div className="space-y-4">
               {sortedAndFilteredChats.map(({ groupName, chat }, index) => {
                 const lastMessage = chat.messages[chat.messages.length - 1];
-                const memberNames = chat.members.map(member => member.name).join(', ');
+                const chatMembers = mockData
+                  .flatMap(group => [...group.members, ...group.subgroups.flatMap(subgroup => subgroup.members)])
+                  .filter(member => chat.members.includes(member.id));
+                const memberNames = chatMembers.map(member => member.name).join(', ');
+                const hasNewMessages = chat.messages.some(message => message.new);
                 return (
                   <div 
                     key={index} 
@@ -114,18 +84,18 @@ const Page = () => {
                     onClick={() => handleChatClick(chat.id)}
                   >
                     <div className="w-6 mr-4 flex items-center justify-center">
-                      {chat.new && (
+                      {hasNewMessages && (
                         <div className="w-3 h-3 bg-brand-300 rounded-full"></div>
                       )}
                     </div>
                     <div className="flex-grow text-left">
                       <h3 className="font-medium">{memberNames}</h3>
                       <p className="text-sm text-gray-500">
-                        <span className="font-medium">{lastMessage?.sentBy}: </span>
+                        <span className="font-medium">{chatMembers.find(member => member.id === lastMessage?.sentBy)?.name}: </span>
                         {lastMessage?.content || "No messages"}
                       </p>
                       <p className="text-xs text-gray-400 mt-1">
-                        {lastMessage ? <FormattedDate date={lastMessage.dateTime} /> : "No date"}
+                        {lastMessage ? <FormattedDate date={getDateFromRelativeTime(lastMessage.at)} /> : "No date"}
                       </p>
                     </div>
                   </div>
@@ -139,4 +109,4 @@ const Page = () => {
   )
 }
 
-export default Page
+export default ChatsPage

@@ -5,39 +5,39 @@ import { Calendar, momentLocalizer, Views, View } from 'react-big-calendar'
 import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
-import { mockData } from '@/data/mockup'
 import { GroupCheckboxes } from '@/components/GroupCheckboxes'
 import { useCheckbox } from '@/context/CheckboxesContext'
 import { CalculateDateTime } from '@/components/CalculateDateTime'
+import { useMockup } from "@/context/MockupContext"
+import { Appointment, Group } from "@/data/interfaces"
 
 const localizer = momentLocalizer(moment)
 
 const CalendarPage = () => {
   const { groups } = useCheckbox()
   const [currentDate, setCurrentDate] = useState(new Date())
-
-
+  const mockData = useMockup()
 
   const events = useMemo(() => {
-    return mockData.flatMap(group => {
+    return mockData.flatMap((group: Group) => {
       const isGroupChecked = groups.find(g => g.name === group.name)?.checked;
       const groupEvents = isGroupChecked ? group.appointments : [];
       const subgroupEvents = group.subgroups
         .filter(subgroup => groups.find(g => g.name === subgroup.name)?.checked)
         .flatMap(subgroup => subgroup.appointments);
 
-      return [...groupEvents, ...subgroupEvents].map(appointment => {
-        const startDateTime = CalculateDateTime(appointment.time, appointment.distance)
+      return [...groupEvents, ...subgroupEvents].map((appointment: Appointment) => {
+        const startDateTime = CalculateDateTime(appointment.at.time, appointment.at.distance)
         const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000) // Add 1 hour
         return {
-          title: `${appointment.time} ${appointment.description}`,
+          title: `${appointment.at.time} ${appointment.description}`,
           start: startDateTime,
           end: endDateTime,
           allDay: false,
         }
       });
     });
-  }, [groups])
+  }, [groups, mockData])
 
   const onNavigate = (newDate: Date, view: View, action: 'PREV' | 'NEXT' | 'TODAY' | 'DATE') => {
     if (action === 'TODAY') {
@@ -73,7 +73,7 @@ const CalendarPage = () => {
   const eventStyleGetter = () => {
     return {
       style: {
-        backgroundColor: '#fba762', // Added '#' prefix
+        backgroundColor: '#fba762',
         borderRadius: '5px',
         color: 'black',
         border: 'none',

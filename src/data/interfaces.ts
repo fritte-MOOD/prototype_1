@@ -1,80 +1,140 @@
-export interface Message {
-  sentBy: string;
+export interface RelativeTime {
   time: string;
   distance: number;
+}
+
+export interface Message {
+  new: boolean;
+  at: RelativeTime;
+  sentBy: number;
+  supportedBy: number[];
   content: string;
 }
 
 export interface Chat {
   id: number;
-  new: boolean;
-  members: Member[];
+  members: number[];
   messages: Message[];
 }
 
 export interface Member {
+  id: number;
   name: string;
-  commonGroups: string[];
 }
 
 export interface Task {
   id: number;
   done: boolean;
+  dueAt: RelativeTime;
+  assignedBy: number;
   description: string;
-  assignedBy: string;
-  time: string;
-  distance: number;
+  content: string;
 }
 
 export interface Appointment {
   id: number;
+  at: RelativeTime;
+  createdBy: number;
+  invited: number[];
+  accepted: number[];
+  declined: number[];
   description: string;
-  time: string;
-  distance: number;
-  acceptedBy: string[];
-  declinedBy: string[];
+  content: string;
+}
+
+export interface Comment {
+  id: number;
+  new: boolean;
+  createdAt: RelativeTime;
+  createdBy: number;
+  supportedBy: number[];
+  content: string;
+  comments: Comment[];
+}
+
+export interface Option {
+  id: number;
+  new: boolean;
+  createdAt: RelativeTime;
+  createdBy: number;
+  supportedBy: number[];
+  rank: number;
+  description: string;
+  content: string;
+  comments: Comment[];
 }
 
 export interface BaseModule {
   id: number;
+  dueAt: RelativeTime;
   type: string;
   description: string;
-  deadline: string;
+  content: string;
 }
 
-export interface DiscussionModule extends BaseModule {
-  type: 'Discussion';
-  arguments: string[];
+export interface IdeationModule extends BaseModule {
+  type: 'Ideation';
+  Ideas: Option[];
 }
 
-export interface VotingModule extends BaseModule {
-  type: 'Voting';
-  options: string[];
+export interface EstimateModule extends BaseModule {
+  type: 'Estimate';
+  Ideas: Option[];
 }
 
-export interface FeedbackModule extends BaseModule {
-  type: 'Feedback';
-  questions: string[];
+export interface PrioritizeModule extends BaseModule {
+  type: 'Prioritize';
+  Ideas: Option[];
 }
 
-export type Module = DiscussionModule | VotingModule | FeedbackModule;
+export interface VoteModule extends BaseModule {
+  type: 'Vote';
+  options: Option[];
+}
+
+export interface DebateModule extends BaseModule {
+  type: 'Debate';
+  options: Option[];
+}
+
+export interface ExternalDecisionModule extends BaseModule {
+  type: 'ExternalDecision';
+  options: Option[];
+}
+
+export interface BrainstormingModule extends BaseModule {
+  type: 'Brainstorming';
+  options: Option[];
+}
+
+export interface AnnouncementModule extends BaseModule {
+  type: 'Announcement';
+  options: Option[];
+}
+
+export type Module = IdeationModule | EstimateModule | PrioritizeModule | VoteModule | DebateModule | ExternalDecisionModule | BrainstormingModule | AnnouncementModule;
 
 export interface Process {
-  description: string;
-  creator: string;
-  creationDate: string;
-  deadline: string;
+  id: number;
+  new: boolean;
+  public: boolean;
   active: boolean;
+  createdAt: RelativeTime;
+  dueAt: RelativeTime;
+  creator: number;
+  description: string;
+  content: string;
   modules: Module[];
 }
 
 export interface Group {
+  public: boolean;
   name: string;
   IAmMember: boolean;
   subgroups: Group[];
   members: Member[];
-  processes: Process[];
   chats: Chat[];
   tasks: Task[];
   appointments: Appointment[];
+  processes: Process[];
 }
