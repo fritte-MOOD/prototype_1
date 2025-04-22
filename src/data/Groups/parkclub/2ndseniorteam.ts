@@ -345,6 +345,48 @@ export const processes: Process[] = [
           },
         ]
       },
+      {
+        id: 12005,
+        type: 'Prioritize',
+        dueAt: { time: "18:00", distance: 40 },
+        description: "Prioritize defensive strategies",
+        content: "Rank the proposed defensive strategies based on their potential effectiveness and feasibility.",
+        Ideas: [
+          {
+            id: 120051,
+            createdAt: { time: "15:00", distance: -2 },
+            createdBy: 1200,
+            content: "Implement a high-pressure defensive system",
+            comments: [],
+            new: false,
+            supportedBy: [1201,1,1202],
+            rank: 92,
+            description: "A system that focuses on pressuring opponents high up the pitch to regain possession quickly.",
+          },
+          {
+            id: 120052,
+            createdAt: { time: "15:05", distance: -2 },
+            createdBy: 1201,
+            content: "Adopt a zonal marking system",
+            comments: [],
+            new: false,
+            supportedBy: [],
+            rank: 19,
+            description: "A defensive approach where players are responsible for specific areas rather than individual opponents.",
+          },
+          {
+            id: 120053,
+            createdAt: { time: "15:10", distance: -2 },
+            createdBy: 1201,
+            content: "Introduce a sweeper role",
+            comments: [],
+            new: false,
+            supportedBy: [],
+            rank: 38,
+            description: "Adding a player behind the main defensive line to provide additional cover and support.",
+          },
+        ]
+      },
     ]
   },
   {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Check } from 'lucide-react';
-import { useCheckbox } from '@/context/CheckboxesContext';
+import { useCheckbox } from '@/context/ContextFiles/CheckboxesContext';
 
 export const GroupCheckboxes: React.FC = () => {
   const { groups, groupStructure, toggleGroup, activateAll, deactivateAll} = useCheckbox();

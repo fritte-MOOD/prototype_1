@@ -5,7 +5,7 @@ import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { MessageCircle, Calendar, MessageSquareText, Shield, Gem, Home, Users, Pickaxe, UserRoundPen, CalendarDays, MessagesSquare, Globe, Key, LucideIcon, SquareCheckBig, Menu, Settings, Volleyball, X, Boxes, Box, Combine, File, BookOpenText, ChartNoAxesCombined, MessageCircleOff, BookKey } from "lucide-react";
 import { ButtonLandingPage } from "@/components/ButtonLandingPage"
 import { Heading } from "@/components/heading"
-import { useGroup } from "@/context/GroupContext";
+import { useGroup } from "@/context/ContextFiles/GroupContext";
 
 type ItemType = {
   title: string;

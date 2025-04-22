@@ -105,7 +105,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       <Navbar/>
       <div className="relative min-h-screen flex flex-col sm:flex-row bg-white overflow-hidden">
         {/* sidebar for desktop */}
-        <div className="hidden sm:block w-45 lg:w-64 border-r border-gray-100 p-6 h-full text-zinc-700 relative z-10">
+        <div className="hidden sm:block w-45 lg:w-64 border-r border-gray-100 p-6 h-full text-zinc-700 sticky z-10">
           <Sidebar />
         </div>
 

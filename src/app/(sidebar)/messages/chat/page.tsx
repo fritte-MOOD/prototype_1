@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useChat } from "@/context/ChatContext"
+import { useChat } from "@/context/ContextFiles/ChatContext"
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
 import { mockData } from "@/data/mockup"
 import FormattedDate from "@/components/FormattedDate"

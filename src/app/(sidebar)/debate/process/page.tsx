@@ -1,12 +1,12 @@
 'use client'
 
-import { useDebate } from "@/context/DebateContext"
-import { useMockup } from "@/context/MockupContext"
+import { useDebate } from "@/context/ContextFiles/DebateContext"
+import { useMockup } from "@/context/ContextFiles/MockupContext"
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
 import FormattedDate from "@/components/FormattedDate"
 import { CalculateDateTime } from '@/components/CalculateDateTime'
 import { useState } from 'react'
-import { ModuleContent } from '@/components/moduleContent'
+import { ModuleContent } from '@/components/ModuleContent/moduleContent'
 
 const DebatesPage = () => {
   const { debateId } = useDebate()

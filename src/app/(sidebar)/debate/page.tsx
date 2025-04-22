@@ -4,11 +4,11 @@ import { useState, useMemo, useEffect } from "react"
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
 import { GroupCheckboxes } from '@/components/GroupCheckboxes'
 import FormattedDate from '@/components/FormattedDate';
-import { useCheckbox } from '@/context/CheckboxesContext'
+import { useCheckbox } from '@/context/ContextFiles/CheckboxesContext'
 import { Message, Chat, Member, Group, RelativeTime, Process } from "@/data/interfaces"
 import { CalculateDateTime } from '@/components/CalculateDateTime';
-import { useMockup } from "@/context/MockupContext"
-import { useDebate } from "@/context/DebateContext"
+import { useMockup } from "@/context/ContextFiles/MockupContext"
+import { useDebate } from "@/context/ContextFiles/DebateContext"
 import { useRouter } from 'next/navigation'
 
 const DebatesPage = () => {

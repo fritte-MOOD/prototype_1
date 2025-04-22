@@ -1,9 +1,9 @@
-import { NameProvider } from "./NameContext";
-import { GroupProvider } from "./GroupContext";
-import { ChatProvider } from "./ChatContext";
-import { CheckboxProvider } from "./CheckboxesContext";
-import { MockupProvider } from "./MockupContext";
-import { DebateProvider } from "./DebateContext";
+import { NameProvider } from "./ContextFiles/NameContext";
+import { GroupProvider } from "./ContextFiles/GroupContext";
+import { ChatProvider } from "./ContextFiles/ChatContext";
+import { CheckboxProvider } from "./ContextFiles/CheckboxesContext";
+import { MockupProvider } from "./ContextFiles/MockupContext";
+import { DebateProvider } from "./ContextFiles/DebateContext";
 
 
 

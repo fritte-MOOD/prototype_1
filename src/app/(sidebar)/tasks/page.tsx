@@ -4,11 +4,11 @@ import { MaxWidthWrapper } from "@/components/max-width-wrapper"
 import { GroupCheckboxes } from "@/components/GroupCheckboxes"
 import { useMemo } from "react"
 import FormattedDate from "@/components/FormattedDate"
-import { useCheckbox } from '@/context/CheckboxesContext'
+import { useCheckbox } from '@/context/ContextFiles/CheckboxesContext'
 import { Circle, CheckCircle } from 'lucide-react'
 import { Task, Group } from "@/data/interfaces"
 import { CalculateDateTime } from '@/components/CalculateDateTime'
-import { useMockup } from "@/context/MockupContext"
+import { useMockup } from "@/context/ContextFiles/MockupContext"
 
 const TasksPage = () => {
   const { groups } = useCheckbox();

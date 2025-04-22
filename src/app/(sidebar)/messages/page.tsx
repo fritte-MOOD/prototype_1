@@ -3,13 +3,13 @@
 import { useState, useMemo, useEffect } from "react"
 import { useRouter } from 'next/navigation';
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
-import { useChat } from "@/context/ChatContext"
+import { useChat } from "@/context/ContextFiles/ChatContext"
 import { GroupCheckboxes } from '@/components/GroupCheckboxes'
 import FormattedDate from '@/components/FormattedDate';
-import { useCheckbox } from '@/context/CheckboxesContext'
+import { useCheckbox } from '@/context/ContextFiles/CheckboxesContext'
 import { Message, Chat, Member, Group, RelativeTime } from "@/data/interfaces"
 import { CalculateDateTime } from '@/components/CalculateDateTime';
-import { useMockup } from "@/context/MockupContext"
+import { useMockup } from "@/context/ContextFiles/MockupContext"
 
 const ChatsPage = () => {
   const router = useRouter();

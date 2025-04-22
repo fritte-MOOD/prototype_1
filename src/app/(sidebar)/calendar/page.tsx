@@ -6,9 +6,9 @@ import moment from 'moment'
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
 import { GroupCheckboxes } from '@/components/GroupCheckboxes'
-import { useCheckbox } from '@/context/CheckboxesContext'
+import { useCheckbox } from '@/context/ContextFiles/CheckboxesContext'
 import { CalculateDateTime } from '@/components/CalculateDateTime'
-import { useMockup } from "@/context/MockupContext"
+import { useMockup } from "@/context/ContextFiles/MockupContext"
 import { Appointment, Group } from "@/data/interfaces"
 
 const localizer = momentLocalizer(moment)

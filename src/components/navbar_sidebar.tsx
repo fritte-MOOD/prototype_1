@@ -4,8 +4,8 @@ import { MaxWidthWrapper } from "./max-width-wrapper";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Drama, Home, Volleyball, ChevronRight } from "lucide-react";
-import { useGroup } from "@/context/GroupContext";
-import { useCheckbox } from '@/context/CheckboxesContext';
+import { useGroup } from "@/context/ContextFiles/GroupContext";
+import { useCheckbox } from '@/context/ContextFiles/CheckboxesContext';
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);

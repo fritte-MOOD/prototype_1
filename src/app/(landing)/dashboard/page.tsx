@@ -1,8 +1,8 @@
 "use client";
 
-import { useName } from "@/context/NameContext";
-import { useGroup } from "@/context/GroupContext";
-import { useCheckbox } from "@/context/CheckboxesContext";
+import { useName } from "@/context/ContextFiles/NameContext";
+import { useGroup } from "@/context/ContextFiles/GroupContext";
+import { useCheckbox } from "@/context/ContextFiles/CheckboxesContext";
 import { Heading } from "@/components/heading";
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { ButtonLandingPage } from "@/components/ButtonLandingPage";

@@ -4,7 +4,7 @@ import { Heading } from "@/components/heading"
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
 import { Box } from "lucide-react"
 import { useRouter } from "next/navigation";
-import { useGroup } from "@/context/GroupContext";
+import { useGroup } from "@/context/ContextFiles/GroupContext";
 import { mockData } from "@/data/mockup";
 
 function getFutureDate(weeks: number): string {
