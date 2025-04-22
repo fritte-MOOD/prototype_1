@@ -131,7 +131,7 @@ export const processes: Process[] = [
       {
         id: 12001,
         type: 'Ideation',
-        dueAt: { time: "18:00", distance: 10 },
+        dueAt: { time: "18:00", distance: -10 },
         description: "Brainstorm defensive strategies",
         content: "Let's come up with new defensive formations and tactics.",
         Ideas: []
@@ -168,18 +168,10 @@ export const processes: Process[] = [
       {
         id: 12011,
         type: 'Brainstorming',
-        dueAt: { time: "18:00", distance: 5 },
+        dueAt: { time: "18:00", distance: -5 },
         description: "Fundraising ideas",
         content: "Let's brainstorm creative fundraising ideas for our campaign.",
         options: []
-      },
-      {
-        id: 12012,
-        type: 'Prioritize',
-        dueAt: { time: "18:00", distance: 20 },
-        description: "Prioritize fundraising activities",
-        content: "Rank the fundraising ideas based on feasibility and potential impact.",
-        Ideas: []
       },
       {
         id: 12013,
@@ -225,7 +217,16 @@ export const processes: Process[] = [
         description: "Resource allocation",
         content: "Estimate the resources needed to implement our youth integration strategy.",
         Ideas: []
-      }
+      },
+
+      {
+        id: 12024,
+        type: 'Prioritize',
+        dueAt: { time: "18:00", distance: 120 },
+        description: "Prioritize fundraising activities",
+        content: "Rank the fundraising ideas based on feasibility and potential impact.",
+        Ideas: []
+      },
     ]
   }
 ];
