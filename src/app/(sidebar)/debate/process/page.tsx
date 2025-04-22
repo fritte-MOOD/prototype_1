@@ -65,38 +65,35 @@ const DebatesPage = () => {
               </div>
             </div>
 
-            <div className="flex justify-center items-center mb-8 overflow-x-auto py-4">
-              {currentProcess.modules.map((module: any, index: number) => (
-                <div key={index} className="flex items-center">
-                  <button
-                    onClick={() => setSelectedModule(index)}
-                    className={`flex items-center justify-center h-16 px-6 text-lg font-bold transition-colors duration-200 shadow-md rounded-md ${
-                      selectedModule === index
-                        ? 'bg-brand-300 text-white'
-                        : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                    }`}
-                    style={{
-                      clipPath: 'polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%)',
-                      width: '200px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      paddingLeft: '20px',
-                      paddingRight: '40px',
-                    }}
-                  >
-                    <span className="text-center ml-[-10px]">{module.type}</span>
-                  </button>
-                  {index < currentProcess.modules.length - 1 && (
-                    <div className="w-8 h-1 bg-gray-300"></div>
-                  )}
-                </div>
-              ))}
-            </div>
+            <div className="relative mb-8">
+              <div className="flex justify-center items-end overflow-x-auto py-4">
+                {currentProcess.modules.map((module: any, index: number) => (
+                  <div key={index} className="flex items-center">
+                    <button
+                      onClick={() => setSelectedModule(index)}
+                      className={`flex items-center justify-center h-12 w-40 text-lg font-bold transition-all duration-200
+                        ${selectedModule === index
+                          ? 'bg-white text-gray-800 rounded-t-md shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),_4px_0_6px_-1px_rgba(0,0,0,0.1),_-4px_0_6px_-1px_rgba(0,0,0,0.1)] relative z-10'
+                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-md'
+                        }`}
+                    >
+                      <span className="text-center">{module.type}</span>
+                    </button>
+                    {index < currentProcess.modules.length - 1 && (
+                      <div className="flex items-center justify-center w-8 h-8 mx-2">
+                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
 
-            <div className="bg-white p-8 rounded-lg shadow-md">
               {selectedModule !== null && (
+                <div className="bg-white rounded-lg shadow-md p-8 -mt-[1px]">
                   <ModuleContent module={currentProcess.modules[selectedModule]} />
+                </div>
               )}
             </div>
           </>

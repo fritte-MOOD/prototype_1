@@ -4,6 +4,7 @@ export const members: Member[] = [
   { id: 1, name: "You" },
   { id: 1200, name: "Jane Smith" },
   { id: 1201, name: "Mike Johnson" },
+  { id: 1202, name: "Mickey kruger" },
 ];
 
 export const chats: Chat[] = [
@@ -134,7 +135,100 @@ export const processes: Process[] = [
         dueAt: { time: "18:00", distance: -10 },
         description: "Brainstorm defensive strategies",
         content: "Let's come up with new defensive formations and tactics.",
-        Ideas: []
+        Ideas: [
+          {
+            id: 120011,
+            createdAt: { time: "10:00", distance: -4 },
+            createdBy: 1200,
+            content: "Implement a high-pressure defensive system",
+            comments: [
+              {
+                id: 1200111,
+                createdAt: { time: "10:30", distance: -4 },
+                createdBy: 1203,
+                content: "This could work well with our fast defenders.",
+                comments: [
+                  {
+                    id: 12001111,
+                    createdAt: { time: "11:00", distance: -4 },
+                    createdBy: 1200,
+                    content: "Agreed, but we need to improve our stamina for this.",
+                    new: false,
+                    supportedBy: [1202],
+                    comments: [],
+                  },
+                ],
+                new: false,
+                supportedBy: [1201],
+              },
+              {
+                id: 1200112,
+                createdAt: { time: "11:15", distance: -4 },
+                createdBy: 1201,
+                content: "We should consider the risk of leaving spaces behind.",
+                new: false,
+                supportedBy: [1200, 1201],
+                comments: [],
+              },
+            ],
+            new: false,
+            supportedBy: [1200, 1201],
+            rank: 0,
+            description: "",
+          },
+          {
+            id: 120012,
+            createdAt: { time: "12:00", distance: -4 },
+            createdBy: 1201,
+            content: "Adopt a zonal marking system",
+            comments: [
+              {
+                id: 1200121,
+                createdAt: { time: "12:30", distance: -4 },
+                createdBy: 1202,
+                content: "This could help us maintain our shape better.",
+                comments: [
+                  {
+                    id: 12001211,
+                    createdAt: { time: "13:00", distance: -4 },
+                    createdBy: 1,
+                    content: "We'll need to work on our communication for this to be effective.",
+                    new: false,
+                    supportedBy: [1200, 1201],
+                    comments: [],
+                  },
+                ],
+                new: false,
+                supportedBy: [1200, 1201],
+              },
+            ],
+            new: false,
+            supportedBy: [1200, 1201],
+            rank: 0,
+            description: " is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+          },
+          {
+            id: 120013,
+            createdAt: { time: "14:00", distance: -4 },
+            createdBy: 1201,
+            content: "Introduce a sweeper role",
+            comments: [
+              {
+                id: 1200131,
+                createdAt: { time: "14:30", distance: -4 },
+                createdBy: 1,
+                content: "This could provide extra cover against fast counterattacks.",
+                new: false,
+                supportedBy: [1200, 1201],
+                comments: [],
+              },
+            ],
+            new: false,
+            supportedBy: [1200, 1201],
+            rank: 0,
+            description: "Description randommm",
+          },
+        ]
       },
       {
         id: 12002,
@@ -151,7 +245,106 @@ export const processes: Process[] = [
         description: "New strategy announcement",
         content: "Announce and explain the new defensive strategy to the team.",
         options: []
-      }
+      },
+      {
+        id: 12004,
+        type: 'Estimate',
+        dueAt: { time: "18:00", distance: 20 },
+        description: "Estimate impact of defensive strategies",
+        content: "Let's estimate the potential consequences of implementing each defensive strategy.",
+        Ideas: [
+          {
+            id: 120041,
+            createdAt: { time: "15:00", distance: -3 },
+            createdBy: 1200,
+            content: "Implement a high-pressure defensive system",
+            comments: [
+              {
+                id: 1200411,
+                createdAt: { time: "15:30", distance: -3 },
+                createdBy: 1203,
+                content: "Estimated 20% increase in ball recoveries, but 15% higher risk of player fatigue.",
+                new: false,
+                supportedBy: [1201],
+                comments: [],
+              },
+              {
+                id: 1200412,
+                createdAt: { time: "16:00", distance: -3 },
+                createdBy: 1201,
+                content: "Potential 30% reduction in opponent's possession time, but 25% increase in the risk of being caught out of position.",
+                new: false,
+                supportedBy: [1200],
+                comments: [],
+              },
+            ],
+            new: false,
+            supportedBy: [1200, 1201],
+            rank: 0,
+            description: "Estimate the impact of implementing a high-pressure defensive system.",
+          },
+          {
+            id: 120042,
+            createdAt: { time: "16:30", distance: -3 },
+            createdBy: 1201,
+            content: "Adopt a zonal marking system",
+            comments: [
+              {
+                id: 1200421,
+                createdAt: { time: "17:00", distance: -3 },
+                createdBy: 1202,
+                content: "Estimated 25% improvement in defensive shape, but 10% increase in the risk of losing individual battles.",
+                new: false,
+                supportedBy: [1200],
+                comments: [],
+              },
+              {
+                id: 1200422,
+                createdAt: { time: "17:30", distance: -3 },
+                createdBy: 1,
+                content: "Potential 15% reduction in goals conceded from set pieces, but 20% increase in the need for communication drills.",
+                new: false,
+                supportedBy: [1201],
+                comments: [],
+              },
+            ],
+            new: false,
+            supportedBy: [1200, 1201],
+            rank: 0,
+            description: "Estimate the consequences of adopting a zonal marking system.",
+          },
+          {
+            id: 120043,
+            createdAt: { time: "18:00", distance: -3 },
+            createdBy: 1201,
+            content: "Introduce a sweeper role",
+            comments: [
+              {
+                id: 1200431,
+                createdAt: { time: "18:30", distance: -3 },
+                createdBy: 1,
+                content: "Estimated 30% reduction in successful counterattacks against us, but 15% decrease in our midfield presence.",
+                new: false,
+                supportedBy: [1200, 1201],
+                comments: [],
+              },
+              {
+                id: 1200432,
+                createdAt: { time: "19:00", distance: -3 },
+                createdBy: 1200,
+                content: "Potential 20% improvement in defensive coverage, but 10% increase in the risk of offside traps failing.",
+                new: false,
+                supportedBy: [1201],
+                comments: [],
+              },
+            ],
+            new: false,
+            supportedBy: [1200, 1201],
+            rank: 0,
+            description: "Estimate the impact of introducing a sweeper role to our defensive strategy.",
+          },
+        ]
+      },
     ]
   },
   {
