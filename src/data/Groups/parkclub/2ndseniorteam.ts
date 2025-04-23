@@ -241,10 +241,41 @@ export const processes: Process[] = [
       {
         id: 12003,
         type: 'Announcement',
-        dueAt: { time: "18:00", distance: 60 },
-        description: "New strategy announcement",
-        content: "Announce and explain the new defensive strategy to the team.",
-        options: []
+        dueAt: { time: "", distance: 0 },
+        description: "",
+        content: "",
+        options: [
+          {
+            id: 120031,
+            new: false,
+            createdAt: { time: "09:00", distance: 0 },
+            createdBy: 1200,
+            supportedBy: [1201, 1202],
+            rank: 0,
+            description: "High-pressure defensive system implementation",
+            content: "After careful consideration and team voting, we have decided to implement a high-pressure defensive system for our upcoming matches. This strategy aligns well with our team's high energy style and is expected to increase ball recoveries by 20%. However, it may also increase the risk of player fatigue by 15%, so we'll be adjusting our training regimen accordingly. All players are expected to familiarize themselves with this new system before our next training session.",
+            comments: [
+              {
+                id: 1200311,
+                createdAt: { time: "10:30", distance: 0 },
+                createdBy: 1201,
+                content: "Great decision! When can we expect detailed instructions on our individual roles in this new system?",
+                new: true,
+                supportedBy: [1200, 1202],
+                comments: [],
+              },
+              {
+                id: 1200312,
+                createdAt: { time: "11:15", distance: 0 },
+                createdBy: 1,
+                content: "This is exciting! I suggest we have extra stamina training to prepare for the increased physical demands.",
+                new: true,
+                supportedBy: [1201],
+                comments: [],
+              }
+            ]
+          }
+        ]
       },
       {
         id: 12004,
@@ -406,15 +437,161 @@ export const processes: Process[] = [
         dueAt: { time: "18:00", distance: -5 },
         description: "Fundraising ideas",
         content: "Let's brainstorm creative fundraising ideas for our campaign.",
-        options: []
+        options: [
+          {
+            id: 120111,
+            createdAt: { time: "15:00", distance: -8 },
+            createdBy: 1200,
+            content: "Organize a charity football match",
+            comments: [
+              {
+                id: 1201111,
+                createdAt: { time: "15:30", distance: -8 },
+                createdBy: 1201,
+                content: "Great idea! We could invite local celebrities to participate.",
+                new: false,
+                supportedBy: [1, 1202],
+                comments: [],
+              },
+              {
+                id: 1201112,
+                createdAt: { time: "16:00", distance: -8 },
+                createdBy: 1,
+                content: "We should consider the costs of organizing such an event.",
+                new: false,
+                supportedBy: [1200],
+                comments: [],
+              },
+            ],
+            new: false,
+            supportedBy: [1200, 1201, 1202],
+            rank: 0,
+            description: "A charity match could attract a lot of attention and donations.",
+          },
+          {
+            id: 120112,
+            createdAt: { time: "16:30", distance: -7 },
+            createdBy: 1201,
+            content: "Launch a crowdfunding campaign",
+            comments: [
+              {
+                id: 1201121,
+                createdAt: { time: "17:00", distance: -7 },
+                createdBy: 1202,
+                content: "We could offer unique rewards for different donation levels.",
+                new: false,
+                supportedBy: [1200, 1],
+                comments: [],
+              },
+            ],
+            new: false,
+            supportedBy: [1200, 1],
+            rank: 0,
+            description: "Online crowdfunding could help us reach a wider audience.",
+          },
+          {
+            id: 120113,
+            createdAt: { time: "18:00", distance: -6 },
+            createdBy: 1,
+            content: "Host a sports equipment sale",
+            comments: [
+              {
+                id: 1201131,
+                createdAt: { time: "18:30", distance: -6 },
+                createdBy: 1200,
+                content: "We could ask for donations of used equipment from local sports shops.",
+                new: false,
+                supportedBy: [1201, 1202],
+                comments: [],
+              },
+              {
+                id: 1201132,
+                createdAt: { time: "19:00", distance: -6 },
+                createdBy: 1201,
+                content: "This could also help promote our club in the community.",
+                new: false,
+                supportedBy: [1, 1202],
+                comments: [],
+              },
+            ],
+            new: false,
+            supportedBy: [1200, 1201, 1202],
+            rank: 0,
+            description: "Selling sports equipment could attract both donations and potential new members.",
+          },
+        ]
       },
       {
         id: 12013,
         type: 'ExternalDecision',
         dueAt: { time: "18:00", distance: 40 },
         description: "Budget approval",
-        content: "Get approval from the club's board for our fundraising budget.",
-        options: []
+        content: "The club's board has reviewed our fundraising proposals and made decisions on budget allocations. Please review the options below for details on approved and rejected ideas, along with explanations for each decision.",
+        options: [
+          {
+            id: 120131,
+            new: false,
+            createdAt: { time: "14:00", distance: 0 },
+            createdBy: 1203, // Assuming 1203 is the ID for a board member
+            supportedBy: [1203, 1204, 1205], // Assuming these are other board members
+            rank: 1,
+            description: "Organize a charity football match",
+            content: "Approved with a budget of $5,000",
+            comments: [
+              {
+                id: 1201311,
+                createdAt: { time: "14:30", distance: 0 },
+                createdBy: 1203,
+                content: "This idea has great potential for both fundraising and community engagement. The celebrity angle could attract significant attention and donations. However, we need to carefully manage costs to ensure profitability.",
+                new: false,
+                supportedBy: [1204, 1205],
+                comments: [],
+              }
+            ]
+          },
+          {
+            id: 120132,
+            new: false,
+            createdAt: { time: "14:05", distance: 0 },
+            createdBy: 1203,
+            supportedBy: [1203, 1204],
+            rank: 2,
+            description: "Launch a crowdfunding campaign",
+            content: "Approved with a budget of $1,000 for marketing and rewards",
+            comments: [
+              {
+                id: 1201321,
+                createdAt: { time: "14:35", distance: 0 },
+                createdBy: 1203,
+                content: "A crowdfunding campaign is a cost-effective way to reach a wide audience. The budget will cover marketing efforts and the creation of unique rewards. We expect this to have a good return on investment.",
+                new: false,
+                supportedBy: [1204],
+                comments: [],
+              }
+            ]
+          },
+          {
+            id: 120133,
+            new: false,
+            createdAt: { time: "14:10", distance: 0 },
+            createdBy: 1203,
+            supportedBy: [],
+            rank: 3,
+            description: "Host a sports equipment sale",
+            content: "Not approved at this time",
+            comments: [
+              {
+                id: 1201331,
+                createdAt: { time: "14:40", distance: 0 },
+                createdBy: 1203,
+                content: "While this idea has merit for community engagement, we believe the logistical challenges and potential low profit margin make it less suitable for our current fundraising needs. We may reconsider this for future community events rather than as a primary fundraising activity.",
+                new: false,
+                supportedBy: [1204, 1205],
+                comments: [],
+              }
+            ]
+          }
+        ]
       }
     ]
   },
@@ -433,35 +610,112 @@ export const processes: Process[] = [
         id: 12021,
         type: 'Debate',
         dueAt: { time: "18:00", distance: 30 },
-        description: "Youth integration approach",
-        content: "Debate the pros and cons of different approaches to integrating youth players.",
-        options: []
-      },
-      {
-        id: 12022,
-        type: 'Vote',
-        dueAt: { time: "18:00", distance: 60 },
-        description: "Select integration strategy",
-        content: "Vote on the best strategy for integrating youth players into our team.",
-        options: []
-      },
-      {
-        id: 12023,
-        type: 'Estimate',
-        dueAt: { time: "18:00", distance: 90 },
-        description: "Resource allocation",
-        content: "Estimate the resources needed to implement our youth integration strategy.",
-        Ideas: []
-      },
+        description: "Capacity for New Players",
+        content: "Is there enough capacity to welcome new players into our senior team?",
+        options: [
+          {
+            id: 120211,
+            new: false,
+            createdAt: { time: "11:00", distance: -19 },
+            createdBy: 1200,
+            supportedBy: [1200, 1],
+            rank: 0,
+            description: "Yes",
+            content: "We have the resources and space to integrate new players into our senior team.",
+            comments: [
+              {
+                id: 1202111,
+                createdAt: { time: "11:30", distance: -19 },
+                createdBy: 1200,
+                content: "Our training facilities can accommodate more players without significant strain.",
+                new: false,
+                supportedBy: [1],
+                comments: [
+                  {
+                    id: 12021111,
+                    createdAt: { time: "12:00", distance: -19 },
+                    createdBy: 1,
+                    content: "We should consider expanding training hours to ensure quality time for all players.",
+                    new: false,
+                    supportedBy: [1200],
+                    comments: [],
+                  }
+                ],
+              },
+              {
+                id: 1202112,
+                createdAt: { time: "13:00", distance: -19 },
+                createdBy: 1,
+                content: "Integrating youth players can bring fresh energy and competition to the team.",
+                new: false,
+                supportedBy: [1201],
+                comments: [
+                  {
+                    id: 12021121,
+                    createdAt: { time: "13:30", distance: -19 },
+                    createdBy: 1201,
+                    content: "It could also help us develop a long-term strategy for team growth.",
+                    new: false,
+                    supportedBy: [1, 1200],
+                    comments: [],
+                  }
+                ],
+              }
+            ]
+          },
+          {
+            id: 120212,
+            new: false,
+            createdAt: { time: "11:15", distance: -19 },
+            createdBy: 1201,
+            supportedBy: [1201, 1202],
+            rank: 0,
+            description: "No",
+            content: "We currently don't have enough resources to properly integrate new players into the senior team.",
+            comments: [
+              {
+                id: 1202121,
+                createdAt: { time: "11:45", distance: -19 },
+                createdBy: 1201,
+                content: "Our coaching staff is already at full capacity with the current team size.",
+                new: false,
+                supportedBy: [1202],
+                comments: [
+                  {
+                    id: 12021211,
+                    createdAt: { time: "12:15", distance: -19 },
+                    createdBy: 1202,
+                    content: "We might need to hire additional coaching staff to properly support new players.",
+                    new: false,
+                    supportedBy: [1201],
+                    comments: [],
+                  }
+                ],
+              },
+              {
+                id: 1202122,
+                createdAt: { time: "13:15", distance: -19 },
+                createdBy: 1202,
+                content: "Integrating new players might disrupt the current team dynamics and chemistry.",
+                new: false,
+                supportedBy: [1201],
+                comments: [
+                  {
+                    id: 12021221,
+                    createdAt: { time: "13:45", distance: -19 },
+                    createdBy: 1,
+                    content: "While this is a concern, it's also an opportunity for the team to adapt and grow.",
+                    new: false,
+                    supportedBy: [1200],
+                    comments: [],
+                  }
+                ],
+              }
+            ]
+          }
+        ]
+      }
 
-      {
-        id: 12024,
-        type: 'Prioritize',
-        dueAt: { time: "18:00", distance: 120 },
-        description: "Prioritize fundraising activities",
-        content: "Rank the fundraising ideas based on feasibility and potential impact.",
-        Ideas: []
-      },
     ]
   }
 ];

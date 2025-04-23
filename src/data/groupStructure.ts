@@ -1,7 +1,7 @@
 import { Group } from './interfaces';
 
 
-/* ID Spaces:
+/* ID Spaces for Members, Chats, Tasks, Appointments, Processes:
 1000    "Park Club"
 1100    "Executive Committee"
 1200    "2nd Senior Team"
@@ -16,7 +16,19 @@ import { Group } from './interfaces';
 3100    "House 12"
 3200    "Handcrafts Friday"
 3300    "Shared Dinner"
+
+Attention: For Members always add Name: You with ID:1
 */
+
+/*
+Necessary inside the "options" for each module:
+- Ideation and Brainstorming: Everything except for rank. Rank=0
+- Estimate: Everything except for rank, supportedBy, createdBy, CreatedAt
+- Prioritize: Everything except for createdBy, CreatedAt, Rank is the total percentage from 1-100 and supportedBy means "this member gave this option the highest rank"
+- Vote: Everything except for createdBy, CreatedAt, Rank is the total votes from all users and supportedBy means "this member voted for this option"
+- Announcement: only one option with: ID, description, createdAt, content and comments. module's dueAt, description and content are left blank.
+- External decision: everything except for createdAt, createdAy, supportedBy
+ */
 
 
 const importGroupData = async (groupName: string) => {

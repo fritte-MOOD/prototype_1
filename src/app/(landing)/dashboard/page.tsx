@@ -35,6 +35,14 @@ export default function Dashboard() {
     <section className="relative py-24 sm:py-32 ">
       <MaxWidthWrapper className="text-center relative mx-auto flex flex-col items-center gap-10">
         <Heading>Welcome back, {name}</Heading>
+        <p className="text-xl text-gray-600  max-w-prose text-center text-pretty">
+          You are living in the small town of <span className="font-bold text-black">Rochefort</span>, <br/>
+          are an executive member of the local <span className="font-bold text-black">Sports Club</span> and <br/>
+          live in a community housing project named <span className="font-bold text-black">"Marin Quarter"</span>.
+        </p>
+        <p className="text-xl text-black  max-w-prose text-center text-pretty">
+          Take part in Your Groups:
+        </p>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div className="h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl">
             <div className="h-5/6">

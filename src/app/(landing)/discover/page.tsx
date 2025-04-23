@@ -43,7 +43,9 @@ export default function NameForm() {
           <div className="relative mx-auto text-center flex flex-col items-center gap-10">
             <Heading>Demo Platform</Heading>
             <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
-              Experience three groups: a Company, a Sportsclub and a Municipality. All content is exemplary and functions are not working! This is only a UI design.
+              Experience three groups: a Company, a Sportsclub and a Municipality. <br/>
+              All content is exemplary and some functions are not working yet! <br/>
+              This is only a UI design.
             </p>
 
             <div className="px-7 py-2.5">
