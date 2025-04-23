@@ -38,7 +38,7 @@ Note:
    For example, in "Park Club", ID 1001 could be both a message ID and a member ID.
 2. Always include a member with Name: "You" and ID: 1 in each group where the user is a member. The character description is this: "32, Political activist: welcoming, collaborative and empathetic, but assertive, concerned and strict."
 3. To use "Your" Name as saved in NameContext.tsx, type "USER" and it's going to be exchanged later. Never use USER inside number input such as "supportedBy" and "createdBy" fields.
-4. Never mention, that "You" is a political activist.
+4. Never mention, that "You" is a political activist. Always use they/them as You's pronoun.
 5. Always keep the same order of typescript types as defined in "interfaces.ts" file.
 6. Members always keep the same ID, even when they are in multiple groups or subgroups.
 7. Member's Names can be from any culture, but are mostly from european countries, and not so much from the US. Don't add ethnic background to the members, just use different names.

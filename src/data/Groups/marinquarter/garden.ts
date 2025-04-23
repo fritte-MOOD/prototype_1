@@ -36,5 +36,5 @@ export const chats: Chat[] = [];
 export const tasks: Task[] = [];
 export const appointments: Appointment[] = [];
 export const processes: Process[] = [];
-export const IAmMember = true;
+export const IAmMember = false;
 export const isPublic = true;

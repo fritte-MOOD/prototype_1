@@ -1,8 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useState,  useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { mockData } from '@/data/mockup';
-
 
 interface GroupCheckbox {
   name: string;
@@ -46,7 +45,6 @@ export const CheckboxProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       // Wait for mockData to be populated
       await new Promise(resolve => setTimeout(resolve, 0));
 
-
       const newGroups: GroupCheckbox[] = [];
       const newGroupStructure: GroupStructure[] = [];
 
@@ -54,15 +52,16 @@ export const CheckboxProvider: React.FC<{ children: React.ReactNode }> = ({ chil
         newGroups.push({ name: mainGroup.name, checked: true });
         const subgroups: string[] = [];
         mainGroup.subgroups.forEach(subgroup => {
-          newGroups.push({ name: subgroup.name, checked: true });
-          subgroups.push(subgroup.name);
+          if (subgroup.IAmMember) {
+            newGroups.push({ name: subgroup.name, checked: true });
+            subgroups.push(subgroup.name);
+          }
         });
         newGroupStructure.push({ name: mainGroup.name, subgroups });
       });
 
       setGroups(newGroups);
       setGroupStructure(newGroupStructure);
-
     };
 
     initializeData();

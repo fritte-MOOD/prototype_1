@@ -27,6 +27,31 @@ const ChatsPage = () => {
     return CalculateDateTime(relativeTime.time, relativeTime.distance);
   };
 
+  const chatMembersMap = useMemo(() => {
+    const membersMap = new Map<number, Member[]>();
+    mockData.forEach(group => {
+      group.chats.forEach(chat => {
+        const chatMembers = group.members.filter(member => chat.members.includes(member.id));
+        membersMap.set(chat.id, chatMembers);
+      });
+      group.subgroups.forEach(subgroup => {
+        subgroup.chats.forEach(chat => {
+          const chatMembers = subgroup.members.filter(member => chat.members.includes(member.id));
+          if (membersMap.has(chat.id)) {
+            const existingMembers = membersMap.get(chat.id)!;
+            const newMembers = chatMembers.filter(member => 
+              !existingMembers.some(existingMember => existingMember.id === member.id)
+            );
+            membersMap.set(chat.id, existingMembers.concat(newMembers));
+          } else {
+            membersMap.set(chat.id, chatMembers);
+          }
+        });
+      });
+    });
+    return membersMap;
+  }, [mockData]);
+
   const sortedAndFilteredChats = useMemo(() => {
     const filteredChats = mockData
       .flatMap((group: Group) => {
@@ -72,10 +97,17 @@ const ChatsPage = () => {
             <div className="space-y-4">
               {sortedAndFilteredChats.map(({ groupName, chat }, index) => {
                 const lastMessage = chat.messages[chat.messages.length - 1];
-                const chatMembers = mockData
-                  .flatMap(group => [...group.members, ...group.subgroups.flatMap(subgroup => subgroup.members)])
-                  .filter(member => chat.members.includes(member.id));
-                const memberNames = chatMembers.map(member => member.name).join(', ');
+                const chatMembers = chatMembersMap.get(chat.id) || [];
+
+                // New code for displaying member names
+                let memberNames;
+                if (chatMembers.length <= 3) {
+                  memberNames = chatMembers.map(member => member.name).join(', ');
+                } else {
+                  const firstThreeNames = chatMembers.slice(0, 3).map(member => member.name).join(', ');
+                  memberNames = `${firstThreeNames} + ${chatMembers.length - 3} more`;
+                }
+
                 const hasNewMessages = chat.messages.some(message => message.new);
                 return (
                   <div 

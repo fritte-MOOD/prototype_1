@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useChat } from "@/context/ContextFiles/ChatContext"
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
 import FormattedDate from "@/components/FormattedDate"
@@ -14,6 +14,7 @@ const ChatPage = () => {
   const [chatGroup, setChatGroup] = useState<string>("")
   const [chatMembers, setChatMembers] = useState<Member[]>([])
   const mockData = useMockup()
+  const messageContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (chatId) {
@@ -45,6 +46,12 @@ const ChatPage = () => {
     }
   }, [chatId, mockData])
 
+  useEffect(() => {
+    if (messageContainerRef.current) {
+      messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
+    }
+  }, [currentChat]);
+
   return (
     <section className="relative py-24 sm:py-32">
       <MaxWidthWrapper>
@@ -66,7 +73,7 @@ const ChatPage = () => {
 
               {/* Right side - Chat messages */}
               <div className="w-full md:w-3/4 md:pl-4 flex flex-col h-[600px]">
-                <div className="flex-grow overflow-y-auto mb-4 space-y-4">
+                <div ref={messageContainerRef} className="flex-grow overflow-y-auto mb-4 space-y-4">
                   {currentChat.messages.map((message: Message, index: number) => {
                     const isCurrentUser = message.sentBy === 1;
                     const senderName = isCurrentUser ? "You" : chatMembers.find(member => member.id === message.sentBy)?.name || "Unknown";
