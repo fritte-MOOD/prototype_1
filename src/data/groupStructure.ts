@@ -25,8 +25,13 @@ import { Group } from './interfaces';
 3000-3099    All Groups of Marin Quarter
    3000-3099    "Marin Quarter"
    3100-3199    "House 13"
-   3200-3299    "Handcrafts Friday"
+   3200-3299    "Handcrafts"
    3300-3399    "Shared Dinner"
+   3400-3499    rest of the Houses: "House 1", "House 2", "House 11", "House 12", "House 21", "House 22", "House 23"
+   3500-3599    "Board"
+   3600-3699    "Childcare"
+   3700-3799    "Building"
+   3800-3899    "Garden"
 
 Note:
 1. IDs are unique within each group/subgroup, but can be reused across different entity types.
@@ -114,10 +119,20 @@ export const getGroupStructure = async (): Promise<Group[]> => {
       "Sports in Rochefort"
     ]),
     createGroup("Marin Quarter", true, true, [
+      "House 1",
+      "House 2",
+      "House 11",
       "House 12",
-      "Handcrafts Friday",
+      "House 13",
+      "House 21",
+      "House 22",
+      "House 23",
+      "Handcrafts",
       "Shared Dinner",
-      "House 13"
+      "Board",
+      "Childcare",
+      "Building",
+      "Garden"
     ])
   ]);
 };
