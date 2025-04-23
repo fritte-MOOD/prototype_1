@@ -53,9 +53,6 @@ export const Navbar = () => {
                         <span className="text-brand-300">/</span>MOOD
                     </div>
 
-                    {/* Debug output */}
-                    <div>Current Group: {groupName}</div>
-
                     {/* Navigation */}
                     <div className="flex gap-4">
                         {/* Dropdown-Menü für Groups */}

@@ -11,21 +11,30 @@ const Page = () => {
       <section className="relative py-24 sm:py-32 bg-brand-25">
         <MaxWidthWrapper className="text-center relative mx-auto flex flex-col items-center gap-10">
 
-          <Heading>Freedom entails Responsibility</Heading>
+          <Heading className="text-gray-600">Be one Cell of the Brain!</Heading>
 
-          <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
-            Engage, Deliberate and Participate in your group and make decisions meaningful.
+          <p className="text-xl text-black  max-w-prose text-center text-pretty">
+            Freedom entails Responsibility:
+            Engage, Deliberate and Participate in your Group and make Decisions meaningful.
           </p>
           
           <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
-            This tool will help you monitor your voted decisionmakers, give and receive Feedback. Be constructive as a group, create trust and minimize effort for the discussion of goals or strategies.
+            This tool will help you and your group to give and receive feedback, organize discussions and monitor your voted decision makers. Be constructive as a group, create trust and minimize the effort of discussing goals and strategies.
+          </p>
+
+          <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
+            Enhance the workflow of your team or group such as:
           </p>
 
           <ul className="space-y-2 text-base/7 text-gray-600 text-left flex flex-col item-start">
             {[
-              "Three Example Groups",
-              "All Functions presented",
-              "Expressive Decision Processes",
+              "Sports Clubs",
+              "Municipalities",
+              "Communities",
+              "Education Institutions",
+              "Non-Profit Organizations",
+              "Companies",
+              "And More! ...Maybe Families? Or Political Parties? "
             ].map((item, index) => 
             (
               <li key={index} className="flex gap_1.5 items-center text-left">

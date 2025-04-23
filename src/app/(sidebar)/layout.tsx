@@ -37,7 +37,7 @@ const SIDEBAR_ITEMS: SidebarCategory[] = [
       { href: "/calendar", icon: CalendarDays, text: "Calendar" },
       { href: "/tasks", icon: SquareCheckBig, text: "Tasks" },
       { href: "/messages", icon: MessageSquareText, text: "Messages" },
-      { href: "/documents", icon: File, text: "Documents" }
+      { href: "", icon: File, text: "Documents" }
     ],
   },
 
@@ -45,10 +45,10 @@ const SIDEBAR_ITEMS: SidebarCategory[] = [
   {
     category: "Components",
     items: [
-      { href: "/knowledgeHub", icon: BookOpenText, text: "Knowledge Hub" },
-      { href: "/analyzeTools", icon: ChartNoAxesCombined, text: "Analyze Tools" },
-      { href: "/moderate", icon: Shield, text: "Moderate" },
-      { href: "/administrate", icon: BookKey, text: "Administrate" },
+      { href: "", icon: BookOpenText, text: "Knowledge Hub" },
+      { href: "", icon: ChartNoAxesCombined, text: "Analyze Tools" },
+      { href: "", icon: Shield, text: "Moderate" },
+      { href: "", icon: BookKey, text: "Administrate" },
     ],
   },
 

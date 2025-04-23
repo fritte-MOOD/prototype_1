@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { CalculateDateTime } from '@/components/CalculateDateTime';
 import FormattedDate from '@/components/FormattedDate';
-import { useMockup } from '@/context/ContextFiles/MockupContext';
 import PrioritizeSection from "./PrioritizeSection"
 import IdeationSection from "./IdeationSection"
 import EstimateSection from "./EstimateSection"
+import VoteSection from "./VoteSection"
+import DebateSection from "./DebateSection"
+import ExternalDecisionSection from "./ExternalDecisionSection"
+import BrainstormingSection from "./BrainstormingSection"
+import AnnouncementSection from "./AnnouncementSection"
 
 import {
   IdeationModule,
@@ -54,38 +58,15 @@ export const ModuleContent: React.FC<ModuleContentProps> = ({ module }) => {
     case 'Prioritize':
       return <PrioritizeSection module={module} />;
     case 'Vote':
+      return <VoteSection module={module} />;
     case 'Debate':
-      return (
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Debate Module</h3>
-          <p>{module.description}</p>
-          {/* Add more debate-specific content here */}
-        </div>
-      )
+      return <DebateSection module={module} />;
     case 'ExternalDecision':
-      return (
-        <div>
-          <h3 className="text-xl font-semibold mb-2">External Decision Module</h3>
-          <p>{module.description}</p>
-          {/* Add more external decision-specific content here */}
-        </div>
-      )
+      return <ExternalDecisionSection module={module} />;
     case 'Brainstorming':
-      return (
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Brainstorming Module</h3>
-          <p>{module.description}</p>
-          {/* Add more brainstorming-specific content here */}
-        </div>
-      )
+      return <BrainstormingSection module={module} />;
     case 'Announcement':
-      return (
-        <div>
-          <h3 className="text-xl font-semibold mb-2">Announcement Module</h3>
-          <p>{module.description}</p>
-          {/* Add more announcement-specific content here */}
-        </div>
-      )
+      return <AnnouncementSection module={module} />;
     default:
       return <p>Unknown module type</p>
   }
