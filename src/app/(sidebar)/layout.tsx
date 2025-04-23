@@ -6,9 +6,7 @@ import { cn } from "@/utils"
 import { Gem, Home, MessageSquareText, Users, Pickaxe, Shield, UserRoundPen, CalendarDays, MessagesSquare, Globe, Key, LucideIcon,SquareCheckBig, Menu, Settings,Volleyball, X, Boxes, Box, Combine, File, BookOpenText, ChartNoAxesCombined, MessageCircleOff, BookKey} from "lucide-react"
 import Link from "next/link"
 import { PropsWithChildren, useState } from "react"
-import { Drawer } from "vaul"
 import { Navbar } from "@/components/navbar_sidebar"
-import { ContextProvider } from "@/context/ContextProvider"
 
 interface SidebarItem {
   href: string
@@ -101,15 +99,17 @@ const Layout = ({ children }: PropsWithChildren) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   return (
-    <>
-      <Navbar/>
-      <div className="relative min-h-screen flex flex-col sm:flex-row bg-white overflow-hidden">
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <div className="flex flex-1">
         {/* sidebar for desktop */}
-        <div className="hidden sm:block w-45 lg:w-64 border-r border-gray-100 p-6 h-full text-zinc-700 sticky z-10">
-          <Sidebar />
+        <div className="hidden sm:block w-45 lg:w-64 flex-shrink-0">
+          <div className="fixed top-14 bottom-0 w-45 lg:w-64 overflow-y-auto border-r border-gray-100 p-6">
+            <Sidebar />
+          </div>
         </div>
 
-        <div className="flex-1 flex flex-col overflow-hidden">
+        <div className="flex-1 flex flex-col min-h-0">
           {/* mobile header */}
           <div className="sm:hidden h-14 flex items-center justify-between px-[26px] width-full border-b border-gray-200">
             <Link href="/" className="flex z-40 font-bold text-lg">
@@ -124,14 +124,8 @@ const Layout = ({ children }: PropsWithChildren) => {
           </div>
 
           {/* main content area */}
-          <div className="flex-1 overflow-y-auto bg-brand-25 shadow-md p-4 md:p-6 relative z-10">
-            <div className="relative min-h-full flex flex-col">
-              <div className="h-full flex flex-col flex-1 space-y-4">
-
-                  {children}
-
-                </div>
-            </div>
+          <div className="flex-1 overflow-y-auto bg-brand-25 shadow-md p-4 md:p-6">
+            {children}
           </div>
 
           <Modal
@@ -154,7 +148,7 @@ const Layout = ({ children }: PropsWithChildren) => {
           </Modal>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

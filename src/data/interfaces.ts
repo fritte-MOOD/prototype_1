@@ -128,7 +128,7 @@ export interface Process {
 }
 
 export interface Group {
-  public: boolean;
+  isPublic: boolean;
   name: string;
   IAmMember: boolean;
   subgroups: Group[];

@@ -1,27 +1,46 @@
 import { Group } from './interfaces';
 
+// Some hints when generating content:
 
-/* ID Spaces for Members, Chats, Tasks, Appointments, Processes:
-1000    "Park Club"
-1100    "Executive Committee"
-1200    "2nd Senior Team"
-1300    "Construction Committee"
-1400    "Training Organization"
 
-2000    "Rochefort"
-2100    "Parents of Rochefort"
-2200    "Sports in Rochefort"
+/* These are the ID Spaces for ALL entities (messages, tasks, etc.):
+   Each group and subgroup can use IDs within its designated range for any entity type.
+   The same ID can be used for different entity types within a group/subgroup.
+   Members always keep the same ID, even when they are in multiple groups or subgroups.
+   Member's Names can be from any culture, but are mostly from european countries, and not so much from the US.
+   Don't add ethnic background to the names.
 
-3000    "Marin Quarter"
-3100    "House 12"
-3200    "Handcrafts Friday"
-3300    "Shared Dinner"
+1000-1999    All Groups of Park Club
+   1000-1099    "Park Club"
+   1100-1199    "Executive Committee"
+   1200-1299    "2nd Senior Team"
+   1300-1399    "Construction Committee"
+   1400-1499    "Training Organization"
 
-Attention: For Members always add Name: You with ID:1
+2000-2999    All Groups of Rochefort
+   2000-2099    "Rochefort"
+   2100-2199    "Parents of Rochefort"
+   2200-2299    "Sports in Rochefort"
+
+3000-3099    All Groups of Marin Quarter
+   3000-3099    "Marin Quarter"
+   3100-3199    "House 13"
+   3200-3299    "Handcrafts Friday"
+   3300-3399    "Shared Dinner"
+
+Note:
+1. IDs are unique within each group/subgroup, but can be reused across different entity types.
+   For example, in "Park Club", ID 1001 could be both a message ID and a member ID.
+2. Always include a member with Name: "You" and ID: 1 in each group where the user is a member. The character description is this: "32, Political activist: welcoming, collaborative and empathetic, but assertive, concerned and strict."
+3. To use "Your" Name as saved in NameContext.tsx, type "USER" and it's going to be exchanged later. Never use USER inside number input such as "supportedBy" and "createdBy" fields.
+4. Never mention, that "You" is a political activist.
+5. Always keep the same order of typescript types as defined in "interfaces.ts" file.
+6. Members always keep the same ID, even when they are in multiple groups or subgroups.
+7. Member's Names can be from any culture, but are mostly from european countries, and not so much from the US. Don't add ethnic background to the members, just use different names.
 */
 
 /*
-Necessary inside the "options" for each module:
+Necessary inside the "options" for each module: (unnecessary ones are left empty, but need to be added nonetheless)
 - Ideation and Brainstorming: Everything except for rank. Rank=0
 - Estimate: Everything except for rank, supportedBy, createdBy, CreatedAt
 - Prioritize: Everything except for createdBy, CreatedAt, Rank is the total percentage from 1-100 and supportedBy means "this member gave this option the highest rank"
@@ -59,7 +78,7 @@ const createGroup = async (name: string, IAmMember: boolean, isPublic: boolean, 
     return {
       name: subgroupName,
       IAmMember: subgroupData.IAmMember,
-      public: subgroupData.public,
+      isPublic: subgroupData.public,
       subgroups: [],
       members: subgroupData.members || [],
       processes: subgroupData.processes || [],
@@ -72,7 +91,7 @@ const createGroup = async (name: string, IAmMember: boolean, isPublic: boolean, 
   return {
     name,
     IAmMember,
-    public: isPublic,
+    isPublic: isPublic,
     subgroups,
     members: groupData.members || [],
     processes: groupData.processes || [],
@@ -97,7 +116,8 @@ export const getGroupStructure = async (): Promise<Group[]> => {
     createGroup("Marin Quarter", true, true, [
       "House 12",
       "Handcrafts Friday",
-      "Shared Dinner"
+      "Shared Dinner",
+      "House 13"
     ])
   ]);
 };

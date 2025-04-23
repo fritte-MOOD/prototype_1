@@ -3,16 +3,17 @@
 import { useState, useEffect } from "react"
 import { useChat } from "@/context/ContextFiles/ChatContext"
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
-import { mockData } from "@/data/mockup"
 import FormattedDate from "@/components/FormattedDate"
 import { CalculateDateTime } from '@/components/CalculateDateTime'
 import { Chat, Message, Member, Group } from "@/data/interfaces"
+import { useMockup } from "@/context/ContextFiles/MockupContext"
 
 const ChatPage = () => {
   const { chatId } = useChat()
   const [currentChat, setCurrentChat] = useState<Chat | null>(null)
   const [chatGroup, setChatGroup] = useState<string>("")
   const [chatMembers, setChatMembers] = useState<Member[]>([])
+  const mockData = useMockup()
 
   useEffect(() => {
     if (chatId) {
@@ -42,7 +43,7 @@ const ChatPage = () => {
       setChatGroup(foundGroup);
       setChatMembers(foundMembers);
     }
-  }, [chatId])
+  }, [chatId, mockData])
 
   return (
     <section className="relative py-24 sm:py-32">
