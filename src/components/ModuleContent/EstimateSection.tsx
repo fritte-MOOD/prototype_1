@@ -40,14 +40,14 @@ const EstimateSection: React.FC<EstimateSectionProps> = ({ module }) => {
 
       <div className="flex justify-end mb-4">
         <button
-          onClick={() => setExpandedIdeas(expandedIdeas.length === module.Ideas.length ? [] : module.Ideas.map(idea => idea.id))}
+          onClick={() => setExpandedIdeas(expandedIdeas.length === module.options.length ? [] : module.options.map(idea => idea.id))}
           className="bg-brand-300 text-white px-4 py-2 rounded hover:bg-brand-400 transition-colors"
         >
-          {expandedIdeas.length === module.Ideas.length ? 'Collapse All' : 'Expand All'}
+          {expandedIdeas.length === module.options.length ? 'Collapse All' : 'Expand All'}
         </button>
       </div>
       <h3 className="text-2xl font-semibold mb-2">Estimate potential Consequences:</h3>
-      {module.Ideas.map((idea) => (
+      {module.options.map((idea) => (
         <div
           key={idea.id}
           className="bg-white border border-brand-300 shadow-md rounded-lg mb-6"

@@ -88,16 +88,14 @@ example for formatting:
                                 {id: 3501111,
                                 createdAt: { time: "15:30", distance: -2 }, createdBy: 3450,new: false, supportedBy: [3112, 3469, 1], comments: [],
                                 content: "Great idea! I can share some authentic recipes from my nonna."}, ...and so on...
-*/
 
-/*
-Necessary inside the "options" for each module: (unnecessary ones are left empty, but need to be added nonetheless)
+For the Modules: (unnecessary types need to be left empty, but need to be added nonetheless)
 - Ideation and Brainstorming: Everything except for rank. Rank=0
 - Estimate: Everything except for rank, supportedBy, createdBy, CreatedAt
 - Prioritize: Everything except for createdBy, CreatedAt, Rank is the total percentage from 1-100 and supportedBy means "this member gave this option the highest rank"
 - Vote: Everything except for createdBy, CreatedAt, Rank is the total votes from all users and supportedBy means "this member voted for this option"
 - Announcement: only one option with: ID, description, createdAt, content and comments. module's dueAt, description and content are left blank.
-- External decision: everything except for createdAt, createdAy, supportedBy
+- External decision: everything except for createdAt, createdAy, supportedBy. An options content is either "approved" or "denied" and the Comments on the options are the explanation from the decision maker, why something was approved or denied.
  */
 
 
