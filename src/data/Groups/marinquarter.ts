@@ -18,7 +18,7 @@
 //   You are a Member of: House 13, handcrafts and shared dinner
 //
 //   Childcare: some of each house, topics are: guidelines for the discipline of kids in common spaces, birthday parties, shared childcare, doing their homework together on the afternoons, going to the park together etc...
-//   Handcrafts: some of each house: make reservation for the workshop, buying new material, helping each other with machines and skills. Organization: one gets elected as the boss and makes the rules.
+//   Handcrafts: some of each house: make reservation for the workshop, buying new material, helping each other with machines and skills. Organization: one gets elected as the boss (currently Elisa Moretti) and makes the rules.
 //   Shared Dinner: once a month there is a shared dinner and everyone who wants to parttake can be in this group and here its organized, who brings what.
 //   Board: consists of on representative of each house, that get elected inside the houses subgroup and 3 executive members, that get elected by the whole Main group. They take care of communal money and how to spend it. They decide next steps in building and how the maintenance is done. They also publish policies and penaltys for everyone.
 //   Building: planing and executing the boards decisions for contructions

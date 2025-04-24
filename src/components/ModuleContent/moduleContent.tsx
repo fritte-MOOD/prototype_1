@@ -46,7 +46,7 @@ export const ModuleContent: React.FC<ModuleContentProps> = ({ module }) => {
 
   useEffect(() => {
     if (module.type === 'Prioritize') {
-      setPreferences(module.Ideas.reduce((acc, idea) => ({ ...acc, [idea.id]: 50 }), {}));
+      setPreferences(module.options.reduce((acc, idea) => ({ ...acc, [idea.id]: 50 }), {}));
     }
   }, [module]);
 

@@ -6,12 +6,14 @@ import { useRouter } from "next/navigation";
 import { Drama, Home, Volleyball, ChevronRight } from "lucide-react";
 import { useGroup } from "@/context/ContextFiles/GroupContext";
 import { useCheckbox } from '@/context/ContextFiles/CheckboxesContext';
+import { useName } from '@/context/ContextFiles/NameContext';
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter();
     const { groupName, setGroupName } = useGroup();
     const { groupStructure, activateMainAndSubs, activateOnlySub } = useCheckbox();
+    const { name, setName } = useName();
 
     const handleGroupClick = (newGroupName: string) => {
         setGroupName(newGroupName);
@@ -44,6 +46,11 @@ export const Navbar = () => {
         }
     };
 
+    const toggleName = () => {
+        const newName = name === "Fritz Schmack" ? "Arbnora Kokollari" : "Fritz Schmack";
+        setName(newName);
+    };
+
     return (
         <nav className="hidden sm:block sticky z-[100] h-14 px-4 top-0 width-full border-b border-gray-200 bg-white backdrop-blur-lg">
             <MaxWidthWrapper>
@@ -52,6 +59,14 @@ export const Navbar = () => {
                     <div onClick={() => router.push("/")} className="h-14 flex items-center font-bold text-lg cursor-pointer">
                         <span className="text-brand-300">/</span>MOOD
                     </div>
+
+                    {/* Toggle name button */}
+                    <button
+                        onClick={toggleName}
+                        className="h-10 px-4 bg-brand-300 text-white rounded-md hover:bg-brand-400 transition-colors"
+                    >
+                        Switch to {name === "Fritz Schmack" ? "Arbnora Kokollari" : "Fritz Schmack"}
+                    </button>
 
                     {/* Navigation */}
                     <div className="flex gap-4">

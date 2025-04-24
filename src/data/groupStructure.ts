@@ -33,15 +33,61 @@ import { Group } from './interfaces';
    3700-3799    "Building"
    3800-3899    "Garden"
 
-Note:
-1. IDs are unique within each group/subgroup, but can be reused across different entity types.
-   For example, in "Park Club", ID 1001 could be both a message ID and a member ID.
-2. Always include a member with Name: "You" and ID: 1 in each group where the user is a member. The character description is this: "32, Political activist: welcoming, collaborative and empathetic, but assertive, concerned and strict."
-3. To use "Your" Name as saved in NameContext.tsx, type "USER" and it's going to be exchanged later. Never use USER inside number input such as "supportedBy" and "createdBy" fields.
-4. Never mention, that "You" is a political activist. Always use they/them as You's pronoun.
-5. Always keep the same order of typescript types as defined in "interfaces.ts" file.
-6. Members always keep the same ID, even when they are in multiple groups or subgroups.
-7. Member's Names can be from any culture, but are mostly from european countries, and not so much from the US. Don't add ethnic background to the members, just use different names.
+General:
+-   Always keep the same order of typescript types as defined in "interfaces.ts" file.
+
+Members:
+-   IDs are unique within each group/subgroup, but can be reused across different entity types.
+    For example, in "Park Club", ID 1001 could be both a message ID and a member ID.
+-   Always include a member with Name: "You" and ID: 1 in each group where the user is a member. The character description is this: "32, Political activist: welcoming, collaborative and empathetic, but assertive, concerned and strict."
+-   To use "Your" Name as saved in NameContext.tsx, type "USER" and it's going to be exchanged later. Never use USER inside number input such as "supportedBy" and "createdBy" fields.
+-   Never mention, that "You" is a political activist. Always use they/them as You's pronoun.
+-   Members always keep the same ID, even when they are in multiple groups or subgroups.
+-   Member's Names can be from any culture, but are mostly from european countries, and not so much from the US. Don't add ethnic background to the members, just use different names.
+
+example for formatting:
+        { id: 1, name: "You" }, // Your character: 32, Political activist, welcoming, collaborative and empathetic, but assertive, concerned and strict.
+
+        //House 1 (or other subgroup)
+        { id: 3401, name: "Alex Chen" }, // 22, Engineering student, loves tinkering with electronics, organizes house parties
+        { id: 3402, name: "Dmitri Volkov" }, // 24, Physics PhD student, quiet but brilliant, enjoys stargazing
+
+        //House 2 (or other subgroup)
+        { id: 3501, name: "Lisa Lee" }, // 23, Art student, loves painting, organizes art exhibitions
+        { id: 3502, name: "Michael Baker" }, // 25, History PhD student, quiet but brilliant, enjoys reading historical books
+
+amd so on...
+
+Messages:
+- Keep them realistic, can also be funny occasionally. Don't stay too polite all the time and don't write unnecessarily long messages. Some users can be polite, some a little more direct, some are practical. You can check the characteristics in the "Members" section of each group.
+- Chats start somewhere in the last 12 months, so distance is 1-365.
+- As direct reference to "You" use USER and the name will be exchanged later.
+
+example for formatting:
+        {new: false, at: { time: "09:00", distance: -30 }, sentBy: 3457, supportedBy: [3473],
+        content: "Morning everyone! Just updated the workshop rules in the Documents area. Please take a look when you get a chance. Let me know if you have any questions." },
+
+Tasks:
+example for formatting:
+        { id: 3501, done: true, dueAt: { time: "09:00", distance: -365 }, assignedBy: 3457,
+        description: "Workshop Cleaning Duty", content: "Deep clean the workshop area, including organizing tools, wiping down surfaces, and ensuring all equipment is in its designated place. Pay special attention to the painting area and shared workbenches." },
+
+Processes:
+
+example for formatting:
+  {id: 3501, new: true, public: true, active: true, createdAt: { time: "14:30", distance: -2 }, dueAt: { time: "20:00", distance: 5 }, creator: 3112, description: "Collecting Ideas for Next Dinner Themes",
+  content: "Let's brainstorm some exciting themes for our upcoming shared dinners. Feel free to suggest any cuisine, cultural theme, or unique concept you'd like to explore. Don't forget to comment on others' ideas if you like them or have something to add!",
+  modules: [
+            {id: 35011, type: 'Ideation', dueAt: { time: "20:00", distance: 5 }, description: "Dinner Theme Ideas",
+            content: "Share your ideas for dinner themes and comment on others' suggestions.",
+            Ideas: [
+                    {id: 350111,
+                    createdAt: { time: "15:00", distance: -2 }, createdBy: 3112,  new: false, supportedBy: [3450, 3469, 3101, 1, 3419], rank: 0, description: "Italian Night",
+                    content: "Italian Night",
+                    comments: [
+                                {id: 3501111,
+                                createdAt: { time: "15:30", distance: -2 }, createdBy: 3450,new: false, supportedBy: [3112, 3469, 1], comments: [],
+                                content: "Great idea! I can share some authentic recipes from my nonna."}, ...and so on...
 */
 
 /*

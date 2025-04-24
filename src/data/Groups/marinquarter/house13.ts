@@ -112,7 +112,7 @@ export const processes: Process[] = [
         dueAt: { time: "20:00", distance: -5 },
         description: "Nominate Candidates for Board Representative",
         content: "Please nominate candidates (including self-nominations) for the position of House 13 Board Representative.",
-        Ideas: [
+        options: [
           {
             id: 320111,
             createdAt: { time: "15:00", distance: -7 },
@@ -132,7 +132,7 @@ export const processes: Process[] = [
             new: false,
             supportedBy: [3105, 3107, 3113],
             rank: 0,
-            description: "Nomination for Catalina Popescu",
+            description: "Catalina Popescu",
           },
           {
             id: 320112,
@@ -143,7 +143,7 @@ export const processes: Process[] = [
             new: false,
             supportedBy: [3111, 3106],
             rank: 0,
-            description: "Self-nomination for Lukas Peeters",
+            description: "Lukas Peeters",
           },
           {
             id: 320113,
@@ -164,7 +164,7 @@ export const processes: Process[] = [
             new: false,
             supportedBy: [3102, 3103, 3108],
             rank: 0,
-            description: "Nomination for Sophie Dubois",
+            description: "Sophie Dubois",
           },
           {
             id: 320114,
@@ -185,7 +185,7 @@ export const processes: Process[] = [
             new: false,
             supportedBy: [3112, 3109, 3116],
             rank: 0,
-            description: "Nomination for USER",
+            description: "USER",
           },
         ]
       },

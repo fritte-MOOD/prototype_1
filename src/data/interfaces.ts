@@ -74,17 +74,17 @@ export interface BaseModule {
 
 export interface IdeationModule extends BaseModule {
   type: 'Ideation';
-  Ideas: Option[];
+  options: Option[];
 }
 
 export interface EstimateModule extends BaseModule {
   type: 'Estimate';
-  Ideas: Option[];
+  options: Option[];
 }
 
 export interface PrioritizeModule extends BaseModule {
   type: 'Prioritize';
-  Ideas: Option[];
+  options: Option[];
 }
 
 export interface VoteModule extends BaseModule {

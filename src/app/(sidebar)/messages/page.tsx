@@ -94,12 +94,11 @@ const ChatsPage = () => {
             <GroupCheckboxes />
           </div>
           <div className="w-3/4">
-            <div className="space-y-4">
+            <div className="space-y-6">
               {sortedAndFilteredChats.map(({ groupName, chat }, index) => {
                 const lastMessage = chat.messages[chat.messages.length - 1];
                 const chatMembers = chatMembersMap.get(chat.id) || [];
 
-                // New code for displaying member names
                 let memberNames;
                 if (chatMembers.length <= 3) {
                   memberNames = chatMembers.map(member => member.name).join(', ');
@@ -112,21 +111,24 @@ const ChatsPage = () => {
                 return (
                   <div 
                     key={index} 
-                    className="flex items-center p-4 bg-white rounded-lg shadow cursor-pointer hover:bg-gray-50"
+                    className="p-6 bg-white rounded-md shadow cursor-pointer hover:bg-gray-50 transition-colors"
                     onClick={() => handleChatClick(chat.id)}
                   >
-                    <div className="w-6 mr-4 flex items-center justify-center">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-sm text-gray-500 bg-gray-100 px-3 py-1 rounded-md">
+                        {groupName}
+                      </span>
                       {hasNewMessages && (
-                        <div className="w-3 h-3 bg-brand-300 rounded-full"></div>
+                        <div className="w-4 h-4 bg-brand-300 rounded-full"></div>
                       )}
                     </div>
                     <div className="flex-grow text-left">
-                      <h3 className="font-medium">{memberNames}</h3>
-                      <p className="text-sm text-gray-500">
+                      <h3 className="font-medium text-base text-gray-700 mb-2">{memberNames}</h3>
+                      <p className="text-base text-gray-800 mb-2">
                         <span className="font-medium">{chatMembers.find(member => member.id === lastMessage?.sentBy)?.name}: </span>
                         {lastMessage?.content || "No messages"}
                       </p>
-                      <p className="text-xs text-gray-400 mt-1">
+                      <p className="text-sm text-gray-400">
                         {lastMessage ? <FormattedDate date={getDateFromRelativeTime(lastMessage.at)} /> : "No date"}
                       </p>
                     </div>

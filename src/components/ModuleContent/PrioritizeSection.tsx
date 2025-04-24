@@ -8,7 +8,7 @@ interface PrioritizeModuleProps {
 const PrioritizeSection: React.FC<PrioritizeModuleProps> = ({ module }) => {
   const [showResults, setShowResults] = useState(false);
   const [preferences, setPreferences] = useState<{[key: number]: number}>(
-    module.Ideas.reduce((acc, idea) => ({ ...acc, [idea.id]: 50 }), {})
+    module.options.reduce((acc: {[key: number]: number}, idea) => ({ ...acc, [idea.id]: 50 }), {})
   );
 
   const handleSliderChange = (ideaId: number, value: number) => {
@@ -20,7 +20,7 @@ const PrioritizeSection: React.FC<PrioritizeModuleProps> = ({ module }) => {
     setShowResults(true);
   };
 
-  const sortedIdeas = [...module.Ideas].sort((a, b) => b.rank - a.rank);
+  const sortedIdeas = [...module.options].sort((a, b) => b.rank - a.rank);
 
   return (
     <div>

@@ -10,14 +10,14 @@ interface IdeationSectionProps {
 }
 
 const IdeationSection: React.FC<IdeationSectionProps> = ({ module }) => {
-  const [expandedIdeas, setExpandedIdeas] = useState<number[]>([]);
+  const [expandedOptions, setExpandedOptions] = useState<number[]>([]);
   const mockupData = useMockup();
 
-  const toggleIdea = (ideaId: number) => {
-    setExpandedIdeas(prev =>
-      prev.includes(ideaId)
-        ? prev.filter(id => id !== ideaId)
-        : [...prev, ideaId]
+  const toggleOption = (optionId: number) => {
+    setExpandedOptions(prev =>
+      prev.includes(optionId)
+        ? prev.filter(id => id !== optionId)
+        : [...prev, optionId]
     );
   };
 
@@ -47,55 +47,48 @@ const IdeationSection: React.FC<IdeationSectionProps> = ({ module }) => {
 
       <div className="flex justify-end mb-4">
         <button
-          onClick={() => setExpandedIdeas(expandedIdeas.length === module.Ideas.length ? [] : module.Ideas.map(idea => idea.id))}
+          onClick={() => setExpandedOptions(expandedOptions.length === module.options.length ? [] : module.options.map(option => option.id))}
           className="bg-brand-300 text-white px-4 py-2 rounded hover:bg-brand-400 transition-colors"
         >
-          {expandedIdeas.length === module.Ideas.length ? 'Collapse All' : 'Expand All'}
+          {expandedOptions.length === module.options.length ? 'Collapse All' : 'Expand All'}
         </button>
       </div>
       <h3 className="text-2xl font-semibold mb-2">Collect Ideas:</h3>
-      {module.Ideas.map((idea) => (
+      {module.options.map((option) => (
         <div
-          key={idea.id}
+          key={option.id}
           className="bg-white border border-brand-300 shadow-md rounded-lg mb-6"
         >
           <div
             className="p-4 cursor-pointer"
-            onClick={() => toggleIdea(idea.id)}
+            onClick={() => toggleOption(option.id)}
           >
             <div className="flex justify-between items-start mb-2">
-              <div className="flex items-center">
-                <span className="bg-brand-100 text-brand-700 font-semibold px-3 py-1 rounded-full mr-3 flex items-center">
-                  <ThumbsUp size={16} className="mr-1" /> {idea.supportedBy.length}
-                </span>
-                <div>
-                  <p className="text-lg font-semibold">
-                    {getUsernameById(idea.createdBy)}: <span className="font-normal">{idea.content}</span>
-                  </p>
-                  <p className="text-sm text-gray-600">
-                    {renderDateTime(idea.createdAt)}
-                  </p>
+              <div>
+                <p className="text-lg font-semibold mb-2">{option.description}</p>
+                <p className="text-gray-700 mb-2">{option.content}</p>
+                <div className="flex items-center text-sm text-gray-600">
+                  <span className="mr-2">By: {getUsernameById(option.createdBy)}</span>
+                  <span>•</span>
+                  <span className="ml-2">{renderDateTime(option.createdAt)}</span>
                 </div>
               </div>
+              <span className="bg-brand-100 text-brand-700 font-semibold px-3 py-1 rounded-full flex items-center">
+                <ThumbsUp size={16} className="mr-1" /> {option.supportedBy.length}
+              </span>
             </div>
           </div>
-          {expandedIdeas.includes(idea.id) && (
+          {expandedOptions.includes(option.id) && (
             <div className="mt-4 p-4 border-t border-gray-200">
               <div className="flex items-center">
                 <span className="bg-brand-100 text-brand-700 font-semibold px-3 py-1 rounded-full mr-3 flex items-center invisible">
-                  <ThumbsUp size={16} className="mr-1" /> {idea.supportedBy.length}
+                  <ThumbsUp size={16} className="mr-1" /> {option.supportedBy.length}
                 </span>
-                <div>
-                  <p className="text-gray-700 mb-2">{idea.description}</p>
-                  <p className="text-sm text-gray-600 mb-4">
-                    Supported by: {idea.supportedBy.map(id => getUsernameById(id)).join(', ')}
-                  </p>
-                </div>
               </div>
 
               <h4 className="font-semibold mb-2">Comments:</h4>
               <ul className="space-y-4 pl-6">
-                {idea.comments.map((comment) => (
+                {option.comments.map((comment) => (
                   <li key={comment.id} className="bg-gray-50 p-4 rounded">
                     <div className="flex items-center mb-2">
                       <span className="bg-brand-100 text-brand-700 font-semibold px-3 py-1 rounded-full mr-3 flex items-center">
@@ -128,7 +121,6 @@ const IdeationSection: React.FC<IdeationSectionProps> = ({ module }) => {
                             <p className="text-xs text-gray-600">
                               {renderDateTime(subComment.createdAt)}
                             </p>
-                            {/* New: Leave comment input field for subcomments */}
                             <div className="mt-2 space-x-2">
                               <button className="text-brand-700 hover:underline">support</button>
                               <button className="text-brand-700 hover:underline">comment</button>
@@ -138,11 +130,9 @@ const IdeationSection: React.FC<IdeationSectionProps> = ({ module }) => {
                         ))}
                       </ul>
                     )}
-
                   </li>
                 ))}
               </ul>
-              {/* New: Leave comment input field for the idea */}
               <div className="mt-4">
                 <input
                   type="text"
@@ -155,7 +145,6 @@ const IdeationSection: React.FC<IdeationSectionProps> = ({ module }) => {
         </div>
       ))}
 
-      {/* New Idea Submission Form */}
       <h3 className="text-xl font-semibold mb-4">Submit New Idea</h3>
       <form onSubmit={(e) => e.preventDefault()}>
         <div className="mb-4">

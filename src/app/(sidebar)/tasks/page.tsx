@@ -30,11 +30,11 @@ const TasksPage = () => {
         return a.done ? 1 : -1;
       }
 
-      // If 'done' status is the same, sort by due date
+      // If 'done' status is the same, sort by due date (most recent first)
       const dateA = CalculateDateTime(a.dueAt.time, a.dueAt.distance);
       const dateB = CalculateDateTime(b.dueAt.time, b.dueAt.distance);
 
-      return dateA.getTime() - dateB.getTime();
+      return dateB.getTime() - dateA.getTime(); // Most recent first
     });
   }, [groups, mockData]);
 
