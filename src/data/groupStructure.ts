@@ -154,9 +154,13 @@ export const getGroupStructure = async (): Promise<Group[]> => {
   return Promise.all([
     createGroup("Park Club", true, true, [
       "Executive Committee",
+      "Junior Team",
+      "1st Senior Team",
       "2nd Senior Team",
+      "Masters",
       "Construction Committee",
-      "Training Organization"
+      "Training Organization",
+
     ]),
     createGroup("Rochefort", true, true, [
       "Parents of Rochefort",

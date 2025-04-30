@@ -60,7 +60,7 @@ const EstimateSection: React.FC<EstimateSectionProps> = ({ module }) => {
               <div className="flex items-center">
                 <div>
                   <p className="text-lg font-semibold">
-                    <span className="font-normal">{idea.content}</span>
+                    <span className="font-normal">{idea.description}</span>
                   </p>
                 </div>
               </div>
@@ -70,7 +70,7 @@ const EstimateSection: React.FC<EstimateSectionProps> = ({ module }) => {
             <div className="mt-4 p-4 border-t border-gray-200">
               <div className="flex items-center">
                 <div>
-                  <p className="text-gray-700 mb-2">{idea.description}</p>
+                  <p className="text-gray-700 mb-2">{idea.content}</p>
                 </div>
               </div>
 

@@ -23,7 +23,7 @@ const SIDEBAR_ITEMS: SidebarCategory[] = [
   {
     category: "Main",
     items: [
-      { href: "/about", icon: Volleyball, text: "About Park Club" },
+      { href: "/about", icon: Volleyball, text: "About" },
       { href: "/subgroups", icon: Boxes, text: "Subgroups" },
       { href: "/debate", icon: Combine, text: "Debate" },
     ],

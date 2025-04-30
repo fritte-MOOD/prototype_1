@@ -20,7 +20,19 @@ const PrioritizeSection: React.FC<PrioritizeModuleProps> = ({ module }) => {
     setShowResults(true);
   };
 
-  const sortedIdeas = [...module.options].sort((a, b) => b.rank - a.rank);
+  const voteCountOption = module.options.find(option => option.id === 0);
+  const sortedIdeas = voteCountOption 
+    ? [...module.options].filter(idea => idea.id !== 0).sort((a, b) => b.rank - a.rank)
+    : [...module.options].sort((a, b) => b.rank - a.rank);
+
+  const getSubmittedVotesText = () => {
+    if (voteCountOption) {
+      return `Results after ${voteCountOption.rank} submitted votes:`;
+    } else {
+      const totalVotes = sortedIdeas.reduce((total, idea) => total + idea.supportedBy.length, 0);
+      return `Results after ${totalVotes} submitted votes:`;
+    }
+  };
 
   return (
     <div>
@@ -59,7 +71,7 @@ const PrioritizeSection: React.FC<PrioritizeModuleProps> = ({ module }) => {
       ) : (
         <div>
           <h4 className="text-xl font-semibold mb-4">
-            Results after {sortedIdeas.reduce((total, idea) => total + idea.supportedBy.length, 0)} submitted votes:
+            {getSubmittedVotesText()}
           </h4>
           {sortedIdeas.map((idea, index) => (
             <div key={idea.id} className="mb-4 bg-white p-4 rounded-lg shadow">

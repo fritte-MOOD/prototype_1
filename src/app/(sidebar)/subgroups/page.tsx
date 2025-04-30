@@ -5,42 +5,75 @@ import { MaxWidthWrapper } from "@/components/max-width-wrapper"
 import { Box } from "lucide-react"
 import { useRouter } from "next/navigation";
 import { useGroup } from "@/context/ContextFiles/GroupContext";
-import { mockData } from "@/data/mockup";
+import { useMockup } from "@/context/ContextFiles/MockupContext";
+import { CalculateDateTime } from '@/components/CalculateDateTime';
 
-function getFutureDate(weeks: number): string {
-  const date = new Date();
-  date.setDate(date.getDate() + weeks * 7);
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
 }
 
 // Define the interface for a subgroup
 interface Subgroup {
   name: string;
   IAmMember: boolean;
-  members: any[]; // Replace 'any' with a more specific type if available
-  chats: any[]; // Replace 'any' with a more specific type if available
+  members: any[];
+  chats: any[];
+  tasks: any[];
+  appointments: any[];
+  processes: any[];
 }
 
 const Page = () => {
   const router = useRouter();
   const { groupName, setGroupName } = useGroup();
-  const nextMeetingDate = getFutureDate(4);
+  const mockData = useMockup();
+
+  const SubgroupCard = ({ subgroup }: { subgroup: Subgroup }) => {
+    const openTasks = subgroup.tasks.filter(task => !task.completed).length;
+    
+    const nextAppointment = subgroup.appointments
+      .filter(app => CalculateDateTime(app.at.time, app.at.distance) > new Date())
+      .sort((a, b) => 
+        CalculateDateTime(a.at.time, a.at.distance).getTime() - 
+        CalculateDateTime(b.at.time, b.at.distance).getTime()
+      )[0];
+
+    const recentDebate = subgroup.processes
+      .filter(process => process.modules.some((module: { type: string }) => module.type === 'Debate'))
+      .sort((a, b) => 
+        CalculateDateTime(b.createdAt.time, b.createdAt.distance).getTime() - 
+        CalculateDateTime(a.createdAt.time, a.createdAt.distance).getTime()
+      )[0]?.modules.find((module: { type: string; description?: string }) => module.type === 'Debate')?.description;
+
+    return (
+      <div className="w-[360px] h-auto p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white">
+        <div onClick={() => router.push(`/subgroups/${subgroup.name}`)} className="cursor-pointer flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
+          <Box className="text-brand-300" />
+          <span>{subgroup.name}</span>
+        </div>
+        <p className="text-base/7 text-gray-600 w-full text-center">
+          {subgroup.members.length} Members <br/>
+          {subgroup.chats.length} Chats <br/>
+          {openTasks} Open Tasks <br/>
+          {nextAppointment ? (
+            <>
+              Next meeting: {formatDate(CalculateDateTime(nextAppointment.at.time, nextAppointment.at.distance))} <br/>
+              {nextAppointment.description} <br/>
+            </>
+          ) : (
+            "No upcoming appointments"
+          )}
+          {recentDebate && (
+            <>
+              Recent debate: {recentDebate} <br/>
+            </>
+          )}
+        </p>
+      </div>
+    );
+  };
 
   const mainGroups = mockData.map(group => group.name);
-
-  const SubgroupCard = ({ subgroup }: { subgroup: Subgroup }) => (
-    <div className="w-[360px] h-[300px] p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white">
-      <div onClick={() => router.push(`/subgroups/${subgroup.name}`)} className="cursor-pointer flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
-        <Box className="text-brand-300" />
-        <span>{subgroup.name}</span>
-      </div>
-      <p className="text-base/7 text-gray-600 w-full text-center">
-        {subgroup.members.length} Members <br/>
-        {subgroup.chats.length} Chats <br/>
-        next meeting: {nextMeetingDate}, 19:00 <br/>
-      </p>
-    </div>
-  );
 
   // Function to get the correct group name
   const getValidGroupName = (name: string): string => {
@@ -90,7 +123,7 @@ const Page = () => {
               ))}
             </div>
 
-            <p className="text-left text-2xl pt-10 mb-4 w-full">Other {validGroupName} Subgroups:</p>
+            <p className="text-left text-2xl pt-10 mb-4 w-full">Other Public {validGroupName} Subgroups:</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 justify-items-center">
               {otherSubgroups.map((subgroup, index) => (
                 <SubgroupCard key={index} subgroup={subgroup} />
