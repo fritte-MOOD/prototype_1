@@ -42,15 +42,15 @@ export default function NameForm() {
         <MaxWidthWrapper className="text-center">
           <div className="relative mx-auto text-center flex flex-col items-center gap-10">
             <Heading>Demo Platform</Heading>
-            <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
+            <p className="text-base/7 text-gray-600 text-center text-pretty">
               Experience three groups: a Company, a Sportsclub and a Municipality. <br/>
               All content is exemplary and some functions are not working yet! <br/>
               This is only a UI design.
             </p>
 
-            <div className="px-7 py-2.5">
-              <form onSubmit={formSubmit} className="flex flex-col border:none">
-                <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
+            <div className="px-7 py-2.5 flex flex-col items-center">
+              <form onSubmit={formSubmit} className="flex flex-col items-center border:none w-full max-w-[416px]">
+                <p className="text-base/7 text-gray-600 text-center text-pretty mb-4">
                   Enter any firstname to get started with the experience:
                 </p>
                 <input
@@ -58,16 +58,12 @@ export default function NameForm() {
                   onChange={handleChange}
                   type="text"
                   value={localName}
-                  // Wenn es der erste Render ist, gebe den default `randomName` aus, ansonsten benutze den Wert der Eingabe
                   placeholder={isClient ? (localName === "" ? randomName : "") : "Loading..."}
                 />
                 <div className="py-5"></div>
-                <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
-                  Or just click here to start with a random name:
-                </p>
 
                 <SubmitButton
-                  className="relative z-10 h-14 w-full text-base shadow-lg transition-shadow duration-300 hover:shadow-xl"
+                  className="relative z-10 h-14 w-full text-base shadow-lg border border-gray-300 transition-shadow duration-300 hover:shadow-xl"
                 >
                   Start Demo
                 </SubmitButton>

@@ -60,13 +60,14 @@ export const Navbar = () => {
                         <span className="text-brand-300">/</span>MOOD
                     </div>
 
-                    {/* Toggle name button */}
+                    {/* Toggle name button
                     <button
                         onClick={toggleName}
                         className="h-10 px-4 bg-brand-300 text-white rounded-md hover:bg-brand-400 transition-colors"
                     >
                         Switch to {name === "Fritz Schmack" ? "Arbnora Kokollari" : "Fritz Schmack"}
                     </button>
+                    */}
 
                     {/* Navigation */}
                     <div className="flex gap-4">
