@@ -38,7 +38,7 @@ export default function Dashboard() {
         <p className="text-xl text-gray-600  max-w-prose text-center text-pretty">
           You are living in the small town of <span className="font-bold text-black">Rochefort</span>, <br/>
           are an executive member of the local <span className="font-bold text-black">Sports Club</span> and <br/>
-          live in a community housing project named <span className="font-bold text-black">"Marin Quarter"</span>.
+          live in a community housing project named <span className="font-bold text-black">Marin Quarter</span>.
         </p>
         <p className="text-xl text-black  max-w-prose text-center text-pretty">
           Take part in Your Groups:
