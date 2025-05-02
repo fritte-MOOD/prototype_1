@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useGroup } from "@/context/ContextFiles/GroupContext";
 import { useMockup } from "@/context/ContextFiles/MockupContext";
 import { CalculateDateTime } from '@/components/CalculateDateTime';
+import { useEffect } from 'react';
 
 function formatDate(date: Date): string {
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
@@ -27,6 +28,12 @@ const Page = () => {
   const router = useRouter();
   const { groupName, setGroupName } = useGroup();
   const mockData = useMockup();
+
+  useEffect(() => {
+    console.log('Page rendered');
+    console.log('groupName:', groupName);
+    console.log('mockData:', JSON.stringify(mockData, null, 2));
+  }, [groupName, mockData]);
 
   const SubgroupCard = ({ subgroup }: { subgroup: Subgroup }) => {
     const openTasks = subgroup.tasks.filter(task => !task.completed).length;

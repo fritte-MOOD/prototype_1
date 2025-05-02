@@ -32,16 +32,30 @@ const replaceUserWithName = (obj: any, name: string): any => {
 export const MockupProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { name } = useName();
   const [processedMockData, setProcessedMockData] = useState<MockupContextType>(() => {
-    // Initialize with the original mockData
+    console.log('Initial mockData:', mockData);
     return mockData;
   });
 
   useEffect(() => {
+    console.log('MockupProvider useEffect triggered');
+    console.log('Current name:', name);
+
     const effectiveName = name || "Noa";
-    const storedData = localStorage.getItem('processedMockData');
-    const storedName = localStorage.getItem('storedName');
+    console.log('Effective name:', effectiveName);
+
+    let storedData: string | null = null;
+    let storedName: string | null = null;
+
+    try {
+      storedData = localStorage.getItem('processedMockData');
+      storedName = localStorage.getItem('storedName');
+      console.log('Stored name:', storedName);
+    } catch (error) {
+      console.error('Error accessing localStorage:', error);
+    }
 
     if (!storedData || storedName !== effectiveName) {
+      console.log('Processing new data');
       const newProcessedData = replaceUserWithName(mockData, effectiveName);
       setProcessedMockData(newProcessedData);
       try {
@@ -51,16 +65,18 @@ export const MockupProvider: React.FC<{ children: ReactNode }> = ({ children }) 
         console.error('Error saving to localStorage:', error);
       }
     } else {
+      console.log('Using stored data');
       try {
         const parsedData = JSON.parse(storedData);
         setProcessedMockData(parsedData);
       } catch (error) {
         console.error('Error parsing stored data:', error);
-        // Fallback to original data if parsing fails
         setProcessedMockData(replaceUserWithName(mockData, effectiveName));
       }
     }
   }, [name]);
+
+  console.log('Rendered processedMockData:', processedMockData);
 
   return (
     <MockupContext.Provider value={processedMockData}>
