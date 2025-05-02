@@ -31,10 +31,7 @@ const replaceUserWithName = (obj: any, name: string): any => {
 // Provider for the global mockup data
 export const MockupProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { name } = useName();
-  const [processedMockData, setProcessedMockData] = useState<MockupContextType>(() => {
-    console.log('Initial mockData:', mockData);
-    return mockData;
-  });
+  const [processedMockData, setProcessedMockData] = useState<MockupContextType>([]);
 
   useEffect(() => {
     console.log('MockupProvider useEffect triggered');
@@ -43,37 +40,15 @@ export const MockupProvider: React.FC<{ children: ReactNode }> = ({ children }) 
     const effectiveName = name || "Noa";
     console.log('Effective name:', effectiveName);
 
-    let storedData: string | null = null;
-    let storedName: string | null = null;
-
-    try {
-      storedData = localStorage.getItem('processedMockData');
-      storedName = localStorage.getItem('storedName');
-      console.log('Stored name:', storedName);
-    } catch (error) {
-      console.error('Error accessing localStorage:', error);
-    }
-
-    if (!storedData || storedName !== effectiveName) {
-      console.log('Processing new data');
-      const newProcessedData = replaceUserWithName(mockData, effectiveName);
+    const processData = async () => {
+      const data = await Promise.resolve(mockData);
+      console.log('Fetched mockData:', data);
+      const newProcessedData = replaceUserWithName(data, effectiveName);
+      console.log('Processed data:', newProcessedData);
       setProcessedMockData(newProcessedData);
-      try {
-        localStorage.setItem('processedMockData', JSON.stringify(newProcessedData));
-        localStorage.setItem('storedName', effectiveName);
-      } catch (error) {
-        console.error('Error saving to localStorage:', error);
-      }
-    } else {
-      console.log('Using stored data');
-      try {
-        const parsedData = JSON.parse(storedData);
-        setProcessedMockData(parsedData);
-      } catch (error) {
-        console.error('Error parsing stored data:', error);
-        setProcessedMockData(replaceUserWithName(mockData, effectiveName));
-      }
-    }
+    };
+
+    processData();
   }, [name]);
 
   console.log('Rendered processedMockData:', processedMockData);
