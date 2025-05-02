@@ -1,7 +1,8 @@
 "use client";
 
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { mockData } from '@/data/mockup';
+import { useMockup } from './MockupContext';
+import { Group } from '@/data/interfaces';
 
 interface GroupCheckbox {
   name: string;
@@ -24,8 +25,6 @@ interface CheckboxContextType {
   activateOnlySub: (subGroupName: string) => void;
 }
 
-const generateInitialGroups = (): GroupCheckbox[] => [];
-
 const CheckboxContext = createContext<CheckboxContextType | undefined>(undefined);
 
 export const useCheckbox = () => {
@@ -37,18 +36,16 @@ export const useCheckbox = () => {
 };
 
 export const CheckboxProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [groups, setGroups] = useState<GroupCheckbox[]>(generateInitialGroups());
+  const mockData = useMockup();
+  const [groups, setGroups] = useState<GroupCheckbox[]>([]);
   const [groupStructure, setGroupStructure] = useState<GroupStructure[]>([]);
 
   useEffect(() => {
-    const initializeData = async () => {
-      // Wait for mockData to be populated
-      await new Promise(resolve => setTimeout(resolve, 0));
-
+    const initializeData = () => {
       const newGroups: GroupCheckbox[] = [];
       const newGroupStructure: GroupStructure[] = [];
 
-      mockData.forEach(mainGroup => {
+      mockData.forEach((mainGroup: Group) => {
         newGroups.push({ name: mainGroup.name, checked: true });
         const subgroups: string[] = [];
         mainGroup.subgroups.forEach(subgroup => {
@@ -64,8 +61,10 @@ export const CheckboxProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       setGroupStructure(newGroupStructure);
     };
 
-    initializeData();
-  }, []);
+    if (mockData.length > 0) {
+      initializeData();
+    }
+  }, [mockData]);
 
   const toggleGroup = (groupName: string) => {
     setGroups(prevGroups =>
@@ -112,9 +111,6 @@ export const CheckboxProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       }));
     });
   };
-
-  useEffect(() => {
-  }, [groups, groupStructure]);
 
   return (
     <CheckboxContext.Provider value={{ 

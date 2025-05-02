@@ -14,13 +14,13 @@ export const ContextProvider = ({ children }: { children: React.ReactNode }) => 
         <NameProvider>
           <GroupProvider>
             <ChatProvider>
-              <CheckboxProvider>
-                <MockupProvider>
+              <MockupProvider>
+                <CheckboxProvider>
                   <DebateProvider>
                     {children}
                   </DebateProvider>
-                </MockupProvider>
-              </CheckboxProvider>
+                </CheckboxProvider>
+              </MockupProvider>
             </ChatProvider>
           </GroupProvider>
         </NameProvider>
