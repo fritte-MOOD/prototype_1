@@ -44,7 +44,7 @@ const SIDEBAR_ITEMS: SidebarCategory[] = [
     category: "Components",
     items: [
       { href: "", icon: BookOpenText, text: "Knowledge Hub" },
-      { href: "", icon: ChartNoAxesCombined, text: "Analyze Tools" },
+      { href: "", icon: ChartNoAxesCombined, text: "Analysis Tools" },
       { href: "", icon: Shield, text: "Moderate" },
       { href: "", icon: BookKey, text: "Administrate" },
     ],

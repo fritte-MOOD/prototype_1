@@ -53,8 +53,11 @@ const Page = () => {
       )[0]?.modules.find((module: { type: string; description?: string }) => module.type === 'Debate')?.description;
 
     return (
-      <div className="w-[360px] h-auto p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white">
-        <div onClick={() => router.push(`/subgroups/${subgroup.name}`)} className="cursor-pointer flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
+      <div 
+        onClick={() => router.push(`/subgroups/${subgroup.name}`)}
+        className="w-[360px] h-auto p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white cursor-pointer"
+      >
+        <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
           <Box className="text-brand-300" />
           <span>{subgroup.name}</span>
         </div>

@@ -5,7 +5,7 @@ import { useMockup } from "@/context/ContextFiles/MockupContext"
 import { MaxWidthWrapper } from "@/components/max-width-wrapper"
 import FormattedDate from "@/components/FormattedDate"
 import { CalculateDateTime } from '@/components/CalculateDateTime'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { ModuleContent } from '@/components/ModuleContent/moduleContent'
 
 const DebatesPage = () => {
@@ -17,6 +17,13 @@ const DebatesPage = () => {
   const currentProcess = mockData.flatMap(group =>
     [...group.processes, ...group.subgroups.flatMap(subgroup => subgroup.processes)]
   ).find(process => process.id === debateId)
+
+  // Set the first module as selected when the component mounts or when currentProcess changes
+  useEffect(() => {
+    if (currentProcess && currentProcess.modules.length > 0) {
+      setSelectedModule(0)
+    }
+  }, [currentProcess])
 
   const getModuleStatus = (module: any) => {
     return module.status ? `(${module.status})` : '';
@@ -90,7 +97,7 @@ const DebatesPage = () => {
                 ))}
               </div>
 
-              {selectedModule !== null && (
+              {selectedModule !== null && currentProcess.modules[selectedModule] && (
                 <div className="bg-white rounded-lg shadow-md p-8 -mt-[1px]">
                   <ModuleContent module={currentProcess.modules[selectedModule]} />
                 </div>
