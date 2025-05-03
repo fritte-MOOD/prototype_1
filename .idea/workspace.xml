@@ -5,90 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c9fe2ad-7aa8-4e95-8b6f-f4571f8839b4" name="Changes" comment="deployment 5">
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/250305.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(landing)/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(landing)/dashboard/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(landing)/discover/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(landing)/discover/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(landing)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(landing)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(landing)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(landing)/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/about/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/about/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/calendar/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/calendar/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/debate/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/debate/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/debate/process/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/debate/process/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/discussions/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/discussions/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/messages/chat/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/messages/chat/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/messages/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/messages/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/subgroups/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/subgroups/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/tasks/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/tasks/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ButtonLandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/ButtonLandingPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CalculateDateTime.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functions/CalculateDateTime.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/FormattedDate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functions/FormattedDate.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GroupCheckboxes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/GroupCheckboxes.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModuleContent/AnnouncementSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleContent/AnnouncementSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModuleContent/BrainstormingSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleContent/BrainstormingSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModuleContent/DebateSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleContent/DebateSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModuleContent/ExternalDecisionSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleContent/ExternalDecisionSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModuleContent/IdeationSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleContent/IdeationSection.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ModuleContent/moduleContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleContent/moduleContent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SubmitButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/SubmitButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/heading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/heading.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/login-form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/max-width-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/max-width-wrapper.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navbar_landing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/navbar_landing.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navbar_sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/navbar_sidebar.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/providers.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/text.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/dialog.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/modal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/context/ContextFiles/MockupContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/ContextFiles/MockupContext.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/board.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/board.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/building.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/building.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/childcare.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/childcare.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/garden.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/garden.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/handcrafts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/handcrafts.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house1.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house1.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house11.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house11.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house12.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house12.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house13.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house13.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house2.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house2.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house21.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house21.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house22.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house22.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house23.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house23.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/shareddinner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/shareddinner.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/1stseniorteam.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/1stseniorteam.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/2ndseniorteam.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/2ndseniorteam.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/constructioncommittee.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/constructioncommittee.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/executivecommittee.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/executivecommittee.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/juniorteam.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/juniorteam.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/masters.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/masters.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/trainingorganization.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/trainingorganization.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/rochefort.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/rochefort.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/rochefort/parentsofrochefort.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/rochefort/parentsofrochefort.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/Groups/rochefort/sportsinrochefort.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/rochefort/sportsinrochefort.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/groupStructure.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/groupStructure.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/interfaces.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/mockup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/mockup.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/db.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/use-media-query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/use-media-query.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functions/utils.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/navbar_sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/navbar_sidebar.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +81,7 @@
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\fritz\\Desktop\\aktuell\\250305\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\IntelliJ IDEA 2024.3.4.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -176,6 +96,19 @@
       <recent name="C:\Users\fritz\Desktop\aktuell\250305\src\components\ui" />
       <recent name="C:\Users\fritz\Desktop\aktuell\250305\src\context\ContextFiles" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="250305" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="250305" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -224,7 +157,9 @@
       <workItem from="1746180146959" duration="354000" />
       <workItem from="1746180509029" duration="4082000" />
       <workItem from="1746275349798" duration="840000" />
-      <workItem from="1746276230787" duration="3180000" />
+      <workItem from="1746276230787" duration="3580000" />
+      <workItem from="1746289661139" duration="51000" />
+      <workItem from="1746289788119" duration="694000" />
     </task>
     <task id="LOCAL-00001" summary="Minor styling ;D">
       <option name="closed" value="true" />
@@ -482,7 +417,15 @@
       <option name="project" value="LOCAL" />
       <updated>1746276181154</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="deployment 5">
+      <option name="closed" value="true" />
+      <created>1746279788521</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1746279788521</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -14,7 +14,7 @@ const Page = () => {
           <Heading className="text-gray-600">Be one Cell of the Brain!</Heading>
 
           <p className="text-xl text-black  max-w-prose text-center text-pretty">
-            Freedom entails Responsibility:
+            Freedom comes with Responsibility:
             Engage, Deliberate and Participate in your Group and make Decisions meaningful.
           </p>
 

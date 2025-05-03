@@ -52,15 +52,6 @@ export const Navbar = () => {
                         <span className="text-brand-300">/</span>MOOD
                     </div>
 
-                    {/* Toggle name button
-                    <button
-                        onClick={toggleName}
-                        className="h-10 px-4 bg-brand-300 text-white rounded-md hover:bg-brand-400 transition-colors"
-                    >
-                        Switch to {name === "Fritz Schmack" ? "Arbnora Kokollari" : "Fritz Schmack"}
-                    </button>
-                    */}
-
                     {/* Navigation */}
                     <div className="flex gap-4">
                         {/* Dropdown-Menü für Groups */}
@@ -109,7 +100,7 @@ export const Navbar = () => {
                             )}
                         </div>
 
-                        <div onClick={() => router.push("/settings")} className="h-14 px-7 flex items-center text-zinc-700 text-[20px] cursor-pointer hover:bg-brand-300">
+                        <div className="h-14 px-7 flex items-center text-zinc-700 text-[20px] cursor-pointer hover:bg-brand-300">
                             Settings
                         </div>
                     </div>

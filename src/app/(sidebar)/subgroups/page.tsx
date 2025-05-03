@@ -57,7 +57,7 @@ const Page = () => {
 
     return (
       <div
-        onClick={() => router.push(`/subgroups/${subgroup.name}`)}
+
         className="w-[360px] h-auto p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white cursor-pointer"
       >
         <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
