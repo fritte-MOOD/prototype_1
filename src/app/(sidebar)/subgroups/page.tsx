@@ -1,16 +1,22 @@
 "use client"
 
-import { Heading } from "@/components/heading"
-import { MaxWidthWrapper } from "@/components/max-width-wrapper"
+import { Heading } from "@/components/ui/heading"
+import { MaxWidthWrapper } from "@/components/ui/max-width-wrapper"
 import { Box } from "lucide-react"
-import { useRouter } from "next/navigation";
-import { useGroup } from "@/context/ContextFiles/GroupContext";
-import { useMockup } from "@/context/ContextFiles/MockupContext";
-import { CalculateDateTime } from '@/components/CalculateDateTime';
-import { useEffect } from 'react';
+import { useRouter } from "next/navigation"
+import { useGroup } from "@/context/ContextFiles/GroupContext"
+import { useMockup } from "@/context/ContextFiles/MockupContext"
+import { CalculateDateTime } from "@/components/functions/CalculateDateTime"
+import { useEffect } from "react"
 
 function formatDate(date: Date): string {
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  return date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+  })
 }
 
 // Define the interface for a subgroup
@@ -25,35 +31,32 @@ interface Subgroup {
 }
 
 const Page = () => {
-  const router = useRouter();
-  const { groupName, setGroupName } = useGroup();
-  const mockData = useMockup();
+  const router = useRouter()
+  const { groupName, setGroupName } = useGroup()
+  const mockData = useMockup()
 
   useEffect(() => {
-    console.log('Page rendered');
-    console.log('groupName:', groupName);
-    console.log('mockData:', JSON.stringify(mockData, null, 2));
-  }, [groupName, mockData]);
+  }, [groupName, mockData])
 
   const SubgroupCard = ({ subgroup }: { subgroup: Subgroup }) => {
-    const openTasks = subgroup.tasks.filter(task => !task.completed).length;
-    
+    const openTasks = subgroup.tasks.filter(task => !task.completed).length
+
     const nextAppointment = subgroup.appointments
       .filter(app => CalculateDateTime(app.at.time, app.at.distance) > new Date())
-      .sort((a, b) => 
-        CalculateDateTime(a.at.time, a.at.distance).getTime() - 
-        CalculateDateTime(b.at.time, b.at.distance).getTime()
-      )[0];
+      .sort((a, b) =>
+        CalculateDateTime(a.at.time, a.at.distance).getTime() -
+        CalculateDateTime(b.at.time, b.at.distance).getTime(),
+      )[0]
 
     const recentDebate = subgroup.processes
-      .filter(process => process.modules.some((module: { type: string }) => module.type === 'Debate'))
-      .sort((a, b) => 
-        CalculateDateTime(b.createdAt.time, b.createdAt.distance).getTime() - 
-        CalculateDateTime(a.createdAt.time, a.createdAt.distance).getTime()
-      )[0]?.modules.find((module: { type: string; description?: string }) => module.type === 'Debate')?.description;
+      .filter(process => process.modules.some((module: { type: string }) => module.type === "Debate"))
+      .sort((a, b) =>
+        CalculateDateTime(b.createdAt.time, b.createdAt.distance).getTime() -
+        CalculateDateTime(a.createdAt.time, a.createdAt.distance).getTime(),
+      )[0]?.modules.find((module: { type: string; description?: string }) => module.type === "Debate")?.description
 
     return (
-      <div 
+      <div
         onClick={() => router.push(`/subgroups/${subgroup.name}`)}
         className="w-[360px] h-auto p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white cursor-pointer"
       >
@@ -62,43 +65,41 @@ const Page = () => {
           <span>{subgroup.name}</span>
         </div>
         <p className="text-base/7 text-gray-600 w-full text-center">
-          {subgroup.members.length} Members <br/>
-          {subgroup.chats.length} Chats <br/>
-          {openTasks} Open Tasks <br/>
+          {subgroup.members.length} Members <br />
+          {subgroup.chats.length} Chats <br />
+          {openTasks} Open Tasks <br />
           {nextAppointment ? (
             <>
-              Next meeting: {formatDate(CalculateDateTime(nextAppointment.at.time, nextAppointment.at.distance))} <br/>
-              {nextAppointment.description} <br/>
+              Next meeting: {formatDate(CalculateDateTime(nextAppointment.at.time, nextAppointment.at.distance))} <br />
+              {nextAppointment.description} <br />
             </>
           ) : (
             "No upcoming appointments"
           )}
           {recentDebate && (
             <>
-              Recent debate: {recentDebate} <br/>
+              Recent debate: {recentDebate} <br />
             </>
           )}
         </p>
       </div>
-    );
-  };
+    )
+  }
 
-  const mainGroups = mockData.map(group => group.name);
+  const mainGroups = mockData.map(group => group.name)
 
   // Function to get the correct group name
   const getValidGroupName = (name: string): string => {
-    return mainGroups.includes(name) ? name : mainGroups[0];
-  };
+    return mainGroups.includes(name) ? name : mainGroups[0]
+  }
 
   // Use the valid group name
-  const validGroupName = getValidGroupName(groupName);
+  const validGroupName = getValidGroupName(groupName)
 
-  // Get the current group data
-  const currentGroup = mockData.find(group => group.name === validGroupName);
+  const currentGroup = mockData.find(group => group.name === validGroupName)
 
-  // Separate subgroups into "Your Subgroups" and "Other Subgroups"
-  const yourSubgroups = currentGroup?.subgroups.filter(subgroup => subgroup.IAmMember) || [];
-  const otherSubgroups = currentGroup?.subgroups.filter(subgroup => !subgroup.IAmMember) || [];
+  const yourSubgroups = currentGroup?.subgroups.filter(subgroup => subgroup.IAmMember) || []
+  const otherSubgroups = currentGroup?.subgroups.filter(subgroup => !subgroup.IAmMember) || []
 
   return (
     <>

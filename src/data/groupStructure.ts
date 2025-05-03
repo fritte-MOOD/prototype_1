@@ -1,4 +1,4 @@
-import { Group } from './interfaces';
+import { Group } from "./interfaces"
 
 // Some hints when generating content:
 
@@ -100,30 +100,30 @@ For the Modules: (unnecessary types need to be left empty, but need to be added 
 
 
 const importGroupData = async (groupName: string) => {
-  const normalizedName = groupName.replace(/\s+/g, '').toLowerCase();
+  const normalizedName = groupName.replace(/\s+/g, "").toLowerCase()
   try {
-    return await import(`./Groups/${normalizedName}.ts`);
+    return await import(`./Groups/${normalizedName}.ts`)
   } catch (error) {
-    return {};
+    return {}
   }
-};
+}
 
 const importSubgroupData = async (mainGroupName: string, subgroupName: string) => {
-  const normalizedMainGroup = mainGroupName.replace(/\s+/g, '').toLowerCase();
-  const normalizedSubgroup = subgroupName.replace(/\s+/g, '').toLowerCase();
+  const normalizedMainGroup = mainGroupName.replace(/\s+/g, "").toLowerCase()
+  const normalizedSubgroup = subgroupName.replace(/\s+/g, "").toLowerCase()
   try {
-    const importedData = await import(`./Groups/${normalizedMainGroup}/${normalizedSubgroup}.ts`);
-    return importedData;
+    const importedData = await import(`./Groups/${normalizedMainGroup}/${normalizedSubgroup}.ts`)
+    return importedData
   } catch (error) {
-    return {};
+    return {}
   }
-};
+}
 
 const createGroup = async (name: string, IAmMember: boolean, isPublic: boolean, subgroupNames: string[]): Promise<Group> => {
-  const groupData = await importGroupData(name);
+  const groupData = await importGroupData(name)
 
   const subgroups = await Promise.all(subgroupNames.map(async (subgroupName) => {
-    const subgroupData = await importSubgroupData(name, subgroupName);
+    const subgroupData = await importSubgroupData(name, subgroupName)
     return {
       name: subgroupName,
       IAmMember: subgroupData.IAmMember,
@@ -134,8 +134,8 @@ const createGroup = async (name: string, IAmMember: boolean, isPublic: boolean, 
       chats: subgroupData.chats || [],
       tasks: subgroupData.tasks || [],
       appointments: subgroupData.appointments || [],
-    };
-  }));
+    }
+  }))
 
   return {
     name,
@@ -147,8 +147,8 @@ const createGroup = async (name: string, IAmMember: boolean, isPublic: boolean, 
     chats: groupData.chats || [],
     tasks: groupData.tasks || [],
     appointments: groupData.appointments || [],
-  };
-};
+  }
+}
 
 export const getGroupStructure = async (): Promise<Group[]> => {
   return Promise.all([
@@ -164,7 +164,7 @@ export const getGroupStructure = async (): Promise<Group[]> => {
     ]),
     createGroup("Rochefort", true, true, [
       "Parents of Rochefort",
-      "Sports in Rochefort"
+      "Sports in Rochefort",
     ]),
     createGroup("Marin Quarter", true, true, [
       "House 1",
@@ -180,7 +180,7 @@ export const getGroupStructure = async (): Promise<Group[]> => {
       "Board",
       "Childcare",
       "Building",
-      "Garden"
-    ])
-  ]);
-};
+      "Garden",
+    ]),
+  ])
+}

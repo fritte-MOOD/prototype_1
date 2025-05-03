@@ -1,80 +1,80 @@
 "use client"
 
-import { useState, useMemo, useEffect } from "react"
-import { useRouter } from 'next/navigation';
-import { MaxWidthWrapper } from "@/components/max-width-wrapper"
+import { useEffect, useMemo, useState } from "react"
+import { useRouter } from "next/navigation"
+import { MaxWidthWrapper } from "@/components/ui/max-width-wrapper"
 import { useChat } from "@/context/ContextFiles/ChatContext"
-import { GroupCheckboxes } from '@/components/GroupCheckboxes'
-import FormattedDate from '@/components/FormattedDate';
-import { useCheckbox } from '@/context/ContextFiles/CheckboxesContext'
-import { Message, Chat, Member, Group, RelativeTime } from "@/data/interfaces"
-import { CalculateDateTime } from '@/components/CalculateDateTime';
+import { GroupCheckboxes } from "@/components/ui/GroupCheckboxes"
+import FormattedDate from "@/components/functions/FormattedDate"
+import { useCheckbox } from "@/context/ContextFiles/CheckboxesContext"
+import { Chat, Group, Member, RelativeTime } from "@/data/interfaces"
+import { CalculateDateTime } from "@/components/functions/CalculateDateTime"
 import { useMockup } from "@/context/ContextFiles/MockupContext"
 
 const ChatsPage = () => {
-  const router = useRouter();
-  const { setChatId } = useChat();
-  const { groups, toggleGroup } = useCheckbox();
-  const [isLoading, setIsLoading] = useState(true);
-  const mockData = useMockup();
+  const router = useRouter()
+  const { setChatId } = useChat()
+  const { groups} = useCheckbox()
+  const [isLoading, setIsLoading] = useState(true)
+  const mockData = useMockup()
 
   useEffect(() => {
-    setIsLoading(false);
-  }, []);
+    setIsLoading(false)
+  }, [])
 
   const getDateFromRelativeTime = (relativeTime: RelativeTime | undefined): Date => {
-    if (!relativeTime) return new Date(0);
-    return CalculateDateTime(relativeTime.time, relativeTime.distance);
-  };
+    if (!relativeTime) return new Date(0)
+    return CalculateDateTime(relativeTime.time, relativeTime.distance)
+  }
 
   const chatMembersMap = useMemo(() => {
-    const membersMap = new Map<number, Member[]>();
+    const membersMap = new Map<number, Member[]>()
     mockData.forEach(group => {
       group.chats.forEach(chat => {
-        const chatMembers = group.members.filter(member => chat.members.includes(member.id));
-        membersMap.set(chat.id, chatMembers);
-      });
+        const chatMembers = group.members.filter(member => chat.members.includes(member.id))
+        membersMap.set(chat.id, chatMembers)
+      })
       group.subgroups.forEach(subgroup => {
         subgroup.chats.forEach(chat => {
-          const chatMembers = subgroup.members.filter(member => chat.members.includes(member.id));
+          const chatMembers = subgroup.members.filter(member => chat.members.includes(member.id))
           if (membersMap.has(chat.id)) {
-            const existingMembers = membersMap.get(chat.id)!;
-            const newMembers = chatMembers.filter(member => 
-              !existingMembers.some(existingMember => existingMember.id === member.id)
-            );
-            membersMap.set(chat.id, existingMembers.concat(newMembers));
+            const existingMembers = membersMap.get(chat.id)!
+            const newMembers = chatMembers.filter(member =>
+              !existingMembers.some(existingMember => existingMember.id === member.id),
+            )
+            membersMap.set(chat.id, existingMembers.concat(newMembers))
           } else {
-            membersMap.set(chat.id, chatMembers);
+            membersMap.set(chat.id, chatMembers)
           }
-        });
-      });
-    });
-    return membersMap;
-  }, [mockData]);
+        })
+      })
+    })
+    return membersMap
+  }, [mockData])
 
   const sortedAndFilteredChats = useMemo(() => {
     const filteredChats = mockData
       .flatMap((group: Group) => {
-        const isGroupChecked = groups.find(g => g.name === group.name)?.checked;
-        const groupChats = isGroupChecked ? group.chats.map((chat: Chat) => ({ groupName: group.name, chat })) : [];
+        const isGroupChecked = groups.find(g => g.name === group.name)?.checked
+        const groupChats = isGroupChecked ? group.chats.map((chat: Chat) => ({ groupName: group.name, chat })) : []
         const subgroupChats = group.subgroups
           .filter((subgroup: Group) => groups.find(g => g.name === subgroup.name)?.checked)
-          .flatMap((subgroup: Group) => subgroup.chats.map((chat: Chat) => ({ groupName: subgroup.name, chat })));
-        return [...groupChats, ...subgroupChats];
+          .flatMap((subgroup: Group) => subgroup.chats.map((chat: Chat) => ({ groupName: subgroup.name, chat })))
+        return [...groupChats, ...subgroupChats]
       })
       .sort((a: { groupName: string; chat: Chat }, b: { groupName: string; chat: Chat }) => {
-        const dateA = getDateFromRelativeTime(a.chat.messages[a.chat.messages.length - 1]?.at);
-        const dateB = getDateFromRelativeTime(b.chat.messages[b.chat.messages.length - 1]?.at);
-        return dateB.getTime() - dateA.getTime();
-      });
+        const dateA = getDateFromRelativeTime(a.chat.messages[a.chat.messages.length - 1]?.at)
+        const dateB = getDateFromRelativeTime(b.chat.messages[b.chat.messages.length - 1]?.at)
+        return dateB.getTime() - dateA.getTime()
+      })
 
-    return filteredChats;
-  }, [groups, mockData]);
+    return filteredChats
+  }, [groups, mockData])
 
   const handleChatClick = (chatId: number) => {
-    setChatId(chatId.toString());
-    router.push('/messages/chat');
-  };
+    setChatId(chatId.toString())
+    router.push("/messages/chat")
+  }
 
   if (isLoading) {
     return (
@@ -83,7 +83,7 @@ const ChatsPage = () => {
           <div>Loading...</div>
         </MaxWidthWrapper>
       </section>
-    );
+    )
   }
 
   return (
@@ -96,21 +96,21 @@ const ChatsPage = () => {
           <div className="w-3/4">
             <div className="space-y-6">
               {sortedAndFilteredChats.map(({ groupName, chat }, index) => {
-                const lastMessage = chat.messages[chat.messages.length - 1];
-                const chatMembers = chatMembersMap.get(chat.id) || [];
+                const lastMessage = chat.messages[chat.messages.length - 1]
+                const chatMembers = chatMembersMap.get(chat.id) || []
 
-                let memberNames;
+                let memberNames
                 if (chatMembers.length <= 3) {
-                  memberNames = chatMembers.map(member => member.name).join(', ');
+                  memberNames = chatMembers.map(member => member.name).join(", ")
                 } else {
-                  const firstThreeNames = chatMembers.slice(0, 3).map(member => member.name).join(', ');
-                  memberNames = `${firstThreeNames} + ${chatMembers.length - 3} more`;
+                  const firstThreeNames = chatMembers.slice(0, 3).map(member => member.name).join(", ")
+                  memberNames = `${firstThreeNames} + ${chatMembers.length - 3} more`
                 }
 
-                const hasNewMessages = chat.messages.some(message => message.new);
+                const hasNewMessages = chat.messages.some(message => message.new)
                 return (
-                  <div 
-                    key={index} 
+                  <div
+                    key={index}
                     className="p-6 bg-white rounded-md shadow cursor-pointer hover:bg-gray-50 transition-colors"
                     onClick={() => handleChatClick(chat.id)}
                   >
@@ -125,7 +125,8 @@ const ChatsPage = () => {
                     <div className="flex-grow text-left">
                       <h3 className="font-medium text-base text-gray-700 mb-2">{memberNames}</h3>
                       <p className="text-base text-gray-800 mb-2">
-                        <span className="font-medium">{chatMembers.find(member => member.id === lastMessage?.sentBy)?.name}: </span>
+                        <span
+                          className="font-medium">{chatMembers.find(member => member.id === lastMessage?.sentBy)?.name}: </span>
                         {lastMessage?.content || "No messages"}
                       </p>
                       <p className="text-sm text-gray-400">
@@ -133,7 +134,7 @@ const ChatsPage = () => {
                       </p>
                     </div>
                   </div>
-                );
+                )
               })}
             </div>
           </div>

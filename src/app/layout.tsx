@@ -1,10 +1,7 @@
-
-
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { EB_Garamond } from "next/font/google"
-import { cn } from "@/utils"
-import { ContextProvider } from "@/context/ContextProvider";
+import { EB_Garamond, Inter } from "next/font/google"
+import { cn } from "@/components/functions/utils"
+import { ContextProvider } from "@/context/ContextProvider"
 
 import "./globals.css"
 
@@ -21,17 +18,17 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children,
-}: Readonly<{
+                                     children,
+                                   }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
     <html lang="en" className={cn(inter.variable, eb_garamond.variable)}>
-      <body className="font-sans bg-brand-25 text-brand-950 antialiased min-h-[800px]">
-        <ContextProvider>
-          {children}
-        </ContextProvider>
-      </body>
+    <body className="font-sans bg-brand-25 text-brand-950 antialiased min-h-[800px]">
+    <ContextProvider>
+      {children}
+    </ContextProvider>
+    </body>
     </html>
   )
 }

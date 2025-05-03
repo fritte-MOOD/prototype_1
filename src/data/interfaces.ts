@@ -73,46 +73,54 @@ export interface BaseModule {
 }
 
 export interface IdeationModule extends BaseModule {
-  type: 'Ideation';
+  type: "Ideation";
   options: Option[];
 }
 
 export interface EstimateModule extends BaseModule {
-  type: 'Estimate';
+  type: "Estimate";
   options: Option[];
 }
 
 export interface PrioritizeModule extends BaseModule {
-  type: 'Prioritize';
+  type: "Prioritize";
   options: Option[];
 }
 
 export interface VoteModule extends BaseModule {
-  type: 'Vote';
+  type: "Vote";
   options: Option[];
 }
 
 export interface DebateModule extends BaseModule {
-  type: 'Debate';
+  type: "Debate";
   options: Option[];
 }
 
 export interface ExternalDecisionModule extends BaseModule {
-  type: 'ExternalDecision';
+  type: "ExternalDecision";
   options: Option[];
 }
 
 export interface BrainstormingModule extends BaseModule {
-  type: 'Brainstorming';
+  type: "Brainstorming";
   options: Option[];
 }
 
 export interface AnnouncementModule extends BaseModule {
-  type: 'Announcement';
+  type: "Announcement";
   options: Option[];
 }
 
-export type Module = IdeationModule | EstimateModule | PrioritizeModule | VoteModule | DebateModule | ExternalDecisionModule | BrainstormingModule | AnnouncementModule;
+export type Module =
+  IdeationModule
+  | EstimateModule
+  | PrioritizeModule
+  | VoteModule
+  | DebateModule
+  | ExternalDecisionModule
+  | BrainstormingModule
+  | AnnouncementModule;
 
 export interface Process {
   id: number;

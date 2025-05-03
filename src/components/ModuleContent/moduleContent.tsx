@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { CalculateDateTime } from '@/components/CalculateDateTime';
-import FormattedDate from '@/components/FormattedDate';
+import { CalculateDateTime } from '@/components/functions/CalculateDateTime';
+import FormattedDate from '@/components/functions/FormattedDate';
 import PrioritizeSection from "./PrioritizeSection"
 import IdeationSection from "./IdeationSection"
 import EstimateSection from "./EstimateSection"

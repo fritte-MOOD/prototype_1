@@ -14,7 +14,7 @@ These are the subgroups:
 YOU are a member of 2nd Senior Team and Execution Committee.
 
  */
-import { Member, Chat, Task, Appointment, Process } from '../interfaces';
+import { Appointment, Member, Process } from "../interfaces"
 
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: Member of 2nd Senior Team and Execution Committee
@@ -155,7 +155,7 @@ export const members: Member[] = [
   { id: 2043, name: "Olivia Becker" }, // 42, Taking a break due to work relocation
   { id: 2044, name: "Antoine Lefebvre" }, // 61, Recovering from a stroke but hopes to return
   { id: 2045, name: "Fatima Al-Mansour" }, // 34, Taking time off for religious pilgrimage
-];
+]
 export const appointments: Appointment[] = [
   {
     id: 3001,
@@ -165,7 +165,7 @@ export const appointments: Appointment[] = [
     accepted: [1017, 1018, 1019, 1020, 1021],
     declined: [1022],
     description: "1st Senior Team vs. Riverside Tennis Club",
-    content: "Important league match against our local rivals. All team members please arrive at least 30 minutes before the match for warm-up."
+    content: "Important league match against our local rivals. All team members please arrive at least 30 minutes before the match for warm-up.",
   },
   {
     id: 3002,
@@ -175,7 +175,7 @@ export const appointments: Appointment[] = [
     accepted: [],
     declined: [],
     description: "Watch Party: Wimbledon Men's Final",
-    content: "Join us at the clubhouse to watch the Wimbledon Men's Final on the big screen. Snacks and refreshments will be provided. BYOB."
+    content: "Join us at the clubhouse to watch the Wimbledon Men's Final on the big screen. Snacks and refreshments will be provided. BYOB.",
   },
   {
     id: 3003,
@@ -185,7 +185,7 @@ export const appointments: Appointment[] = [
     accepted: [],
     declined: [],
     description: "Annual General Meeting",
-    content: "Our annual general meeting to discuss the club's performance, finances, and plans for the upcoming year. All members are encouraged to attend."
+    content: "Our annual general meeting to discuss the club's performance, finances, and plans for the upcoming year. All members are encouraged to attend.",
   },
   {
     id: 3004,
@@ -195,7 +195,7 @@ export const appointments: Appointment[] = [
     accepted: [],
     declined: [],
     description: "Junior Team Training Camp",
-    content: "Full-day training camp for the Junior Team. Focus on technique, strategy, and team building. Lunch will be provided."
+    content: "Full-day training camp for the Junior Team. Focus on technique, strategy, and team building. Lunch will be provided.",
   },
   {
     id: 3005,
@@ -205,7 +205,7 @@ export const appointments: Appointment[] = [
     accepted: [],
     declined: [],
     description: "Masters' Monthly Dinner",
-    content: "Our regular monthly dinner for the Masters group. This month's theme: Italian cuisine. Please bring a dish to share."
+    content: "Our regular monthly dinner for the Masters group. This month's theme: Italian cuisine. Please bring a dish to share.",
   },
   {
     id: 3006,
@@ -215,9 +215,9 @@ export const appointments: Appointment[] = [
     accepted: [],
     declined: [],
     description: "Club Open Day",
-    content: "Annual open day to attract new members. Activities include free lessons, exhibition matches, and a BBQ. All members are encouraged to attend and bring friends who might be interested in joining."
-  }
-];
+    content: "Annual open day to attract new members. Activities include free lessons, exhibition matches, and a BBQ. All members are encouraged to attend and bring friends who might be interested in joining.",
+  },
+]
 
 export const processes: Process[] = [
   {
@@ -233,7 +233,7 @@ export const processes: Process[] = [
     modules: [
       {
         id: 40011,
-        type: 'Estimate',
+        type: "Estimate",
         dueAt: { time: "20:00", distance: 7 },
         description: "Estimated Costs for Hosting the Annual Meeting",
         content: "Please review the following list of potential costs associated with hosting the Annual Meeting. For each item, we've provided an initial estimate. We welcome your input on these estimates based on your experience or research.",
@@ -255,9 +255,9 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [1066, 1067],
                 comments: [],
-                content: "I've reached out to our usual caterer. They can do it for €3,500 if we book within this week."
-              }
-            ]
+                content: "I've reached out to our usual caterer. They can do it for €3,500 if we book within this week.",
+              },
+            ],
           },
           {
             id: 400112,
@@ -276,9 +276,9 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [1065],
                 comments: [],
-                content: "I know a local company that might give us a discount. I'll check and get back to you."
-              }
-            ]
+                content: "I know a local company that might give us a discount. I'll check and get back to you.",
+              },
+            ],
           },
           {
             id: 400113,
@@ -297,9 +297,9 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [1023, 1024],
                 comments: [],
-                content: "We could ask for volunteers from our membership to reduce this cost. Many would be happy to help for such a prestigious event."
-              }
-            ]
+                content: "We could ask for volunteers from our membership to reduce this cost. Many would be happy to help for such a prestigious event.",
+              },
+            ],
           },
           {
             id: 400114,
@@ -318,9 +318,9 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [1062],
                 comments: [],
-                content: "I can get this done for €400 through my contacts in the advertising industry."
-              }
-            ]
+                content: "I can get this done for €400 through my contacts in the advertising industry.",
+              },
+            ],
           },
           {
             id: 400115,
@@ -339,15 +339,15 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [1065, 1067],
                 comments: [],
-                content: "As an interior designer, I'd be happy to oversee this and potentially reduce costs. We could involve some of our more creative members too."
-              }
-            ]
-          }
-        ]
+                content: "As an interior designer, I'd be happy to oversee this and potentially reduce costs. We could involve some of our more creative members too.",
+              },
+            ],
+          },
+        ],
       },
       {
         id: 40012,
-        type: 'Debate',
+        type: "Debate",
         dueAt: { time: "20:00", distance: 10 },
         description: "Should we host Rochefort's Annual Meeting of Sports Clubs and Associates? Total estimated cost: €6,650",
         content: "Based on our cost estimation, the total expense for hosting this event would be approximately €6,650. This is a significant investment, but it could also bring substantial benefits to our club. Please share your thoughts on whether we should proceed with hosting this event.",
@@ -376,10 +376,10 @@ export const processes: Process[] = [
                     new: false,
                     supportedBy: [1062, 1072],
                     comments: [],
-                    content: "Absolutely agree. The networking opportunities alone could be invaluable for our club's future."
-                  }
+                    content: "Absolutely agree. The networking opportunities alone could be invaluable for our club's future.",
+                  },
                 ],
-                content: "This event could put Parkclub on the map as a premier venue in Rochefort. The exposure could lead to new memberships and potential sponsorships, offsetting the initial cost."
+                content: "This event could put Parkclub on the map as a premier venue in Rochefort. The exposure could lead to new memberships and potential sponsorships, offsetting the initial cost.",
               },
               {
                 id: 4001212,
@@ -395,12 +395,12 @@ export const processes: Process[] = [
                     new: false,
                     supportedBy: [1018, 1019, 1020],
                     comments: [],
-                    content: "As captain of the 1st Senior Team, I think this could really boost our club's profile and potentially attract stronger players."
-                  }
+                    content: "As captain of the 1st Senior Team, I think this could really boost our club's profile and potentially attract stronger players.",
+                  },
                 ],
-                content: "From a coaching perspective, this event could open doors for our junior players. We might be able to establish connections with higher-level clubs or even sports academies."
-              }
-            ]
+                content: "From a coaching perspective, this event could open doors for our junior players. We might be able to establish connections with higher-level clubs or even sports academies.",
+              },
+            ],
           },
           {
             id: 400122,
@@ -426,10 +426,10 @@ export const processes: Process[] = [
                     new: false,
                     supportedBy: [1066],
                     comments: [],
-                    content: "While I understand your concerns, Richard, I believe the potential long-term benefits outweigh the short-term costs. We could also look into sponsorships to offset some of the expenses."
-                  }
+                    content: "While I understand your concerns, Richard, I believe the potential long-term benefits outweigh the short-term costs. We could also look into sponsorships to offset some of the expenses.",
+                  },
                 ],
-                content: "As the treasurer, I'm concerned about the impact on our budget. We have other pressing needs, like upgrading our court lighting, that this money could be used for."
+                content: "As the treasurer, I'm concerned about the impact on our budget. We have other pressing needs, like upgrading our court lighting, that this money could be used for.",
               },
               {
                 id: 4001222,
@@ -445,18 +445,18 @@ export const processes: Process[] = [
                     new: false,
                     supportedBy: [1023, 1024],
                     comments: [],
-                    content: "I understand your concerns, George. Perhaps we could form a special committee to ensure the event doesn't disrupt regular club activities?"
-                  }
+                    content: "I understand your concerns, George. Perhaps we could form a special committee to ensure the event doesn't disrupt regular club activities?",
+                  },
                 ],
-                content: "Speaking for the Masters group, we're worried about the disruption this event might cause to our regular activities. September is usually a busy month for us."
-              }
-            ]
-          }
-        ]
+                content: "Speaking for the Masters group, we're worried about the disruption this event might cause to our regular activities. September is usually a busy month for us.",
+              },
+            ],
+          },
+        ],
       },
       {
         id: 40013,
-        type: 'ExternalDecision',
+        type: "ExternalDecision",
         dueAt: { time: "20:00", distance: 14 },
         description: "Final Decision on Hosting Rochefort's Annual Meeting of Sports Clubs and Associates",
         content: "After careful consideration of the costs, potential benefits, and member opinions, the Execution Committee has made a decision regarding the proposal to host Rochefort's Annual Meeting of Sports Clubs and Associates.",
@@ -475,19 +475,19 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [],
                 comments: [],
-                content: "The Execution Committee has decided to proceed with hosting the event. We believe this is a valuable opportunity for Parkclub to raise its profile in the community and potentially attract new members and sponsors. We will form a special committee to oversee the event planning and minimize disruption to regular club activities. We'll also explore sponsorship opportunities to offset some of the costs. Thank you all for your input in this important decision."
-              }
+                content: "The Execution Committee has decided to proceed with hosting the event. We believe this is a valuable opportunity for Parkclub to raise its profile in the community and potentially attract new members and sponsors. We will form a special committee to oversee the event planning and minimize disruption to regular club activities. We'll also explore sponsorship opportunities to offset some of the costs. Thank you all for your input in this important decision.",
+              },
             ],
             createdAt: { time: "19:00", distance: 14 },
             createdBy: 1062,
-            supportedBy: []
+            supportedBy: [],
           },
-          
-        ]
-      }
-    ]
-  }
-];
 
-export const IAmMember = true;
-export const isPublic = true;
+        ],
+      },
+    ],
+  },
+]
+
+export const IAmMember = true
+export const isPublic = true

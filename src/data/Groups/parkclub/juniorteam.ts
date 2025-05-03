@@ -19,8 +19,8 @@ export const members: Member[] = [
   { id: 1015, name: "David Nkosi" }, // 35, Junior Team Head Coach
   { id: 1016, name: "Sarah O'Connor" }, // 28, Junior Team Assistant Coach
 
-];
+]
 
 
-export const IAmMember = false;
-export const isPublic = false;
+export const IAmMember = false
+export const isPublic = false

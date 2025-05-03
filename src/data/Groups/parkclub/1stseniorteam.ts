@@ -9,7 +9,7 @@ export const members: Member[] = [
   { id: 1021, name: "Felix Müller" }, // 26, Doubles specialist
   { id: 1022, name: "Yuki Tanaka" }, // 23, Rising star, recently promoted from 2nd team
 
-];
+]
 
-export const IAmMember = false;
-export const isPublic = false;
+export const IAmMember = false
+export const isPublic = false

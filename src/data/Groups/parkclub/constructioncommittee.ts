@@ -7,8 +7,8 @@ export const members: Member[] = [
   { id: 1069, name: "Günther Schmitt" }, // 62, Retired Construction Foreman
   { id: 1070, name: "Isabelle Lefebvre" }, // 44, Interior Designer
   { id: 1071, name: "Raj Patel" }, // 39, Sustainability Consultant
-];
+]
 
 
-export const IAmMember = false;
-export const isPublic = false;
+export const IAmMember = false
+export const isPublic = false

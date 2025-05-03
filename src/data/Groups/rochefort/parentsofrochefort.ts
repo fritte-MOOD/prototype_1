@@ -1,4 +1,4 @@
-import { Member, Chat, Task, Appointment, Process } from '../../interfaces';
+import { Member } from "../../interfaces"
 
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: 32, Political activist, welcoming, collaborative and empathetic, but assertive, concerned and strict.
@@ -30,6 +30,6 @@ export const members: Member[] = [
   { id: 2024, name: "Giovanni Bianchi" }, // 50, Bank manager, advises on community financial matters
   { id: 2025, name: "Zoe Anderson" }, // 26, Recent graduate, starting an eco-friendly clothing business
   { id: 2026, name: "Hans Müller" }, // 58, Retired teacher, tutors students in mathematics and science
-];
-export const IAmMember = true;
-export const isPublic = false;
+]
+export const IAmMember = true
+export const isPublic = false

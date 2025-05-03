@@ -30,8 +30,8 @@ export const members: Member[] = [
   { id: 1060, name: "Takashi Yamamoto" }, // 67, Passionate about proper tennis etiquette
   { id: 1061, name: "Eva Novotna" }, // 59, Organizes tennis-themed trivia nights
 
-];
+]
 
 
-export const IAmMember = false;
-export const isPublic = false;
+export const IAmMember = false
+export const isPublic = false

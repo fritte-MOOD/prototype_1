@@ -1,4 +1,4 @@
-import { Member, Chat, Task, Appointment, Process } from '../../interfaces';
+import { Appointment, Chat, Member, Process, Task } from "../../interfaces"
 
 export const members: Member[] = [
   // House 1
@@ -31,11 +31,11 @@ export const members: Member[] = [
   { id: 3600, name: "Liam O'Connor" }, // 45, Construction project manager, experienced in residential renovations
   { id: 3601, name: "Sophie Chen" }, // 39, Interior designer, specializes in sustainable and eco-friendly materials
   { id: 3602, name: "Ahmed Hassan" }, // 41, Structural engineer, expertise in building safety and regulations
-];
+]
 
-export const chats: Chat[] = [];
-export const tasks: Task[] = [];
-export const appointments: Appointment[] = [];
-export const processes: Process[] = [];
-export const IAmMember = false;
-export const isPublic = true;
+export const chats: Chat[] = []
+export const tasks: Task[] = []
+export const appointments: Appointment[] = []
+export const processes: Process[] = []
+export const IAmMember = false
+export const isPublic = true

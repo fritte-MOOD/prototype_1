@@ -1,4 +1,4 @@
-import { Member, Chat, Task, Appointment, Process } from '../../interfaces';
+import { Chat, Member } from "../../interfaces"
 
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: 32, Political activist, welcoming, collaborative and empathetic, but assertive, concerned and strict.
@@ -35,7 +35,7 @@ export const members: Member[] = [
   { id: 2055, name: "Isabel Fernández" }, // 45, Veterinarian, volunteers at the local animal shelter
   { id: 2056, name: "Finn Larsson" }, // 29, Renewable energy technician, installs solar panels
   { id: 2057, name: "Nora Lindholm" }, // 52, Family therapist, offers counseling to community members
-];
+]
 
 
 export const chats: Chat[] = [
@@ -48,97 +48,97 @@ export const chats: Chat[] = [
         at: { time: "09:00", distance: -30 },
         sentBy: 1,
         supportedBy: [],
-        content: "Hello everyone! I'd like to start a discussion on how we can bring more attention to our local sports clubs. Any ideas?"
+        content: "Hello everyone! I'd like to start a discussion on how we can bring more attention to our local sports clubs. Any ideas?",
       },
       {
         new: false,
         at: { time: "09:15", distance: -30 },
         sentBy: 2046,
         supportedBy: [2039, 2051],
-        content: "As a sports coach, I think we need more visibility. Maybe we could organize some kind of open day for all clubs?"
+        content: "As a sports coach, I think we need more visibility. Maybe we could organize some kind of open day for all clubs?",
       },
       {
         new: false,
         at: { time: "09:30", distance: -30 },
         sentBy: 2032,
         supportedBy: [2036, 2049],
-        content: "That's a great idea! We could combine it with live music and art to make it a real community event."
+        content: "That's a great idea! We could combine it with live music and art to make it a real community event.",
       },
       {
         new: false,
         at: { time: "09:45", distance: -30 },
         sentBy: 2031,
         supportedBy: [2038],
-        content: "I can help with marketing. We could create a campaign to promote the event across town."
+        content: "I can help with marketing. We could create a campaign to promote the event across town.",
       },
       {
         new: false,
         at: { time: "10:00", distance: -30 },
         sentBy: 2042,
         supportedBy: [2027, 2043],
-        content: "I'd be happy to broadcast information about the event on my radio show. We could also interview club representatives leading up to the day."
+        content: "I'd be happy to broadcast information about the event on my radio show. We could also interview club representatives leading up to the day.",
       },
       {
         new: false,
         at: { time: "10:15", distance: -30 },
         sentBy: 2054,
         supportedBy: [2035],
-        content: "This could be a great opportunity to study community engagement. I suggest we make it an annual event, rotating between different clubs each year."
+        content: "This could be a great opportunity to study community engagement. I suggest we make it an annual event, rotating between different clubs each year.",
       },
       {
         new: false,
         at: { time: "10:30", distance: -30 },
         sentBy: 1,
         supportedBy: [2046, 2031, 2042],
-        content: "These are all fantastic ideas! I love the suggestion of making it an annual event. Let's call it 'Rochefort Club Day'. What do you think?"
+        content: "These are all fantastic ideas! I love the suggestion of making it an annual event. Let's call it 'Rochefort Club Day'. What do you think?",
       },
       {
         new: false,
         at: { time: "10:45", distance: -30 },
         sentBy: 2045,
         supportedBy: [2033, 2052],
-        content: "Great name! I can help design an outdoor space for the event if needed. We could also incorporate healthy food stands to promote well-being."
+        content: "Great name! I can help design an outdoor space for the event if needed. We could also incorporate healthy food stands to promote well-being.",
       },
       {
         new: false,
         at: { time: "11:00", distance: -30 },
         sentBy: 2056,
         supportedBy: [2041, 2053],
-        content: "We could showcase how sports clubs are becoming more sustainable. I'd be happy to set up a demo of solar-powered equipment."
+        content: "We could showcase how sports clubs are becoming more sustainable. I'd be happy to set up a demo of solar-powered equipment.",
       },
       {
         new: false,
         at: { time: "11:15", distance: -30 },
         sentBy: 2035,
         supportedBy: [2037, 2048],
-        content: "I can help draft any necessary permits or agreements for the event. We should also consider insurance and safety measures."
+        content: "I can help draft any necessary permits or agreements for the event. We should also consider insurance and safety measures.",
       },
       {
         new: false,
         at: { time: "11:30", distance: -30 },
         sentBy: 1,
         supportedBy: [2054, 2045, 2056, 2035],
-        content: "This is shaping up to be an amazing event! Let's summarize: An annual 'Rochefort Club Day', hosted by a different club each year, featuring sports demonstrations, live music, art, healthy food, and sustainability showcases. We'll need to coordinate marketing, logistics, and legal aspects. Does everyone agree with this plan?"
+        content: "This is shaping up to be an amazing event! Let's summarize: An annual 'Rochefort Club Day', hosted by a different club each year, featuring sports demonstrations, live music, art, healthy food, and sustainability showcases. We'll need to coordinate marketing, logistics, and legal aspects. Does everyone agree with this plan?",
       },
       {
         new: false,
         at: { time: "11:45", distance: -30 },
         sentBy: 2046,
         supportedBy: members.map(member => member.id).filter(id => id !== 2046 && id !== 1),
-        content: "This sounds perfect! As a sports coach, I'm excited to see this come to life. It will be a great way to engage the community and showcase what our local clubs have to offer."
+        content: "This sounds perfect! As a sports coach, I'm excited to see this come to life. It will be a great way to engage the community and showcase what our local clubs have to offer.",
       },
       {
         new: false,
         at: { time: "12:00", distance: -30 },
         sentBy: 1,
         supportedBy: [],
-        content: "Wonderful! Let's start planning our first Rochefort Club Day. I'll create a task list and we can begin assigning responsibilities. Thank you all for your enthusiasm and great ideas!"
-      }
-    ]
-  }
-];
+        content: "Wonderful! Let's start planning our first Rochefort Club Day. I'll create a task list and we can begin assigning responsibilities. Thank you all for your enthusiasm and great ideas!",
+      },
+    ],
+  },
+]
 
 // ... (rest of the code remains unchanged)
 
-export const IAmMember = true;
-export const isPublic = false;
+export const IAmMember = true
+export const isPublic = false

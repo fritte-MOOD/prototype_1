@@ -6,15 +6,12 @@ import { useRouter } from "next/navigation";
 import { Drama, Home, Volleyball, ChevronRight } from "lucide-react";
 import { useGroup } from "@/context/ContextFiles/GroupContext";
 import { useCheckbox } from '@/context/ContextFiles/CheckboxesContext';
-import { useName } from '@/context/ContextFiles/NameContext';
 
 export const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const router = useRouter();
     const { groupName, setGroupName } = useGroup();
     const { groupStructure, activateMainAndSubs, activateOnlySub } = useCheckbox();
-    const { name, setName } = useName();
-
     const handleGroupClick = (newGroupName: string) => {
         setGroupName(newGroupName);
         
@@ -44,11 +41,6 @@ export const Navbar = () => {
             default:
                 return <ChevronRight className="self-center text-brand-300 group-hover:text-white" />;
         }
-    };
-
-    const toggleName = () => {
-        const newName = name === "Fritz Schmack" ? "Arbnora Kokollari" : "Fritz Schmack";
-        setName(newName);
     };
 
     return (

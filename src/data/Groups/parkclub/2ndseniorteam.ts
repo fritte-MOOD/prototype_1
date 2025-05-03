@@ -1,4 +1,4 @@
-import { Member, Appointment } from "@/data/interfaces"
+import { Appointment, Member } from "@/data/interfaces"
 
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: Member of 2nd Senior Team and Execution Committee
@@ -18,7 +18,7 @@ export const members: Member[] = [
   { id: 1034, name: "Aisha Mbeki" }, // 29, Known for her slice
   { id: 1035, name: "Sven Eriksson" }, // 33, Doubles specialist
   { id: 1036, name: "Mei Ling Chen" }, // 27, All-court player
-];
+]
 
 export const appointments: Appointment[] = [
   // Training sessions
@@ -30,7 +30,7 @@ export const appointments: Appointment[] = [
     accepted: members.map(member => member.id),
     declined: [],
     description: "Training Session",
-    content: "Regular team practice focusing on drills and match play."
+    content: "Regular team practice focusing on drills and match play.",
   },
   {
     id: 2002,
@@ -40,7 +40,7 @@ export const appointments: Appointment[] = [
     accepted: members.map(member => member.id),
     declined: [],
     description: "Training Session",
-    content: "Regular team practice focusing on drills and match play."
+    content: "Regular team practice focusing on drills and match play.",
   },
   {
     id: 2003,
@@ -50,7 +50,7 @@ export const appointments: Appointment[] = [
     accepted: members.map(member => member.id),
     declined: [],
     description: "Training Session",
-    content: "Regular team practice focusing on drills and match play."
+    content: "Regular team practice focusing on drills and match play.",
   },
   {
     id: 2004,
@@ -60,7 +60,7 @@ export const appointments: Appointment[] = [
     accepted: [],
     declined: [],
     description: "Training Session",
-    content: "Regular team practice focusing on drills and match play."
+    content: "Regular team practice focusing on drills and match play.",
   },
   {
     id: 2005,
@@ -70,7 +70,7 @@ export const appointments: Appointment[] = [
     accepted: members.map(member => member.id),
     declined: [],
     description: "Training Session",
-    content: "Midweek practice session focusing on technique and strategy."
+    content: "Midweek practice session focusing on technique and strategy.",
   },
   {
     id: 2006,
@@ -80,7 +80,7 @@ export const appointments: Appointment[] = [
     accepted: members.map(member => member.id),
     declined: [],
     description: "Training Session",
-    content: "Midweek practice session focusing on technique and strategy."
+    content: "Midweek practice session focusing on technique and strategy.",
   },
   {
     id: 2007,
@@ -90,7 +90,7 @@ export const appointments: Appointment[] = [
     accepted: [],
     declined: [],
     description: "Training Session",
-    content: "Midweek practice session focusing on technique and strategy."
+    content: "Midweek practice session focusing on technique and strategy.",
   },
   {
     id: 2008,
@@ -100,9 +100,9 @@ export const appointments: Appointment[] = [
     accepted: [],
     declined: [],
     description: "Training Session",
-    content: "Midweek practice session focusing on technique and strategy."
-  }
-];
+    content: "Midweek practice session focusing on technique and strategy.",
+  },
+]
 
-export const IAmMember = true;
-export const isPublic = false;
+export const IAmMember = true
+export const isPublic = false

@@ -1,4 +1,4 @@
-import { Member, Chat, Task, Appointment, Process } from '../interfaces';
+import { Member, Process } from "../interfaces"
 
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: 32, Political activist, welcoming, collaborative and empathetic, but assertive, concerned and strict.
@@ -134,7 +134,7 @@ export const processes: Process[] = [
     modules: [
       {
         id: 20011,
-        type: 'Ideation',
+        type: "Ideation",
         dueAt: { time: "23:59", distance: 10 },
         description: "Project Ideas Submission",
         content: "In this first phase, we invite all Rochefort residents to submit their ideas for community improvement projects. Think about what our city needs most - it could be anything from park renovations to new community programs. Be creative, but also consider the feasibility of your proposal. Each idea should aim to benefit a significant portion of our community.",
@@ -156,9 +156,9 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2005, 2071],
                 comments: [],
-                content: "This could significantly reduce our city's carbon footprint and save on energy costs in the long run."
-              }
-            ]
+                content: "This could significantly reduce our city's carbon footprint and save on energy costs in the long run.",
+              },
+            ],
           },
           {
             id: 200112,
@@ -177,9 +177,9 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2010, 2003],
                 comments: [],
-                content: "This would give our young people a safe and productive place to spend their time after school."
-              }
-            ]
+                content: "This would give our young people a safe and productive place to spend their time after school.",
+              },
+            ],
           },
           {
             id: 200113,
@@ -198,9 +198,9 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2037, 2105],
                 comments: [],
-                content: "This is crucial for ensuring that Rochefort remains accessible to all income levels."
-              }
-            ]
+                content: "This is crucial for ensuring that Rochefort remains accessible to all income levels.",
+              },
+            ],
           },
           {
             id: 200114,
@@ -219,9 +219,9 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2062, 2077],
                 comments: [],
-                content: "This would greatly enhance our children's future prospects and potentially attract tech companies to our area."
-              }
-            ]
+                content: "This would greatly enhance our children's future prospects and potentially attract tech companies to our area.",
+              },
+            ],
           },
           {
             id: 200115,
@@ -240,15 +240,15 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2070, 2066],
                 comments: [],
-                content: "This would not only provide fresh, local produce but also create a wonderful community gathering space."
-              }
-            ]
-          }
-        ]
+                content: "This would not only provide fresh, local produce but also create a wonderful community gathering space.",
+              },
+            ],
+          },
+        ],
       },
       {
         id: 20012,
-        type: 'Estimate',
+        type: "Estimate",
         dueAt: { time: "23:59", distance: 15 },
         description: "Project Cost Analysis",
         content: "We need to analyze the potential costs of each proposed project. Please provide your best estimate for each project, considering materials, labor, and any ongoing maintenance costs. Your expertise and local knowledge are crucial for accurate projections.",
@@ -267,12 +267,12 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2005, 2094],
                 comments: [],
-                content: "After consulting with local suppliers, I estimate this project would cost approximately 85,000€. This includes high-efficiency panels, installation, electrical upgrades for three public buildings, and a 5-year maintenance plan."
-              }
+                content: "After consulting with local suppliers, I estimate this project would cost approximately 85,000€. This includes high-efficiency panels, installation, electrical upgrades for three public buildings, and a 5-year maintenance plan.",
+              },
             ],
             createdAt: { time: "09:00", distance: 11 },
             createdBy: 2090,
-            supportedBy: []
+            supportedBy: [],
           },
           {
             id: 200122,
@@ -288,12 +288,12 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2003, 2095],
                 comments: [],
-                content: "Based on recent similar projects, I estimate this would cost around 130,000€. This covers renovation of existing spaces, a 30% expansion, new equipment, improved accessibility features, and some funds for initial programming."
-              }
+                content: "Based on recent similar projects, I estimate this would cost around 130,000€. This covers renovation of existing spaces, a 30% expansion, new equipment, improved accessibility features, and some funds for initial programming.",
+              },
             ],
             createdAt: { time: "09:15", distance: 11 },
             createdBy: 2090,
-            supportedBy: []
+            supportedBy: [],
           },
           {
             id: 200123,
@@ -309,12 +309,12 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2105, 2063],
                 comments: [],
-                content: "After consulting with local developers and considering current construction costs, I estimate this project would require about 195,000€. This would cover the development of a small plot with 3-4 affordable housing units, including land acquisition, basic infrastructure, and construction costs."
-              }
+                content: "After consulting with local developers and considering current construction costs, I estimate this project would require about 195,000€. This would cover the development of a small plot with 3-4 affordable housing units, including land acquisition, basic infrastructure, and construction costs.",
+              },
             ],
             createdAt: { time: "09:30", distance: 11 },
             createdBy: 2090,
-            supportedBy: []
+            supportedBy: [],
           },
           {
             id: 200124,
@@ -330,12 +330,12 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2077, 2079],
                 comments: [],
-                content: "After detailed analysis, I estimate this program would cost around 95,000€. This includes equipment upgrades for multiple schools, comprehensive teacher training programs, curriculum development, and a small fund for ongoing STEM events and competitions."
-              }
+                content: "After detailed analysis, I estimate this program would cost around 95,000€. This includes equipment upgrades for multiple schools, comprehensive teacher training programs, curriculum development, and a small fund for ongoing STEM events and competitions.",
+              },
             ],
             createdAt: { time: "09:45", distance: 11 },
             createdBy: 2090,
-            supportedBy: []
+            supportedBy: [],
           },
           {
             id: 200125,
@@ -351,18 +351,18 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2052, 2066],
                 comments: [],
-                content: "After researching similar projects and local costs, I estimate this project would cost approximately 55,000€. This includes land preparation, basic infrastructure for the garden (water system, tool shed), initial planting materials, and setup costs for the farmers market including portable stalls and signage."
-              }
+                content: "After researching similar projects and local costs, I estimate this project would cost approximately 55,000€. This includes land preparation, basic infrastructure for the garden (water system, tool shed), initial planting materials, and setup costs for the farmers market including portable stalls and signage.",
+              },
             ],
             createdAt: { time: "10:00", distance: 11 },
             createdBy: 2090,
-            supportedBy: []
-          }
-        ]
+            supportedBy: [],
+          },
+        ],
       },
       {
         id: 20013,
-        type: 'Prioritize',
+        type: "Prioritize",
         dueAt: { time: "23:59", distance: 25 },
         description: "Project Prioritization",
         content: "Now that we have the community-sourced budget estimates, it's time to prioritize the projects. Please rank the following projects based on what you believe is most important for our community. Remember, we have a total budget of 200,000€, so we may not be able to fund all projects this year.",
@@ -376,7 +376,7 @@ export const processes: Process[] = [
             description: "Install solar panels on public buildings to reduce energy costs and promote sustainability.",
             comments: [],
             createdAt: { time: "09:00", distance: 16 },
-            createdBy: 2090
+            createdBy: 2090,
           },
           {
             id: 200131,
@@ -387,7 +387,7 @@ export const processes: Process[] = [
             description: "Install solar panels on public buildings to reduce energy costs and promote sustainability.",
             comments: [],
             createdAt: { time: "09:00", distance: 16 },
-            createdBy: 2090
+            createdBy: 2090,
           },
           {
             id: 200132,
@@ -398,7 +398,7 @@ export const processes: Process[] = [
             description: "Renovate and expand the existing youth center to provide more space and resources for after-school programs.",
             comments: [],
             createdAt: { time: "09:15", distance: 16 },
-            createdBy: 2090
+            createdBy: 2090,
           },
           {
             id: 200133,
@@ -409,7 +409,7 @@ export const processes: Process[] = [
             description: "Develop a small-scale affordable housing project to address the growing housing needs in our community.",
             comments: [],
             createdAt: { time: "09:30", distance: 16 },
-            createdBy: 2090
+            createdBy: 2090,
           },
           {
             id: 200134,
@@ -420,7 +420,7 @@ export const processes: Process[] = [
             description: "Implement a comprehensive STEM education program in local schools, including equipment upgrades and teacher training.",
             comments: [],
             createdAt: { time: "09:45", distance: 16 },
-            createdBy: 2090
+            createdBy: 2090,
           },
           {
             id: 200135,
@@ -431,13 +431,13 @@ export const processes: Process[] = [
             description: "Establish a community garden and weekly farmers market to promote local food production and healthy eating.",
             comments: [],
             createdAt: { time: "10:00", distance: 16 },
-            createdBy: 2090
-          }
-        ]
+            createdBy: 2090,
+          },
+        ],
       },
       {
         id: 20014,
-        type: 'Announcement',
+        type: "Announcement",
         dueAt: { time: "12:00", distance: 30 },
         description: "Final Project Selection Announcement",
         content: "Dear citizens of Rochefort, thank you for your active participation in our 2025 Participatory Budgeting Challenge. After careful consideration of your priorities and our available budget, we are pleased to announce the selected projects for implementation:",
@@ -448,14 +448,14 @@ export const processes: Process[] = [
             rank: 0,
             new: false,
             description: "Final Project Selection Announcement",
-            comments: [              {
+            comments: [{
               id: 2001411,
               createdAt: { time: "10:00", distance: 30 },
               createdBy: 2090,
               new: false,
               supportedBy: [],
               comments: [],
-              content: "1. Community Solar Panel Installation (80,000€)\n2. Youth Center Renovation and Expansion (120,000€)\n\nTotal Budget Allocated: 200,000€\n\nWe believe these projects will have a significant positive impact on our community. The solar panel installation will help us move towards a more sustainable future, while the youth center renovation will provide valuable resources for our younger citizens.\n\nAdditionally, we're pleased to announce that the Community Garden and Farmers Market project (50,000€) will be partially funded through a generous donation from a local business. This project will begin implementation alongside the two main selected projects.\n\nFor the projects that weren't selected this year:\n- The STEM Education Enhancement Program: We will be seeking alternative funding sources and partnerships with local tech companies.\n- The Affordable Housing Initiative: We are committed to addressing this crucial issue and will be forming a task force to explore options for future implementation.\n\nThank you all for your participation and commitment to improving our community. We look forward to seeing these projects come to life!"
+              content: "1. Community Solar Panel Installation (80,000€)\n2. Youth Center Renovation and Expansion (120,000€)\n\nTotal Budget Allocated: 200,000€\n\nWe believe these projects will have a significant positive impact on our community. The solar panel installation will help us move towards a more sustainable future, while the youth center renovation will provide valuable resources for our younger citizens.\n\nAdditionally, we're pleased to announce that the Community Garden and Farmers Market project (50,000€) will be partially funded through a generous donation from a local business. This project will begin implementation alongside the two main selected projects.\n\nFor the projects that weren't selected this year:\n- The STEM Education Enhancement Program: We will be seeking alternative funding sources and partnerships with local tech companies.\n- The Affordable Housing Initiative: We are committed to addressing this crucial issue and will be forming a task force to explore options for future implementation.\n\nThank you all for your participation and commitment to improving our community. We look forward to seeing these projects come to life!",
             },
               {
                 id: 2001412,
@@ -464,7 +464,7 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2064, 2071],
                 comments: [],
-                content: "I'm thrilled to see the solar panel project selected! This is a big step towards a more sustainable Rochefort. Can't wait to see the positive impact on our energy costs and carbon footprint."
+                content: "I'm thrilled to see the solar panel project selected! This is a big step towards a more sustainable Rochefort. Can't wait to see the positive impact on our energy costs and carbon footprint.",
               },
               {
                 id: 2001413,
@@ -473,7 +473,7 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2003, 2073],
                 comments: [],
-                content: "The youth center renovation is going to make such a difference for our young people! It's great to see the city investing in the next generation."
+                content: "The youth center renovation is going to make such a difference for our young people! It's great to see the city investing in the next generation.",
               },
               {
                 id: 2001414,
@@ -482,7 +482,7 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2063],
                 comments: [],
-                content: "While I'm disappointed that the affordable housing initiative wasn't selected, I appreciate the commitment to forming a task force. I hope we can find a way to address this crucial issue soon."
+                content: "While I'm disappointed that the affordable housing initiative wasn't selected, I appreciate the commitment to forming a task force. I hope we can find a way to address this crucial issue soon.",
               },
               {
                 id: 2001415,
@@ -491,7 +491,7 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2052, 2066],
                 comments: [],
-                content: "I'm pleasantly surprised that the community garden and farmers market project will still go ahead thanks to the local business donation. This will be a great addition to our community!"
+                content: "I'm pleasantly surprised that the community garden and farmers market project will still go ahead thanks to the local business donation. This will be a great addition to our community!",
               },
               {
                 id: 2001416,
@@ -500,16 +500,16 @@ export const processes: Process[] = [
                 new: false,
                 supportedBy: [2077],
                 comments: [],
-                content: "While it's unfortunate that the STEM program wasn't selected, I'm glad to hear that alternative funding sources are being explored. Our students' education is crucial for the future of Rochefort."
-              }
+                content: "While it's unfortunate that the STEM program wasn't selected, I'm glad to hear that alternative funding sources are being explored. Our students' education is crucial for the future of Rochefort.",
+              },
             ],
             createdAt: { time: "09:00", distance: 30 },
             createdBy: 2090,
-            supportedBy: []
-          }
-        ]
-      }
-    ]
-  }
+            supportedBy: [],
+          },
+        ],
+      },
+    ],
+  },
 
 ]

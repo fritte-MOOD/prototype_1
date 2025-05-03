@@ -1,43 +1,43 @@
-"use client";
+"use client"
 
-import { useName } from "@/context/ContextFiles/NameContext";
-import { useGroup } from "@/context/ContextFiles/GroupContext";
-import { useCheckbox } from "@/context/ContextFiles/CheckboxesContext";
-import { Heading } from "@/components/heading";
-import { MaxWidthWrapper } from "@/components/max-width-wrapper";
-import { ButtonLandingPage } from "@/components/ButtonLandingPage";
-import { useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
-import { Drama, Volleyball, Home } from "lucide-react";
+import { useName } from "@/context/ContextFiles/NameContext"
+import { useGroup } from "@/context/ContextFiles/GroupContext"
+import { useCheckbox } from "@/context/ContextFiles/CheckboxesContext"
+import { Heading } from "@/components/ui/heading"
+import { MaxWidthWrapper } from "@/components/ui/max-width-wrapper"
+import { ButtonLandingPage } from "@/components/ui/ButtonLandingPage"
+import { useRouter } from "next/navigation"
+import { useEffect, useState } from "react"
+import { Drama, Home, Volleyball } from "lucide-react"
 
 export default function Dashboard() {
-  const { name } = useName() || { name: "Alex" };
-  const { setGroupName } = useGroup();
-  const { activateMainAndSubs } = useCheckbox();
-  const router = useRouter();
-  const [isClient, setIsClient] = useState(false);
+  const { name } = useName() || { name: "Alex" }
+  const { setGroupName } = useGroup()
+  const { activateMainAndSubs } = useCheckbox()
+  const router = useRouter()
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    setIsClient(true);
-  }, []);
+    setIsClient(true)
+  }, [])
 
   if (!isClient) {
-    return null;
+    return null
   }
 
   const handleGroupChange = (group: string) => {
-    setGroupName(group);
-    activateMainAndSubs(group);
-    router.push('/about');
-  };
+    setGroupName(group)
+    activateMainAndSubs(group)
+    router.push("/about")
+  }
 
   return (
     <section className="relative py-24 sm:py-32 ">
       <MaxWidthWrapper className="text-center relative mx-auto flex flex-col items-center gap-10">
         <Heading>Welcome back, {name}</Heading>
         <p className="text-xl text-gray-600  max-w-prose text-center text-pretty">
-          You are living in the small town of <span className="font-bold text-black">Rochefort</span>, <br/>
-          are an executive member of the local <span className="font-bold text-black">Sports Club</span> and <br/>
+          You are living in the small town of <span className="font-bold text-black">Rochefort</span>, <br />
+          are an executive member of the local <span className="font-bold text-black">Sports Club</span> and <br />
           live in a community housing project named <span className="font-bold text-black">Marin Quarter</span>.
         </p>
         <p className="text-xl text-black  max-w-prose text-center text-pretty">
@@ -109,5 +109,5 @@ export default function Dashboard() {
         </div>
       </MaxWidthWrapper>
     </section>
-  );
+  )
 }

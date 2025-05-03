@@ -1,11 +1,11 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useChat } from "@/context/ContextFiles/ChatContext"
-import { MaxWidthWrapper } from "@/components/max-width-wrapper"
-import FormattedDate from "@/components/FormattedDate"
-import { CalculateDateTime } from '@/components/CalculateDateTime'
-import { Chat, Message, Member, Group } from "@/data/interfaces"
+import { MaxWidthWrapper } from "@/components/ui/max-width-wrapper"
+import FormattedDate from "@/components/functions/FormattedDate"
+import { CalculateDateTime } from "@/components/functions/CalculateDateTime"
+import { Chat, Group, Member, Message } from "@/data/interfaces"
 import { useMockup } from "@/context/ContextFiles/MockupContext"
 
 const ChatPage = () => {
@@ -14,43 +14,43 @@ const ChatPage = () => {
   const [chatGroup, setChatGroup] = useState<string>("")
   const [chatMembers, setChatMembers] = useState<Member[]>([])
   const mockData = useMockup()
-  const messageContainerRef = useRef<HTMLDivElement>(null);
+  const messageContainerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (chatId) {
-      let foundChat: Chat | null = null;
-      let foundGroup: string = "";
-      let foundMembers: Member[] = [];
+      let foundChat: Chat | null = null
+      let foundGroup: string = ""
+      let foundMembers: Member[] = []
 
       mockData.some((group: Group) => {
-        foundChat = group.chats.find(chat => chat.id.toString() === chatId) || null;
+        foundChat = group.chats.find(chat => chat.id.toString() === chatId) || null
         if (foundChat) {
-          foundGroup = group.name;
-          foundMembers = group.members.filter(member => foundChat!.members.includes(member.id));
-          return true;
+          foundGroup = group.name
+          foundMembers = group.members.filter(member => foundChat!.members.includes(member.id))
+          return true
         }
         return group.subgroups.some(subgroup => {
-          foundChat = subgroup.chats.find(chat => chat.id.toString() === chatId) || null;
+          foundChat = subgroup.chats.find(chat => chat.id.toString() === chatId) || null
           if (foundChat) {
-            foundGroup = subgroup.name;
-            foundMembers = subgroup.members.filter(member => foundChat!.members.includes(member.id));
-            return true;
+            foundGroup = subgroup.name
+            foundMembers = subgroup.members.filter(member => foundChat!.members.includes(member.id))
+            return true
           }
-          return false;
-        });
-      });
+          return false
+        })
+      })
 
-      setCurrentChat(foundChat);
-      setChatGroup(foundGroup);
-      setChatMembers(foundMembers);
+      setCurrentChat(foundChat)
+      setChatGroup(foundGroup)
+      setChatMembers(foundMembers)
     }
   }, [chatId, mockData])
 
   useEffect(() => {
     if (messageContainerRef.current) {
-      messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight;
+      messageContainerRef.current.scrollTop = messageContainerRef.current.scrollHeight
     }
-  }, [currentChat]);
+  }, [currentChat])
 
   return (
     <section className="relative py-24 sm:py-32">
@@ -75,12 +75,14 @@ const ChatPage = () => {
               <div className="w-full md:w-3/4 md:pl-4 flex flex-col h-[600px]">
                 <div ref={messageContainerRef} className="flex-grow overflow-y-auto mb-4 space-y-4">
                   {currentChat.messages.map((message: Message, index: number) => {
-                    const isCurrentUser = message.sentBy === 1;
-                    const senderName = isCurrentUser ? "You" : chatMembers.find(member => member.id === message.sentBy)?.name || "Unknown";
+                    const isCurrentUser = message.sentBy === 1
+                    const senderName = isCurrentUser ? "You" : chatMembers.find(member => member.id === message.sentBy)?.name || "Unknown"
                     return (
                       <div key={index} className={`flex ${isCurrentUser ? "justify-end" : "justify-start"}`}>
-                        <div className={`flex items-start space-x-2 max-w-[70%] ${isCurrentUser ? "flex-row-reverse space-x-reverse" : ""}`}>
-                          <div className={`p-3 rounded-lg ${isCurrentUser ? "bg-brand-100 text-right" : "bg-gray-100"}`}>
+                        <div
+                          className={`flex items-start space-x-2 max-w-[70%] ${isCurrentUser ? "flex-row-reverse space-x-reverse" : ""}`}>
+                          <div
+                            className={`p-3 rounded-lg ${isCurrentUser ? "bg-brand-100 text-right" : "bg-gray-100"}`}>
                             <p className="font-medium">{senderName}</p>
                             <p className="text-sm">{message.content}</p>
                             <p className="text-xs text-gray-500 mt-1">
@@ -89,7 +91,7 @@ const ChatPage = () => {
                           </div>
                         </div>
                       </div>
-                    );
+                    )
                   })}
                 </div>
                 <div className="mt-auto">

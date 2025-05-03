@@ -1,4 +1,4 @@
-import { Member, Chat, Task, Appointment, Process } from '../../interfaces';
+import { Appointment, Chat, Member, Process, Task } from "../../interfaces"
 
 export const members: Member[] = [
   { id: 3452, name: "Viktor Pettersson" }, // 36, Civil engineer, married, passionate about urban development
@@ -16,11 +16,11 @@ export const members: Member[] = [
   { id: 3464, name: "Dimitri Antonopoulos" }, // 41, Restaurant owner, married, passionate about Mediterranean cuisine
   { id: 3465, name: "Freya Nielsen" }, // 30, Journalist, single, focuses on investigative reporting on social issues
   { id: 3466, name: "Tomas Novák" }, // 38, Architect, married with twins, specializes in sustainable building design
-];
+]
 
-export const chats: Chat[] = [];
-export const tasks: Task[] = [];
-export const appointments: Appointment[] = [];
-export const processes: Process[] = [];
-export const IAmMember = false;
-export const isPublic = false;
+export const chats: Chat[] = []
+export const tasks: Task[] = []
+export const appointments: Appointment[] = []
+export const processes: Process[] = []
+export const IAmMember = false
+export const isPublic = false

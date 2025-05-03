@@ -1,4 +1,4 @@
-import { cn } from "@/utils"
+import { cn } from "@/components/functions/utils"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 import { AnchorHTMLAttributes } from "react"

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { ExternalDecisionModule, RelativeTime, Option } from '@/data/interfaces';
-import { CalculateDateTime } from '@/components/CalculateDateTime';
-import FormattedDate from '@/components/FormattedDate';
-import { ThumbsUp } from 'lucide-react';
+import { CalculateDateTime } from '@/components/functions/CalculateDateTime';
+import FormattedDate from '@/components/functions/FormattedDate';
 import { useMockup } from '@/context/ContextFiles/MockupContext';
 
 interface ExternalDecisionSectionProps {

@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1c9fe2ad-7aa8-4e95-8b6f-f4571f8839b4" name="Changes" comment="deployment 5">
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintrc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/250305.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/next.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prisma/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(landing)/dashboard/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(landing)/dashboard/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(landing)/discover/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(landing)/discover/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(landing)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(landing)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(landing)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(landing)/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/about/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/about/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/calendar/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/calendar/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/debate/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/debate/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/debate/process/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/debate/process/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/discussions/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/discussions/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/messages/chat/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/messages/chat/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/messages/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/messages/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/subgroups/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/subgroups/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/tasks/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/tasks/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ButtonLandingPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/ButtonLandingPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CalculateDateTime.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functions/CalculateDateTime.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/FormattedDate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functions/FormattedDate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/GroupCheckboxes.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/GroupCheckboxes.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModuleContent/AnnouncementSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleContent/AnnouncementSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModuleContent/BrainstormingSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleContent/BrainstormingSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModuleContent/DebateSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleContent/DebateSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModuleContent/ExternalDecisionSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleContent/ExternalDecisionSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModuleContent/IdeationSection.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleContent/IdeationSection.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ModuleContent/moduleContent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ModuleContent/moduleContent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SubmitButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/SubmitButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/heading.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/heading.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/login-form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/max-width-wrapper.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/max-width-wrapper.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navbar_landing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/navbar_landing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navbar_sidebar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/navbar_sidebar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/providers.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/text.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/button.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/dialog.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/dialog.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/context/ContextFiles/MockupContext.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/context/ContextFiles/MockupContext.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/board.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/board.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/building.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/building.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/childcare.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/childcare.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/garden.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/garden.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/handcrafts.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/handcrafts.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house1.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house1.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house11.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house11.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house12.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house12.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house13.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house13.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house2.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house2.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house21.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house21.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house22.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house22.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/house23.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/house23.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/marinquarter/shareddinner.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/marinquarter/shareddinner.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/1stseniorteam.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/1stseniorteam.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/2ndseniorteam.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/2ndseniorteam.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/constructioncommittee.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/constructioncommittee.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/executivecommittee.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/executivecommittee.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/juniorteam.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/juniorteam.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/masters.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/masters.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub/trainingorganization.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub/trainingorganization.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/rochefort.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/rochefort.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/rochefort/parentsofrochefort.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/rochefort/parentsofrochefort.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/rochefort/sportsinrochefort.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/rochefort/sportsinrochefort.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/groupStructure.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/groupStructure.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/interfaces.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/mockup.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/mockup.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/db.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/use-media-query.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Modal/use-media-query.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/functions/utils.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;fritte-MOOD&quot;
+  }
+}</component>
+  <component name="GitLabMergeRequestFiltersHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPENED&quot;,
+    &quot;assignee&quot;: {
+      &quot;type&quot;: &quot;org.jetbrains.plugins.gitlab.mergerequest.ui.filters.GitLabMergeRequestsFiltersValue.MergeRequestsMemberFilterValue.MergeRequestsAssigneeFilterValue&quot;,
+      &quot;username&quot;: &quot;schmackf&quot;,
+      &quot;fullname&quot;: &quot;Fritz Schmack&quot;
+    }
+  }
+}</component>
+  <component name="GitLabMergeRequestsSettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;first&quot;: &quot;https://scm.cms.hu-berlin.de/schmackf/mood.git&quot;,
+    &quot;second&quot;: &quot;7c61a77c-df73-403e-9b9f-f94c42d86cdb&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/fritte-MOOD/prototype_1.git&quot;,
+    &quot;accountId&quot;: &quot;1b09eae7-e1aa-4a52-9dfe-2b95ebf30265&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2tzHyFdG8AuuDaM2jPjzYnRonas" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/fritz/Desktop/aktuell/250305&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\fritz\\Desktop\\aktuell\\250305\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\fritz\Desktop\BACKUP\250305\src\app\pages\sportsclub\subgroups\ExecutiveCommittee" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\fritz\Desktop\aktuell\250305\src\components\functions" />
+      <recent name="C:\Users\fritz\Desktop\aktuell\250305\src\components" />
+      <recent name="C:\Users\fritz\Desktop\aktuell\250305\src\components\ui\Modal" />
+      <recent name="C:\Users\fritz\Desktop\aktuell\250305\src\components\ui" />
+      <recent name="C:\Users\fritz\Desktop\aktuell\250305\src\context\ContextFiles" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-a94e463ab2e7-intellij.indexing.shared.core-IU-243.25659.59" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-IU-243.25659.59" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1c9fe2ad-7aa8-4e95-8b6f-f4571f8839b4" name="Changes" comment="" />
+      <created>1741348235826</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1741348235826</updated>
+      <workItem from="1741348237035" duration="974000" />
+      <workItem from="1741349217225" duration="389000" />
+      <workItem from="1741365173787" duration="3267000" />
+      <workItem from="1741368680260" duration="218000" />
+      <workItem from="1741368978661" duration="711000" />
+      <workItem from="1744609418220" duration="519000" />
+      <workItem from="1744609943981" duration="230000" />
+      <workItem from="1744610179269" duration="33000" />
+      <workItem from="1744610216362" duration="1604000" />
+      <workItem from="1744614123482" duration="815000" />
+      <workItem from="1744618755057" duration="17244000" />
+      <workItem from="1744697103293" duration="5167000" />
+      <workItem from="1744704292915" duration="989000" />
+      <workItem from="1744705441506" duration="16583000" />
+      <workItem from="1744728761854" duration="9794000" />
+      <workItem from="1744786114370" duration="15508000" />
+      <workItem from="1744816023610" duration="5629000" />
+      <workItem from="1744821669147" duration="17293000" />
+      <workItem from="1744874279914" duration="21360000" />
+      <workItem from="1745311161128" duration="23862000" />
+      <workItem from="1745389855491" duration="23191000" />
+      <workItem from="1745426110612" duration="6771000" />
+      <workItem from="1745474993275" duration="7791000" />
+      <workItem from="1745500780224" duration="2354000" />
+      <workItem from="1745503211082" duration="5276000" />
+      <workItem from="1745866860720" duration="28000" />
+      <workItem from="1745997551135" duration="10284000" />
+      <workItem from="1746014006239" duration="7229000" />
+      <workItem from="1746180146959" duration="354000" />
+      <workItem from="1746180509029" duration="4082000" />
+      <workItem from="1746275349798" duration="840000" />
+      <workItem from="1746276230787" duration="3180000" />
+    </task>
+    <task id="LOCAL-00001" summary="Minor styling ;D">
+      <option name="closed" value="true" />
+      <created>1744624574071</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1744624574071</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Minor styling ;D">
+      <option name="closed" value="true" />
+      <created>1744624638582</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1744624638582</updated>
+    </task>
+    <task id="LOCAL-00003" summary="First version of messages page with checkboxes">
+      <option name="closed" value="true" />
+      <created>1744701165339</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1744701165339</updated>
+    </task>
+    <task id="LOCAL-00004" summary="create groupcontext">
+      <option name="closed" value="true" />
+      <created>1744703951598</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1744703951598</updated>
+    </task>
+    <task id="LOCAL-00005" summary="fixed groupcontext, added on all links">
+      <option name="closed" value="true" />
+      <created>1744710019959</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1744710019959</updated>
+    </task>
+    <task id="LOCAL-00006" summary="fixed groupcontext, added on all links">
+      <option name="closed" value="true" />
+      <created>1744710055292</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1744710055292</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added Mockup Data File">
+      <option name="closed" value="true" />
+      <created>1744714739813</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1744714739813</updated>
+    </task>
+    <task id="LOCAL-00008" summary="styling of message and chats">
+      <option name="closed" value="true" />
+      <created>1744722346018</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1744722346018</updated>
+    </task>
+    <task id="LOCAL-00009" summary="styling of message and chats">
+      <option name="closed" value="true" />
+      <created>1744740729230</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1744740729230</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Mockup.ts aufgeteilt in viele kleine Daateien//checkboxcontext komplett funktionierend gemacht//alles automatisch auf basis der Mockupdaten smileee">
+      <option name="closed" value="true" />
+      <created>1744839534292</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1744839534292</updated>
+    </task>
+    <task id="LOCAL-00011" summary="mockup.ts ein paar daten erstellt, kleine bugfixes">
+      <option name="closed" value="true" />
+      <created>1744840899629</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1744840899629</updated>
+    </task>
+    <task id="LOCAL-00012" summary="created MockupContext.tsx and debate page">
+      <option name="closed" value="true" />
+      <created>1744901174834</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1744901174834</updated>
+    </task>
+    <task id="LOCAL-00013" summary="created debatecontext and debate page with detail page">
+      <option name="closed" value="true" />
+      <created>1744909019496</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1744909019507</updated>
+    </task>
+    <task id="LOCAL-00014" summary="design upgrades of debates page">
+      <option name="closed" value="true" />
+      <created>1745313956729</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1745313956729</updated>
+    </task>
+    <task id="LOCAL-00015" summary="created ideation and estimation">
+      <option name="closed" value="true" />
+      <created>1745328645549</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1745328645549</updated>
+    </task>
+    <task id="LOCAL-00016" summary="created priorization, auslagern von modulen">
+      <option name="closed" value="true" />
+      <created>1745343981123</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1745343981123</updated>
+    </task>
+    <task id="LOCAL-00017" summary="created priorization, auslagern von modulen">
+      <option name="closed" value="true" />
+      <created>1745345032169</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1745345032169</updated>
+    </task>
+    <task id="LOCAL-00018" summary="vorbereiten restliche modules">
+      <option name="closed" value="true" />
+      <created>1745393189220</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1745393189220</updated>
+    </task>
+    <task id="LOCAL-00019" summary="alle modules fertig">
+      <option name="closed" value="true" />
+      <created>1745403174718</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1745403174718</updated>
+    </task>
+    <task id="LOCAL-00020" summary="first data generation">
+      <option name="closed" value="true" />
+      <created>1745426045916</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1745426045916</updated>
+    </task>
+    <task id="LOCAL-00021" summary="created members of all marinquareter groups">
+      <option name="closed" value="true" />
+      <created>1745430648315</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1745430648315</updated>
+    </task>
+    <task id="LOCAL-00022" summary="prepared more content generation">
+      <option name="closed" value="true" />
+      <created>1745432892430</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1745432892430</updated>
+    </task>
+    <task id="LOCAL-00023" summary="content generation: shaded dinner &amp; workshop">
+      <option name="closed" value="true" />
+      <created>1745484643230</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1745484643230</updated>
+    </task>
+    <task id="LOCAL-00024" summary="finished content for marin quarter">
+      <option name="closed" value="true" />
+      <created>1745508510545</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1745508510545</updated>
+    </task>
+    <task id="LOCAL-00025" summary="finished content creation">
+      <option name="closed" value="true" />
+      <created>1746020666764</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1746020666764</updated>
+    </task>
+    <task id="LOCAL-00026" summary="finished content creation">
+      <option name="closed" value="true" />
+      <created>1746181287469</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1746181287469</updated>
+    </task>
+    <task id="LOCAL-00027" summary="finished content creation">
+      <option name="closed" value="true" />
+      <created>1746182869940</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1746182869940</updated>
+    </task>
+    <task id="LOCAL-00028" summary="deployment 2">
+      <option name="closed" value="true" />
+      <created>1746183291971</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1746183291971</updated>
+    </task>
+    <task id="LOCAL-00029" summary="deployment 3">
+      <option name="closed" value="true" />
+      <created>1746183570961</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1746183570961</updated>
+    </task>
+    <task id="LOCAL-00030" summary="deployment 3">
+      <option name="closed" value="true" />
+      <created>1746183588117</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1746183588117</updated>
+    </task>
+    <task id="LOCAL-00031" summary="deployment 3">
+      <option name="closed" value="true" />
+      <created>1746184604010</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1746184604010</updated>
+    </task>
+    <task id="LOCAL-00032" summary="deployment 3">
+      <option name="closed" value="true" />
+      <created>1746276181154</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1746276181154</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="javascript:npm:react" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:tailwindcss" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:prisma" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:next" />
+    <option featureType="dependencySupport" implementationName="javascript:npm:postcss" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Minor styling ;D" />
+    <MESSAGE value="First version of messages page with checkboxes" />
+    <MESSAGE value="create groupcontext" />
+    <MESSAGE value="fixed groupcontext, added on all links" />
+    <MESSAGE value="added Mockup Data File" />
+    <MESSAGE value="styling of message and chats" />
+    <MESSAGE value="Mockup.ts aufgeteilt in viele kleine Daateien//checkboxcontext komplett funktionierend gemacht//alles automatisch auf basis der Mockupdaten smileee" />
+    <MESSAGE value="mockup.ts ein paar daten erstellt, kleine bugfixes" />
+    <MESSAGE value="created MockupContext.tsx and debate page" />
+    <MESSAGE value="created debatecontext and debate page with detail page" />
+    <MESSAGE value="design upgrades of debates page" />
+    <MESSAGE value="created ideation and estimation" />
+    <MESSAGE value="created priorization, auslagern von modulen" />
+    <MESSAGE value="vorbereiten restliche modules" />
+    <MESSAGE value="alle modules fertig" />
+    <MESSAGE value="first data generation" />
+    <MESSAGE value="created members of all marinquareter groups" />
+    <MESSAGE value="prepared more content generation" />
+    <MESSAGE value="content generation: shaded dinner &amp; workshop" />
+    <MESSAGE value="finished content for marin quarter" />
+    <MESSAGE value="finished content creation" />
+    <MESSAGE value="deployment 2" />
+    <MESSAGE value="deployment 3" />
+    <MESSAGE value="deployment 5" />
+    <option name="LAST_COMMIT_MESSAGE" value="deployment 5" />
+  </component>
+</project>

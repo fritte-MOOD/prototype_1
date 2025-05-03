@@ -1,4 +1,4 @@
-import { Member, Chat, Task, Appointment, Process } from '../../interfaces';
+import { Appointment, Chat, Member, Process, Task } from "../../interfaces"
 
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: 32, Political activist, welcoming, collaborative and empathetic, but assertive, concerned and strict.
@@ -40,10 +40,10 @@ export const members: Member[] = [
   { id: 3469, name: "Margherita Rossi" }, // 75, Retired chef, loves to cook for her housemates
   { id: 3475, name: "Annika Bergman" }, // 72, Former social worker, coordinates volunteer activities
   { id: 3477, name: "Beatrice Lefèvre" }, // 77, Former botanist, maintains a beautiful balcony garden
-];
+]
 
-export const chats: Chat[] = [];
-export const tasks: Task[] = [];
+export const chats: Chat[] = []
+export const tasks: Task[] = []
 
 // Create appointments separately
 export const appointments: Appointment[] = [
@@ -55,7 +55,7 @@ export const appointments: Appointment[] = [
     accepted: [3112, 3450, 3469, 3101, 1, 3419, 3428, 3475, 3477],
     declined: [3401, 3403],
     description: "Shared Dinner - Summer Fiesta",
-    content: "Join us for our monthly shared dinner! This month's theme is Summer Fiesta. Bring your favorite summer dishes and let's celebrate the season together!"
+    content: "Join us for our monthly shared dinner! This month's theme is Summer Fiesta. Bring your favorite summer dishes and let's celebrate the season together!",
   },
   {
     id: 3502,
@@ -65,7 +65,7 @@ export const appointments: Appointment[] = [
     accepted: [3112, 3450, 3469, 3101, 1, 3419, 3428, 3475, 3477, 3401, 3403, 3408, 3411],
     declined: [3420, 3421],
     description: "Shared Dinner - Autumn Harvest",
-    content: "It's time for our monthly shared dinner! Let's celebrate the autumn harvest with dishes featuring seasonal produce. Don't forget to bring your favorite fall recipes!"
+    content: "It's time for our monthly shared dinner! Let's celebrate the autumn harvest with dishes featuring seasonal produce. Don't forget to bring your favorite fall recipes!",
   },
   {
     id: 3503,
@@ -75,7 +75,7 @@ export const appointments: Appointment[] = [
     accepted: [3112, 3450, 3469, 3101, 1, 3419, 3428, 3475, 3477, 3401, 3403, 3408, 3411, 3420, 3421, 3429, 3432],
     declined: [],
     description: "Shared Dinner - Comfort Food Night",
-    content: "As the weather gets cooler, let's warm up with our favorite comfort foods! Bring a dish that reminds you of home for our monthly shared dinner."
+    content: "As the weather gets cooler, let's warm up with our favorite comfort foods! Bring a dish that reminds you of home for our monthly shared dinner.",
   },
   {
     id: 3504,
@@ -85,7 +85,7 @@ export const appointments: Appointment[] = [
     accepted: [3112, 3450, 3469, 3101, 1, 3419, 3428, 3475, 3477, 3401, 3403, 3408, 3411, 3420, 3421, 3429, 3432, 3436, 3437, 3444],
     declined: [3459, 3464],
     description: "Shared Dinner - International Cuisine",
-    content: "Let's take a culinary trip around the world! For this month's shared dinner, bring a dish from a country you love or want to explore."
+    content: "Let's take a culinary trip around the world! For this month's shared dinner, bring a dish from a country you love or want to explore.",
   },
   {
     id: 3505,
@@ -95,7 +95,7 @@ export const appointments: Appointment[] = [
     accepted: [3112, 3450, 3469, 3101, 1, 3419, 3428, 3475, 3477, 3401, 3403, 3408, 3411, 3420, 3421, 3429, 3432, 3436, 3437, 3444, 3459, 3464],
     declined: [],
     description: "Shared Dinner - Vegetarian Delight",
-    content: "This month, we're going green! Let's explore the world of vegetarian cuisine. Bring your favorite meatless dishes to share."
+    content: "This month, we're going green! Let's explore the world of vegetarian cuisine. Bring your favorite meatless dishes to share.",
   },
   {
     id: 3506,
@@ -105,7 +105,7 @@ export const appointments: Appointment[] = [
     accepted: [3112, 3450, 3469, 3101, 1, 3419, 3428, 3475, 3477, 3401, 3403, 3408, 3411, 3420, 3421, 3429, 3432, 3436, 3437, 3444, 3459, 3464],
     declined: [],
     description: "Shared Dinner - Breakfast for Dinner",
-    content: "Who says breakfast is just for mornings? This month, let's enjoy our favorite breakfast foods for dinner! Bring your best breakfast or brunch dishes to share."
+    content: "Who says breakfast is just for mornings? This month, let's enjoy our favorite breakfast foods for dinner! Bring your best breakfast or brunch dishes to share.",
   },
   {
     id: 3507,
@@ -115,7 +115,7 @@ export const appointments: Appointment[] = [
     accepted: [],
     declined: [],
     description: "Shared Dinner - Local and Seasonal",
-    content: "For this month's dinner, let's celebrate local and seasonal produce! Bring a dish that showcases the best of what's available in our area right now."
+    content: "For this month's dinner, let's celebrate local and seasonal produce! Bring a dish that showcases the best of what's available in our area right now.",
   },
   {
     id: 3508,
@@ -125,7 +125,7 @@ export const appointments: Appointment[] = [
     accepted: [],
     declined: [],
     description: "Shared Dinner - Fusion Cuisine",
-    content: "Get creative with fusion cuisine! For our next shared dinner, bring a dish that combines elements from two or more culinary traditions."
+    content: "Get creative with fusion cuisine! For our next shared dinner, bring a dish that combines elements from two or more culinary traditions.",
   },
   {
     id: 3509,
@@ -135,7 +135,7 @@ export const appointments: Appointment[] = [
     accepted: [],
     declined: [],
     description: "Shared Dinner - Childhood Favorites",
-    content: "Let's take a trip down memory lane! For this shared dinner, bring a dish inspired by your childhood favorites. Don't forget to share the story behind your dish!"
+    content: "Let's take a trip down memory lane! For this shared dinner, bring a dish inspired by your childhood favorites. Don't forget to share the story behind your dish!",
   },
   {
     id: 3510,
@@ -145,7 +145,7 @@ export const appointments: Appointment[] = [
     accepted: [],
     declined: [],
     description: "Shared Dinner - Summer Kickoff",
-    content: "Summer is just around the corner! Let's celebrate with a dinner featuring light, refreshing dishes perfect for warm weather."
+    content: "Summer is just around the corner! Let's celebrate with a dinner featuring light, refreshing dishes perfect for warm weather.",
   },
   {
     id: 3511,
@@ -155,58 +155,195 @@ export const appointments: Appointment[] = [
     accepted: [],
     declined: [],
     description: "Shared Dinner - Picnic Style",
-    content: "Weather permitting, let's take our shared dinner outdoors! Bring your favorite picnic foods and let's enjoy a meal in the fresh air."
-  }
-];
+    content: "Weather permitting, let's take our shared dinner outdoors! Bring your favorite picnic foods and let's enjoy a meal in the fresh air.",
+  },
+]
 
 export const processes: Process[] = [
-  {id: 3501, new: true, public: true, active: true, createdAt: { time: "14:30", distance: -2 }, dueAt: { time: "20:00", distance: 5 }, creator: 3112, description: "Collecting Ideas for Next Dinner Themes",
-  content: "Let's brainstorm some exciting themes for our upcoming shared dinners. Feel free to suggest any cuisine, cultural theme, or unique concept you'd like to explore. Don't forget to comment on others' ideas if you like them or have something to add!",
-  modules: [
-    {id: 35011, type: 'Ideation', dueAt: { time: "20:00", distance: 5 }, description: "Dinner Theme Ideas",
-    content: "Share your ideas for dinner themes and comment on others' suggestions.",
-    options: [
-      {id: 350111, createdAt: { time: "15:00", distance: -2 }, createdBy: 3112, new: false, supportedBy: [3450, 3469, 3101, 1, 3419], rank: 0, description: "Italian Night",
-      content: "Italian Night",
-      comments: [
-        {id: 3501111, createdAt: { time: "15:30", distance: -2 }, createdBy: 3450, new: false, supportedBy: [3112, 3469, 1], comments: [],
-        content: "Great idea! I can share some authentic recipes from my nonna."},
-        {id: 3501112, createdAt: { time: "16:15", distance: -2 }, createdBy: 1, new: false, supportedBy: [3419, 3432], comments: [],
-        content: "Sounds delicious! Could we also include some vegetarian options?"}
-      ]},
-      {id: 350112, createdAt: { time: "16:45", distance: -2 }, createdBy: 3428, new: false, supportedBy: [3475, 3469, 3477, 3420, 3421, 3401, 3403, 3444], rank: 0, description: "Childhood Memories",
-      content: "Childhood Memories",
-      comments: [
-        {id: 3501121, createdAt: { time: "17:10", distance: -2 }, createdBy: 3475, new: false, supportedBy: [3428, 3469, 3477], comments: [],
-        content: "Love this idea! We could all bring dishes from our childhood."},
-        {id: 3501122, createdAt: { time: "17:45", distance: -2 }, createdBy: 3420, new: false, supportedBy: [3421, 3428, 1], comments: [],
-        content: "My grandma's pancakes, ooohhhh yes!"},
-        {id: 3501123, createdAt: { time: "18:15", distance: -2 }, createdBy: 3401, new: false, supportedBy: [3403, 3444, 1], comments: [],
-        content: "My dad's barbecue!!!"}
-      ]},
-      {id: 350113, createdAt: { time: "18:00", distance: -2 }, createdBy: 3459, new: false, supportedBy: [3464, 1, 3112, 3432, 3401, 3403], rank: 0, description: "Barbecue Night",
-      content: "Barbecue Night",
-      comments: [
-        {id: 3501131, createdAt: { time: "18:30", distance: -2 }, createdBy: 3464, new: false, supportedBy: [3459, 1, 3112], comments: [],
-        content: "Great idea! We could do a mix of traditional and international barbecue styles."}
-      ]},
-      {id: 350114, createdAt: { time: "19:00", distance: -2 }, createdBy: 3419, new: false, supportedBy: [3432, 1, 3429, 3477], rank: 0, description: "Local and Seasonal",
-      content: "Local and Seasonal",
-      comments: [
-        {id: 3501141, createdAt: { time: "19:15", distance: -2 }, createdBy: 3432, new: false, supportedBy: [3419, 1, 3429], comments: [],
-        content: "Love this! We could showcase the best produce from local farmers."}
-      ]}
-    ]},
-    {id: 35012, type: 'Prioritize', dueAt: { time: "20:00", distance: 5 }, description: "Vote for Your Favorite Dinner Theme",
-    content: "Please vote for your preferred dinner theme. You can vote for multiple options, but try to prioritize your top choices.",
-    options: [
-      {id: 350121, content: "Italian Night", rank: 67, supportedBy: [3450, 3469, 3101, 1, 3419], new: false, description: "A night of Italian cuisine and culture", comments: [], createdAt: { time: "19:30", distance: -2 }, createdBy: 3112},
-      {id: 350122, content: "Childhood Memories", rank: 85, supportedBy: [3475, 3469, 3477, 3420, 3421, 3401, 3403, 3444], new: false, description: "Dishes inspired by our childhood favorites", comments: [], createdAt: { time: "19:30", distance: -2 }, createdBy: 3112},
-      {id: 350123, content: "Barbecue Night", rank: 45, supportedBy: [3464, 1, 3112, 3432, 3401, 3403], new: false, description: "A variety of barbecue styles and dishes", comments: [], createdAt: { time: "19:30", distance: -2 }, createdBy: 3112},
-      {id: 350124, content: "Local and Seasonal", rank: 91, supportedBy: [3432, 1, 3429, 3477], new: false, description: "Showcasing the best local and seasonal produce", comments: [], createdAt: { time: "19:30", distance: -2 }, createdBy: 3112}
-    ]}
-  ]}
-];
+  {
+    id: 3501,
+    new: true,
+    public: true,
+    active: true,
+    createdAt: { time: "14:30", distance: -2 },
+    dueAt: { time: "20:00", distance: 5 },
+    creator: 3112,
+    description: "Collecting Ideas for Next Dinner Themes",
+    content: "Let's brainstorm some exciting themes for our upcoming shared dinners. Feel free to suggest any cuisine, cultural theme, or unique concept you'd like to explore. Don't forget to comment on others' ideas if you like them or have something to add!",
+    modules: [
+      {
+        id: 35011, type: "Ideation", dueAt: { time: "20:00", distance: 5 }, description: "Dinner Theme Ideas",
+        content: "Share your ideas for dinner themes and comment on others' suggestions.",
+        options: [
+          {
+            id: 350111,
+            createdAt: { time: "15:00", distance: -2 },
+            createdBy: 3112,
+            new: false,
+            supportedBy: [3450, 3469, 3101, 1, 3419],
+            rank: 0,
+            description: "Italian Night",
+            content: "Italian Night",
+            comments: [
+              {
+                id: 3501111,
+                createdAt: { time: "15:30", distance: -2 },
+                createdBy: 3450,
+                new: false,
+                supportedBy: [3112, 3469, 1],
+                comments: [],
+                content: "Great idea! I can share some authentic recipes from my nonna.",
+              },
+              {
+                id: 3501112,
+                createdAt: { time: "16:15", distance: -2 },
+                createdBy: 1,
+                new: false,
+                supportedBy: [3419, 3432],
+                comments: [],
+                content: "Sounds delicious! Could we also include some vegetarian options?",
+              },
+            ],
+          },
+          {
+            id: 350112,
+            createdAt: { time: "16:45", distance: -2 },
+            createdBy: 3428,
+            new: false,
+            supportedBy: [3475, 3469, 3477, 3420, 3421, 3401, 3403, 3444],
+            rank: 0,
+            description: "Childhood Memories",
+            content: "Childhood Memories",
+            comments: [
+              {
+                id: 3501121,
+                createdAt: { time: "17:10", distance: -2 },
+                createdBy: 3475,
+                new: false,
+                supportedBy: [3428, 3469, 3477],
+                comments: [],
+                content: "Love this idea! We could all bring dishes from our childhood.",
+              },
+              {
+                id: 3501122,
+                createdAt: { time: "17:45", distance: -2 },
+                createdBy: 3420,
+                new: false,
+                supportedBy: [3421, 3428, 1],
+                comments: [],
+                content: "My grandma's pancakes, ooohhhh yes!",
+              },
+              {
+                id: 3501123,
+                createdAt: { time: "18:15", distance: -2 },
+                createdBy: 3401,
+                new: false,
+                supportedBy: [3403, 3444, 1],
+                comments: [],
+                content: "My dad's barbecue!!!",
+              },
+            ],
+          },
+          {
+            id: 350113,
+            createdAt: { time: "18:00", distance: -2 },
+            createdBy: 3459,
+            new: false,
+            supportedBy: [3464, 1, 3112, 3432, 3401, 3403],
+            rank: 0,
+            description: "Barbecue Night",
+            content: "Barbecue Night",
+            comments: [
+              {
+                id: 3501131,
+                createdAt: { time: "18:30", distance: -2 },
+                createdBy: 3464,
+                new: false,
+                supportedBy: [3459, 1, 3112],
+                comments: [],
+                content: "Great idea! We could do a mix of traditional and international barbecue styles.",
+              },
+            ],
+          },
+          {
+            id: 350114,
+            createdAt: { time: "19:00", distance: -2 },
+            createdBy: 3419,
+            new: false,
+            supportedBy: [3432, 1, 3429, 3477],
+            rank: 0,
+            description: "Local and Seasonal",
+            content: "Local and Seasonal",
+            comments: [
+              {
+                id: 3501141,
+                createdAt: { time: "19:15", distance: -2 },
+                createdBy: 3432,
+                new: false,
+                supportedBy: [3419, 1, 3429],
+                comments: [],
+                content: "Love this! We could showcase the best produce from local farmers.",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        id: 35012,
+        type: "Prioritize",
+        dueAt: { time: "20:00", distance: 5 },
+        description: "Vote for Your Favorite Dinner Theme",
+        content: "Please vote for your preferred dinner theme. You can vote for multiple options, but try to prioritize your top choices.",
+        options: [
+          {
+            id: 350121,
+            content: "Italian Night",
+            rank: 67,
+            supportedBy: [3450, 3469, 3101, 1, 3419],
+            new: false,
+            description: "A night of Italian cuisine and culture",
+            comments: [],
+            createdAt: { time: "19:30", distance: -2 },
+            createdBy: 3112,
+          },
+          {
+            id: 350122,
+            content: "Childhood Memories",
+            rank: 85,
+            supportedBy: [3475, 3469, 3477, 3420, 3421, 3401, 3403, 3444],
+            new: false,
+            description: "Dishes inspired by our childhood favorites",
+            comments: [],
+            createdAt: { time: "19:30", distance: -2 },
+            createdBy: 3112,
+          },
+          {
+            id: 350123,
+            content: "Barbecue Night",
+            rank: 45,
+            supportedBy: [3464, 1, 3112, 3432, 3401, 3403],
+            new: false,
+            description: "A variety of barbecue styles and dishes",
+            comments: [],
+            createdAt: { time: "19:30", distance: -2 },
+            createdBy: 3112,
+          },
+          {
+            id: 350124,
+            content: "Local and Seasonal",
+            rank: 91,
+            supportedBy: [3432, 1, 3429, 3477],
+            new: false,
+            description: "Showcasing the best local and seasonal produce",
+            comments: [],
+            createdAt: { time: "19:30", distance: -2 },
+            createdBy: 3112,
+          },
+        ],
+      },
+    ],
+  },
+]
 
-export const IAmMember = true;
-export const isPublic = true;
+export const IAmMember = true
+export const isPublic = true

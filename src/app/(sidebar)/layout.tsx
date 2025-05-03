@@ -1,12 +1,28 @@
 "use client"
 
-import { buttonVariants } from "@/components/ui/button"
-import { Modal } from "@/components/ui/modal"
-import { cn } from "@/utils"
-import { Gem, Home, MessageSquareText, Users, Pickaxe, Shield, UserRoundPen, CalendarDays, MessagesSquare, Globe, Key, LucideIcon,SquareCheckBig, Menu, Settings,Volleyball, X, Boxes, Box, Combine, File, BookOpenText, ChartNoAxesCombined, MessageCircleOff, BookKey} from "lucide-react"
+import { buttonVariants } from "@/components/Modal/button"
+import { Modal } from "@/components/Modal/modal"
+import { cn } from "@/components/functions/utils"
+import {
+  BookKey,
+  BookOpenText,
+  Boxes,
+  CalendarDays,
+  ChartNoAxesCombined,
+  Combine,
+  File,
+  LucideIcon,
+  Menu,
+  MessageSquareText,
+  Shield,
+  SquareCheckBig,
+  UserRoundPen,
+  Volleyball,
+  X,
+} from "lucide-react"
 import Link from "next/link"
 import { PropsWithChildren, useState } from "react"
-import { Navbar } from "@/components/navbar_sidebar"
+import { Navbar } from "@/components/ui/navbar_sidebar"
 
 interface SidebarItem {
   href: string
@@ -35,7 +51,7 @@ const SIDEBAR_ITEMS: SidebarCategory[] = [
       { href: "/calendar", icon: CalendarDays, text: "Calendar" },
       { href: "/tasks", icon: SquareCheckBig, text: "Tasks" },
       { href: "/messages", icon: MessageSquareText, text: "Messages" },
-      { href: "", icon: File, text: "Documents" }
+      { href: "", icon: File, text: "Documents" },
     ],
   },
 
@@ -62,35 +78,35 @@ const SIDEBAR_ITEMS: SidebarCategory[] = [
 const Sidebar = ({ onClose }: { onClose?: () => void }) => {
   return (
     <div className="space-y-4 md:space-y-6 relative z-20 flex flex-col flex-1">
-  {/* Navigation Items */}
-  <div className="flex-grow">
-    <ul>
-      {SIDEBAR_ITEMS.map(({ category, items }) => (
-        <li key={category} className="mb-4 md:mb-8">
-          <p className="text-xs font-medium leading-6 text-zinc-500">
-            {category}
-          </p>
-          <div className="-mx-2 flex flex-1 flex-col">
-            {items.map((item, i) => (
-              <Link
-                key={i}
-                href={item.href}
-                className={cn(
-                  buttonVariants({ variant: "ghost" }),
-                  "w-full justify-start group flex items-center gap-x-2.5 rounded-md px-2 py-1.5 text-sm font-medium leading-6  hover:bg-brand-300 transition"
-                )}
-                onClick={onClose}
-              >
-                <item.icon className="size-4 text-zinc-500 group-hover:text-white transition" />
-                {item.text}
-              </Link>
-            ))}
-          </div>
-        </li>
-      ))}
-    </ul>
-  </div>
-</div>
+      {/* Navigation Items */}
+      <div className="flex-grow">
+        <ul>
+          {SIDEBAR_ITEMS.map(({ category, items }) => (
+            <li key={category} className="mb-4 md:mb-8">
+              <p className="text-xs font-medium leading-6 text-zinc-500">
+                {category}
+              </p>
+              <div className="-mx-2 flex flex-1 flex-col">
+                {items.map((item, i) => (
+                  <Link
+                    key={i}
+                    href={item.href}
+                    className={cn(
+                      buttonVariants({ variant: "ghost" }),
+                      "w-full justify-start group flex items-center gap-x-2.5 rounded-md px-2 py-1.5 text-sm font-medium leading-6  hover:bg-brand-300 transition",
+                    )}
+                    onClick={onClose}
+                  >
+                    <item.icon className="size-4 text-zinc-500 group-hover:text-white transition" />
+                    {item.text}
+                  </Link>
+                ))}
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
 
   )
 }
@@ -111,7 +127,8 @@ const Layout = ({ children }: PropsWithChildren) => {
 
         <div className="flex-1 flex flex-col min-h-0">
           {/* mobile header */}
-          <div className="sm:hidden h-14 flex items-center justify-between px-[26px] width-full border-b border-gray-200">
+          <div
+            className="sm:hidden h-14 flex items-center justify-between px-[26px] width-full border-b border-gray-200">
             <Link href="/" className="flex z-40 font-bold text-lg">
               <span className="text-brand-300">/</span>MOOD
             </Link>

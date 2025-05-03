@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IdeationModule, RelativeTime } from '@/data/interfaces';
-import { CalculateDateTime } from '@/components/CalculateDateTime';
-import FormattedDate from '@/components/FormattedDate';
+import { CalculateDateTime } from '@/components/functions/CalculateDateTime';
+import FormattedDate from '@/components/functions/FormattedDate';
 import { ThumbsUp } from 'lucide-react';
 import { useMockup } from '@/context/ContextFiles/MockupContext';
 

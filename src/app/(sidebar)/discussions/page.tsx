@@ -1,7 +1,7 @@
 "use client"
 
-import { Heading } from "@/components/heading"
-import { MaxWidthWrapper } from "@/components/max-width-wrapper"
+import { Heading } from "@/components/ui/heading"
+import { MaxWidthWrapper } from "@/components/ui/max-width-wrapper"
 
 const Page = () => {
   return (
@@ -12,7 +12,7 @@ const Page = () => {
             <div>
               <Heading>discussions</Heading>
             </div>
-           
+
           </div>
         </MaxWidthWrapper>
       </section>

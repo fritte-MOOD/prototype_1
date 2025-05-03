@@ -9,8 +9,8 @@ export const members: Member[] = [
   { id: 1074, name: "Marcus Svensson" }, // 41, Fitness and Conditioning Coach
   { id: 1075, name: "Yuki Tanaka" }, // 29, Assistant Coach, specializing in technique
   { id: 1076, name: "Lena Müller" }, // 36, Mental Performance Coach
-];
+]
 
 
-export const IAmMember = false;
-export const isPublic = false;
+export const IAmMember = false
+export const isPublic = false

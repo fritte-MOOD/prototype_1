@@ -1,5 +1,5 @@
-import { useMediaQuery } from "@/hooks/use-media-query"
-import { cn } from "@/utils"
+import { useMediaQuery } from "@/components/Modal/use-media-query"
+import { cn } from "@/components/functions/utils"
 import { Dispatch, ReactNode, SetStateAction } from "react"
 import { Drawer } from "vaul"
 import { Dialog, DialogContent, DialogTitle } from "./dialog"

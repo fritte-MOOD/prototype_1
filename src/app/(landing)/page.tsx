@@ -1,8 +1,8 @@
 "use client"
 
-import { Heading } from "@/components/heading"
-import { ButtonLandingPage } from "@/components/ButtonLandingPage"
-import { MaxWidthWrapper } from "@/components/max-width-wrapper"
+import { Heading } from "@/components/ui/heading"
+import { ButtonLandingPage } from "@/components/ui/ButtonLandingPage"
+import { MaxWidthWrapper } from "@/components/ui/max-width-wrapper"
 import { Check } from "lucide-react"
 
 const Page = () => {
@@ -17,9 +17,11 @@ const Page = () => {
             Freedom entails Responsibility:
             Engage, Deliberate and Participate in your Group and make Decisions meaningful.
           </p>
-          
+
           <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
-            This tool will help you and your group to give and receive feedback, organize discussions and monitor your voted decision makers. Be constructive as a group, create trust and minimize the effort of discussing goals and strategies.
+            This tool will help you and your group to give and receive feedback, organize discussions and monitor your
+            voted decision makers. Be constructive as a group, create trust and minimize the effort of discussing goals
+            and strategies.
           </p>
 
           <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
@@ -34,20 +36,20 @@ const Page = () => {
               "Education Institutions",
               "Non-Profit Organizations",
               "Companies",
-              "And More! ...Maybe Families? Or Political Parties? "
-            ].map((item, index) => 
-            (
-              <li key={index} className="flex gap_1.5 items-center text-left">
-                <Check className="size-5 shrink-0 text-brand-300"/>
-                {item}
-              </li>
-            )
+              "And More! ...Maybe Families? Or Political Parties? ",
+            ].map((item, index) =>
+              (
+                <li key={index} className="flex gap_1.5 items-center text-left">
+                  <Check className="size-5 shrink-0 text-brand-300" />
+                  {item}
+                </li>
+              ),
             )}
           </ul>
 
-          <ButtonLandingPage 
-          href="/discover"
-          className ="relative z-10 h-14 w-80 text-base shadow-lg transition-shadow duration-300 hover:shadow-xl">
+          <ButtonLandingPage
+            href="/discover"
+            className="relative z-10 h-14 w-80 text-base shadow-lg transition-shadow duration-300 hover:shadow-xl">
             Start Demo
           </ButtonLandingPage>
 

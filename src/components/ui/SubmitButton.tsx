@@ -1,16 +1,12 @@
-import { cn } from "@/utils"
+import { cn } from "@/components/functions/utils"
 import { ArrowRight } from "lucide-react"
-import Link from "next/link"
 import { AnchorHTMLAttributes } from "react"
-import { Button } from "./ui/button"
 
 interface SubmitButtonProps extends AnchorHTMLAttributes<HTMLAnchorElement> {}
 
 export const SubmitButton = ({
   className,
   children,
-  href,
-  ...props
 }: SubmitButtonProps) => {
   return (
     <button

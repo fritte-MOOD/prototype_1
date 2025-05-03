@@ -1,40 +1,39 @@
-"use client";
+"use client"
 
-import { Heading } from "@/components/heading";
-import { MaxWidthWrapper } from "@/components/max-width-wrapper";
-import { useName } from "@/context/ContextFiles/NameContext";
-import { SubmitButton } from "@/components/SubmitButton";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { Heading } from "@/components/ui/heading"
+import { MaxWidthWrapper } from "@/components/ui/max-width-wrapper"
+import { useName } from "@/context/ContextFiles/NameContext"
+import { SubmitButton } from "@/components/ui/SubmitButton"
+import { useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 
 export default function NameForm() {
-  const router = useRouter();
-  const defaultNames = ["Alex", "Charlie", "Noa", "Sam", "Robin", "Sascha", "Toni"];
+  const router = useRouter()
+  const defaultNames = ["Alex", "Charlie", "Noa", "Sam", "Robin", "Sascha", "Toni"]
 
-  const [localName, setLocalName] = useState<string>(""); // Aktuelle Eingabe
-  const { name, setName } = useName(); // Name im Kontext
-  const [randomName, setRandomName] = useState<string>(""); // Zufälliger Name
-  const [isClient, setIsClient] = useState<boolean>(false); // Zustand, um sicherzustellen, dass es auf dem Client läuft
+  const [localName, setLocalName] = useState<string>("")
+  const { setName } = useName()
+  const [randomName, setRandomName] = useState<string>("")
+  const [isClient, setIsClient] = useState<boolean>(false)
 
-  // Dieser Effekt läuft nur auf dem Client nach dem ersten Render
   useEffect(() => {
-    setRandomName(defaultNames[Math.floor(Math.random() * defaultNames.length)]);
-    setIsClient(true); // Setzt `isClient` auf true, nachdem der Client geladen wurde
-  }, []);
+    setRandomName(defaultNames[Math.floor(Math.random() * defaultNames.length)])
+    setIsClient(true)
+  }, [])
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setLocalName(event.target.value); // Lokale Eingabe aktualisieren
-  };
+    setLocalName(event.target.value)
+  }
 
   const formSubmit = (event: React.FormEvent) => {
-    event.preventDefault();
+    event.preventDefault()
     if (localName === "") {
-      setName(randomName);
+      setName(randomName)
     } else {
-      setName(localName);
+      setName(localName)
     }
-    router.push("/dashboard");
-  };
+    router.push("/dashboard")
+  }
 
   return (
     <>
@@ -43,8 +42,8 @@ export default function NameForm() {
           <div className="relative mx-auto text-center flex flex-col items-center gap-10">
             <Heading>Demo Platform</Heading>
             <p className="text-base/7 text-gray-600 text-center text-pretty">
-              Experience three groups: a Company, a Sportsclub and a Municipality. <br/>
-              All content is exemplary and some functions are not working yet! <br/>
+              Experience three groups: a Company, a Sportsclub and a Municipality. <br />
+              All content is exemplary and some functions are not working yet! <br />
               This is only a UI design.
             </p>
 
@@ -73,5 +72,5 @@ export default function NameForm() {
         </MaxWidthWrapper>
       </section>
     </>
-  );
+  )
 }

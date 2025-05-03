@@ -1,4 +1,4 @@
-import { Member, Chat, Task, Appointment, Process } from '../../interfaces';
+import { Appointment, Chat, Member, Process, Task } from "../../interfaces"
 
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: 32, Political activist, welcoming, collaborative and empathetic, but assertive, concerned and strict.
@@ -17,8 +17,8 @@ export const members: Member[] = [
   { id: 3113, name: "Emilia Virtanen" }, // 27, elementary school teacher, engaged, enjoys painting
   { id: 3114, name: "Henri Lefebvre" }, // 42, lawyer, divorced with two teenagers, cycling enthusiast
   { id: 3115, name: "Catalina Popescu" }, // 32, social worker, single, active in community outreach
-  { id: 3116, name: "Willem van der Meer" } // 45, small business owner, married, has a 10-year-old son, amateur photographer
-];
+  { id: 3116, name: "Willem van der Meer" }, // 45, small business owner, married, has a 10-year-old son, amateur photographer
+]
 
 export const chats: Chat[] = [
   {
@@ -30,70 +30,70 @@ export const chats: Chat[] = [
         at: { time: "09:15", distance: -300 },
         sentBy: 3114,
         supportedBy: [],
-        content: "Good morning everyone. I hate to start the day with a complaint, but there's a pile of garbage in the hallway again. Can we please make sure to dispose of our trash properly?"
+        content: "Good morning everyone. I hate to start the day with a complaint, but there's a pile of garbage in the hallway again. Can we please make sure to dispose of our trash properly?",
       },
       {
         new: false,
         at: { time: "09:20", distance: -300 },
         sentBy: 3105,
         supportedBy: [3107, 3110, 3115],
-        content: "You're right, Henri. It's becoming a recurring issue. Maybe we should discuss this at our next house meeting?"
+        content: "You're right, Henri. It's becoming a recurring issue. Maybe we should discuss this at our next house meeting?",
       },
       {
         new: false,
         at: { time: "09:25", distance: -300 },
         sentBy: 1,
         supportedBy: [3102, 3104, 3108, 3112],
-        content: "I agree. Let's add it to the agenda. In the meantime, I'll put up a reminder notice near the trash bins."
+        content: "I agree. Let's add it to the agenda. In the meantime, I'll put up a reminder notice near the trash bins.",
       },
       {
         new: false,
         at: { time: "14:30", distance: -200 },
         sentBy: 3109,
         supportedBy: [],
-        content: "Hi everyone, has anyone seen a package for Amelia Nowak? It should have arrived yesterday."
+        content: "Hi everyone, has anyone seen a package for Amelia Nowak? It should have arrived yesterday.",
       },
       {
         new: false,
         at: { time: "14:45", distance: -200 },
         sentBy: 3103,
         supportedBy: [],
-        content: "Amelia, I saw a package with your name in the lobby this morning. I put it on the shelf near the mailboxes."
+        content: "Amelia, I saw a package with your name in the lobby this morning. I put it on the shelf near the mailboxes.",
       },
       {
         new: false,
         at: { time: "14:50", distance: -200 },
         sentBy: 3109,
         supportedBy: [3103],
-        content: "Thank you so much, Lena! I'll pick it up right away."
+        content: "Thank you so much, Lena! I'll pick it up right away.",
       },
       {
         new: false,
         at: { time: "10:05", distance: -30 },
         sentBy: 3116,
         supportedBy: [],
-        content: "Hello neighbors, I've injured my knee and can't go grocery shopping. Would anyone be able to pick up a few essentials for me when they next go to the store?"
+        content: "Hello neighbors, I've injured my knee and can't go grocery shopping. Would anyone be able to pick up a few essentials for me when they next go to the store?",
       },
       {
         new: false,
         at: { time: "10:15", distance: -30 },
         sentBy: 3112,
         supportedBy: [3101, 3107, 3115],
-        content: "I'm sorry to hear that, Willem. I'm heading to the store this afternoon. I'd be happy to pick up what you need. Send me your list, and I'll drop everything off at your door."
+        content: "I'm sorry to hear that, Willem. I'm heading to the store this afternoon. I'd be happy to pick up what you need. Send me your list, and I'll drop everything off at your door.",
       },
       {
         new: false,
         at: { time: "10:20", distance: -30 },
         sentBy: 3116,
         supportedBy: [3112],
-        content: "Thank you so much, Andreas! You're a lifesaver. I'll send you the list right away."
-      }
-    ]
-  }
-];
+        content: "Thank you so much, Andreas! You're a lifesaver. I'll send you the list right away.",
+      },
+    ],
+  },
+]
 
-export const tasks: Task[] = [];
-export const appointments: Appointment[] = [];
+export const tasks: Task[] = []
+export const appointments: Appointment[] = []
 export const processes: Process[] = [
   {
     id: 3201,
@@ -108,7 +108,7 @@ export const processes: Process[] = [
     modules: [
       {
         id: 32011,
-        type: 'Ideation',
+        type: "Ideation",
         dueAt: { time: "20:00", distance: -5 },
         description: "Nominate Candidates for Board Representative",
         content: "Please nominate candidates (including self-nominations) for the position of House 13 Board Representative.",
@@ -187,11 +187,11 @@ export const processes: Process[] = [
             rank: 0,
             description: "USER",
           },
-        ]
+        ],
       },
       {
         id: 32012,
-        type: 'Vote',
+        type: "Vote",
         dueAt: { time: "20:00", distance: -1 },
         description: "Vote for New Board Representative",
         content: "Please cast your vote for the new House 13 Board Representative. You may vote for one candidate.",
@@ -240,11 +240,11 @@ export const processes: Process[] = [
             createdAt: { time: "", distance: 0 },
             createdBy: 0,
           },
-        ]
+        ],
       },
       {
         id: 32013,
-        type: 'Announcement',
+        type: "Announcement",
         dueAt: { time: "", distance: 0 },
         description: "",
         content: "",
@@ -297,10 +297,10 @@ export const processes: Process[] = [
             supportedBy: [],
             rank: 0,
           },
-        ]
-      }
-    ]
-  }
-];
-export const IAmMember = true;
-export const isPublic = false;
+        ],
+      },
+    ],
+  },
+]
+export const IAmMember = true
+export const isPublic = false
