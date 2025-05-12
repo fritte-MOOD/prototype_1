@@ -139,6 +139,9 @@ export interface Group {
   isPublic: boolean;
   name: string;
   IAmMember: boolean;
+  description: string;
+  content: string;
+  rules: string;
   subgroups: Group[];
   members: Member[];
   chats: Chat[];

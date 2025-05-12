@@ -20,7 +20,7 @@ const Page = () => {
 
           <p className="text-base/7 text-gray-600 max-w-prose text-center text-pretty">
             This tool will help you and your group to give and receive feedback, organize discussions and monitor your
-            voted decision makers. Be constructive as a group, create trust and minimize the effort of discussing goals
+            voted decision makers. Be constructive as a group, create trust and minimize the effort discussing goals
             and strategies.
           </p>
 

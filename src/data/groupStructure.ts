@@ -127,13 +127,16 @@ const createGroup = async (name: string, IAmMember: boolean, isPublic: boolean, 
     return {
       name: subgroupName,
       IAmMember: subgroupData.IAmMember,
-      isPublic: subgroupData.public,
+      isPublic: subgroupData.isPublic,
       subgroups: [],
       members: subgroupData.members || [],
       processes: subgroupData.processes || [],
       chats: subgroupData.chats || [],
       tasks: subgroupData.tasks || [],
       appointments: subgroupData.appointments || [],
+      description: subgroupData.description || "",
+      content: subgroupData.content || "",
+      rules: subgroupData.rules || ""
     }
   }))
 
@@ -147,6 +150,9 @@ const createGroup = async (name: string, IAmMember: boolean, isPublic: boolean, 
     chats: groupData.chats || [],
     tasks: groupData.tasks || [],
     appointments: groupData.appointments || [],
+    description: groupData.description || "",
+    content: groupData.content || "",
+    rules: groupData.rules || ""
   }
 }
 

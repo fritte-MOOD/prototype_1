@@ -16,6 +16,30 @@ YOU are a member of 2nd Senior Team and Execution Committee.
  */
 import { Appointment, Member, Process } from "../interfaces"
 
+export const description = "Park Club Tennis Association"
+
+export const content = `Park Club is a vibrant tennis club located in Rochefort, dedicated to fostering a love for tennis and building a strong community. With 121 members, including 73 active players, we cater to all age groups and skill levels.
+
+Our club features:
+- Junior Team (14 players + 2 coaches) for ages 8-18
+- Two Senior Teams (1st and 2nd) for ages 19-39
+- Masters group for ages 39-79
+- Various committees to manage club operations
+
+We offer regular training sessions, competitive matches, social events, and opportunities for members to get involved in club management. Our mission is to provide top-notch facilities, expert coaching, and a welcoming atmosphere for all tennis enthusiasts in Rochefort.`
+
+export const rules = `1. All members must adhere to the club's code of conduct and show respect for fellow members, staff, and facilities.
+2. Court bookings must be made through the official booking system. No-shows may result in booking privileges being suspended.
+3. Proper tennis attire and shoes are required on all courts.
+4. Members are responsible for their guests and must accompany them at all times. Guest fees apply.
+5. Junior members under 16 must be supervised by an adult when using the facilities outside of organized activities.
+6. The club reserves the right to close courts for maintenance, tournaments, or other events with advance notice.
+7. Members are expected to leave the courts and facilities in the same condition they found them.
+8. Smoking is prohibited on all courts and in indoor areas of the club.
+9. The club is not responsible for lost or stolen items. Lockers are available for member use.
+10. Any disputes or grievances should be reported to the Execution Committee for resolution.`
+
+
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: Member of 2nd Senior Team and Execution Committee
 

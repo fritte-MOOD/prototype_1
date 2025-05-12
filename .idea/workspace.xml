@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c9fe2ad-7aa8-4e95-8b6f-f4571f8839b4" name="Changes" comment="deployment 5" />
+    <list default="true" id="1c9fe2ad-7aa8-4e95-8b6f-f4571f8839b4" name="Changes" comment="deployment 7">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(landing)/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(landing)/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/(sidebar)/about/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/(sidebar)/about/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/Groups/parkclub.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/Groups/parkclub.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/groupStructure.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/groupStructure.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/interfaces.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/interfaces.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,6 +162,13 @@
       <workItem from="1746276230787" duration="3580000" />
       <workItem from="1746289661139" duration="51000" />
       <workItem from="1746289788119" duration="750000" />
+      <workItem from="1746431123972" duration="897000" />
+      <workItem from="1746437263588" duration="2085000" />
+      <workItem from="1746442474499" duration="862000" />
+      <workItem from="1746453110992" duration="3939000" />
+      <workItem from="1746737001611" duration="776000" />
+      <workItem from="1746985117774" duration="1758000" />
+      <workItem from="1747065047774" duration="2561000" />
     </task>
     <task id="LOCAL-00001" summary="Minor styling ;D">
       <option name="closed" value="true" />
@@ -436,7 +450,31 @@
       <option name="project" value="LOCAL" />
       <updated>1746290528161</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="deployment 5">
+      <option name="closed" value="true" />
+      <created>1746431141546</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1746431141546</updated>
+    </task>
+    <task id="LOCAL-00037" summary="deployment 5">
+      <option name="closed" value="true" />
+      <created>1746431328199</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1746431328199</updated>
+    </task>
+    <task id="LOCAL-00038" summary="deployment 7">
+      <option name="closed" value="true" />
+      <created>1746431351651</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1746431351651</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -485,6 +523,7 @@
     <MESSAGE value="deployment 2" />
     <MESSAGE value="deployment 3" />
     <MESSAGE value="deployment 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="deployment 5" />
+    <MESSAGE value="deployment 7" />
+    <option name="LAST_COMMIT_MESSAGE" value="deployment 7" />
   </component>
 </project>
