@@ -27,18 +27,21 @@ Our club features:
 - Various committees to manage club operations
 
 We offer regular training sessions, competitive matches, social events, and opportunities for members to get involved in club management. Our mission is to provide top-notch facilities, expert coaching, and a welcoming atmosphere for all tennis enthusiasts in Rochefort.`
+export const rules = `At Parkclub, we strive to create a welcoming and inclusive environment for all our members. Our community thrives on mutual respect, sportsmanship, and a shared passion for tennis.
 
-export const rules = `1. All members must adhere to the club's code of conduct and show respect for fellow members, staff, and facilities.
-2. Court bookings must be made through the official booking system. No-shows may result in booking privileges being suspended.
-3. Proper tennis attire and shoes are required on all courts.
-4. Members are responsible for their guests and must accompany them at all times. Guest fees apply.
-5. Junior members under 16 must be supervised by an adult when using the facilities outside of organized activities.
-6. The club reserves the right to close courts for maintenance, tournaments, or other events with advance notice.
-7. Members are expected to leave the courts and facilities in the same condition they found them.
-8. Smoking is prohibited on all courts and in indoor areas of the club.
-9. The club is not responsible for lost or stolen items. Lockers are available for member use.
-10. Any disputes or grievances should be reported to the Execution Committee for resolution.`
+Key points:
+• Communicate clearly and respectfully on our platform
+• The Executive Committee makes the decisions but seeks input from all members
+• Transparency is crucial - all decisions are published and explained
+• Committee members are elected annually
+• Club's long-term strategy is determined collectively
+• Active engagement from all members is essential
 
+Remember, Parkclub is more than just a tennis club – it's a community. By following these guidelines and actively participating in our decision-making processes, you help make Parkclub a better place for everyone.
+
+Specific rules about the day-to-day life in the club can be found under documents /guidelines. These guidelines cover topics such as court reservation procedures, guest policies, equipment usage, and etiquette during play and in common areas.
+
+Any disputes or grievances should be reported to the Execution Committee for resolution.`
 
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: Member of 2nd Senior Team and Execution Committee

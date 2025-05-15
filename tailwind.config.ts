@@ -23,10 +23,27 @@ const config: Config = {
           400: "#8BAECF", //
           500: "#fba762",
           600: "#5483A3",
-          700: "#426A86",
+          700: "#426A86", //blue text
           800: "#335269",
           900: "#273E4F",
-          950: "#1C2D3A", //Text
+          950: "#3f3f46", //Text Zinc
+        },
+        group: {
+          'park-club': {
+            100: '#E6E6FA',  // Light purple
+            500: '#8A2BE2',  // Medium purple
+            900: '#4B0082',  // Dark purple
+          },
+          'marin-quarter': {
+            100: '#E6FFE6',  // Light green
+            500: '#4CAF50',  // Medium green
+            900: '#1B5E20',  // Dark green
+          },
+          'rochefort': {
+            100: '#FFF0F5',  // Light pink
+            500: '#FF69B4',  // Medium pink
+            900: '#C71585',  // Dark pink
+          },
         },
       },
       screens: {
@@ -42,4 +59,5 @@ const config: Config = {
   },
   plugins: [],
 }
+
 export default config

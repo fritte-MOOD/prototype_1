@@ -40,7 +40,7 @@ export default function NameForm() {
       <section className="relative py-24 sm:py-32 bg-brand-25">
         <MaxWidthWrapper className="text-center">
           <div className="relative mx-auto text-center flex flex-col items-center gap-10">
-            <Heading>Demo Platform</Heading>
+            <Heading className="text-brand-800">Demo Platform</Heading>
             <p className="text-base/7 text-gray-600 text-center text-pretty">
               Experience three groups: a Company, a Sportsclub and a Municipality. <br />
               All content is exemplary and some functions are not working yet! <br />

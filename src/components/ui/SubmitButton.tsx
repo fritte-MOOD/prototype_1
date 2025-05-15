@@ -15,7 +15,7 @@ export const SubmitButton = ({
         className
       )}
     >
-      <span className="relative z-10 flex items-center gap-2">
+      <span className="relative text-brand-800 z-10 flex items-center gap-2">
         {children}
         <ArrowRight className="size-4 shrink-0 text-blac transition-transform duration-300 ease-in-out group-hover:translate-x-[2px]" />
       </span>

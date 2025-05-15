@@ -1,5 +1,25 @@
 import { Appointment, Chat, Member, Process, Task } from "@/data/interfaces"
 
+// Add these lines at the beginning of the file, after the import statement
+
+export const content = `The Executive Committee is responsible for the day-to-day management and strategic decision-making of Parkclub. We meet regularly to discuss and implement policies that ensure the club's smooth operation and long-term success.`
+
+export const description = `Elected members responsible for club management and policy-making.`
+
+export const rules = `
+Key points for Executive Committee members:
+• Attend all scheduled meetings
+• Maintain confidentiality of sensitive information
+• Act in the best interest of the club and its members
+• Participate actively in decision-making processes
+• Communicate clearly and respectfully with other committee members and club members
+• Adhere to the club's bylaws and ethical standards
+• Declare any conflicts of interest
+• Stay informed about club affairs and financial status
+
+Remember, as Executive Committee members, we set the tone for the entire club. Our actions and decisions should always reflect the values and goals of Parkclub.`
+
+// The rest of the file remains unchanged
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: Member of 2nd Senior Team and Execution Committee
 

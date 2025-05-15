@@ -1,9 +1,11 @@
-import React from 'react';
-import { Check } from 'lucide-react';
+import React, { useState } from 'react';
+import { Check, X, Filter } from 'lucide-react';
 import { useCheckbox } from '@/context/ContextFiles/CheckboxesContext';
+import { Modal } from '@/components/Modal/modal';
 
 export const GroupCheckboxes: React.FC = () => {
-  const { groups, groupStructure, toggleGroup, activateAll, deactivateAll} = useCheckbox();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const { groups, groupStructure, toggleGroup, activateAll, deactivateAll } = useCheckbox();
 
   const isGroupChecked = (groupName: string): boolean => {
     const group = groups.find(g => g.name === groupName);
@@ -13,23 +15,18 @@ export const GroupCheckboxes: React.FC = () => {
   const areAllSubsAndTheMainChecked = (groupName: string): boolean => {
     const mainGroup = groupStructure.find(g => g.name === groupName);
     if (!mainGroup) return false;
-
     if (!isGroupChecked(groupName)) return false;
-
     for (const subgroup of mainGroup.subgroups) {
       if (!isGroupChecked(subgroup)) return false;
     }
-
     return true;
   };
 
   const handleAllMain = (groupName: string): void => {
     const mainGroup = groupStructure.find(g => g.name === groupName);
     if (!mainGroup) return;
-
     const allChecked = areAllSubsAndTheMainChecked(groupName);
     const newState = !allChecked;
-
     if (!isGroupChecked(groupName) === newState) {
       toggleGroup(groupName);
     }
@@ -39,12 +36,19 @@ export const GroupCheckboxes: React.FC = () => {
       }
     });
   };
-  
-  return (
-    <div className="w-[359px] pr-4">
-      <h2 className="text-lg font-semibold mb-2">Filter Groups</h2>
+
+  const CheckboxList: React.FC = () => (
+    <div className="p-4 bg-brand-25 h-full overflow-y-auto">
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-lg font-semibold">Filter Groups</h2>
+        <button 
+          onClick={() => setIsModalOpen(false)} 
+          className="text-gray-500 hover:text-gray-700"
+        >
+          <X size={24} />
+        </button>
+      </div>
       
-      {/* Activate all and Deactivate all buttons */}
       <div className="mb-4 flex space-x-2">
         <button
           onClick={activateAll}
@@ -60,10 +64,8 @@ export const GroupCheckboxes: React.FC = () => {
         </button>
       </div>
       
-      {/* Mapping through each main group */}
       {groupStructure.map((group) => (
         <div key={group.name} className="mb-4">
-          {/* "All [Group Name]" checkbox */}
           <div
             className="flex items-center cursor-pointer"
             onClick={() => handleAllMain(group.name)}
@@ -81,7 +83,6 @@ export const GroupCheckboxes: React.FC = () => {
           </div>
           
           <div className="ml-6 mt-2">
-            {/* Main group checkbox */}
             <div
               className="flex items-center mt-1 cursor-pointer"
               onClick={() => toggleGroup(group.name)}
@@ -94,7 +95,6 @@ export const GroupCheckboxes: React.FC = () => {
               <span className="text-sm">{group.name}</span>
             </div>
             
-            {/* Subgroup checkboxes */}
             {group.subgroups.map((subgroup) => (
               <div
                 key={subgroup}
@@ -112,7 +112,27 @@ export const GroupCheckboxes: React.FC = () => {
           </div>
         </div>
       ))}
-
     </div>
+  );
+
+  return (
+    <>
+      <div className="mb-4 flex justify-center">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="w-[416px] flex items-center justify-center px-3 py-2 bg-brand-300 text-white rounded hover:bg-brand-400 transition-colors"
+        >
+          <Filter size={18} className="mr-2" />
+          Filter Groups
+        </button>
+      </div>
+
+      <Modal
+        showModal={isModalOpen}
+        setShowModal={setIsModalOpen}
+      >
+        <CheckboxList />
+      </Modal>
+    </>
   );
 };

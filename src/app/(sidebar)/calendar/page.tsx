@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useMemo, useState } from "react"
+import React, { useMemo, useState, useEffect } from "react"
 import { Calendar, momentLocalizer, View, Views } from "react-big-calendar"
 import moment from "moment"
 import "react-big-calendar/lib/css/react-big-calendar.css"
@@ -13,20 +13,37 @@ import { Appointment, Group } from "@/data/interfaces"
 
 const localizer = momentLocalizer(moment)
 
+function useWindowHeight() {
+  const [windowHeight, setWindowHeight] = useState(0);
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowHeight(window.innerHeight);
+    }
+    
+    handleResize(); // Set initial height
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowHeight;
+}
+
 const CalendarPage = () => {
   const { groups } = useCheckbox()
   const [currentDate, setCurrentDate] = useState(new Date())
   const mockData = useMockup()
+  const windowHeight = useWindowHeight()
 
   const events = useMemo(() => {
     return mockData.flatMap((group: Group) => {
       const isGroupChecked = groups.find(g => g.name === group.name)?.checked
-      const groupEvents = isGroupChecked ? group.appointments : []
+      const groupEvents = isGroupChecked ? group.appointments.map(app => ({...app, groupName: group.name, isSubgroup: false})) : []
       const subgroupEvents = group.subgroups
         .filter(subgroup => groups.find(g => g.name === subgroup.name)?.checked)
-        .flatMap(subgroup => subgroup.appointments)
+        .flatMap(subgroup => subgroup.appointments.map(app => ({...app, groupName: group.name, subgroupName: subgroup.name, isSubgroup: true})))
 
-      return [...groupEvents, ...subgroupEvents].map((appointment: Appointment) => {
+      return [...groupEvents, ...subgroupEvents].map((appointment: Appointment & {groupName: string, subgroupName?: string, isSubgroup: boolean}) => {
         const startDateTime = CalculateDateTime(appointment.at.time, appointment.at.distance)
         const endDateTime = new Date(startDateTime.getTime() + 60 * 60 * 1000) // Add 1 hour
         return {
@@ -34,6 +51,9 @@ const CalendarPage = () => {
           start: startDateTime,
           end: endDateTime,
           allDay: false,
+          groupName: appointment.groupName,
+          subgroupName: appointment.subgroupName,
+          isSubgroup: appointment.isSubgroup
         }
       })
     })
@@ -70,31 +90,49 @@ const CalendarPage = () => {
     )
   }
 
-  const eventStyleGetter = () => {
+  const eventStyleGetter = (event: any) => {
+    const getGroupColor = (groupName: string, isSubgroup: boolean) => {
+      switch (groupName) {
+        case "Park Club":
+          return isSubgroup ? "bg-group-park-club-100 text-group-park-club-900" : "bg-group-park-club-500 text-white";
+        case "Marin Quarter":
+          return isSubgroup ? "bg-group-marin-quarter-100 text-group-marin-quarter-900" : "bg-group-marin-quarter-500 text-white";
+        case "Rochefort":
+          return isSubgroup ? "bg-group-rochefort-100 text-group-rochefort-900" : "bg-group-rochefort-500 text-white";
+        default:
+          return "bg-gray-300 text-gray-800";
+      }
+    }
+
+    const colorClasses = getGroupColor(event.groupName, event.isSubgroup);
+
     return {
+      className: `${colorClasses} rounded-md border-none`,
       style: {
-        backgroundColor: "#fba762",
-        borderRadius: "5px",
-        color: "black",
-        border: "none",
         display: "block",
       },
     }
   }
 
+  const calendarHeight = windowHeight - 200; // Adjust this value as needed
+
   return (
     <MaxWidthWrapper>
-      <div className="flex">
-        <div className="w-1/4 pr-4">
+      <div className="flex flex-col xl:flex-row">
+        <div className="w-full xl:w-1/4 xl:pr-4 mb-4 xl:mb-0">
           <GroupCheckboxes />
         </div>
-        <div className="w-3/4">
+        <div className="w-full xl:w-3/4 max-w-[900px] mx-auto">
           <Calendar
             localizer={localizer}
             events={events}
             startAccessor="start"
             endAccessor="end"
-            style={{ height: 600 }}
+            className="rbc-calendar-small-screen rbc-calendar-custom"
+            style={{ 
+              height: calendarHeight,
+              fontSize: '0.8rem', // Adjust font size for small screens
+            }}
             date={currentDate}
             onNavigate={onNavigate}
             view={Views.MONTH}
@@ -107,6 +145,64 @@ const CalendarPage = () => {
           />
         </div>
       </div>
+      <style jsx global>{`
+        @media (max-width: 1279px) {
+          .rbc-calendar-small-screen {
+            font-size: 0.8rem;
+          }
+
+          .rbc-calendar-small-screen .rbc-toolbar {
+            flex-direction: column;
+            align-items: stretch;
+          }
+
+          .rbc-calendar-small-screen .rbc-toolbar-label {
+            margin: 10px 0;
+          }
+
+          .rbc-calendar-small-screen .rbc-btn-group {
+            width: 100%;
+            justify-content: space-between;
+          }
+
+          .rbc-calendar-small-screen .rbc-event {
+            padding: 2px;
+          }
+
+          .rbc-calendar-small-screen .rbc-event-content {
+            font-size: 0.7rem;
+          }
+
+          .rbc-calendar-small-screen .rbc-month-view {
+            flex-basis: auto;
+          }
+
+          .rbc-calendar-small-screen .rbc-month-row {
+            min-height: auto;
+            height: auto !important;
+          }
+        }
+
+        .rbc-calendar-custom .rbc-row-content {
+          max-height: none !important;
+        }
+
+        .rbc-calendar-custom .rbc-row-segment {
+          display: block !important;
+        }
+
+        .rbc-calendar-custom .rbc-event {
+          margin-top: 2px;
+        }
+
+        .rbc-calendar-custom .rbc-show-more {
+          display: none !important;
+        }
+
+        .rbc-calendar-custom .rbc-row-content .rbc-row {
+          flex-wrap: wrap;
+        }
+      `}</style>
     </MaxWidthWrapper>
   )
 }

@@ -56,9 +56,7 @@ const Page = () => {
       )[0]?.modules.find((module: { type: string; description?: string }) => module.type === "Debate")?.description
 
     return (
-      <div
-
-        className="w-[360px] h-auto p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white cursor-pointer"
+      <div className="w-[360px] h-auto p-6 border border-gray-300 rounded-lg shadow-lg transition-shadow duration-300 hover:shadow-xl bg-white cursor-pointer"
       >
         <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
           <Box className="text-brand-300" />
@@ -103,7 +101,7 @@ const Page = () => {
 
   return (
     <>
-      <section className="relative py-24 sm:py-32">
+      <section className="relative">
         <MaxWidthWrapper className="relative mx-auto items-center flex flex-col gap-10">
           {/* Group Picker */}
           <div className="w-full max-w-xs mb-6">
@@ -123,8 +121,6 @@ const Page = () => {
               ))}
             </select>
           </div>
-
-          <Heading>{validGroupName} Subgroups</Heading>
 
           <div className="w-full flex flex-col items-center gap-8">
             <p className="text-left text-2xl mb-4 w-full">Your Subgroups:</p>

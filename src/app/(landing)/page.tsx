@@ -11,7 +11,7 @@ const Page = () => {
       <section className="relative py-24 sm:py-32 bg-brand-25">
         <MaxWidthWrapper className="text-center relative mx-auto flex flex-col items-center gap-10">
 
-          <Heading className="text-gray-600">Be one Cell of the Brain!</Heading>
+          <Heading className="text-brand-800">Be one Cell of the Brain!</Heading>
 
           <p className="text-xl text-black  max-w-prose text-center text-pretty">
             Freedom comes with Responsibility:
@@ -28,7 +28,7 @@ const Page = () => {
             Enhance the workflow of your team or group such as:
           </p>
 
-          <ul className="space-y-2 text-base/7 text-gray-600 text-left flex flex-col item-start">
+          <ul className="space-y-2 text-base/7 text-zinc-700 text-left flex flex-col item-start">
             {[
               "Sports Clubs",
               "Municipalities",
@@ -37,14 +37,12 @@ const Page = () => {
               "Non-Profit Organizations",
               "Companies",
               "And More! ...Maybe Families? Or Political Parties? ",
-            ].map((item, index) =>
-              (
-                <li key={index} className="flex gap_1.5 items-center text-left">
-                  <Check className="size-5 shrink-0 text-brand-300" />
-                  {item}
-                </li>
-              ),
-            )}
+            ].map((item, index) => (
+              <li key={index} className="flex gap-2 items-center text-left">
+                <Check className="size-7 font-xl shrink-0 text-brand-800" />
+                {item}
+              </li>
+            ))}
           </ul>
 
           <ButtonLandingPage

@@ -34,20 +34,18 @@ export default function Dashboard() {
   return (
     <section className="relative py-24 sm:py-32 ">
       <MaxWidthWrapper className="text-center relative mx-auto flex flex-col items-center gap-10">
-        <Heading>Welcome back, {name}</Heading>
+        <Heading className={"text-brand-800"}>Welcome back, {name}</Heading>
         <p className="text-xl text-gray-600  max-w-prose text-center text-pretty">
-          You are living in the small town of <span className="font-bold text-black">Rochefort</span>, <br />
-          are an executive member of the local <span className="font-bold text-black">Sports Club</span> and <br />
-          live in a community housing project named <span className="font-bold text-black">Marin Quarter</span>.
+          You are living in the small town of <span className="font-bold text-brand-800">Rochefort</span>, <br />
+          are an executive member of the local <span className="font-bold text-brand-800">Sports Club</span> and <br />
+          live in a community housing project named <span className="font-bold text-brand-800">Marin Quarter</span>.
         </p>
-        <p className="text-xl text-black  max-w-prose text-center text-pretty">
-          Take part in Your Groups:
-        </p>
+
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           <div className="h-[280px] p-6 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
-                <Volleyball className="text-brand-300" />
+                <Volleyball className="text-brand-700" />
                 <span>Park Sports Club RF</span>
               </div>
               <p className="text-base/7 text-gray-600 w-full text-center mt-2">
@@ -68,7 +66,7 @@ export default function Dashboard() {
           <div className="h-[280px] p-6 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
-                <Drama className="text-brand-300" />
+                <Drama className="text-brand-700" />
                 <span>Municipality of Rochefort</span>
               </div>
               <p className="text-base/7 text-gray-600 w-full text-center mt-2">
@@ -89,7 +87,7 @@ export default function Dashboard() {
           <div className="h-[280px] p-6 flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
-                <Home className="text-brand-300" />
+                <Home className="text-brand-700" />
                 <span>Marin Quarter Community</span>
               </div>
               <p className="text-base/7 text-gray-600 w-full text-center mt-2">

@@ -23,6 +23,7 @@ import {
 import Link from "next/link"
 import { PropsWithChildren, useState } from "react"
 import { Navbar } from "@/components/ui/navbar_sidebar"
+import { usePathname } from 'next/navigation'
 
 interface SidebarItem {
   href: string
@@ -40,7 +41,6 @@ const SIDEBAR_ITEMS: SidebarCategory[] = [
     category: "Main",
     items: [
       { href: "/about", icon: Volleyball, text: "About" },
-      { href: "/subgroups", icon: Boxes, text: "Subgroups" },
       { href: "/debate", icon: Combine, text: "Debate" },
     ],
   },
@@ -76,6 +76,8 @@ const SIDEBAR_ITEMS: SidebarCategory[] = [
 ]
 
 const Sidebar = ({ onClose }: { onClose?: () => void }) => {
+  const pathname = usePathname()
+
   return (
     <div className="space-y-4 md:space-y-6 relative z-20 flex flex-col flex-1">
       {/* Navigation Items */}
@@ -92,12 +94,19 @@ const Sidebar = ({ onClose }: { onClose?: () => void }) => {
                     key={i}
                     href={item.href}
                     className={cn(
-                      buttonVariants({ variant: "ghost" }),
-                      "w-full justify-start group flex items-center gap-x-2.5 rounded-md px-2 py-1.5 text-sm font-medium leading-6  hover:bg-brand-300 transition",
+                      "w-full justify-start group flex items-center gap-x-2.5 rounded-md px-2 py-1.5 text-sm font-medium leading-6 transition-all duration-200",
+                      pathname === item.href
+                        ? "bg-brand-100 text-zinc-700 font-semibold border-l-4 border-brand-300"
+                        : "text-zinc-700 hover:bg-gray-100"
                     )}
                     onClick={onClose}
                   >
-                    <item.icon className="size-4 text-zinc-500 group-hover:text-white transition" />
+                    <item.icon className={cn(
+                      "size-4 transition-colors duration-200",
+                      pathname === item.href 
+                        ? "text-brand-600" 
+                        : "text-zinc-700 group-hover:text-brand-400"
+                    )} />
                     {item.text}
                   </Link>
                 ))}
@@ -107,7 +116,6 @@ const Sidebar = ({ onClose }: { onClose?: () => void }) => {
         </ul>
       </div>
     </div>
-
   )
 }
 
@@ -117,53 +125,51 @@ const Layout = ({ children }: PropsWithChildren) => {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-      <div className="flex flex-1">
-        {/* sidebar for desktop */}
-        <div className="hidden sm:block w-45 lg:w-64 flex-shrink-0">
-          <div className="fixed top-14 bottom-0 w-45 lg:w-64 overflow-y-auto border-r border-gray-100 p-6">
+      <div className="flex-1 flex">
+        {/* Sidebar for desktop */}
+        <aside className="fixed top-14 left-0 bottom-0 w-64 hidden lg:block overflow-y-auto border-r border-gray-100">
+          <div className="p-6">
             <Sidebar />
           </div>
-        </div>
+        </aside>
 
-        <div className="flex-1 flex flex-col min-h-0">
-          {/* mobile header */}
-          <div
-            className="sm:hidden h-14 flex items-center justify-between px-[26px] width-full border-b border-gray-200">
+        {/* Main content area */}
+        <main className="flex-1 lg:ml-64">
+          {/* Mobile header */}
+          <div className="lg:hidden h-14 flex items-center justify-between px-[26px] border-b border-gray-200">
             <Link href="/" className="flex z-40 font-bold text-lg">
               <span className="text-brand-300">/</span>MOOD
             </Link>
             <button
               onClick={() => setIsDrawerOpen(true)}
-              className="text-gray-500 hover:text-gray-600"
+              className="lg:hidden text-gray-500 hover:text-gray-600"
             >
               <Menu className="size-6" />
             </button>
           </div>
 
-          {/* main content area */}
-          <div className="flex-1 overflow-y-auto bg-brand-25 shadow-md p-4 md:p-6">
+          {/* Page content */}
+          <div className="bg-brand-25 shadow-md p-4 md:p-6 min-h-[calc(100vh-3.5rem)] lg:min-h-screen">
             {children}
           </div>
+        </main>
 
-          <Modal
-            className="p-4"
-            showModal={isDrawerOpen}
-            setShowModal={setIsDrawerOpen}
-          >
-            <div className="flex justify-between items-center mb-4">
-              <button
-                aria-label="Close modal"
-                onClick={() => setIsDrawerOpen(false)}
-              >
-                <X className="size-6" />
-              </button>
-            </div>
-
-            <div>
-              <Sidebar />
-            </div>
-          </Modal>
-        </div>
+        {/* Mobile sidebar modal */}
+        <Modal
+          className="p-4 lg:hidden"
+          showModal={isDrawerOpen}
+          setShowModal={setIsDrawerOpen}
+        >
+          <div className="flex justify-between items-center mb-4">
+            <button
+              aria-label="Close modal"
+              onClick={() => setIsDrawerOpen(false)}
+            >
+              <X className="size-6" />
+            </button>
+          </div>
+          <Sidebar onClose={() => setIsDrawerOpen(false)} />
+        </Modal>
       </div>
     </div>
   )

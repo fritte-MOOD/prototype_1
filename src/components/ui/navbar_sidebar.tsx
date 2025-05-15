@@ -30,25 +30,22 @@ export const Navbar = () => {
     useEffect(() => {
     }, [groupName]);
 
-    const getGroupIcon = (groupName: string) => {
-        switch (groupName) {
-            case "Park Club":
-                return <Volleyball className="self-center text-brand-300 group-hover:text-white" />;
-            case "Rochefort":
-                return <Drama className="self-center text-brand-300 group-hover:text-white" />;
-            case "Marin Quarter":
-                return <Home className="self-center text-brand-300 group-hover:text-white" />;
-            default:
-                return <ChevronRight className="self-center text-brand-300 group-hover:text-white" />;
-        }
+    const getGroupIcon = (iconGroupName: string) => {
+        const IconComponent = {
+            "Park Club": Volleyball,
+            "Rochefort": Drama,
+            "Marin Quarter": Home
+        }[iconGroupName] || ChevronRight;
+
+        return <IconComponent className="self-center" />;
     };
 
     return (
-        <nav className="hidden sm:block sticky z-[100] h-14 px-4 top-0 width-full border-b border-gray-200 bg-white backdrop-blur-lg">
+        <nav className="hidden lg:block sticky z-[100] h-14 px-4 top-0 width-full border-b border-gray-200 bg-white backdrop-blur-lg">
             <MaxWidthWrapper>
                 <nav className="flex items-center justify-between">
                     {/* Logo */}
-                    <div onClick={() => router.push("/")} className="h-14 flex items-center font-bold text-lg cursor-pointer">
+                    <div onClick={() => router.push("/")} className="h-14 flex text-brand-800 items-center font-bold text-lg cursor-pointer">
                         <span className="text-brand-300">/</span>MOOD
                     </div>
 
@@ -56,40 +53,56 @@ export const Navbar = () => {
                     <div className="flex gap-4">
                         {/* Dropdown-Menü für Groups */}
                         <div>
-                            <div 
+                            <div
                                 className="relative"
                                 onMouseEnter={() => setIsOpen(true)}
                                 onMouseLeave={() => setIsOpen(false)}
                             >
                                 {/* Button */}
-                                <div onClick={() => router.push("/dashboard")} className="rounded-md h-14 px-7 flex items-center text-zinc-700 text-[20px] cursor-pointer hover:bg-brand-300">
-                                   My Groups
+                                <div
+                                    onClick={() => router.push("/dashboard")}
+                                    className={`rounded-md h-14 px-7 flex items-center text-[20px] cursor-pointer transition-all duration-200 ${
+                                        groupName ? 'text-zinc-700 font-semibold' : 'text-zinc-700 '
+                                    }`}
+                                >
+                                    {"My Groups"}
+                                    {groupName && <ChevronRight className="ml-2 text-zinc-700" size={20} />}
                                 </div>
                             </div>
-                            
+
                             {/* Dropdown-Menü */}
                             {isOpen && (
-                                <div 
-                                    className="bg-brand-0 rounded-md text-s font-medium text-zinc-700 absolute left-auto shadow-lg top-full text-sm cursor-pointer"
+                                <div
+                                    className="bg-white rounded-md text-s font-medium text-zinc-700 absolute left-auto shadow-lg top-full text-sm cursor-pointer overflow-hidden"
                                     onMouseEnter={() => setIsOpen(true)}
                                     onMouseLeave={() => setIsOpen(false)}
-                                >   
+                                >
                                     {groupStructure.map((mainGroup) => (
                                         <div key={mainGroup.name}>
                                             <div
-                                                className="rounded-md text-lg flex hover:bg-brand-300 gap-x-2 py-2 px-6 cursor-pointer group"
+                                                className={`flex gap-x-2 py-2 px-6 cursor-pointer group transition-all duration-200 ${
+                                                    groupName === mainGroup.name 
+                                                        ? 'bg-brand-100 text-zinc-700 font-semibold border-l-4 border-brand-300' 
+                                                        : 'hover:bg-gray-100'
+                                                }`}
                                                 onClick={() => handleGroupClick(mainGroup.name)}
                                             >
-                                                <div className="flex justify-center text-brand-300">
+                                                <div className={`flex justify-center ${
+                                                    groupName === mainGroup.name ? 'text-brand-600' : 'text-zinc-700 group-hover:text-brand-400'
+                                                }`}>
                                                     {getGroupIcon(mainGroup.name)}
                                                 </div>
                                                 {mainGroup.name}
                                             </div>
                                             {mainGroup.subgroups.map((subgroup) => (
-                                                <div 
+                                                <div
                                                     key={subgroup}
-                                                    onClick={() => handleGroupClick(subgroup)} 
-                                                    className="py-2 px-6 block hover:bg-brand-300 rounded-md"
+                                                    onClick={() => handleGroupClick(subgroup)}
+                                                    className={`py-2 pl-12 pr-6 block transition-all duration-200 ${
+                                                        groupName === subgroup 
+                                                            ? 'bg-brand-100 text-zinc-700 font-semibold border-l-4 border-brand-300' 
+                                                            : 'hover:bg-gray-100'
+                                                    }`}
                                                 >
                                                     {subgroup}
                                                 </div>
@@ -100,7 +113,10 @@ export const Navbar = () => {
                             )}
                         </div>
 
-                        <div className="h-14 px-7 flex items-center text-zinc-700 text-[20px] cursor-pointer hover:bg-brand-300">
+                        <div 
+                            onClick={() => router.push("/settings")}
+                            className= "rounded-md h-14 px-7 flex text-zinc-700 hover:bg-gray-100 text-zinc-700 font-semibold items-center text-[20px] cursor-pointer transition-all duration-200 text-zinc-700 hover:bg-gray-100"
+                        >
                             Settings
                         </div>
                     </div>

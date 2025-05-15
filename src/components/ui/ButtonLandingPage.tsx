@@ -20,7 +20,7 @@ export const ButtonLandingPage = ({
       )}
       {...props}
     >
-      <span className="relative z-10 flex items-center gap-2">
+      <span className="relative z-10 text-brand-800 flex items-center gap-2">
         {children}
         <ArrowRight className="size-4 shrink-0 text-blac transition-transform duration-300 ease-in-out group-hover:translate-x-[2px]" />
       </span>
