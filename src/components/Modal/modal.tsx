@@ -51,7 +51,7 @@ export const Modal = ({
         <Drawer.Portal>
           <Drawer.Content
             className={cn(
-              "fixed !max-w-none bottom-0 left-0 right-0 z-50 mt-24 rounded-t-[10px] border-t border-gray-200 bg-white text-zinc-700",
+              "fixed !max-w-none bottom-0 left-0 right-0 z-50 mt-24 rounded-t-[10px] text-zinc-700",
               className
             )}
           >
@@ -60,7 +60,7 @@ export const Modal = ({
             </div>
 
             {/* Container for menu items with scrollability */}
-            <div className="overflow-y-auto max-h-[calc(100vh-6rem)] bg-white">
+            <div className="overflow-y-auto max-h-[calc(100vh-6rem)]">
               <div className="text-zinc-700">
                 {children}
               </div>
@@ -81,7 +81,7 @@ export const Modal = ({
       }}
     >
       <DialogTitle className="sr-only">Dialog</DialogTitle>
-      <DialogContent className="bg-white text-zinc-700">
+      <DialogContent className="bg-brand-25 text-zinc-700">
         {children}
       </DialogContent>
     </Dialog>

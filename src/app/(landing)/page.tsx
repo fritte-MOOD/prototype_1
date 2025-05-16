@@ -47,7 +47,7 @@ const Page = () => {
 
           <ButtonLandingPage
             href="/discover"
-            className="relative z-10 h-14 w-80 text-base shadow-md transition-shadow shadow-brand-200 duration-300 hover:shadow-xl">
+            className="">
             Start Demo
           </ButtonLandingPage>
 

@@ -6,6 +6,7 @@ import { useName } from "@/context/ContextFiles/NameContext"
 import { SubmitButton } from "@/components/ui/SubmitButton"
 import { useEffect, useState } from "react"
 import { useRouter } from "next/navigation"
+import { cn } from "@/components/functions/utils" // Assuming cn is imported from a utility file
 
 export default function NameForm() {
   const router = useRouter()
@@ -48,12 +49,29 @@ export default function NameForm() {
             </p>
 
             <div className="px-7 py-2.5 flex flex-col items-center">
-              <form onSubmit={formSubmit} className="flex flex-col items-center border:none w-full max-w-[416px]">
+              <form onSubmit={formSubmit} className="flex flex-col items-center border-brand-800 hover:ring-brand-300 w-full max-w-[416px]">
                 <p className="text-base/7 text-brand-950 text-center text-pretty mb-4">
                   Enter any firstname to get started with the experience:
                 </p>
                 <input
-                  className="text-center transform rounded-md bg-brand-25 text-base/7 font-medium text-brand-950 transition-all duration-300 hover:ring-2 hover:ring-brand-300 hover:ring-offset-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-300 z-10 h-14 w-full text-base shadow-lg transition-shadow duration-300 hover:shadow-xl"
+                  className={cn(
+                    // Base styles
+                    "w-80 h-14 px-4 rounded-md",
+                    "text-base font-medium text-center text-brand-950",
+                    "bg-brand-0 border border-brand-800",
+
+                    // Shadow
+                    "shadow-md shadow-brand-200",
+                    "hover:shadow-xl",
+
+                    // Transitions
+                    "transition-all duration-300",
+
+                    // Focus and hover states
+                    "hover:ring-2 hover:ring-brand-300 hover:ring-offset-2 hover:ring-offset-brand-25",
+                    "focus:outline-none focus:ring-2 focus:ring-brand-300 focus:ring-offset-2 focus:ring-offset-brand-25",
+                      "[&:focus::placeholder]:text-transparent"
+                  )}
                   onChange={handleChange}
                   type="text"
                   value={localName}
@@ -62,7 +80,7 @@ export default function NameForm() {
                 <div className="py-5"></div>
 
                 <SubmitButton
-                  className="relative z-10 h-14 w-full text-base shadow-lg border border-gray-300 transition-shadow duration-300 hover:shadow-xl"
+                  className=""
                 >
                   Start Demo
                 </SubmitButton>

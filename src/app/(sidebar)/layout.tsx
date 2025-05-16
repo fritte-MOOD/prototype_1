@@ -85,7 +85,7 @@ const Sidebar = ({ onClose }: { onClose?: () => void }) => {
         <ul>
           {SIDEBAR_ITEMS.map(({ category, items }) => (
             <li key={category} className="mb-4 md:mb-8">
-              <p className="text-xs font-medium leading-6 text-zinc-500">
+              <p className="text-xs font-medium leading-6 text-brand-950">
                 {category}
               </p>
               <div className="-mx-2 flex flex-1 flex-col">
@@ -96,16 +96,16 @@ const Sidebar = ({ onClose }: { onClose?: () => void }) => {
                     className={cn(
                       "w-full justify-start group flex items-center gap-x-2.5 rounded-md px-2 py-1.5 text-sm font-medium leading-6 transition-all duration-200",
                       pathname === item.href
-                        ? "bg-brand-100 text-zinc-700 font-semibold border-l-4 border-brand-300"
-                        : "text-zinc-700 hover:bg-gray-100"
+                        ? "bg-brand-100 text-brand-950 font-semibold border-l-4 border-brand-300"
+                        : "text-brand-950 hover:bg-brand-550"
                     )}
                     onClick={onClose}
                   >
                     <item.icon className={cn(
                       "size-4 transition-colors duration-200",
                       pathname === item.href 
-                        ? "text-brand-600" 
-                        : "text-zinc-700 group-hover:text-brand-400"
+                        ? "text-brand-900"
+                        : "text-brand-950 group-hover:text-brand-900"
                     )} />
                     {item.text}
                   </Link>
@@ -127,7 +127,7 @@ const Layout = ({ children }: PropsWithChildren) => {
       <Navbar />
       <div className="flex-1 flex">
         {/* Sidebar for desktop */}
-        <aside className="fixed top-14 left-0 bottom-0 w-64 hidden lg:block overflow-y-auto border-r border-gray-100">
+        <aside className="fixed top-14 left-0 bottom-0 w-64 hidden lg:block overflow-y-auto border-r border-brand-800">
           <div className="p-6">
             <Sidebar />
           </div>
@@ -135,8 +135,8 @@ const Layout = ({ children }: PropsWithChildren) => {
 
         {/* Main content area */}
         <main className="flex-1 lg:ml-64">
-          {/* Mobile header */}
-          <div className="lg:hidden h-14 flex items-center justify-between px-[26px] border-b border-gray-200">
+          {/* Mobile header - only visible on small screens */}
+          <div className="lg:hidden h-14 flex items-center justify-between px-[26px] border-b border-brand-550">
             <Link href="/" className="flex z-40 font-bold text-lg">
               <span className="text-brand-300">/</span>MOOD
             </Link>
@@ -154,7 +154,7 @@ const Layout = ({ children }: PropsWithChildren) => {
           </div>
         </main>
 
-        {/* Mobile sidebar modal */}
+        {/* Mobile sidebar modal - only visible when open on small screens */}
         <Modal
           className="p-4 lg:hidden"
           showModal={isDrawerOpen}

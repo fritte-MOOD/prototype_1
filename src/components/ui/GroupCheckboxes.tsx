@@ -51,12 +51,12 @@ export const GroupCheckboxes: React.FC = () => {
   };
 
   const CheckboxList: React.FC = () => (
-    <div className="p-4 bg-brand-25 h-full overflow-y-auto">
+    <div className="p-4 h-full overflow-y-auto">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold">Filter Groups</h2>
+        <h2 className="text-lg text-brand-950 font-semibold">Filter Groups</h2>
         <button 
           onClick={() => setIsModalOpen(false)} 
-          className="text-gray-500 hover:text-gray-700"
+          className="text-brand-950 hover:text-brand-550"
         >
           <X size={24} />
         </button>
@@ -65,7 +65,7 @@ export const GroupCheckboxes: React.FC = () => {
       <div className="mb-4 flex space-x-2">
         <button
           onClick={activateAll}
-          className="px-3 py-1 bg-brand-400 text-white rounded hover:bg-brand-700 transition-colors"
+          className="px-3 py-1 bg-brand-400 text-brand-0 rounded hover:bg-gray-400 transition-colors"
         >
           Activate All
         </button>
@@ -86,13 +86,13 @@ export const GroupCheckboxes: React.FC = () => {
             <div className={`w-4 h-4 border-2 rounded flex items-center justify-center mr-2 ${
               areAllSubsAndTheMainChecked(group.name)
                 ? getGroupColor(group.name)
-                : 'border-gray-300'
+                : 'border-brand-550'
             }`}>
               {areAllSubsAndTheMainChecked(group.name) &&
                 <Check className="w-3 h-3 text-white" />
               }
             </div>
-            <span className="text-sm font-medium">All {group.name}</span>
+            <span className="text-sm text-brand-950 font-medium">All {group.name}</span>
           </div>
           
           <div className="ml-6 mt-2">
@@ -101,11 +101,11 @@ export const GroupCheckboxes: React.FC = () => {
               onClick={() => toggleGroup(group.name)}
             >
               <div className={`w-4 h-4 border-2 rounded flex items-center justify-center mr-2 ${
-                isGroupChecked(group.name) ? getGroupColor(group.name) : 'border-gray-300'
+                isGroupChecked(group.name) ? getGroupColor(group.name) : 'border-brand-550'
               }`}>
                 {isGroupChecked(group.name) && <Check className="w-3 h-3 text-white" />}
               </div>
-              <span className="text-sm">{group.name}</span>
+              <span className="text-sm text-brand-950">{group.name}</span>
             </div>
             
             {group.subgroups.map((subgroup) => (
@@ -115,11 +115,11 @@ export const GroupCheckboxes: React.FC = () => {
                 onClick={() => toggleGroup(subgroup)}
               >
                 <div className={`w-4 h-4 border-2 rounded flex items-center justify-center mr-2 ${
-                  isGroupChecked(subgroup) ? getGroupColor(group.name, true) : 'border-gray-300'
+                  isGroupChecked(subgroup) ? getGroupColor(group.name, true) : 'border-brand-550'
                 }`}>
                   {isGroupChecked(subgroup) && <Check className="w-3 h-3 text-white" />}
                 </div>
-                <span className="text-sm">{subgroup}</span>
+                <span className="text-sm text-brand-950">{subgroup}</span>
               </div>
             ))}
           </div>
@@ -130,10 +130,10 @@ export const GroupCheckboxes: React.FC = () => {
 
   return (
     <>
-      <div className="mb-4 flex justify-center">
+      <div className="mb-4 bg-brand-25 flex justify-center">
         <button
           onClick={() => setIsModalOpen(true)}
-          className="w-[416px] flex items-center justify-center px-3 py-2 bg-brand-400 text-white rounded hover:bg-brand-700 transition-colors"
+          className="w-[416px] flex items-center justify-center px-3 py-2 bg-brand-400 text-brand-0 rounded hover:bg-brand-700 transition-colors"
         >
           <Filter size={18} className="mr-2" />
           Filter Groups
@@ -143,6 +143,7 @@ export const GroupCheckboxes: React.FC = () => {
       <Modal
         showModal={isModalOpen}
         setShowModal={setIsModalOpen}
+        className="p-0 bg-transparent"
       >
         <CheckboxList />
       </Modal>

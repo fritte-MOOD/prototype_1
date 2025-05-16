@@ -51,13 +51,13 @@ const AboutPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-brand-25 overflow-y-auto">
+    <div className="min-h-screen overflow-y-auto">
       <MaxWidthWrapper>
         <section className="py-8">
           <div className="lg:flex lg:space-x-8 space-y-8 lg:space-y-0">
             {/* Left column */}
             <div className="lg:w-2/3 space-y-8">
-              <div className="bg-white shadow-md rounded-lg p-6">
+              <div className="bg-brand-50 shadow-md rounded-lg p-6">
                 <h2 className="text-2xl text-brand-1 font-semibold mb-4">{currentGroup?.description}</h2>
                 {currentGroup?.content && (
                   <div>
@@ -67,14 +67,14 @@ const AboutPage = () => {
               </div>
 
               {currentGroup?.rules && (
-                <div className="bg-white shadow-md rounded-lg p-6">
+                <div className="bg-brand-50 shadow-md rounded-lg p-6">
                   <h2 className="text-2xl text-brand-1 font-semibold mb-4">Group Rules</h2>
                   <p className="text-brand-950 whitespace-pre-wrap">{currentGroup.rules}</p>
                 </div>
               )}
 
               {parentGroup && (
-                <div className="bg-white shadow-md rounded-lg p-6">
+                <div className="bg-brand-50 shadow-md rounded-lg p-6">
                   <h2 className="text-2xl text-brand-1 font-semibold mb-4">Is Subgroup of:</h2>
                   <p className="text-brand-950">
                     <Link href="/about" onClick={() => handleGroupClick(parentGroup.name, true)}>
@@ -89,7 +89,7 @@ const AboutPage = () => {
 
             {/* Right column */}
             <div className="lg:w-1/3 space-y-8">
-              <div className="bg-white shadow-md rounded-lg p-6">
+              <div className="bg-brand-50 shadow-md rounded-lg p-6">
                 <h2 className="text-2xl text-brand-1 font-semibold mb-4">Go to....</h2>
                 <ul className="list-disc text-brand-950 pl-5">
                   <li>
@@ -116,7 +116,7 @@ const AboutPage = () => {
               </div>
 
               {currentGroup?.subgroups && currentGroup.subgroups.length > 0 && (
-                <div className="bg-white shadow-md rounded-lg p-6">
+                <div className="bg-brand-50 shadow-md rounded-lg p-6">
                   <h2 className="text-2xl text-brand-1 font-semibold mb-4">Subgroups</h2>
                   <ul className="list-disc text-brand-950 pl-5">
                     {currentGroup.subgroups.map((subgroup, index) => (
@@ -132,7 +132,7 @@ const AboutPage = () => {
                 </div>
               )}
 
-              <div className="bg-white shadow-md rounded-lg p-6">
+              <div className="bg-brand-50 shadow-md rounded-lg p-6">
                 <h2 className="text-2xl text-brand-1 font-semibold mb-4">Group Statistics</h2>
                 <ul className="list-disc text-brand-950 pl-5">
                   <li>Number of members: {currentGroup?.members.length}</li>

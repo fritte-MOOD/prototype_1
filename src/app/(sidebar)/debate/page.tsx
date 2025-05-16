@@ -67,12 +67,12 @@ const DebatesPage = () => {
         </div>
         <div className="w-full">
           {processes.length === 0 ? (
-            <p className="text-gray-600">No processes found in the selected groups.</p>
+            <p className="text-brand-950">No processes found in the selected groups.</p>
           ) : (
             processes.map((process: Process & { groupName: string, subgroupName?: string, isSubgroup: boolean }) => (
               <div
                 key={process.id}
-                className="mb-6 p-4 bg-white rounded shadow flex items-start cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                className="mb-6 p-4 bg-brand-0 rounded shadow flex items-start cursor-pointer hover:bg-brand-550 transition-colors duration-200"
                 onClick={() => handleProcessClick(process.id)}
               >
                 <div className="flex-grow">
@@ -83,8 +83,8 @@ const DebatesPage = () => {
                     <h2 className="pl-6 text-xl font-semibold">{process.description}</h2>
 
                   </div>
-                  <p className="text-gray-600 mb-3">{process.content}</p>
-                  <div className="flex justify-between text-sm text-gray-500">
+                  <p className="text-brand-950 mb-3">{process.content}</p>
+                  <div className="flex justify-between text-sm text-brand-950">
                     <p>
                       Created: <FormattedDate
                       date={CalculateDateTime(process.createdAt.time, process.createdAt.distance)} />
@@ -97,7 +97,7 @@ const DebatesPage = () => {
                     {process.modules.map((module, index) => (
                       <span
                         key={index}
-                        className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+                        className="inline-block bg-brand-550 rounded-full px-3 py-1 text-sm font-semibold text-brand-950 mr-2 mb-2"
                       >
                         {module.type}
                       </span>
