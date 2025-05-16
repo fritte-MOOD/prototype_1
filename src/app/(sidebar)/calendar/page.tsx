@@ -1,9 +1,7 @@
 "use client"
 
-import React, { useMemo, useState, useEffect } from "react"
-import { Calendar, momentLocalizer, View, Views } from "react-big-calendar"
+import React, { useMemo, useState } from "react"
 import moment from "moment"
-import "react-big-calendar/lib/css/react-big-calendar.css"
 import { MaxWidthWrapper } from "@/components/ui/max-width-wrapper"
 import { GroupCheckboxes } from "@/components/ui/GroupCheckboxes"
 import { useCheckbox } from "@/context/ContextFiles/CheckboxesContext"
@@ -11,29 +9,10 @@ import { CalculateDateTime } from "@/components/functions/CalculateDateTime"
 import { useMockup } from "@/context/ContextFiles/MockupContext"
 import { Appointment, Group } from "@/data/interfaces"
 
-const localizer = momentLocalizer(moment)
-
-function useWindowHeight() {
-  const [windowHeight, setWindowHeight] = useState(0);
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowHeight(window.innerHeight);
-    }
-    
-    handleResize(); // Set initial height
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return windowHeight;
-}
-
 const CalendarPage = () => {
   const { groups } = useCheckbox()
   const [currentDate, setCurrentDate] = useState(new Date())
   const mockData = useMockup()
-  const windowHeight = useWindowHeight()
 
   const events = useMemo(() => {
     return mockData.flatMap((group: Group) => {
@@ -59,150 +38,98 @@ const CalendarPage = () => {
     })
   }, [groups, mockData])
 
-  const onNavigate = (newDate: Date, view: View, action: "PREV" | "NEXT" | "TODAY" | "DATE") => {
-    if (action === "TODAY") {
-      setCurrentDate(new Date())
-    } else if (action === "PREV") {
-      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1))
-    } else if (action === "NEXT") {
-      setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1))
-    } else if (action === "DATE") {
-      setCurrentDate(newDate)
-    }
-  }
-
-  const CustomToolbar = (toolbar: any) => {
-    const goToBack = () => toolbar.onNavigate("PREV")
-    const goToNext = () => toolbar.onNavigate("NEXT")
-    const goToCurrent = () => toolbar.onNavigate("TODAY")
-
-    const label = moment(currentDate).format("MMMM YYYY")
-
-    return (
-      <div className="rbc-toolbar">
-        <span className="rbc-btn-group">
-          <button type="button" onClick={goToBack}>Back</button>
-          <button type="button" onClick={goToCurrent}>Today</button>
-          <button type="button" onClick={goToNext}>Next</button>
-        </span>
-        <span className="rbc-toolbar-label">{label}</span>
-      </div>
-    )
-  }
-
   const eventStyleGetter = (event: any) => {
-    const getGroupColor = (groupName: string, isSubgroup: boolean) => {
+    const getGroupColor = (groupName: string, isSubgroup: boolean = false): string => {
       switch (groupName) {
         case "Park Club":
-          return isSubgroup ? "bg-group-park-club-100 text-group-park-club-900" : "bg-group-park-club-500 text-white";
+          return "bg-group-park-club-500 border-group-park-club-500 text-brand-0";
         case "Marin Quarter":
-          return isSubgroup ? "bg-group-marin-quarter-100 text-group-marin-quarter-900" : "bg-group-marin-quarter-500 text-white";
+          return "bg-group-marin-quarter-500 border-group-marin-quarter-500 text-brand-0";
         case "Rochefort":
-          return isSubgroup ? "bg-group-rochefort-100 text-group-rochefort-900" : "bg-group-rochefort-500 text-white";
+          return "bg-group-rochefort-500 border-group-rochefort-500 text-brand-0";
         default:
-          return "bg-gray-300 text-gray-800";
+          return "bg-gray-300 border-gray-300";
       }
-    }
+    };
 
-    const colorClasses = getGroupColor(event.groupName, event.isSubgroup);
 
-    return {
-      className: `${colorClasses} rounded-md border-none`,
-      style: {
-        display: "block",
-      },
-    }
+    return getGroupColor(event.groupName, event.isSubgroup);
   }
 
-  const calendarHeight = windowHeight - 200; // Adjust this value as needed
+  const Calendar = () => {
+    const daysInMonth = moment(currentDate).daysInMonth();
+    const firstDayOfMonth = moment(currentDate).startOf('month');
+    const days = Array.from({ length: daysInMonth }, (_, i) => moment(firstDayOfMonth).add(i, 'days'));
+
+    return (
+      <div className="bg-white rounded-lg shadow overflow-hidden flex flex-col h-full">
+        <div className="flex justify-between items-center p-4 bg-gray-100">
+          <button
+            onClick={() => setCurrentDate(moment(currentDate).subtract(1, 'month').toDate())}
+            className="text-gray-600 text-2xl font-bold px-4 py-2 hover:bg-gray-200 rounded-full transition-colors"
+          >
+            &lt;
+          </button>
+          <h2 className="text-xl font-semibold">{moment(currentDate).format('MMMM YYYY')}</h2>
+          <button
+            onClick={() => setCurrentDate(moment(currentDate).add(1, 'month').toDate())}
+            className="text-gray-600 text-2xl font-bold px-4 py-2 hover:bg-gray-200 rounded-full transition-colors"
+          >
+            &gt;
+          </button>
+        </div>
+        <div className="grid grid-cols-7 gap-1 p-2 flex-grow overflow-y-auto">
+          {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
+            <div key={day} className="text-center text-sm font-medium text-gray-500">{day}</div>
+          ))}
+          {days.map(day => {
+            const dayEvents = events.filter(event => moment(event.start).isSame(day, 'day'));
+            return (
+              <div key={day.format('YYYY-MM-DD')} className="aspect-square p-1 border border-gray-200">
+                <div className="text-sm font-medium">{day.format('D')}</div>
+                <div className="mt-1">
+                  <div className="hidden lg:flex lg:flex-col lg:gap-1">
+                    {dayEvents.slice(0, 3).map((event, index) => (
+                      <div key={index} className="relative group">
+                        <div className={`text-xs truncate ${eventStyleGetter(event)} p-1 rounded-sm`}>
+                          {event.title}
+                        </div>
+                        <div className="absolute z-10 hidden group-hover:block bg-white border border-gray-200 p-2 rounded shadow-lg whitespace-nowrap">
+                          {event.title}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  <div className="flex flex-wrap gap-1 lg:hidden">
+                    {dayEvents.slice(0, 3).map((event, index) => (
+                      <div key={index} className="relative group">
+                        <div className={`w-2 h-2 rounded-full ${eventStyleGetter(event).split(' ')[0]}`}></div>
+                        <div className="absolute z-10 hidden group-hover:block bg-white border border-gray-200 p-2 rounded shadow-lg whitespace-nowrap">
+                          {event.title}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  {dayEvents.length > 3 && (
+                    <div className="text-xs text-gray-500 mt-1">+{dayEvents.length - 3} more</div>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
+  };
 
   return (
     <MaxWidthWrapper>
-      <div className="flex flex-col xl:flex-row">
-        <div className="w-full xl:w-1/4 xl:pr-4 mb-4 xl:mb-0">
+      <div className="flex flex-col items-center">
+        <div className="max-w-[1000px]">
           <GroupCheckboxes />
-        </div>
-        <div className="w-full xl:w-3/4 max-w-[900px] mx-auto">
-          <Calendar
-            localizer={localizer}
-            events={events}
-            startAccessor="start"
-            endAccessor="end"
-            className="rbc-calendar-small-screen rbc-calendar-custom"
-            style={{ 
-              height: calendarHeight,
-              fontSize: '0.8rem', // Adjust font size for small screens
-            }}
-            date={currentDate}
-            onNavigate={onNavigate}
-            view={Views.MONTH}
-            views={[Views.MONTH]}
-            toolbar={true}
-            components={{
-              toolbar: CustomToolbar,
-            }}
-            eventPropGetter={eventStyleGetter}
-          />
+          <Calendar />
         </div>
       </div>
-      <style jsx global>{`
-        @media (max-width: 1279px) {
-          .rbc-calendar-small-screen {
-            font-size: 0.8rem;
-          }
-
-          .rbc-calendar-small-screen .rbc-toolbar {
-            flex-direction: column;
-            align-items: stretch;
-          }
-
-          .rbc-calendar-small-screen .rbc-toolbar-label {
-            margin: 10px 0;
-          }
-
-          .rbc-calendar-small-screen .rbc-btn-group {
-            width: 100%;
-            justify-content: space-between;
-          }
-
-          .rbc-calendar-small-screen .rbc-event {
-            padding: 2px;
-          }
-
-          .rbc-calendar-small-screen .rbc-event-content {
-            font-size: 0.7rem;
-          }
-
-          .rbc-calendar-small-screen .rbc-month-view {
-            flex-basis: auto;
-          }
-
-          .rbc-calendar-small-screen .rbc-month-row {
-            min-height: auto;
-            height: auto !important;
-          }
-        }
-
-        .rbc-calendar-custom .rbc-row-content {
-          max-height: none !important;
-        }
-
-        .rbc-calendar-custom .rbc-row-segment {
-          display: block !important;
-        }
-
-        .rbc-calendar-custom .rbc-event {
-          margin-top: 2px;
-        }
-
-        .rbc-calendar-custom .rbc-show-more {
-          display: none !important;
-        }
-
-        .rbc-calendar-custom .rbc-row-content .rbc-row {
-          flex-wrap: wrap;
-        }
-      `}</style>
     </MaxWidthWrapper>
   )
 }

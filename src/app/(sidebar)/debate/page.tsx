@@ -17,18 +17,36 @@ const DebatesPage = () => {
   const { setDebateId } = useDebate()
   const router = useRouter()
 
+  const getGroupColor = (groupName: string, isSubgroup: boolean): string => {
+    switch (groupName) {
+      case "Park Club":
+        return "bg-group-park-club-500 border-group-park-club-500 text-brand-0";
+      case "Marin Quarter":
+        return "bg-group-marin-quarter-500 border-group-marin-quarter-500 text-brand-0";
+      case "Rochefort":
+        return "bg-group-rochefort-500 border-group-rochefort-500 text-brand-0";
+      default:
+        return "bg-gray-300 border-gray-300 text-gray-700";
+    }
+  };
+
   const processes = useMemo(() => {
     return mockData.flatMap(group => {
       const isGroupChecked = groups.find(g => g.name === group.name)?.checked
 
       const groupProcesses = isGroupChecked
-        ? group.processes.map(process => ({ ...process, groupName: group.name }))
+        ? group.processes.map(process => ({ ...process, groupName: group.name, isSubgroup: false }))
         : []
 
       const subgroupProcesses = group.subgroups.flatMap(subgroup => {
         const isSubgroupChecked = groups.find(g => g.name === subgroup.name)?.checked
         return isSubgroupChecked
-          ? subgroup.processes.map(process => ({ ...process, groupName: subgroup.name }))
+          ? subgroup.processes.map(process => ({ 
+              ...process, 
+              groupName: group.name,
+              subgroupName: subgroup.name,
+              isSubgroup: true 
+            }))
           : []
       })
 
@@ -51,18 +69,19 @@ const DebatesPage = () => {
           {processes.length === 0 ? (
             <p className="text-gray-600">No processes found in the selected groups.</p>
           ) : (
-            processes.map((process: Process & { groupName: string }) => (
+            processes.map((process: Process & { groupName: string, subgroupName?: string, isSubgroup: boolean }) => (
               <div
                 key={process.id}
                 className="mb-6 p-4 bg-white rounded shadow flex items-start cursor-pointer hover:bg-gray-50 transition-colors duration-200"
                 onClick={() => handleProcessClick(process.id)}
               >
                 <div className="flex-grow">
-                  <div className="flex justify-between items-start mb-2">
-                    <h2 className="text-xl font-semibold">{process.description}</h2>
-                    <span className="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded">
-                      {process.groupName}
+                  <div className="flex mb-2 allign-top items-center">
+                    <span className={`${getGroupColor(process.groupName, process.isSubgroup)}  text-l font-medium py-0.5 rounded min-w-[180px] text-center`}>
+                      {process.isSubgroup ? `${process.subgroupName}` : process.groupName}
                     </span>
+                    <h2 className="pl-6 text-xl font-semibold">{process.description}</h2>
+
                   </div>
                   <p className="text-gray-600 mb-3">{process.content}</p>
                   <div className="flex justify-between text-sm text-gray-500">

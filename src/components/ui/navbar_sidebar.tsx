@@ -41,12 +41,12 @@ export const Navbar = () => {
     };
 
     return (
-        <nav className="hidden lg:block sticky z-[100] h-14 px-4 top-0 width-full border-b border-gray-200 bg-white backdrop-blur-lg">
+        <nav className="hidden lg:block sticky z-[100] h-14 px-4 top-0 width-full border-b border-brand-550 bg-brand-0 backdrop-blur-lg">
             <MaxWidthWrapper>
                 <nav className="flex items-center justify-between">
                     {/* Logo */}
-                    <div onClick={() => router.push("/")} className="h-14 flex text-brand-800 items-center font-bold text-lg cursor-pointer">
-                        <span className="text-brand-300">/</span>MOOD
+                    <div onClick={() => router.push("/")} className="h-14 flex text-brand-901 items-center font-bold text-lg cursor-pointer">
+                        <span className="text-brand-902">/</span>MOOD
                     </div>
 
                     {/* Navigation */}
@@ -62,18 +62,18 @@ export const Navbar = () => {
                                 <div
                                     onClick={() => router.push("/dashboard")}
                                     className={`rounded-md h-14 px-7 flex items-center text-[20px] cursor-pointer transition-all duration-200 ${
-                                        groupName ? 'text-zinc-700 font-semibold' : 'text-zinc-700 '
+                                        groupName ? 'text-brand-1 font-semibold' : ''
                                     }`}
                                 >
                                     {"My Groups"}
-                                    {groupName && <ChevronRight className="ml-2 text-zinc-700" size={20} />}
+                                    {groupName && <ChevronRight className="ml-2 text-brand-1" size={20} />}
                                 </div>
                             </div>
 
                             {/* Dropdown-Menü */}
                             {isOpen && (
                                 <div
-                                    className="bg-white rounded-md text-s font-medium text-zinc-700 absolute left-auto shadow-lg top-full text-sm cursor-pointer overflow-hidden"
+                                    className="bg-white rounded-md text-s font-medium text-brand-950 absolute left-auto shadow-lg top-full text-sm cursor-pointer overflow-hidden"
                                     onMouseEnter={() => setIsOpen(true)}
                                     onMouseLeave={() => setIsOpen(false)}
                                 >
@@ -82,13 +82,13 @@ export const Navbar = () => {
                                             <div
                                                 className={`flex gap-x-2 py-2 px-6 cursor-pointer group transition-all duration-200 ${
                                                     groupName === mainGroup.name 
-                                                        ? 'bg-brand-100 text-zinc-700 font-semibold border-l-4 border-brand-300' 
-                                                        : 'hover:bg-gray-100'
+                                                        ? 'bg-brand-100 text-brand-950 font-semibold border-l-4 border-brand-300' 
+                                                        : 'hover:bg-brand-550'
                                                 }`}
                                                 onClick={() => handleGroupClick(mainGroup.name)}
                                             >
                                                 <div className={`flex justify-center ${
-                                                    groupName === mainGroup.name ? 'text-brand-600' : 'text-zinc-700 group-hover:text-brand-400'
+                                                    groupName === mainGroup.name ? 'text-brand-700' : 'text-brand-950'
                                                 }`}>
                                                     {getGroupIcon(mainGroup.name)}
                                                 </div>
@@ -100,8 +100,8 @@ export const Navbar = () => {
                                                     onClick={() => handleGroupClick(subgroup)}
                                                     className={`py-2 pl-12 pr-6 block transition-all duration-200 ${
                                                         groupName === subgroup 
-                                                            ? 'bg-brand-100 text-zinc-700 font-semibold border-l-4 border-brand-300' 
-                                                            : 'hover:bg-gray-100'
+                                                            ? 'bg-brand-100 text-brand-950 font-semibold border-l-4 border-brand-300' 
+                                                            : 'hover:bg-brand-550'
                                                     }`}
                                                 >
                                                     {subgroup}
@@ -114,8 +114,8 @@ export const Navbar = () => {
                         </div>
 
                         <div 
-                            onClick={() => router.push("/settings")}
-                            className= "rounded-md h-14 px-7 flex text-zinc-700 hover:bg-gray-100 text-zinc-700 font-semibold items-center text-[20px] cursor-pointer transition-all duration-200 text-zinc-700 hover:bg-gray-100"
+                            onClick={() => router.push("")}
+                            className= "rounded-md h-14 px-7 flex text-brand-1 font-semibold items-center text-[20px] cursor-pointer transition-all duration-200 hover:bg-brand-550"
                         >
                             Settings
                         </div>

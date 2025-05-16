@@ -4,6 +4,7 @@ import { ChatProvider } from "./ContextFiles/ChatContext";
 import { CheckboxProvider } from "./ContextFiles/CheckboxesContext";
 import { MockupProvider } from "./ContextFiles/MockupContext";
 import { DebateProvider } from "./ContextFiles/DebateContext";
+import { DarkModeProvider } from "./ContextFiles/DarkModeContext";
 
 
 
@@ -17,7 +18,9 @@ export const ContextProvider = ({ children }: { children: React.ReactNode }) => 
               <MockupProvider>
                 <CheckboxProvider>
                   <DebateProvider>
+                      <DarkModeProvider>
                     {children}
+                      </DarkModeProvider>
                   </DebateProvider>
                 </CheckboxProvider>
               </MockupProvider>

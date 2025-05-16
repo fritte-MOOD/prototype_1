@@ -58,27 +58,27 @@ const AboutPage = () => {
             {/* Left column */}
             <div className="lg:w-2/3 space-y-8">
               <div className="bg-white shadow-md rounded-lg p-6">
-                <h2 className="text-2xl font-semibold mb-4">{currentGroup?.description}</h2>
+                <h2 className="text-2xl text-brand-1 font-semibold mb-4">{currentGroup?.description}</h2>
                 {currentGroup?.content && (
                   <div>
-                    <p className="text-gray-600 whitespace-pre-wrap">{currentGroup.content}</p>
+                    <p className="text-brand-950 whitespace-pre-wrap">{currentGroup.content}</p>
                   </div>
                 )}
               </div>
 
               {currentGroup?.rules && (
                 <div className="bg-white shadow-md rounded-lg p-6">
-                  <h2 className="text-2xl font-semibold mb-4">Group Rules</h2>
-                  <p className="text-gray-700 whitespace-pre-wrap">{currentGroup.rules}</p>
+                  <h2 className="text-2xl text-brand-1 font-semibold mb-4">Group Rules</h2>
+                  <p className="text-brand-950 whitespace-pre-wrap">{currentGroup.rules}</p>
                 </div>
               )}
 
               {parentGroup && (
                 <div className="bg-white shadow-md rounded-lg p-6">
-                  <h2 className="text-2xl font-semibold mb-4">Is Subgroup of:</h2>
-                  <p className="text-gray-600">
+                  <h2 className="text-2xl text-brand-1 font-semibold mb-4">Is Subgroup of:</h2>
+                  <p className="text-brand-950">
                     <Link href="/about" onClick={() => handleGroupClick(parentGroup.name, true)}>
-                      <span className="text-brand-600 hover:underline cursor-pointer">
+                      <span className="text-brand-900 hover:underline cursor-pointer">
                         {parentGroup.name}
                       </span>
                     </Link>
@@ -90,26 +90,26 @@ const AboutPage = () => {
             {/* Right column */}
             <div className="lg:w-1/3 space-y-8">
               <div className="bg-white shadow-md rounded-lg p-6">
-                <h2 className="text-2xl font-semibold mb-4">Go to....</h2>
-                <ul className="list-disc pl-5">
+                <h2 className="text-2xl text-brand-1 font-semibold mb-4">Go to....</h2>
+                <ul className="list-disc text-brand-950 pl-5">
                   <li>
                     <Link href="/debate">
-                      <span className="text-brand-600 hover:underline cursor-pointer">Debate</span>
+                      <span className="text-brand-700 hover:underline cursor-pointer">Debate</span>
                     </Link>
                   </li>
                   <li>
                     <Link href="/calendar">
-                      <span className="text-brand-600 hover:underline cursor-pointer">Calendar</span>
+                      <span className="text-brand-700 hover:underline cursor-pointer">Calendar</span>
                     </Link>
                   </li>
                   <li>
                     <Link href="/tasks">
-                      <span className="text-brand-600 hover:underline cursor-pointer">Tasks</span>
+                      <span className="text-brand-700 hover:underline cursor-pointer">Tasks</span>
                     </Link>
                   </li>
                   <li>
                     <Link href="/messages">
-                      <span className="text-brand-600 hover:underline cursor-pointer">Messages</span>
+                      <span className="text-brand-700 hover:underline cursor-pointer">Messages</span>
                     </Link>
                   </li>
                 </ul>
@@ -117,12 +117,12 @@ const AboutPage = () => {
 
               {currentGroup?.subgroups && currentGroup.subgroups.length > 0 && (
                 <div className="bg-white shadow-md rounded-lg p-6">
-                  <h2 className="text-2xl font-semibold mb-4">Subgroups</h2>
-                  <ul className="list-disc pl-5">
+                  <h2 className="text-2xl text-brand-1 font-semibold mb-4">Subgroups</h2>
+                  <ul className="list-disc text-brand-950 pl-5">
                     {currentGroup.subgroups.map((subgroup, index) => (
                       <li key={index}>
                         <Link href="/about" onClick={() => handleGroupClick(subgroup.name, false)}>
-                          <span className="text-brand-600 hover:underline cursor-pointer">
+                          <span className="text-brand-700 hover:underline cursor-pointer">
                             {subgroup.name}
                           </span>
                         </Link>
@@ -133,8 +133,8 @@ const AboutPage = () => {
               )}
 
               <div className="bg-white shadow-md rounded-lg p-6">
-                <h2 className="text-2xl font-semibold mb-4">Group Statistics</h2>
-                <ul className="list-disc pl-5">
+                <h2 className="text-2xl text-brand-1 font-semibold mb-4">Group Statistics</h2>
+                <ul className="list-disc text-brand-950 pl-5">
                   <li>Number of members: {currentGroup?.members.length}</li>
                   <li>Group type: {currentGroup?.isPublic ? 'Public' : 'Private'}</li>
                   <li>Your membership: {currentGroup?.IAmMember ? 'Member' : 'Not a member'}</li>

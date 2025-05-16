@@ -255,7 +255,7 @@ export const processes: Process[] = [
     createdAt: { time: "09:00", distance: 0 },
     dueAt: { time: "20:00", distance: 14 },
     creator: 1062,
-    description: "Proposal to Host Rochefort's Annual Meeting of Sports Clubs and Associates",
+    description: "Rochefort's Annual Meeting of Sports Clubs",
     content: "Rochefort City Council has approached Parkclub with a prestigious opportunity to host this year's Annual Meeting of Sports Clubs and Associates. This event brings together representatives from various sports clubs, local businesses, and city officials to discuss the state of sports in our region, share best practices, and foster collaboration. While this would be a significant undertaking for our club, it also presents a unique chance to showcase our facilities, build relationships, and potentially attract new members and sponsors. We need to carefully consider the costs, benefits, and logistical challenges before making a decision. The event would take place on September 15th and is expected to host approximately 150 attendees.",
     modules: [
       {

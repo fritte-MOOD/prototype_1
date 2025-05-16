@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { EB_Garamond, Inter } from "next/font/google"
 import { cn } from "@/components/functions/utils"
 import { ContextProvider } from "@/context/ContextProvider"
-
+import '../styles/colors.css'
 import "./globals.css"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })

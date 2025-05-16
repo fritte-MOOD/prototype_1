@@ -40,8 +40,8 @@ export default function NameForm() {
       <section className="relative py-24 sm:py-32 bg-brand-25">
         <MaxWidthWrapper className="text-center">
           <div className="relative mx-auto text-center flex flex-col items-center gap-10">
-            <Heading className="text-brand-800">Demo Platform</Heading>
-            <p className="text-base/7 text-gray-600 text-center text-pretty">
+            <Heading className="text-brand-900">Demo Platform</Heading>
+            <p className="text-base/7 text-brand-950 text-center text-pretty">
               Experience three groups: a Company, a Sportsclub and a Municipality. <br />
               All content is exemplary and some functions are not working yet! <br />
               This is only a UI design.
@@ -49,7 +49,7 @@ export default function NameForm() {
 
             <div className="px-7 py-2.5 flex flex-col items-center">
               <form onSubmit={formSubmit} className="flex flex-col items-center border:none w-full max-w-[416px]">
-                <p className="text-base/7 text-gray-600 text-center text-pretty mb-4">
+                <p className="text-base/7 text-brand-950 text-center text-pretty mb-4">
                   Enter any firstname to get started with the experience:
                 </p>
                 <input

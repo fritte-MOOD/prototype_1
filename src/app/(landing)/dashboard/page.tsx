@@ -34,21 +34,21 @@ export default function Dashboard() {
   return (
     <section className="relative py-24 sm:py-32 ">
       <MaxWidthWrapper className="text-center relative mx-auto flex flex-col items-center gap-10">
-        <Heading className={"text-brand-800"}>Welcome back, {name}</Heading>
-        <p className="text-xl text-gray-600  max-w-prose text-center text-pretty">
+        <Heading className={"text-brand-900"}>Welcome back, {name}</Heading>
+        <p className="text-xl text-brand-950  max-w-prose text-center text-pretty">
           You are living in the small town of <span className="font-bold text-brand-800">Rochefort</span>, <br />
           are an executive member of the local <span className="font-bold text-brand-800">Sports Club</span> and <br />
           live in a community housing project named <span className="font-bold text-brand-800">Marin Quarter</span>.
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-          <div className="h-[280px] p-6 flex flex-col justify-between">
+          <div className="h-[280px] p-6 bg-white shadow-md rounded-lg flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
-                <Volleyball className="text-brand-700" />
-                <span>Park Sports Club RF</span>
+                <Volleyball className="text-brand-900" />
+                <span className="" >Park Sports Club RF</span>
               </div>
-              <p className="text-base/7 text-gray-600 w-full text-center mt-2">
+              <p className="text-base/7 text-brand-950 w-full text-center mt-2">
                 174 Users, 12 Subgroups <br />
                 You are an Admin and a Moderator.
               </p>
@@ -56,17 +56,17 @@ export default function Dashboard() {
             <div onClick={() => handleGroupChange("Park Club")}>
               <ButtonLandingPage
                 href={`/about`}
-                className="relative z-10 h-14 w-full text-base shadow-lg border border-gray-300 transition-shadow duration-300 hover:shadow-xl"
+                className="relative z-10 h-14 w-full text-base border border-gray-300 transition-shadow duration-300 hover:shadow-xl"
               >
                 Explore Example
               </ButtonLandingPage>
             </div>
           </div>
 
-          <div className="h-[280px] p-6 flex flex-col justify-between">
+          <div className="h-[280px] p-6 flex bg-white shadow-md rounded-lg flex-col justify-between">
             <div>
               <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
-                <Drama className="text-brand-700" />
+                <Drama className="text-brand-900" />
                 <span>Municipality of Rochefort</span>
               </div>
               <p className="text-base/7 text-gray-600 w-full text-center mt-2">
@@ -77,17 +77,17 @@ export default function Dashboard() {
             <div onClick={() => handleGroupChange("Rochefort")}>
               <ButtonLandingPage
                 href={`/about`}
-                className="relative z-10 h-14 w-full text-base shadow-lg border border-gray-300 transition-shadow duration-300 hover:shadow-xl"
+                className="relative z-10 h-14 w-full text-base border border-gray-300 transition-shadow duration-300 hover:shadow-xl"
               >
                 Explore Example
               </ButtonLandingPage>
             </div>
           </div>
 
-          <div className="h-[280px] p-6 flex flex-col justify-between">
+          <div className="h-[280px] p-6 bg-white shadow-md rounded-lg flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-center text-lg gap-x-2 py-2 px-6 group w-full">
-                <Home className="text-brand-700" />
+                <Home className="text-brand-900" />
                 <span>Marin Quarter Community</span>
               </div>
               <p className="text-base/7 text-gray-600 w-full text-center mt-2">
@@ -98,7 +98,7 @@ export default function Dashboard() {
             <div onClick={() => handleGroupChange("Marin Quarter")}>
               <ButtonLandingPage
                 href={`/about`}
-                className="relative z-10 h-14 w-full text-base shadow-lg border border-gray-300 transition-shadow duration-300 hover:shadow-xl"
+                className="relative z-10 h-14 w-full text-base border border-gray-300 transition-shadow duration-300 hover:shadow-xl"
               >
                 Explore Example
               </ButtonLandingPage>

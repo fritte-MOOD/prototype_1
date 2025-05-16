@@ -37,6 +37,19 @@ export const GroupCheckboxes: React.FC = () => {
     });
   };
 
+  const getGroupColor = (groupName: string, isSubgroup: boolean = false): string => {
+    switch (groupName) {
+      case "Park Club":
+        return "bg-group-park-club-500 border-group-park-club-500";
+      case "Marin Quarter":
+        return "bg-group-marin-quarter-500 border-group-marin-quarter-500";
+      case "Rochefort":
+        return "bg-group-rochefort-500 border-group-rochefort-500";
+      default:
+        return "bg-gray-300 border-gray-300";
+    }
+  };
+
   const CheckboxList: React.FC = () => (
     <div className="p-4 bg-brand-25 h-full overflow-y-auto">
       <div className="flex justify-between items-center mb-4">
@@ -52,7 +65,7 @@ export const GroupCheckboxes: React.FC = () => {
       <div className="mb-4 flex space-x-2">
         <button
           onClick={activateAll}
-          className="px-3 py-1 bg-brand-300 text-white rounded hover:bg-brand-400 transition-colors"
+          className="px-3 py-1 bg-brand-400 text-white rounded hover:bg-brand-700 transition-colors"
         >
           Activate All
         </button>
@@ -72,7 +85,7 @@ export const GroupCheckboxes: React.FC = () => {
           >
             <div className={`w-4 h-4 border-2 rounded flex items-center justify-center mr-2 ${
               areAllSubsAndTheMainChecked(group.name)
-                ? 'bg-brand-300 border-brand-300'
+                ? getGroupColor(group.name)
                 : 'border-gray-300'
             }`}>
               {areAllSubsAndTheMainChecked(group.name) &&
@@ -88,7 +101,7 @@ export const GroupCheckboxes: React.FC = () => {
               onClick={() => toggleGroup(group.name)}
             >
               <div className={`w-4 h-4 border-2 rounded flex items-center justify-center mr-2 ${
-                isGroupChecked(group.name) ? 'bg-brand-300 border-brand-300' : 'border-gray-300'
+                isGroupChecked(group.name) ? getGroupColor(group.name) : 'border-gray-300'
               }`}>
                 {isGroupChecked(group.name) && <Check className="w-3 h-3 text-white" />}
               </div>
@@ -102,7 +115,7 @@ export const GroupCheckboxes: React.FC = () => {
                 onClick={() => toggleGroup(subgroup)}
               >
                 <div className={`w-4 h-4 border-2 rounded flex items-center justify-center mr-2 ${
-                  isGroupChecked(subgroup) ? 'bg-brand-300 border-brand-300' : 'border-gray-300'
+                  isGroupChecked(subgroup) ? getGroupColor(group.name, true) : 'border-gray-300'
                 }`}>
                   {isGroupChecked(subgroup) && <Check className="w-3 h-3 text-white" />}
                 </div>
@@ -120,7 +133,7 @@ export const GroupCheckboxes: React.FC = () => {
       <div className="mb-4 flex justify-center">
         <button
           onClick={() => setIsModalOpen(true)}
-          className="w-[416px] flex items-center justify-center px-3 py-2 bg-brand-300 text-white rounded hover:bg-brand-400 transition-colors"
+          className="w-[416px] flex items-center justify-center px-3 py-2 bg-brand-400 text-white rounded hover:bg-brand-700 transition-colors"
         >
           <Filter size={18} className="mr-2" />
           Filter Groups

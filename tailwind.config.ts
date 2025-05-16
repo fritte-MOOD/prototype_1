@@ -14,35 +14,33 @@ const config: Config = {
       },
       colors: {
         brand: {
-          0:   "#FFFFFF", //white
-          25:  "#fefcff", //Background
-          50:  "#F7FAFD",  //NavBar
-          100: "#E1EBF5",
-          200: "#8FB4F0",
-          300: "#fba762", //Orange
-          400: "#8BAECF", //
-          500: "#fba762",
-          600: "#5483A3",
-          700: "#426A86", //blue text
-          800: "#335269",
-          900: "#273E4F",
-          950: "#3f3f46", //Text Zinc
+          0: 'var(--color-brand-0)', //white
+          1: 'var(--color-brand-1)', //black
+          25: 'var(--color-brand-25)', //Background
+          50: 'var(--color-brand-50)', //NavBar
+          100: 'var(--color-brand-100)', //aktuelle Auswahl Menüs
+          200: 'var(--color-brand-200)',
+          300: 'var(--color-brand-300)', // orange
+          400: 'var(--color-brand-400)', // blue background
+          500: 'var(--color-brand-500)', // orange background
+          550: 'var(--color-brand-550)', // gray on hover (gray-100)
+          600: 'var(--color-brand-600)', // blue: icons
+          700: 'var(--color-brand-700)', // blue text (Links, Icons)
+          800: 'var(--color-brand-800)', //
+          900: 'var(--color-brand-900)', // blue button, headings, checks
+          901: 'var(--color-brand-901)', // Icon: MOOD
+          902: 'var(--color-brand-902)', // Icon: /
+          950: 'var(--color-brand-950)', //Text Zinc
         },
         group: {
           'park-club': {
-            100: '#E6E6FA',  // Light purple
-            500: '#8A2BE2',  // Medium purple
-            900: '#4B0082',  // Dark purple
+            500: 'var(--color-group-park-club-500)',  // Medium purple
           },
           'marin-quarter': {
-            100: '#E6FFE6',  // Light green
-            500: '#4CAF50',  // Medium green
-            900: '#1B5E20',  // Dark green
+            500: 'var(--color-group-marin-quarter-500)',  // Medium green
           },
           'rochefort': {
-            100: '#FFF0F5',  // Light pink
-            500: '#FF69B4',  // Medium pink
-            900: '#C71585',  // Dark pink
+            500: 'var(--color-group-rochefort-500)',  // Medium pink
           },
         },
       },
