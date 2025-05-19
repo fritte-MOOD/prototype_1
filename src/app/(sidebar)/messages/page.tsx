@@ -109,7 +109,7 @@ const ChatsPage = () => {
         </div>
         <div className="w-full">
           {sortedAndFilteredChats.length === 0 ? (
-            <p className="text-gray-600">No chats found in the selected groups.</p>
+            <p className="text-brand-950">No chats found in the selected groups.</p>
           ) : (
             sortedAndFilteredChats.map(({ groupName, subgroupName, chat, isSubgroup }) => {
               const lastMessage = chat.messages[chat.messages.length - 1]
@@ -127,7 +127,7 @@ const ChatsPage = () => {
               return (
                 <div
                   key={chat.id}
-                  className="mb-6 p-4 bg-white rounded shadow flex items-start cursor-pointer hover:bg-gray-50 transition-colors duration-200"
+                  className="mb-6 p-4 bg-brand-0 rounded shadow flex items-start cursor-pointer hover:bg-brand-550 transition-colors duration-200"
                   onClick={() => handleChatClick(chat.id)}
                 >
                   <div className="flex-grow">
@@ -140,11 +140,11 @@ const ChatsPage = () => {
                         <div className="w-4 h-4 bg-brand-300 rounded-full ml-auto"></div>
                       )}
                     </div>
-                    <p className="text-gray-600 mb-3">
+                    <p className="text-brand-950 mb-3">
                       <span className="font-medium">{chatMembers.find(member => member.id === lastMessage?.sentBy)?.name}: </span>
                       {lastMessage?.content || "No messages"}
                     </p>
-                    <div className="flex justify-between text-sm text-gray-500">
+                    <div className="flex justify-between text-sm text-brand-950">
                       <p>
                         Last message: {lastMessage ? <FormattedDate date={getDateFromRelativeTime(lastMessage.at)} /> : "No date"}
                       </p>

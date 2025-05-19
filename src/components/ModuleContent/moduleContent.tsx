@@ -7,7 +7,6 @@ import EstimateSection from "./EstimateSection"
 import VoteSection from "./VoteSection"
 import DebateSection from "./DebateSection"
 import ExternalDecisionSection from "./ExternalDecisionSection"
-import BrainstormingSection from "./BrainstormingSection"
 import AnnouncementSection from "./AnnouncementSection"
 
 import {
@@ -63,8 +62,6 @@ export const ModuleContent: React.FC<ModuleContentProps> = ({ module }) => {
       return <DebateSection module={module} />;
     case 'ExternalDecision':
       return <ExternalDecisionSection module={module} />;
-    case 'Brainstorming':
-      return <BrainstormingSection module={module} />;
     case 'Announcement':
       return <AnnouncementSection module={module} />;
     default:

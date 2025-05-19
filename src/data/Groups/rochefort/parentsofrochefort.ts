@@ -1,5 +1,33 @@
 import { Member } from "../../interfaces"
 
+export const description = "Rochefort Municipal Government Platform"
+
+export const content = `Welcome to the official platform of the Rochefort Municipal Government. This digital space serves as a hub for civic engagement, transparent governance, and community collaboration. Our town of 18,000 residents is known for its rich history, cultural diversity, and commitment to sustainable development.
+
+Key features of our municipal government:
+• Transparent decision-making processes
+• Regular town hall meetings and public consultations
+• Diverse committees addressing various aspects of town life
+• Commitment to sustainable urban development and green initiatives
+• Active promotion of local businesses and cultural events
+
+Through this platform, we aim to keep all residents informed about local policies, upcoming projects, and opportunities for civic participation. Together, we can shape the future of Rochefort and make it an even better place to live, work, and visit.`
+
+export const rules = `Welcome to the Rochefort Municipal Government Platform. We are committed to fostering open, respectful, and productive dialogue between the government and our citizens.
+
+Platform Rules:
+• Engage respectfully and constructively in all discussions
+• Stay on topic and focus on municipal matters
+• No personal attacks, hate speech, or discrimination
+• Protect personal and sensitive information
+• Comply with local, national, and EU laws and regulations
+
+Remember, this platform is for the benefit of all Rochefort residents. By following these guidelines and actively participating in our community discussions, you contribute to the democratic process and the betterment of our town.
+
+For detailed information on municipal services, local bylaws, and community initiatives, please refer to the relevant sections of this platform or contact the appropriate municipal department.
+
+Any concerns about platform use or content should be reported to the moderation team for prompt resolution.`
+
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: 32, Political activist, welcoming, collaborative and empathetic, but assertive, concerned and strict.
 

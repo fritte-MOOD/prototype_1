@@ -1,5 +1,22 @@
 import { Appointment, Chat, Member, Process, Task } from "../../interfaces"
 
+export const description = "House 13 of Marin Quarter Cohousing Community"
+
+export const content = "House 13 is a vibrant and diverse community within the Marin Quarter Cohousing project. Our residents come from various backgrounds and professions, creating a rich tapestry of experiences and skills. We are committed to fostering a supportive and sustainable living environment while actively participating in the broader Marin Quarter community."
+
+export const rules = `
+1. Respect quiet hours from 10 PM to 7 AM.
+2. Participate in monthly house meetings and decision-making processes.
+3. Contribute to the cleanliness and maintenance of common areas.
+4. Properly dispose of waste and recycling in designated areas.
+5. Notify neighbors of any planned parties or events that may cause noise or increased traffic.
+6. Use shared resources responsibly and considerately.
+7. Communicate openly and respectfully with fellow house members.
+8. Participate in the house's chore rotation system.
+9. Respect the privacy and personal space of other residents.
+10. Adhere to the broader Marin Quarter community guidelines and sustainability practices.
+`
+
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: 32, Political activist, welcoming, collaborative and empathetic, but assertive, concerned and strict.
   { id: 3101, name: "Sophie Dubois" }, // 28, nurse, single, loves yoga and reading

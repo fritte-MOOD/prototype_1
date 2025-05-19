@@ -25,7 +25,22 @@
 
 
 import { Member, Process } from "../interfaces"
+export const description = "Marin Quarter Cohousing Community"
 
+export const content = "Marin Quarter is a vibrant cohousing community dedicated to sustainable living, mutual support, and shared decision-making. Our community consists of individual homes and shared spaces, fostering a balance between privacy and social interaction."
+
+export const rules = `
+1. Participate in community meetings and decision-making processes.
+2. Contribute to shared meals and community events as scheduled.
+3. Respect quiet hours from 10 PM to 7 AM.
+4. Maintain your individual living space and contribute to the upkeep of common areas.
+5. Use shared resources responsibly and sustainably.
+6. Communicate openly and respectfully with fellow community members.
+7. Adhere to the community's sustainability practices, including recycling and energy conservation.
+8. Obtain approval from the community board for any major changes to individual homes or shared spaces.
+9. Welcome and orient new members to the community.
+10. Respect the privacy and boundaries of other community members.
+`
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: 32, Political activist, welcoming, collaborative and empathetic, but assertive, concerned and strict.
 

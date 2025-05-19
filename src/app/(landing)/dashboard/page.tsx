@@ -49,7 +49,7 @@ export default function Dashboard() {
                 <span className="" >Park Sports Club RF</span>
               </div>
               <p className="text-base/7 text-brand-950 w-full text-center mt-2">
-                174 Users, 12 Subgroups <br />
+                122 Users, 7 Subgroups <br />
                 You are an Admin and a Moderator.
               </p>
             </div>
@@ -70,7 +70,7 @@ export default function Dashboard() {
                 <span>Municipality of Rochefort</span>
               </div>
               <p className="text-base/7 text-brand-950 w-full text-center mt-2">
-                18,646 Users, 78 Subgroups <br />
+                14,840 Users, 53 Subgroups <br />
                 You are a User.
               </p>
             </div>
@@ -91,7 +91,7 @@ export default function Dashboard() {
                 <span>Marin Quarter Community</span>
               </div>
               <p className="text-base/7 text-brand-950 w-full text-center mt-2">
-                24 Users, 8 Subgroups <br />
+                98 Users, 14 Subgroups <br />
                 You are a Moderator.
               </p>
             </div>

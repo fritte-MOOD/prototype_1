@@ -79,11 +79,11 @@ const TasksPage = () => {
               const taskDate = CalculateDateTime(task.dueAt.time, task.dueAt.distance)
 
               return (
-                <div key={index} className="mb-4 p-4 bg-white rounded shadow">
+                <div key={index} className="mb-4 p-4 bg-brand-0 rounded shadow">
                   <div className="flex items-center mb-2">
                     <div className="mr-3">
                       {task.done ? (
-                        <CheckCircle className="w-5 h-5 text-gray-400" />
+                        <CheckCircle className="w-5 h-5 text-brand-950" />
                       ) : (
                         <Circle className={`w-5 h-5 ${getCircleColor(task.group)}`} />
                       )}
@@ -95,7 +95,7 @@ const TasksPage = () => {
                   </div>
                   <div className="ml-8">
                     <p>Due: <FormattedDate date={taskDate} /></p>
-                    <p className="text-sm text-gray-600 mt-2">{task.content}</p>
+                    <p className="text-sm text-brand-950 mt-2">{task.content}</p>
                   </div>
                 </div>
               )

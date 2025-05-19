@@ -119,15 +119,26 @@ const AboutPage = () => {
                 <div className="bg-brand-50 shadow-md rounded-lg p-6">
                   <h2 className="text-2xl text-brand-1 font-semibold mb-4">Subgroups</h2>
                   <ul className="list-disc text-brand-950 pl-5">
-                    {currentGroup.subgroups.map((subgroup, index) => (
-                      <li key={index}>
-                        <Link href="/about" onClick={() => handleGroupClick(subgroup.name, false)}>
-                          <span className="text-brand-700 hover:underline cursor-pointer">
-                            {subgroup.name}
-                          </span>
-                        </Link>
-                      </li>
-                    ))}
+                    {currentGroup.subgroups
+                      .sort((a, b) => {
+                        if (a.IAmMember === b.IAmMember) return 0;
+                        return a.IAmMember ? -1 : 1;
+                      })
+                      .map((subgroup, index) => (
+                        <li key={index}>
+                          {subgroup.IAmMember ? (
+                            <Link href="/about" onClick={() => handleGroupClick(subgroup.name, false)}>
+                              <span className="text-brand-700 hover:underline cursor-pointer">
+                                {subgroup.name} (Member)
+                              </span>
+                            </Link>
+                          ) : (
+                            <span className="text-gray-500">
+                              {subgroup.name} (Private)
+                            </span>
+                          )}
+                        </li>
+                      ))}
                   </ul>
                 </div>
               )}
@@ -135,7 +146,12 @@ const AboutPage = () => {
               <div className="bg-brand-50 shadow-md rounded-lg p-6">
                 <h2 className="text-2xl text-brand-1 font-semibold mb-4">Group Statistics</h2>
                 <ul className="list-disc text-brand-950 pl-5">
-                  <li>Number of members: {currentGroup?.members.length}</li>
+                  <li>Number of members: {
+                    currentGroup?.name === "Rochefort" ? 14840 :
+                    currentGroup?.name === "Sports in Rochefort" ? 247 :
+                    currentGroup?.name === "Parents of Rochefort" ? 736 :
+                    currentGroup?.members.length
+                  }</li>
                   <li>Group type: {currentGroup?.isPublic ? 'Public' : 'Private'}</li>
                   <li>Your membership: {currentGroup?.IAmMember ? 'Member' : 'Not a member'}</li>
                   <li>Active debates: {stats.debates}</li>

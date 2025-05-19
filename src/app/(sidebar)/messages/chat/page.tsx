@@ -82,10 +82,10 @@ const ChatPage = () => {
                         <div
                           className={`flex items-start space-x-2 max-w-[70%] ${isCurrentUser ? "flex-row-reverse space-x-reverse" : ""}`}>
                           <div
-                            className={`p-3 rounded-lg ${isCurrentUser ? "bg-brand-100 text-right" : "bg-gray-100"}`}>
+                            className={`p-3 rounded-lg ${isCurrentUser ? "bg-brand-100 text-right" : "bg-brand-550"}`}>
                             <p className="font-medium">{senderName}</p>
                             <p className="text-sm">{message.content}</p>
-                            <p className="text-xs text-gray-500 mt-1">
+                            <p className="text-xs text-brand-950 mt-1">
                               <FormattedDate date={CalculateDateTime(message.at.time, message.at.distance)} />
                             </p>
                           </div>
@@ -98,7 +98,7 @@ const ChatPage = () => {
                   <input
                     type="text"
                     placeholder="Type a message..."
-                    className="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-300"
+                    className="w-full bg-brand-0 p-2 border rounded focus:outline-none focus:ring-2 focus:ring-brand-300 focus:border-brand-300"
                   />
                 </div>
               </div>

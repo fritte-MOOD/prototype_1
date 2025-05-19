@@ -1,5 +1,23 @@
 import { Appointment, Chat, Member, Process, Task } from "../../interfaces"
 
+export const description = "Marin Quarter Shared Dinner Group"
+
+export const content = "The Shared Dinner Group is a vibrant community initiative within Marin Quarter that brings residents together through the joy of food and shared meals. Our monthly dinners celebrate diverse cuisines, foster community bonds, and provide a platform for cultural exchange. From seasoned chefs to enthusiastic home cooks, everyone is welcome to contribute their culinary skills and stories."
+
+export const rules = `
+1. Participate in at least one shared dinner every three months to maintain active membership.
+2. When bringing a dish, provide a list of ingredients to accommodate dietary restrictions and allergies.
+3. Sign up for dinner preparation or clean-up duties at least once every six months.
+4. Respect the chosen theme for each dinner and try to bring a dish that aligns with it.
+5. Arrive on time for the dinner. If you're running late, please inform the organizer.
+6. Bring your own reusable plates, utensils, and cups to reduce waste.
+7. Be mindful of portion sizes to ensure everyone gets to try each dish.
+8. Clean up after yourself and help with general clean-up after the dinner.
+9. Respect others' dietary choices and restrictions.
+10. Contribute ideas for future dinner themes and be open to trying new cuisines.
+11. If you sign up to attend, please make every effort to do so. If you must cancel, give at least 24 hours notice.
+12. Be inclusive and welcoming to all community members, regardless of their cooking experience or background.
+`
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: 32, Political activist, welcoming, collaborative and empathetic, but assertive, concerned and strict.
 

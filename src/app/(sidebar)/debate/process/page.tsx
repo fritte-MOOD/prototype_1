@@ -41,12 +41,12 @@ const DebatesPage = () => {
       <MaxWidthWrapper>
         {currentProcess ? (
           <>
-            <div className="bg-white p-8 rounded-lg shadow-md mb-8">
+            <div className="bg-brand-0 p-8 rounded-lg shadow-md mb-8">
               <h1 className="text-3xl font-bold mb-6">{currentProcess.description}</h1>
 
               <div className="mb-6">
                 <p className="text-lg mb-2">{currentProcess.content}</p>
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-brand-950">
                   <p className="mb-1">
                     Status: <span
                     className={`font-semibold ${currentProcess.active ? "text-green-600" : "text-red-600"}`}>
@@ -60,7 +60,7 @@ const DebatesPage = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4 text-sm text-gray-600">
+              <div className="grid grid-cols-2 gap-4 text-sm text-brand-950">
                 <div>
                   <p>Created by: {getUsernameById(currentProcess.creator)}</p>
                   <p>Created at: <FormattedDate
@@ -77,15 +77,15 @@ const DebatesPage = () => {
                       onClick={() => setSelectedModule(index)}
                       className={`flex items-center justify-center h-12 w-40 text-lg font-bold transition-all duration-200
                         ${selectedModule === index
-                        ? "bg-white text-gray-800 rounded-t-md shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),_4px_0_6px_-1px_rgba(0,0,0,0.1),_-4px_0_6px_-1px_rgba(0,0,0,0.1)] relative z-10"
-                        : "bg-gray-200 text-gray-700 hover:bg-gray-300 rounded-md"
+                        ? "bg-brand-400 text-brand-0 rounded-t-md shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1),_4px_0_6px_-1px_rgba(0,0,0,0.1),_-4px_0_6px_-1px_rgba(0,0,0,0.1)] relative z-10"
+                        : "bg-brand-550 text-brand-950 hover:bg-brand-100 rounded-md"
                       }`}
                     >
                       <span className="text-center">{module.type}</span>
                     </button>
                     {index < currentProcess.modules.length - 1 && (
                       <div className="flex items-center justify-center w-8 h-8 mx-2">
-                        <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        <svg className="w-4 h-4 text-brand-950" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                              xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
@@ -96,14 +96,14 @@ const DebatesPage = () => {
               </div>
 
               {selectedModule !== null && currentProcess.modules[selectedModule] && (
-                <div className="bg-white rounded-lg shadow-md p-8 -mt-[1px]">
+                <div className="bg-brand-0 rounded-lg shadow-md p-8 -mt-[1px]">
                   <ModuleContent module={currentProcess.modules[selectedModule]} />
                 </div>
               )}
             </div>
           </>
         ) : (
-          <div className="bg-white p-8 rounded-lg shadow-md">
+          <div className="bg-brand-0 p-8 rounded-lg shadow-md">
             <h1 className="text-2xl font-bold mb-4">Debate Context</h1>
             <p className="text-lg">
               Current Debate ID: {debateId !== null ? debateId : "No debate selected"}

@@ -1,5 +1,15 @@
 import { Appointment, Member } from "@/data/interfaces"
 
+export const description = "2nd Senior Team of Park Club"
+
+export const content = "The 2nd Senior Team is a competitive group of players representing Park Club in local and regional tournaments. We focus on skill development, team spirit, and enjoying the game of tennis."
+export const rules = `  Attend at least 2 training sessions per week,
+  Participate in team matches when selected,
+  Maintain a positive attitude and support teammates,
+  Adhere to the club's code of conduct,
+  Inform the captain of any absences in advance`
+
+
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: Member of 2nd Senior Team and Execution Committee
 

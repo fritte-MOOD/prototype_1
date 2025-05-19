@@ -1,5 +1,33 @@
 import { Member, Process } from "../interfaces"
+export const description = "Rochefort Municipal Community Platform"
 
+export const content = `Rochefort is a vibrant municipality located in the heart of our region, known for its rich history, cultural diversity, and commitment to sustainable development. With a population of approximately 18,000 residents, our community is a blend of urban amenities and small-town charm.
+
+Our municipal platform serves as a digital town square, connecting residents, local government, and community organizations. It's designed to foster civic engagement, transparent governance, and collaborative problem-solving.
+
+Key features of our community:
+• Historic town center with architecture dating back to the 17th century
+• Thriving local businesses and weekly farmers' market
+• Beautiful parks and green spaces, including the Rochefort Botanical Gardens
+• Active cultural scene with museums, theaters, and annual festivals
+• Commitment to sustainable urban development and green initiatives
+
+Through this platform, we aim to keep all residents informed about local events, municipal decisions, and opportunities for community involvement. Together, we can make Rochefort an even better place to live, work, and visit.`
+
+export const rules = `Welcome to the Rochefort Municipal Community Platform. We're committed to fostering open, respectful, and productive dialogue among all community members.
+
+Form Rules:
+• Be respectful and courteous in all communications
+• Stay on topic and contribute constructively to discussions
+• No hate speech, discrimination, or personal attacks
+• Protect personal and sensitive information
+• Comply with local, national, and EU laws and regulations
+
+Remember, this platform is for the benefit of all Rochefort residents. By following these guidelines and actively participating in our community discussions, you help make Rochefort a better place for everyone.
+
+For detailed information on municipal services, local bylaws, and community initiatives, please refer to the official Rochefort website or contact the relevant municipal department.
+
+Any concerns about platform use or content should be reported to the moderation team for prompt resolution.`
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: 32, Political activist, welcoming, collaborative and empathetic, but assertive, concerned and strict.
 

@@ -1,5 +1,22 @@
 import { Appointment, Chat, Member, Process, Task } from "../../interfaces"
+export const description = "Marin Quarter Handcrafts Group"
 
+export const content = "The Handcrafts Group is a vibrant community within Marin Quarter dedicated to fostering creativity, skill-sharing, and collaborative projects. Our members come from diverse backgrounds and houses, bringing a wide range of skills and interests to our shared workshop space. From woodworking to textile arts, electronics to painting, we support and inspire each other in our creative endeavors."
+
+export const rules = `
+1. Always clean up after yourself and return tools to their designated places.
+2. Respect the workshop reservation system and others' scheduled time slots.
+3. Wear appropriate safety gear when using power tools or hazardous materials.
+4. Report any damaged or malfunctioning equipment to the group coordinators immediately.
+5. Share knowledge and skills willingly, but respect others' intellectual property.
+6. Be mindful of noise levels, especially during evening hours.
+7. Contribute to the maintenance and upkeep of the shared workshop space.
+8. Obtain proper training before using unfamiliar tools or equipment.
+9. Respect others' projects and materials; ask before borrowing or using.
+10. Participate in periodic workshop clean-up days and community projects.
+11. Follow sustainable practices and minimize waste in your projects.
+12. Be inclusive and supportive of all skill levels and creative pursuits.
+`
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: 32, Political activist, welcoming, collaborative and empathetic, but assertive, concerned and strict.
 

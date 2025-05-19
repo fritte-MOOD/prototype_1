@@ -1,5 +1,34 @@
 import { Chat, Member } from "../../interfaces"
 
+export const description = "Sports in Rochefort Community Platform"
+
+export const content = `Welcome to the Sports in Rochefort community platform! This digital space is dedicated to promoting and organizing sports activities in our vibrant town. We aim to foster a healthy, active lifestyle for all residents, from casual enthusiasts to competitive athletes.
+
+Key features of our sports community:
+• Diverse range of sports clubs and activities
+• Regular community events and tournaments
+• Promotion of youth sports and development programs
+• Collaboration with local schools and businesses
+• Focus on inclusivity and accessibility in sports
+
+Through this platform, we coordinate events, share news about local sports achievements, and discuss ways to improve sports facilities and programs in Rochefort. Together, we can make our town a hub of sporting excellence and community wellness.`
+
+export const rules = `Welcome to the Sports in Rochefort Community Platform. We're committed to fostering a positive and supportive environment for all sports enthusiasts in our town.
+
+Platform Rules:
+• Respect all members, regardless of their skill level or chosen sport
+• Keep discussions constructive and sports-related
+• No hate speech, discrimination, or personal attacks
+• Share accurate information about events and activities
+• Respect privacy and obtain permission before sharing photos or personal information
+• Promote fair play and good sportsmanship in all interactions
+
+Remember, this platform is for the benefit of all sports lovers in Rochefort. By following these guidelines and actively participating in our community, you help promote a healthy and active lifestyle for everyone.
+
+For information on specific sports clubs, facilities, or events, please refer to the relevant sections of this platform or contact the appropriate sports coordinator.
+
+Any concerns about platform use or content should be reported to the moderation team for prompt resolution.`
+
 export const members: Member[] = [
   { id: 1, name: "You" }, // Your character: 32, Political activist, welcoming, collaborative and empathetic, but assertive, concerned and strict.
 
