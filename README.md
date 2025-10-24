@@ -79,3 +79,5 @@ examples of online communities. And finally, limitations and possible future wor
 discussed, concluding with a summary of the key findings and their implications.
 
 [1-100] as listed in the thesis PDF.
+
+continue reading here: https://github.com/fritte-MOOD/prototype_1/blob/main/Background_thesis_Abschlussarbeit.pdf
