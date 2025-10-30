@@ -5,7 +5,7 @@ MOOD is a prototype for an all-in-one MassOpenOnlineDeliberation platform with f
 
 Explore the Prototype: https://prototype-1-opal.vercel.app/
 
-Read the Paper: https://github.com/fritte-MOOD/prototype_1/blob/main/Background_thesis_Abschlussarbeit.pdf
+Read the Thesis: https://github.com/fritte-MOOD/prototype_1/blob/main/Background_thesis_Abschlussarbeit.pdf
 
 # INFORMATION
 
