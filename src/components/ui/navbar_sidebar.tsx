@@ -58,7 +58,7 @@ export const Navbar = () => {
                                         groupName ? 'text-brand-1 font-semibold' : ''
                                     }`}
                                 >
-                                    {"My Groups"}
+                                    {groupName ? `active: ${groupName}` : "My Groups"}
                                     {groupName && <ChevronRight className="ml-2 text-brand-1" size={20} />}
                                 </div>
                             </div>

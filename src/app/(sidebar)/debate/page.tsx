@@ -1,15 +1,14 @@
 "use client"
 
-import { useMemo } from "react"
+import React, { useMemo } from "react"
 import { MaxWidthWrapper } from "@/components/ui/max-width-wrapper"
 import { GroupCheckboxes } from "@/components/ui/GroupCheckboxes"
-import FormattedDate from "@/components/functions/FormattedDate"
 import { useCheckbox } from "@/context/ContextFiles/CheckboxesContext"
 import { Process } from "@/data/interfaces"
-import { CalculateDateTime } from "@/components/functions/CalculateDateTime"
 import { useMockup } from "@/context/ContextFiles/MockupContext"
 import { useDebate } from "@/context/ContextFiles/DebateContext"
 import { useRouter } from "next/navigation"
+import { CalculateDateTime } from "@/components/functions/CalculateDateTime"
 
 const DebatesPage = () => {
   const { groups } = useCheckbox()
@@ -60,7 +59,7 @@ const DebatesPage = () => {
   }
 
   return (
-    <section className="bg-brand-25">
+    <section className="bg-brand-25 py-8">
       <MaxWidthWrapper>
         <div className="w-full mb-6">
           <GroupCheckboxes />
@@ -69,43 +68,74 @@ const DebatesPage = () => {
           {processes.length === 0 ? (
             <p className="text-brand-950">No processes found in the selected groups.</p>
           ) : (
-            processes.map((process: Process & { groupName: string, subgroupName?: string, isSubgroup: boolean }) => (
-              <div
-                key={process.id}
-                className="mb-6 p-4 bg-brand-0 rounded shadow flex items-start cursor-pointer hover:bg-brand-550 transition-colors duration-200"
-                onClick={() => handleProcessClick(process.id)}
-              >
-                <div className="flex-grow">
-                  <div className="flex mb-2 allign-top items-center">
-                    <span className={`${getGroupColor(process.groupName, process.isSubgroup)}  text-l font-medium py-0.5 rounded min-w-[180px] text-center`}>
+            processes.map((process: Process & { groupName: string, subgroupName?: string, isSubgroup: boolean }) => {
+              const now = new Date();
+              let currentStepIndex = process.modules.findIndex(module =>
+                CalculateDateTime(module.dueAt.time, module.dueAt.distance) > now
+              );
+
+              if (currentStepIndex === -1) {
+                // All modules are in the past, so the process is complete.
+                currentStepIndex = process.modules.length;
+              }
+
+              return (
+                <div
+                  key={process.id}
+                  className="mb-6 p-6 bg-brand-0 rounded-lg border border-brand-200 cursor-pointer hover:bg-brand-50 transition-colors duration-200"
+                  onClick={() => handleProcessClick(process.id)}
+                >
+                  {/* Header with Group Badge and Title */}
+                  <div className="flex items-center gap-4 mb-6">
+                    <span className={`${getGroupColor(process.groupName, process.isSubgroup)} text-xs font-bold py-1 px-3 rounded text-center whitespace-nowrap`}>
                       {process.isSubgroup ? `${process.subgroupName}` : process.groupName}
                     </span>
-                    <h2 className="pl-6 text-xl font-semibold">{process.description}</h2>
+                    <h2 className="text-lg font-semibold text-brand-900 text-center">{process.description}</h2>
+                  </div>
 
-                  </div>
-                  <p className="text-brand-950 mb-3">{process.content}</p>
-                  <div className="flex justify-between text-sm text-brand-950">
-                    <p>
-                      Created: <FormattedDate
-                      date={CalculateDateTime(process.createdAt.time, process.createdAt.distance)} />
-                    </p>
-                    <p>
-                      Due: <FormattedDate date={CalculateDateTime(process.dueAt.time, process.dueAt.distance)} />
-                    </p>
-                  </div>
-                  <div className="mt-3">
-                    {process.modules.map((module, index) => (
-                      <span
-                        key={index}
-                        className="inline-block bg-brand-550 rounded-full px-3 py-1 text-sm font-semibold text-brand-950 mr-2 mb-2"
-                      >
-                        {module.type}
-                      </span>
-                    ))}
+                  {/* Process Flow Diagram */}
+                  <div className="flex items-start w-full">
+                    {process.modules.map((module, index) => {
+                      const isActive = index === currentStepIndex;
+                      const isCompleted = index < currentStepIndex;
+
+                      return (
+                        <React.Fragment key={index}>
+                          {/* Module Step */}
+                          <div className="flex flex-col items-center text-center" style={{ width: '120px' }}>
+                            <div className={`
+                              w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all
+                              ${isActive
+                                ? 'bg-brand-700 border-brand-700 text-white'
+                                : isCompleted
+                                ? 'bg-brand-600 border-brand-600 text-white'
+                                : 'bg-white border-brand-800 text-brand-800'
+                              }
+                            `}>
+                              {isCompleted ? '✓' : index + 1}
+                            </div>
+                            <p className={`
+                              mt-2 text-xs font-semibold break-words transition-colors
+                              ${isActive ? 'text-brand-700' : 'text-brand-950'}
+                            `}>
+                              {module.type}
+                            </p>
+                          </div>
+                          
+                          {/* Connector */}
+                          {index < process.modules.length - 1 && (
+                            <div className={`
+                              flex-1 h-1 mt-3.5 transition-colors
+                              ${isCompleted ? 'bg-brand-600' : 'bg-brand-800'}
+                            `}></div>
+                          )}
+                        </React.Fragment>
+                      )
+                    })}
                   </div>
                 </div>
-              </div>
-            ))
+              )
+            })
           )}
         </div>
       </MaxWidthWrapper>

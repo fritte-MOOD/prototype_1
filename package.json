@@ -26,6 +26,7 @@
     "react": "^18",
     "react-big-calendar": "^1.18.0",
     "react-dom": "^18",
+    "recharts": "^3.7.0",
     "superjson": "^2.2.1",
     "tailwind-merge": "^2.5.2",
     "vaul": "^1.1.1",
