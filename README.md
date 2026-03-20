@@ -3,9 +3,9 @@
 
 MOOD is a prototype for an all-in-one MassOpenOnlineDeliberation platform with focus on flexibility and customizability. It was developed for a bachelors thesis of the Humboldt-Universität zu Berlin by Fritz Schmack in 2025.
 
-Explore the Prototype: https://prototype-1-opal.vercel.app/
+Explore the Prototype: prototype-1-2025.vercel.app
 
-Read the Thesis: https://github.com/fritte-MOOD/prototype_1/blob/main/Background_thesis_Abschlussarbeit.pdf
+Read the Thesis: github.com/fritte-MOOD/prototype_1/blob/main/Background_thesis_Abschlussarbeit.pdf
 
 # INFORMATION
 
